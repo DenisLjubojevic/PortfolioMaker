@@ -1,0 +1,12 @@
+{
+  "Version": 1,
+  "Hash": "ezzkN1rv7bHXGSDIwCIHtYUw4MOeDx4x6WLz1kMz+Wo=",
+  "Source": "PortfolioMakerBackend",
+  "BasePath": "_content/PortfolioMakerBackend",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": [],
+  "Endpoints": []
+}

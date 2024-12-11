@@ -1,0 +1,138 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\Dean\\Desktop\\Skola\\TVZ\\Projekti\\PortfolioMaker\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{40A6EBD1-4F7F-4901-831E-5EC35D31A7D2}|portfolio_maker_frontend\\portfolio_maker_frontend.esproj|c:\\users\\dean\\desktop\\skola\\tvz\\projekti\\portfoliomaker\\portfolio_maker_frontend\\src\\components\\createportfolio\\portfoliobuilder.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{40A6EBD1-4F7F-4901-831E-5EC35D31A7D2}|portfolio_maker_frontend\\portfolio_maker_frontend.esproj|solutionrelative:portfolio_maker_frontend\\src\\components\\createportfolio\\portfoliobuilder.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CECC8873-F98A-4209-8D3A-86A9467C69D5}|PortfolioMakerBackend\\PortfolioMakerBackend.csproj|c:\\users\\dean\\desktop\\skola\\tvz\\projekti\\portfoliomaker\\portfoliomakerbackend\\controllers\\portfoliocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CECC8873-F98A-4209-8D3A-86A9467C69D5}|PortfolioMakerBackend\\PortfolioMakerBackend.csproj|solutionrelative:portfoliomakerbackend\\controllers\\portfoliocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{40A6EBD1-4F7F-4901-831E-5EC35D31A7D2}|portfolio_maker_frontend\\portfolio_maker_frontend.esproj|c:\\users\\dean\\desktop\\skola\\tvz\\projekti\\portfoliomaker\\portfolio_maker_frontend\\src\\components\\createportfolio\\projectsstep.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{40A6EBD1-4F7F-4901-831E-5EC35D31A7D2}|portfolio_maker_frontend\\portfolio_maker_frontend.esproj|solutionrelative:portfolio_maker_frontend\\src\\components\\createportfolio\\projectsstep.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CECC8873-F98A-4209-8D3A-86A9467C69D5}|PortfolioMakerBackend\\PortfolioMakerBackend.csproj|c:\\users\\dean\\desktop\\skola\\tvz\\projekti\\portfoliomaker\\portfoliomakerbackend\\models\\project.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CECC8873-F98A-4209-8D3A-86A9467C69D5}|PortfolioMakerBackend\\PortfolioMakerBackend.csproj|solutionrelative:portfoliomakerbackend\\models\\project.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CECC8873-F98A-4209-8D3A-86A9467C69D5}|PortfolioMakerBackend\\PortfolioMakerBackend.csproj|c:\\users\\dean\\desktop\\skola\\tvz\\projekti\\portfoliomaker\\portfoliomakerbackend\\dtos\\portfoliodto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CECC8873-F98A-4209-8D3A-86A9467C69D5}|PortfolioMakerBackend\\PortfolioMakerBackend.csproj|solutionrelative:portfoliomakerbackend\\dtos\\portfoliodto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CECC8873-F98A-4209-8D3A-86A9467C69D5}|PortfolioMakerBackend\\PortfolioMakerBackend.csproj|c:\\users\\dean\\desktop\\skola\\tvz\\projekti\\portfoliomaker\\portfoliomakerbackend\\dtos\\projectdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CECC8873-F98A-4209-8D3A-86A9467C69D5}|PortfolioMakerBackend\\PortfolioMakerBackend.csproj|solutionrelative:portfoliomakerbackend\\dtos\\projectdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CECC8873-F98A-4209-8D3A-86A9467C69D5}|PortfolioMakerBackend\\PortfolioMakerBackend.csproj|c:\\users\\dean\\desktop\\skola\\tvz\\projekti\\portfoliomaker\\portfoliomakerbackend\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CECC8873-F98A-4209-8D3A-86A9467C69D5}|PortfolioMakerBackend\\PortfolioMakerBackend.csproj|solutionrelative:portfoliomakerbackend\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 1,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedHeight": 200,
+          "SelectedChildIndex": 6,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Project.cs",
+              "DocumentMoniker": "C:\\Users\\Dean\\Desktop\\Skola\\TVZ\\Projekti\\PortfolioMaker\\PortfolioMakerBackend\\Models\\Project.cs",
+              "RelativeDocumentMoniker": "PortfolioMakerBackend\\Models\\Project.cs",
+              "ToolTip": "C:\\Users\\Dean\\Desktop\\Skola\\TVZ\\Projekti\\PortfolioMaker\\PortfolioMakerBackend\\Models\\Project.cs",
+              "RelativeToolTip": "PortfolioMakerBackend\\Models\\Project.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-11T10:56:08.607Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "ProjectDTO.cs",
+              "DocumentMoniker": "C:\\Users\\Dean\\Desktop\\Skola\\TVZ\\Projekti\\PortfolioMaker\\PortfolioMakerBackend\\DTOs\\ProjectDTO.cs",
+              "RelativeDocumentMoniker": "PortfolioMakerBackend\\DTOs\\ProjectDTO.cs",
+              "ToolTip": "C:\\Users\\Dean\\Desktop\\Skola\\TVZ\\Projekti\\PortfolioMaker\\PortfolioMakerBackend\\DTOs\\ProjectDTO.cs",
+              "RelativeToolTip": "PortfolioMakerBackend\\DTOs\\ProjectDTO.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAvAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-11T10:53:23.145Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "PortfolioDTO.cs",
+              "DocumentMoniker": "C:\\Users\\Dean\\Desktop\\Skola\\TVZ\\Projekti\\PortfolioMaker\\PortfolioMakerBackend\\DTOs\\PortfolioDTO.cs",
+              "RelativeDocumentMoniker": "PortfolioMakerBackend\\DTOs\\PortfolioDTO.cs",
+              "ToolTip": "C:\\Users\\Dean\\Desktop\\Skola\\TVZ\\Projekti\\PortfolioMaker\\PortfolioMakerBackend\\DTOs\\PortfolioDTO.cs",
+              "RelativeToolTip": "PortfolioMakerBackend\\DTOs\\PortfolioDTO.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAvAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-11T10:53:04.104Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\Dean\\Desktop\\Skola\\TVZ\\Projekti\\PortfolioMaker\\PortfolioMakerBackend\\Program.cs",
+              "RelativeDocumentMoniker": "PortfolioMakerBackend\\Program.cs",
+              "ToolTip": "C:\\Users\\Dean\\Desktop\\Skola\\TVZ\\Projekti\\PortfolioMaker\\PortfolioMakerBackend\\Program.cs",
+              "RelativeToolTip": "PortfolioMakerBackend\\Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAFEAAAArAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-10T18:08:18.666Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "ProjectsStep.jsx",
+              "DocumentMoniker": "C:\\Users\\Dean\\Desktop\\Skola\\TVZ\\Projekti\\PortfolioMaker\\portfolio_maker_frontend\\src\\components\\CreatePortfolio\\ProjectsStep.jsx",
+              "RelativeDocumentMoniker": "portfolio_maker_frontend\\src\\components\\CreatePortfolio\\ProjectsStep.jsx",
+              "ToolTip": "C:\\Users\\Dean\\Desktop\\Skola\\TVZ\\Projekti\\PortfolioMaker\\portfolio_maker_frontend\\src\\components\\CreatePortfolio\\ProjectsStep.jsx",
+              "RelativeToolTip": "portfolio_maker_frontend\\src\\components\\CreatePortfolio\\ProjectsStep.jsx",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAD0AAAAmAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003663|",
+              "WhenOpened": "2024-12-10T17:57:12.4Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "PortfolioController.cs",
+              "DocumentMoniker": "C:\\Users\\Dean\\Desktop\\Skola\\TVZ\\Projekti\\PortfolioMaker\\PortfolioMakerBackend\\Controllers\\PortfolioController.cs",
+              "RelativeDocumentMoniker": "PortfolioMakerBackend\\Controllers\\PortfolioController.cs",
+              "ToolTip": "C:\\Users\\Dean\\Desktop\\Skola\\TVZ\\Projekti\\PortfolioMaker\\PortfolioMakerBackend\\Controllers\\PortfolioController.cs",
+              "RelativeToolTip": "PortfolioMakerBackend\\Controllers\\PortfolioController.cs",
+              "ViewState": "AgIAAEEAAAAAAAAAAAAwwEwAAAAiAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-10T17:08:53.814Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "PortfolioBuilder.jsx",
+              "DocumentMoniker": "C:\\Users\\Dean\\Desktop\\Skola\\TVZ\\Projekti\\PortfolioMaker\\portfolio_maker_frontend\\src\\components\\CreatePortfolio\\PortfolioBuilder.jsx",
+              "RelativeDocumentMoniker": "portfolio_maker_frontend\\src\\components\\CreatePortfolio\\PortfolioBuilder.jsx",
+              "ToolTip": "C:\\Users\\Dean\\Desktop\\Skola\\TVZ\\Projekti\\PortfolioMaker\\portfolio_maker_frontend\\src\\components\\CreatePortfolio\\PortfolioBuilder.jsx",
+              "RelativeToolTip": "portfolio_maker_frontend\\src\\components\\CreatePortfolio\\PortfolioBuilder.jsx",
+              "ViewState": "AgIAADUAAAAAAAAAAAAAwCsAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003663|",
+              "WhenOpened": "2024-12-10T14:36:04.804Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

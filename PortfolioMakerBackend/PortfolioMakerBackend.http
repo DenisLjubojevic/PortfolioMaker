@@ -1,0 +1,6 @@
+@PortfolioMakerBackend_HostAddress = http://localhost:5201
+
+GET {{PortfolioMakerBackend_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
