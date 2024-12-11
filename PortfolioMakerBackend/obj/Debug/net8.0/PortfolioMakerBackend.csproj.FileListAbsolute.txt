@@ -94,3 +94,4 @@ C:\Users\Dean\Desktop\Skola\TVZ\Projekti\PortfolioMaker\PortfolioMakerBackend\bi
 C:\Users\Dean\Desktop\Skola\TVZ\Projekti\PortfolioMaker\PortfolioMakerBackend\bin\Debug\net8.0\Microsoft.IdentityModel.Tokens.dll
 C:\Users\Dean\Desktop\Skola\TVZ\Projekti\PortfolioMaker\PortfolioMakerBackend\bin\Debug\net8.0\System.IdentityModel.Tokens.Jwt.dll
 C:\Users\Dean\Desktop\Skola\TVZ\Projekti\PortfolioMaker\PortfolioMakerBackend\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt
+C:\Users\Dean\Desktop\Skola\TVZ\Projekti\PortfolioMaker\PortfolioMakerBackend\obj\Debug\net8.0\PortfolioMakerBackend.sourcelink.json

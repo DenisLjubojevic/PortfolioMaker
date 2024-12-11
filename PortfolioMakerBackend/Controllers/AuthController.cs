@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Identity;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.IdentityModel.Tokens;
 using PortfolioMakerBackend.Models;
@@ -71,6 +72,13 @@ namespace PortfolioMakerBackend.Controllers
 
             System.Diagnostics.Debug.WriteLine($"User created - EmailAddress: {user.EmailAddress}");
             return Ok("User registered successfully");
+        }
+
+        [HttpPost("logout")]
+        [Authorize]
+        public IActionResult Logout()
+        {
+            return Ok(new { message = "Logout successful" });
         }
 
         private async Task<string> GenerateJwtToken(User user)

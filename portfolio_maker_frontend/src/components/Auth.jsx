@@ -1,6 +1,8 @@
 import { useState } from 'react';
 import axios from 'axios';
 import Dashboard from './Dashboard';
+import Navbar from './Navbar';
+import { Box, Button, FormControl, FormLabel, Input, Heading, VStack, Text } from '@chakra-ui/react';
 
 function Auth() {
     const [isLogin, setIsLogin] = useState(true);
@@ -50,8 +52,140 @@ function Auth() {
         setIsLogin(!isLogin);
     };
 
+    const handleLogout = async () => {
+        try {
+            await axios.post(
+                'api/auth/logout',
+                {},
+                {
+                    headers: { Authorization: `Bearer ${token}` }
+                });
+        } catch (error) {
+            console.log('Error during logout', error);
+        } finally {
+            setToken(null);
+            localStorage.removeItem('authToken');
+        }
+    };
+
     return (
-        <div>
+        <Box
+            display="flex"
+            alignItems="center"
+            justifyContent="center"
+            minHeight="100vh"
+            bg="gray.100"
+            flexDirection="column"
+        >
+            {!token ? (
+                <Box
+                    p={6}
+                    width="100%"
+                    bg="white"
+                    boxShadow="md"
+                    borderRadius="md"
+                    display="flex"
+                    flexDirection="column"
+                    alignItems="center"
+                >
+                    <Heading as="h1" size="lg" mb={4}>
+                        {isLogin ? 'Login' : 'Sign Up'}
+                    </Heading>
+                    <form onSubmit={handleSubmit}>
+                        <VStack spacing={4} align="stretch" width="100%">
+                            <FormControl>
+                                <FormLabel>Email</FormLabel>
+                                <Input
+                                    type="email"
+                                    value={email}
+                                    onChange={(e) => setEmail(e.target.value)}
+                                    isRequired
+                                    placeholder="Enter your email"
+                                />
+                            </FormControl>
+
+                            <FormControl>
+                                <FormLabel>Password</FormLabel>
+                                <Input
+                                    type="password"
+                                    value={password}
+                                    onChange={(e) => setPassword(e.target.value)}
+                                    isRequired
+                                    placeholder="Enter your password"
+                                />
+                            </FormControl>
+
+                            {!isLogin && (
+                                <>
+                                    <FormControl>
+                                        <FormLabel>First Name</FormLabel>
+                                        <Input
+                                            type="text"
+                                            value={firstName}
+                                            onChange={(e) => setFirstName(e.target.value)}
+                                            placeholder="Enter your first name"
+                                        />
+                                    </FormControl>
+
+                                    <FormControl>
+                                        <FormLabel>Last Name</FormLabel>
+                                        <Input
+                                            type="text"
+                                            value={lastName}
+                                            onChange={(e) => setLastName(e.target.value)}
+                                            placeholder="Enter your last name"
+                                        />
+                                    </FormControl>
+
+                                    <FormControl>
+                                        <FormLabel>Date of Birth</FormLabel>
+                                        <Input
+                                            type="date"
+                                            value={dateOfBirth}
+                                            onChange={(e) => setDateOfBirth(e.target.value)}
+                                        />
+                                    </FormControl>
+
+                                    <FormControl>
+                                        <FormLabel>Profile Picture URL</FormLabel>
+                                        <Input
+                                            type="text"
+                                            value={profilePictureUrl}
+                                            onChange={(e) => setProfilePictureUrl(e.target.value)}
+                                            placeholder="Enter your profile picture URL"
+                                        />
+                                    </FormControl>
+                                </>
+                            )}
+
+                            {error && (
+                                <Text color="red.500" textAlign="center" mb={4}>
+                                    {error}
+                                </Text>
+                            )}
+
+                            <Button type="submit" colorScheme="teal" width="full" mb={2}>
+                                {isLogin ? 'Login' : 'Sign Up'}
+                            </Button>
+                        </VStack>
+                    </form>
+
+                    <Button variant="link" onClick={handleSwitch}>
+                        {isLogin
+                            ? "Don't have an account? Sign up"
+                            : 'Already have an account? Login'}
+                    </Button>
+                </Box>
+            ) : (
+                <>
+                    <Navbar onLogout={handleLogout} />
+                    <Dashboard token={token} />
+                </>
+            )}
+        </Box>
+
+        /*
+        <div >
             {!token ? (
                 <div>
                     <h1>{isLogin ? 'Login' : 'Sign Up'}</h1>
@@ -120,9 +254,13 @@ function Auth() {
                     </button>
                 </div>
             ) : (
-                <Dashboard token={token} />
+                <>
+                    <Navbar onLogout={handleLogout} />
+                    <Dashboard token={token} />
+                </>
             )}
         </div>
+        */
       );
 }
 

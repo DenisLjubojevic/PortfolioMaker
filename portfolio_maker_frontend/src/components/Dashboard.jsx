@@ -5,6 +5,8 @@ import axios from 'axios';
 import PortfolioBuilder from './CreatePortfolio/PortfolioBuilder';
 import PortfolioList from './PortfolioList';
 
+import { Box, Text, Button } from '@chakra-ui/react';
+
 function Dashboard({ token }) {
     const [portfolios, setPortfolios] = useState([]);
     const [creatingPortfolio, setCreatingPortfolio] = useState(false);
@@ -27,11 +29,11 @@ function Dashboard({ token }) {
     }, []);
 
     return (
-        <div>
-            <h1>Dashboard</h1>
+        <Box padding="4" bg="gray.50" minHeight="100vh">
+            <Text fontSize="2xl" mb={4}>Welcome to your Dashboard</Text>
             {!creatingPortfolio ? (
                 <>
-                    <button onClick={() => setCreatingPortfolio(true)}>Create New Portfolio</button>
+                    <Button onClick={() => setCreatingPortfolio(true)}>Create New Portfolio</Button>
                     <PortfolioList portfolios={portfolios} />
                 </>
             ) : (
@@ -42,7 +44,7 @@ function Dashboard({ token }) {
                     }}
                 />
             )}
-        </div>
+        </Box>
     );
 }
 
