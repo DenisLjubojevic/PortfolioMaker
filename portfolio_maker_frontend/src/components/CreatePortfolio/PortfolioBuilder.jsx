@@ -1,6 +1,7 @@
 import * as PropTypes from 'prop-types';
 import { useState } from 'react';
-import axios from 'axios';
+
+import apiClient from '../../axiosConfig';
 
 import AboutStep from './AboutStep';
 import ProjectsStep from './ProjectsStep';
@@ -34,14 +35,7 @@ function PortfolioBuilder({ onPortfolioCreated }) {
         }
 
         try {
-            var authToken = localStorage.getItem("authToken");
-            const response = await axios.post('/api/portfolio/create', payload, {
-                headers: {
-                    Authorization: `Bearer ${authToken}`,
-                    'Content-Type': 'application/json'
-                },
-            });
-
+            const response = await apiClient.post('https://localhost:7146/api/portfolio/create', payload);
             const portfolioId = response.data.id;
 
             for (const project of portfolioData.projects) {
@@ -50,12 +44,7 @@ function PortfolioBuilder({ onPortfolioCreated }) {
                     portfolioId: portfolioId,
                 };
 
-                await axios.post(`/api/portfolio/${portfolioId}/projects`, projectPayload, {
-                    headers: {
-                        Authorization: `Bearer ${localStorage.getItem('authToken')}`,
-                        'Content-Type': 'application/json'
-                    },
-                });
+                await apiClient.post(`https://localhost:7146/api/portfolio/${portfolioId}/projects`, projectPayload);
             }
 
             if (onPortfolioCreated) {
@@ -76,7 +65,6 @@ function PortfolioBuilder({ onPortfolioCreated }) {
     ];
 
     const updateData = (step, data) => {
-        console.log("Adding data for " + data + " and step " + step);
         setPortfolioData((prevData) => ({
             ...prevData,
             [step]: data

@@ -28,7 +28,7 @@ namespace PortfolioMakerBackend.Controllers
         [HttpPost("login")]
         public async Task<IActionResult> Login([FromBody] LoginModel login)
         {
-
+            System.Diagnostics.Debug.WriteLine($"Login: {login.Email}");
             var user = await _userManager.FindByEmailAsync(login.Email);
             if (user == null) return Unauthorized("Invalid email or password");
 
@@ -73,11 +73,11 @@ namespace PortfolioMakerBackend.Controllers
             System.Diagnostics.Debug.WriteLine($"User created - EmailAddress: {user.EmailAddress}");
             return Ok("User registered successfully");
         }
-
-        [HttpPost("logout")]
         [Authorize]
+        [HttpPost("logout")]
         public IActionResult Logout()
         {
+            System.Diagnostics.Debug.WriteLine("Logout");
             return Ok(new { message = "Logout successful" });
         }
 

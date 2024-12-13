@@ -8,7 +8,7 @@ function PortfolioList({ portfolios }) {
                 <p>No portfolios found!</p>
             ) : (
                     <Box p={8}>
-                        <Heading as="h2" size="xl" mb={4} textAlign="center">
+                        <Heading as="h2" size="lg" mb={4} textAlign="center">
                             Your Portfolios
                         </Heading>
                         <SimpleGrid columns={[1, 2, 3]} spacing={8}>
@@ -31,15 +31,6 @@ function PortfolioList({ portfolios }) {
                             ))}
                         </SimpleGrid>
                     </Box>
-
-                /*<ul>
-                    {portfolios.map((portfolio) => (
-                        <li key={portfolio.id}>
-                            <h2>{portfolio.name}</h2>
-                            <p>{portfolio.description}</p>
-                        </li>
-                    ))}
-                </ul>*/
             )}
         </div>
     );

@@ -1,8 +1,23 @@
 import { useState } from 'react';
 import axios from 'axios';
-import Dashboard from './Dashboard';
-import Navbar from './Navbar';
-import { Box, Button, FormControl, FormLabel, Input, Heading, VStack, Text } from '@chakra-ui/react';
+import { useNavigate } from 'react-router-dom';
+import {
+    Box,
+    Button,
+    FormControl,
+    FormLabel,
+    Input,
+    Heading,
+    VStack,
+    Text,
+    Flex,
+    Stack,
+    Avatar,
+    InputLeftElement,
+    InputGroup,
+    InputRightElement,
+} from '@chakra-ui/react';
+import { FaUserAlt, FaLock } from "react-icons/fa";
 
 function Auth() {
     const [isLogin, setIsLogin] = useState(true);
@@ -15,6 +30,12 @@ function Auth() {
     const [role] = useState('User');
     const [error, setError] = useState('');
     const [token, setToken] = useState(null);
+
+    const [showPassword, setShowPassword] = useState(false);
+
+    const handleShowClick = () => setShowPassword(!showPassword);
+
+    const navigate = useNavigate();
 
     const handleSubmit = async (event) => {
         event.preventDefault();
@@ -30,15 +51,19 @@ function Auth() {
             role
         };
 
-        const url = isLogin ? 'api/auth/login' : 'api/auth/signup';
+        const url = isLogin ? 'https://localhost:7146/api/auth/login' : 'https://localhost:7146/api/auth/signup';
 
         try {
+            console.log('Login url:', url);
             const response = await axios.post(url, payload);
             if (response.data.token) {
                 setToken(response.data.token);
                 localStorage.setItem('authToken', response.data.token);
+
+                navigate("/dashboard");
             }
         } catch (err) {
+            console.error('Login failed:', error.response);
             if (err.response && err.response.data) {
                 const errorMessage = err.response.data.message || 'Something went wrong';
                 setError(errorMessage);
@@ -52,215 +77,144 @@ function Auth() {
         setIsLogin(!isLogin);
     };
 
-    const handleLogout = async () => {
-        try {
-            await axios.post(
-                'api/auth/logout',
-                {},
-                {
-                    headers: { Authorization: `Bearer ${token}` }
-                });
-        } catch (error) {
-            console.log('Error during logout', error);
-        } finally {
-            setToken(null);
-            localStorage.removeItem('authToken');
-        }
-    };
-
     return (
-        <Box
-            display="flex"
-            alignItems="center"
-            justifyContent="center"
-            minHeight="100vh"
-            bg="gray.100"
+        <Flex
             flexDirection="column"
+            width="100wh"
+            height="100vh"
+            backgroundColor="gray.200"
+            justifyContent="center"
+            alignItems="center"
         >
-            {!token ? (
-                <Box
-                    p={6}
-                    width="100%"
-                    bg="white"
-                    boxShadow="md"
-                    borderRadius="md"
-                    display="flex"
-                    flexDirection="column"
-                    alignItems="center"
-                >
-                    <Heading as="h1" size="lg" mb={4}>
-                        {isLogin ? 'Login' : 'Sign Up'}
-                    </Heading>
-                    <form onSubmit={handleSubmit}>
-                        <VStack spacing={4} align="stretch" width="100%">
-                            <FormControl>
-                                <FormLabel>Email</FormLabel>
-                                <Input
-                                    type="email"
-                                    value={email}
-                                    onChange={(e) => setEmail(e.target.value)}
-                                    isRequired
-                                    placeholder="Enter your email"
-                                />
-                            </FormControl>
-
-                            <FormControl>
-                                <FormLabel>Password</FormLabel>
-                                <Input
-                                    type="password"
-                                    value={password}
-                                    onChange={(e) => setPassword(e.target.value)}
-                                    isRequired
-                                    placeholder="Enter your password"
-                                />
-                            </FormControl>
-
-                            {!isLogin && (
-                                <>
-                                    <FormControl>
-                                        <FormLabel>First Name</FormLabel>
-                                        <Input
-                                            type="text"
-                                            value={firstName}
-                                            onChange={(e) => setFirstName(e.target.value)}
-                                            placeholder="Enter your first name"
-                                        />
-                                    </FormControl>
-
-                                    <FormControl>
-                                        <FormLabel>Last Name</FormLabel>
-                                        <Input
-                                            type="text"
-                                            value={lastName}
-                                            onChange={(e) => setLastName(e.target.value)}
-                                            placeholder="Enter your last name"
-                                        />
-                                    </FormControl>
-
-                                    <FormControl>
-                                        <FormLabel>Date of Birth</FormLabel>
-                                        <Input
-                                            type="date"
-                                            value={dateOfBirth}
-                                            onChange={(e) => setDateOfBirth(e.target.value)}
-                                        />
-                                    </FormControl>
-
-                                    <FormControl>
-                                        <FormLabel>Profile Picture URL</FormLabel>
-                                        <Input
-                                            type="text"
-                                            value={profilePictureUrl}
-                                            onChange={(e) => setProfilePictureUrl(e.target.value)}
-                                            placeholder="Enter your profile picture URL"
-                                        />
-                                    </FormControl>
-                                </>
-                            )}
-
-                            {error && (
-                                <Text color="red.500" textAlign="center" mb={4}>
-                                    {error}
-                                </Text>
-                            )}
-
-                            <Button type="submit" colorScheme="teal" width="full" mb={2}>
+            <Stack
+                flexDir="column"
+                mb="2"
+                justifyContent="center"
+                alignItems="center"
+            >
+                <Box minW={{ base: "90%", md: "468px" }} >
+                    {!token ? (
+                        <Box>
+                            <Avatar bg="teal.500" />
+                            <Heading as="h1" size="lg" mb={4} color="teal.400">
                                 {isLogin ? 'Login' : 'Sign Up'}
+                            </Heading>
+                            <form onSubmit={handleSubmit}>
+                                <VStack
+                                    spacing={4}
+                                    p="1rem"
+                                    backgroundColor="whiteAlpha.900"
+                                    boxShadow="md"
+                                >
+                                    {isLogin && (
+                                        <>
+                                            <FormControl>
+                                                <InputGroup>
+                                                    <InputLeftElement pointerEvents="none" >
+                                                        <FaUserAlt color="gray.300" />
+                                                    </InputLeftElement>
+                                                    <Input
+                                                        type="email"
+                                                        value={email}
+                                                        onChange={(e) => setEmail(e.target.value)}
+                                                        isRequired
+                                                        placeholder="Enter your email"
+                                                    />
+                                                </InputGroup>
+                                            </FormControl>
+
+                                            <FormControl>
+                                                <InputGroup>
+                                                    <InputLeftElement pointerEvents="none" >
+                                                        <FaLock color="gray.300" />
+                                                    </InputLeftElement>
+                                                    <Input
+                                                        type={showPassword ? "text" : "password"}
+                                                        value={password}
+                                                        onChange={(e) => setPassword(e.target.value)}
+                                                        isRequired
+                                                        placeholder="Enter your password"
+                                                    />
+                                                    <InputRightElement width="4.5rem">
+                                                        <Button h="1.75rem" size="sm" onClick={handleShowClick}>
+                                                            {showPassword ? "Hide" : "Show"}
+                                                        </Button>
+                                                    </InputRightElement>
+                                                </InputGroup>
+                                            </FormControl>
+                                        </>
+                                    )}
+
+                                    {!isLogin && (
+                                        <>
+                                            <FormControl>
+                                                <FormLabel>First Name</FormLabel>
+                                                <Input
+                                                    type="text"
+                                                    value={firstName}
+                                                    onChange={(e) => setFirstName(e.target.value)}
+                                                    placeholder="Enter your first name"
+                                                />
+                                            </FormControl>
+
+                                            <FormControl>
+                                                <FormLabel>Last Name</FormLabel>
+                                                <Input
+                                                    type="text"
+                                                    value={lastName}
+                                                    onChange={(e) => setLastName(e.target.value)}
+                                                    placeholder="Enter your last name"
+                                                />
+                                            </FormControl>
+
+                                            <FormControl>
+                                                <FormLabel>Date of Birth</FormLabel>
+                                                <Input
+                                                    type="date"
+                                                    value={dateOfBirth}
+                                                    onChange={(e) => setDateOfBirth(e.target.value)}
+                                                />
+                                            </FormControl>
+
+                                            <FormControl>
+                                                <FormLabel>Profile Picture URL</FormLabel>
+                                                <Input
+                                                    type="text"
+                                                    value={profilePictureUrl}
+                                                    onChange={(e) => setProfilePictureUrl(e.target.value)}
+                                                    placeholder="Enter your profile picture URL"
+                                                />
+                                            </FormControl>
+                                        </>
+                                    )}
+
+                                    {error && (
+                                        <Text color="red.500" textAlign="center" mb={4}>
+                                            {error}
+                                        </Text>
+                                    )}
+
+                                    <Button type="submit" colorScheme="teal" width="full" mb={2}>
+                                        {isLogin ? 'Login' : 'Sign Up'}
+                                    </Button>
+                                </VStack>
+                            </form>
+
+                            <Button variant="link" onClick={handleSwitch}>
+                                {isLogin
+                                    ? "Don't have an account? Sign up"
+                                    : 'Already have an account? Login'}
                             </Button>
-                        </VStack>
-                    </form>
-
-                    <Button variant="link" onClick={handleSwitch}>
-                        {isLogin
-                            ? "Don't have an account? Sign up"
-                            : 'Already have an account? Login'}
-                    </Button>
+                        </Box>
+                    ) : (
+                        <>
+                        </>
+                    )}
                 </Box>
-            ) : (
-                <>
-                    <Navbar onLogout={handleLogout} />
-                    <Dashboard token={token} />
-                </>
-            )}
-        </Box>
 
-        /*
-        <div >
-            {!token ? (
-                <div>
-                    <h1>{isLogin ? 'Login' : 'Sign Up'}</h1>
-                    <form onSubmit={handleSubmit}>
-                        <div>
-                            <label>Email: </label>
-                            <input
-                                type="email"
-                                value={email}
-                                onChange={(e) => setEmail(e.target.value)}
-                                required
-                            />
-                        </div>
-                        <div>
-                            <label>Password: </label>
-                            <input
-                                type="password"
-                                value={password}
-                                onChange={(e) => setPassword(e.target.value)}
-                                required
-                            />
-                        </div>
-                        {!isLogin && (
-                            <>
-                                <div>
-                                    <label>First Name: </label>
-                                    <input
-                                        type="text"
-                                        value={firstName}
-                                        onChange={(e) => setFirstName(e.target.value)}
-                                    />
-                                </div>
-                                <div>
-                                    <label>Last Name: </label>
-                                    <input
-                                        type="text"
-                                        value={lastName}
-                                        onChange={(e) => setLastName(e.target.value)}
-                                    />
-                                </div>
-                                <div>
-                                    <label>Date of birth: </label>
-                                    <input
-                                        type="date"
-                                        value={dateOfBirth}
-                                        onChange={(e) => setDateOfBirth(e.target.value)}
-                                    />
-                                </div>
-                                <div>
-                                    <label>Profile Picture URL: </label>
-                                    <input
-                                        type="text"
-                                        value={profilePictureUrl}
-                                        onChange={(e) => setProfilePictureUrl(e.target.value)}
-                                    />
-                                </div>
-                            </>
-                        )}
-                        <div>
-                            <button type="submit">{isLogin ? 'Login' : 'Sign Up'}</button>
-                        </div>
-                    </form>
-                    {error && <p style={{ color: 'red' }}>{JSON.stringify(error)}</p>}
-                    <button onClick={handleSwitch}>
-                        {isLogin ? 'Don\'t have an account? Sign up' : 'Already have an account? Login'}
-                    </button>
-                </div>
-            ) : (
-                <>
-                    <Navbar onLogout={handleLogout} />
-                    <Dashboard token={token} />
-                </>
-            )}
-        </div>
-        */
+            </Stack>
+
+        </Flex>
       );
 }
 

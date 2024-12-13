@@ -1,4 +1,5 @@
 ﻿using DnsClient;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Options;
 using MongoDB.Bson;
@@ -23,8 +24,10 @@ namespace PortfolioMakerBackend.Controllers
         }
 
         [HttpGet]
+        [Authorize]
         public ActionResult<List<Portfolio>> GetAll()
         {
+            System.Diagnostics.Debug.WriteLine($"Getting all portfolios");
             var portfolios = _portfolios.Find(portfolio => true).ToList();
             return Ok(portfolios);
         }

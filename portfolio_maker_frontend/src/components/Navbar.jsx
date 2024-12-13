@@ -1,11 +1,27 @@
-import * as PropTypes from 'prop-types';
-import { Box, Flex, Spacer, Button, Heading } from "@chakra-ui/react";
-function Navbar({ onLogout }) {
+import { Box, Flex, Spacer, Button, Heading, useColorMode   } from "@chakra-ui/react";
+import { useNavigate } from "react-router-dom";
+
+import apiClient from '../axiosConfig';
+
+function Navbar() {
+    const navigate = useNavigate();
+    const { colorMode, toggleColorMode } = useColorMode();
+
+    const handleLogout = async () => {
+        try {
+            const url = 'https://localhost:7146/api/auth/logout';
+            await apiClient.post(url, {});
+        } catch (error) {
+            console.log('Error during logout', error);
+        } finally {
+            localStorage.removeItem('authToken');
+            navigate("/");
+        }
+    };
 
     return (
         <Box
             as="nav"
-            bg="teal.500"
             color="white"
             px={4}
             py={2}
@@ -22,7 +38,10 @@ function Navbar({ onLogout }) {
 
                 <Spacer />
                 <Flex alignItems="center" gap={4}>
-                    <Button size="sm" colorScheme="red" onClick={onLogout}>
+                    <Button size="sm" onClick={toggleColorMode}>
+                        Toggle {colorMode === 'light' ? 'Dark' : 'Light'}
+                    </Button>
+                    <Button size="sm" colorScheme="red" onClick={handleLogout}>
                         Logout
                     </Button>
                 </Flex>
@@ -30,9 +49,5 @@ function Navbar({ onLogout }) {
         </Box>
     );
 }
-
-Navbar.propTypes = {
-    onLogout: PropTypes.func.isRequired,
-};
 
 export default Navbar;

@@ -1,0 +1,16 @@
+[
+  {
+    "Name": "New Profile",
+    "Projects": [
+      {
+        "Path": "portfolio_maker_frontend\\portfolio_maker_frontend.esproj",
+        "Action": "Start",
+        "DebugTarget": "localhost (Chrome)"
+      },
+      {
+        "Path": "PortfolioMakerBackend\\PortfolioMakerBackend.csproj",
+        "Action": "Start"
+      }
+    ]
+  }
+]
