@@ -19,6 +19,7 @@ import apiClient from '../axiosConfig';
 function Dashboard() {
     const [portfolios, setPortfolios] = useState([]);
     const [creatingPortfolio, setCreatingPortfolio] = useState(false);
+    const [editingPortfolio, setEditingPortfolio] = useState(null);
 
     const navigate = useNavigate();
 
@@ -42,6 +43,23 @@ function Dashboard() {
         }
     }, [navigate, token]);
 
+
+    const handleEditPortfolio = (portfolio) => {
+        setEditingPortfolio(portfolio);
+        setCreatingPortfolio(false);
+    }
+
+    const handlePortfolioSaved = () => {
+        setCreatingPortfolio(false);
+        setEditingPortfolio(null);
+        fetchPortfolios();
+    };
+
+    const handleCancle = () => {
+        setCreatingPortfolio(false);
+        setEditingPortfolio(null);
+    }
+
     return (
         <Flex
             flexDirection="column"
@@ -62,7 +80,6 @@ function Dashboard() {
                     mb={4}
                     color="brand.secondary.800"
                 >
-                    
                     Welcome to your Dashboard
                 </Text>
                 <Stack
@@ -94,7 +111,7 @@ function Dashboard() {
                         padding="10px"
                         bg="brand.secondary.800"
                     >
-                        {!creatingPortfolio ? (
+                        {!(creatingPortfolio || editingPortfolio) ? (
                             <>
                                 <Button
                                     onClick={() => setCreatingPortfolio(true)}
@@ -102,21 +119,22 @@ function Dashboard() {
                                 >
                                     Create New Portfolio
                                 </Button>
-                                <PortfolioList portfolios={portfolios} />
+                                <PortfolioList
+                                    portfolios={portfolios}
+                                    onEditPortfolio={handleEditPortfolio}
+                                />
                             </>
                         ) : (
                             <>
                                 <Button
-                                    onClick={() => setCreatingPortfolio(false)}
+                                        onClick={handleCancle}
                                     float="right"
                                 >
-                                    Cancel Create
+                                    Cancel
                                 </Button>
                                 <PortfolioBuilder
-                                    onPortfolioCreated={() => {
-                                        fetchPortfolios();
-                                        setCreatingPortfolio(false);
-                                    }}
+                                    initialData={editingPortfolio}
+                                    onPortfolioCreated={handlePortfolioSaved}
                                 />
                             </>
                         )}

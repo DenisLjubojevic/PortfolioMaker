@@ -22,13 +22,14 @@ import { useState } from 'react';
 import { CloseIcon } from '@chakra-ui/icons'
 
 function ProjectsStep({ data, setData }) {
-    const { isOpen, onOpen, onClose } = useDisclosure(); // Chakra UI modal controls
+    const { isOpen, onOpen, onClose } = useDisclosure();
     const [newProject, setNewProject] = useState({
         title: '',
         description: '',
         technologies: '',
         demoUrl: '',
         repoUrl: '',
+        isNew: true,
     });
 
     const handleAddProject = () => {

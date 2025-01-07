@@ -95,7 +95,7 @@ function ContactStep({ data, setData }) {
                         type="url"
                         name="linkedin"
                         placeholder="LinkedIn URL"
-                        value={data.linkedin || ''}
+                        value={data.linkedIn || ''}
                         onChange={handleChange}
                         bg="brand.primary.800"
                         color="brand.secondary.900"
@@ -192,7 +192,7 @@ ContactStep.propTypes = {
     data: PropTypes.shape({
         email: PropTypes.string,
         phone: PropTypes.string,
-        linkedin: PropTypes.string,
+        linkedIn: PropTypes.string,
         github: PropTypes.string,
         twitter: PropTypes.string,
         cv: PropTypes.object,

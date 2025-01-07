@@ -18,7 +18,6 @@ function PortfolioPreview() {
     useEffect(() => {
         async function fetchPreviewData() {
             try {
-                console.log(previewId);
                 const response = await apiClient.get(`https://localhost:7146/api/portfolio/preview/${previewId}`);
                 setPortfolioData(response.data);
             } catch (error) {

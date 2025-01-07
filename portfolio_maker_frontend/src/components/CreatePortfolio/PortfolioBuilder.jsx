@@ -1,5 +1,6 @@
 import * as PropTypes from 'prop-types';
 import { useState } from 'react';
+import { useEffect } from "react";
 
 import {
     Box,
@@ -25,7 +26,7 @@ import ProjectsStep from './ProjectsStep';
 import ContactStep from './ContactStep';
 import ReviewStep from './ReviewStep';
 
-function PortfolioBuilder({ onPortfolioCreated }) {
+function PortfolioBuilder({ onPortfolioCreated, initialData }) {
     const [currentStep, setCurrentStep] = useState(0);
     const [portfolioData, setPortfolioData] = useState({
         about: {},
@@ -33,7 +34,7 @@ function PortfolioBuilder({ onPortfolioCreated }) {
         contacts: {
             email: '',
             phone: '',
-            linkedin: '',
+            linkedIn: '',
             github: '',
             twitter: '',
             cv: null,
@@ -55,7 +56,7 @@ function PortfolioBuilder({ onPortfolioCreated }) {
                 contacts: {
                     email: portfolioData.contacts.email,
                     phone: portfolioData.contacts.phone,
-                    linkedin: portfolioData.contacts.linkedin,
+                    linkedin: portfolioData.contacts.linkedIn,
                     github: portfolioData.contacts.github,
                     twitter: portfolioData.contacts.twitter,
                     cvfileid: "No cv",
@@ -67,22 +68,32 @@ function PortfolioBuilder({ onPortfolioCreated }) {
             const response = await apiClient.post('https://localhost:7146/api/portfolio/preview', {
                 ...payload
             });
+            console.log("Preview id - " + response.data.previewId);
             setPreviewId(response.data.previewId);
             setPortfolioData((prevData) => ({
                 ...prevData,
-                previewUrl: `https://localhost:7146/api/portfolio/preview/${previewId}`,
+                previewUrl: `https://localhost:7146/api/portfolio/preview/${response.data.previewId}`,
             }));
 
-            window.open(`/preview/${previewId}`, '_blank');
+            window.open(`/preview/${response.data.previewId}`, '_blank');
         } catch (error) {
             console.log('Failed to generate preview:', error);
         }
     }
 
-    const handleSubmit = async () => {
-        if (previewId) {
-            await apiClient.delete(`https://localhost:7146/api/portfolio/preview/${previewId}`);
+    useEffect(() => {
+        if (initialData) {
+            setPortfolioData({
+                ...initialData,
+                projects: initialData.projects.map(project => ({
+                    ...project,
+                    isNew: false,
+                })),
+            });
         }
+    }, [initialData]);
+
+    const handleSubmit = async () => {
 
         const payload = {
             name: portfolioData.about.name || "Unnamed Portfolio",
@@ -94,56 +105,83 @@ function PortfolioBuilder({ onPortfolioCreated }) {
             contacts: {
                 email: portfolioData.contacts.email,
                 phone: portfolioData.contacts.phone,
-                linkedin: portfolioData.contacts.linkedin,
+                linkedin: portfolioData.contacts.linkedIn,
                 github: portfolioData.contacts.github,
                 twitter: portfolioData.contacts.twitter,
                 cvfileid: "No cv",
             },
             createdAt: new Date().toISOString(),
-            portfolioUrl: `https://localhost:7146/api/portfolio/preview/${previewId}`,
+            portfolioUrl: portfolioData.previewUrl,
         };
 
-        if (portfolioData.contacts.cv) {
-            const formData = new FormData();
-            formData.append('cv', portfolioData.contacts.cv);
+        if (initialData) {
+            try {
+                console.log("Initial id - " + initialData.id);
+                console.log("updating - ");
+                console.log(payload);
+                const response = await apiClient.put(`https://localhost:7146/api/portfolio/${initialData.id}`, payload);
+
+                if (previewId) {
+                    await apiClient.delete(`https://localhost:7146/api/portfolio/preview/${previewId}`);
+                }
+
+                if (onPortfolioCreated) {
+                    onPortfolioCreated(response.data);
+                }
+
+                alert("Portfolio updated successfully!");
+            } catch (error) {
+                console.error('Failed to edit portfolio:', error.response.data.errors);
+                alert('Error editing portfolio. Please try again.');
+            }
+        } else {
+            if (portfolioData.contacts.cv) {
+                const formData = new FormData();
+                formData.append('cv', portfolioData.contacts.cv);
+
+                try {
+                    const response = await apiClient.post(`https://localhost:7146/api/portfolio/upload-cv`, formData, {
+                        headers: { 'Content-Type': 'multipart/form-data' },
+                    });
+                    payload.contacts.cv = response.data.fileId;
+                } catch (error) {
+                    console.error('Failed to upload CV:', error.response.data.errors);
+                }
+            }
+
+            console.log(payload);
+            if (!payload.projects || payload.projects.length === 0) {
+                alert("You must add at least one project.");
+                return;
+            }
 
             try {
-                const response = await apiClient.post(`https://localhost:7146/api/portfolio/upload-cv`, formData, {
-                    headers: { 'Content-Type': 'multipart/form-data' },
-                });
-                payload.contacts.cv = response.data.fileId;
+                const response = await apiClient.post('https://localhost:7146/api/portfolio/create', payload);
+                setFinalUrl(response.data.url);
+                const portfolioId = response.data.id;
+
+                const newProjects = portfolioData.projects.filter(project => project.isNew);
+                for (const project of newProjects) {
+                    const projectPayload = {
+                        ...project,
+                        portfolioId: portfolioId,
+                    };
+
+                    await apiClient.post(`https://localhost:7146/api/portfolio/${portfolioId}/projects`, projectPayload);
+                }
+
+                if (previewId) {
+                    await apiClient.delete(`https://localhost:7146/api/portfolio/preview/${previewId}`);
+                }
+
+                if (onPortfolioCreated) {
+                    onPortfolioCreated(response.data);
+                }
+                alert('Portfolio created successfully!');
             } catch (error) {
-                console.error('Failed to upload CV:', error.response.data.errors);
+                console.error('Failed to create portfolio:', error.response.data.errors);
+                alert('Error creating portfolio. Please try again.');
             }
-        }
-
-        console.log(payload);
-        if (!payload.projects || payload.projects.length === 0) {
-            alert("You must add at least one project.");
-            return;
-        }
-
-        try {
-            const response = await apiClient.post('https://localhost:7146/api/portfolio/create', payload);
-            setFinalUrl(response.data.url);
-            const portfolioId = response.data.id;
-
-            for (const project of portfolioData.projects) {
-                const projectPayload = {
-                    ...project,
-                    portfolioId: portfolioId,
-                };
-
-                await apiClient.post(`https://localhost:7146/api/portfolio/${portfolioId}/projects`, projectPayload);
-            }
-
-            if (onPortfolioCreated) {
-                onPortfolioCreated(response.data);
-            }
-            alert('Portfolio created successfully!');
-        } catch (error) {
-            console.error('Failed to create portfolio:', error.response.data.errors);
-            alert('Error creating portfolio. Please try again.');
         }
     }
 
@@ -173,7 +211,7 @@ function PortfolioBuilder({ onPortfolioCreated }) {
             component: <ReviewStep
                             previewUrl={portfolioData.previewUrl}
                             onGeneratePreview={generatePreview}
-                            finalUrl={finalUrl}
+                            previewId={previewId}
             />
         },
     ];
@@ -275,6 +313,7 @@ function PortfolioBuilder({ onPortfolioCreated }) {
 
 PortfolioBuilder.propTypes = {
     onPortfolioCreated: PropTypes.func,
+    initialData: PropTypes.object,
 }
 
 export default PortfolioBuilder;

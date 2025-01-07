@@ -313,7 +313,7 @@
         }
       }
     },
-    "/api/Portfolio/{ id }": {
+    "/api/Portfolio/{id}": {
       "put": {
         "tags": [
           "Portfolio"
@@ -321,13 +321,6 @@
         "parameters": [
           {
             "name": "id",
-            "in": "query",
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": " id ",
             "in": "path",
             "required": true,
             "schema": {
@@ -339,65 +332,21 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/Portfolio"
+                "$ref": "#/components/schemas/PortfolioDTO"
               }
             },
             "text/json": {
               "schema": {
-                "$ref": "#/components/schemas/Portfolio"
+                "$ref": "#/components/schemas/PortfolioDTO"
               }
             },
             "application/*+json": {
               "schema": {
-                "$ref": "#/components/schemas/Portfolio"
+                "$ref": "#/components/schemas/PortfolioDTO"
               }
             }
           }
         },
-        "responses": {
-          "200": {
-            "description": "OK",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/Portfolio"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Portfolio"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Portfolio"
-                }
-              }
-            }
-          }
-        }
-      },
-      "delete": {
-        "tags": [
-          "Portfolio"
-        ],
-        "parameters": [
-          {
-            "name": "id",
-            "in": "query",
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": " id ",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
         "responses": {
           "200": {
             "description": "OK"
@@ -413,6 +362,35 @@
         "parameters": [
           {
             "name": "previewId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Portfolio/{ id }": {
+      "delete": {
+        "tags": [
+          "Portfolio"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": " id ",
             "in": "path",
             "required": true,
             "schema": {
@@ -494,7 +472,7 @@
         }
       }
     },
-    "/api/Project/{ id }": {
+    "/api/Project/{id}": {
       "get": {
         "tags": [
           "Project"
@@ -502,13 +480,6 @@
         "parameters": [
           {
             "name": "id",
-            "in": "query",
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": " id ",
             "in": "path",
             "required": true,
             "schema": {

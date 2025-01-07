@@ -152,7 +152,7 @@ namespace PortfolioMakerBackend.Controllers
         }
 
         [HttpGet("preview/{portfolioId}")]
-        public async Task<IActionResult> GetPreviewPortfolio(string portfolioId)
+        public async Task<IActionResult> GetPortfolioFinished(string portfolioId)
         {
             System.Diagnostics.Debug.WriteLine("Preview getting");
             var requestPortfolioUrl = "https://localhost:7146/api/portfolio/preview/" + portfolioId;
@@ -160,7 +160,12 @@ namespace PortfolioMakerBackend.Controllers
             var portfolio = await _portfolios.Find(p => p.PortfolioUrl == requestPortfolioUrl).FirstOrDefaultAsync();
             if (portfolio == null)
             {
-                return NotFound(new { message = "Portfolio not found" });
+                var previewPortfolio = await _portfolios.Find(p => p.PreviewUrl == requestPortfolioUrl).FirstOrDefaultAsync();
+                if(previewPortfolio == null)
+                {
+                    return NotFound(new { message = "Portfolio not found" });
+                }
+                return Ok(previewPortfolio);
             }
             return Ok(portfolio);
         }
@@ -172,7 +177,6 @@ namespace PortfolioMakerBackend.Controllers
             {
                 var objectId = new ObjectId(fileId);
 
-                // Download the file from GridFS
                 var fileStream = await _gridFSBucket.OpenDownloadStreamAsync(objectId);
 
                 return File(fileStream, "application/octet-stream", fileStream.FileInfo.Filename);
@@ -208,24 +212,35 @@ namespace PortfolioMakerBackend.Controllers
             }
         }
 
-        [HttpPut("{ id }")]
-        public ActionResult<Portfolio> Put(string id, [FromBody] Portfolio updatedPortfolio)
+        [HttpPut("{id}")]
+        public async Task<IActionResult> Put(string id, [FromBody] PortfolioDTO updatedPortfolioDTO)
         {
-            var portfolio = _portfolios.Find(p => p.Id == id).FirstOrDefault();
+            System.Diagnostics.Debug.WriteLine("Update portfolio");
+            System.Diagnostics.Debug.WriteLine("id - " + id + ", portfolio: ");
+            System.Diagnostics.Debug.WriteLine(updatedPortfolioDTO);
+            var portfolio = await _portfolios.Find(p => p.Id == id).FirstOrDefaultAsync();
             if(portfolio == null)
             {
-                return NotFound();
+                return NotFound("Portfolio not found.");
             }
 
-            portfolio.Name = updatedPortfolio.Name;
-            portfolio.Description = updatedPortfolio.Description;
-            portfolio.Projects = updatedPortfolio.Projects;
-            portfolio.BannerImageUrl = updatedPortfolio.BannerImageUrl;
-            portfolio.IsPublished = updatedPortfolio.IsPublished;
-            portfolio.About = updatedPortfolio.About;
-            portfolio.Contacts = updatedPortfolio.Contacts;
+            var newProjects = updatedPortfolioDTO.Projects
+                    .Where(dto => !portfolio.Projects.Any(p => p.Description == dto.Description)) 
+                    .ToList();
 
-            _portfolios.ReplaceOne(p => p.Id == id, portfolio);
+            foreach(var projectDTO in newProjects)
+            {
+                AddProjectToPortfolio(id, projectDTO);
+            }
+
+            portfolio.Name = updatedPortfolioDTO.Name;
+            portfolio.Description = updatedPortfolioDTO.Description;
+            portfolio.BannerImageUrl = updatedPortfolioDTO.BannerImageUrl;
+            portfolio.IsPublished = updatedPortfolioDTO.IsPublished;
+            portfolio.About = updatedPortfolioDTO.About;
+            portfolio.Contacts = updatedPortfolioDTO.Contacts;
+
+            _portfolios.ReplaceOneAsync(p => p.Id == id, portfolio);
             return Ok(portfolio);
         }
 

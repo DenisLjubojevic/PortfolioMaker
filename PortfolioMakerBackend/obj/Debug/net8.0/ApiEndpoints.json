@@ -63,42 +63,6 @@
   },
   {
     "ContainingType": "PortfolioMakerBackend.Controllers.PortfolioController",
-    "Method": "Put",
-    "RelativePath": "api/Portfolio/{ id }",
-    "HttpMethod": "PUT",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "id",
-        "Type": "System.String",
-        "IsRequired": false
-      },
-      {
-        "Name": "updatedPortfolio",
-        "Type": "PortfolioMakerBackend.Models.Portfolio",
-        "IsRequired": true
-      },
-      {
-        "Name": " id ",
-        "Type": "",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": [
-      {
-        "Type": "PortfolioMakerBackend.Models.Portfolio",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 200
-      }
-    ]
-  },
-  {
-    "ContainingType": "PortfolioMakerBackend.Controllers.PortfolioController",
     "Method": "Delete",
     "RelativePath": "api/Portfolio/{ id }",
     "HttpMethod": "DELETE",
@@ -113,6 +77,27 @@
       {
         "Name": " id ",
         "Type": "",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "PortfolioMakerBackend.Controllers.PortfolioController",
+    "Method": "Put",
+    "RelativePath": "api/Portfolio/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.String",
+        "IsRequired": true
+      },
+      {
+        "Name": "updatedPortfolioDTO",
+        "Type": "PortfolioMakerBackend.DTOs.PortfolioDTO",
         "IsRequired": true
       }
     ],
@@ -199,7 +184,7 @@
   },
   {
     "ContainingType": "PortfolioMakerBackend.Controllers.PortfolioController",
-    "Method": "GetPreviewPortfolio",
+    "Method": "GetPortfolioFinished",
     "RelativePath": "api/Portfolio/preview/{portfolioId}",
     "HttpMethod": "GET",
     "IsController": true,
@@ -284,7 +269,7 @@
   {
     "ContainingType": "PortfolioMakerBackend.Controllers.ProjectController",
     "Method": "GetById",
-    "RelativePath": "api/Project/{ id }",
+    "RelativePath": "api/Project/{id}",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
@@ -292,11 +277,6 @@
       {
         "Name": "id",
         "Type": "System.String",
-        "IsRequired": false
-      },
-      {
-        "Name": " id ",
-        "Type": "",
         "IsRequired": true
       }
     ],

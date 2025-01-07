@@ -5,12 +5,15 @@ import {
     Text,
     SimpleGrid,
     Stack,
+    Button,
     Link as ChakraLink,
 } from '@chakra-ui/react';
 
+import { FaEdit } from "react-icons/fa";
+
 import { Link as ReactRouterLink } from 'react-router-dom'
 
-function PortfolioList({ portfolios }) {
+function PortfolioList({ portfolios, onEditPortfolio }) {
 
     return (
         <div>
@@ -47,6 +50,13 @@ function PortfolioList({ portfolios }) {
                                         <ChakraLink as={ReactRouterLink} to={`/preview/${portfolio.id}`}>
                                             {portfolio.portfolioUrl}
                                         </ChakraLink>
+                                        <Button
+                                            bg="brand.secondary.800"
+                                            color="brand.primary.800"
+                                            onClick={() => onEditPortfolio(portfolio)}
+                                        >
+                                            <FaEdit /> Edit
+                                        </Button>
                                     </Stack>
                                 </Box>
                             ))}
@@ -59,6 +69,7 @@ function PortfolioList({ portfolios }) {
 
 PortfolioList.propTypes = {
     portfolios: PropTypes.array.isRequired,
+    onEditPortfolio: PropTypes.func.isRequired,
 };
 
 export default PortfolioList;

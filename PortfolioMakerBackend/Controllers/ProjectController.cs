@@ -22,7 +22,7 @@ namespace PortfolioMakerBackend.Controllers
             return await _projectCollection.Find(p => true).ToListAsync();
         }
 
-        [HttpGet("{ id }")]
+        [HttpGet("{id}")]
         public async Task<ActionResult<Project>> GetById(string id)
         {
             var project = await _projectCollection.Find(p => p.Id == id).FirstOrDefaultAsync();
