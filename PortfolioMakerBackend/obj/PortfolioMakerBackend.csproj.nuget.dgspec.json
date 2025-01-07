@@ -60,7 +60,27 @@
             },
             "MongoDB.Driver": {
               "target": "Package",
-              "version": "[3.1.0, )"
+              "version": "[2.19.1, )"
+            },
+            "MongoDB.Driver.GridFS": {
+              "target": "Package",
+              "version": "[2.19.1, )"
+            },
+            "Quartz": {
+              "target": "Package",
+              "version": "[3.13.1, )"
+            },
+            "Quartz.AspNetCore": {
+              "target": "Package",
+              "version": "[3.13.1, )"
+            },
+            "Quartz.Extensions.DependencyInjection": {
+              "target": "Package",
+              "version": "[3.13.1, )"
+            },
+            "Serilog.AspNetCore": {
+              "target": "Package",
+              "version": "[9.0.0, )"
             },
             "Swashbuckle.AspNetCore": {
               "target": "Package",

@@ -5,6 +5,7 @@ import Navbar from './Navbar';
 import PortfolioBuilder from './CreatePortfolio/PortfolioBuilder';
 import PortfolioList from './PortfolioList';
 
+
 import {
     Box,
     Text,
@@ -48,6 +49,7 @@ function Dashboard() {
             height="100vh"
             justifyContent="center"
             alignItems="center"
+            bg="brand.primary.800"
         >
             <Navbar token={token} />
             <Box
@@ -58,7 +60,9 @@ function Dashboard() {
                     fontSize="3xl"
                     marginTop="20px"
                     mb={4}
+                    color="brand.secondary.800"
                 >
+                    
                     Welcome to your Dashboard
                 </Text>
                 <Stack
@@ -72,10 +76,12 @@ function Dashboard() {
                         height="75vh"
                         borderRadius="10px"
                         minW={{ base: "0%", md: "268px" }}
+                        bg="brand.secondary.800"
                     >
                         <Text
                             fontSize="2xl"
                             mb={4}
+                            color="brand.primary.800"
                         >
                             SIDEBAR
                         </Text>
@@ -86,6 +92,7 @@ function Dashboard() {
                         borderRadius="10px"
                         minW={{ base: "90%", md: "468px" }}
                         padding="10px"
+                        bg="brand.secondary.800"
                     >
                         {!creatingPortfolio ? (
                             <>
@@ -98,12 +105,20 @@ function Dashboard() {
                                 <PortfolioList portfolios={portfolios} />
                             </>
                         ) : (
-                            <PortfolioBuilder
-                                onPortfolioCreated={() => {
-                                    fetchPortfolios();
-                                    setCreatingPortfolio(false);
-                                }}
-                            />
+                            <>
+                                <Button
+                                    onClick={() => setCreatingPortfolio(false)}
+                                    float="right"
+                                >
+                                    Cancel Create
+                                </Button>
+                                <PortfolioBuilder
+                                    onPortfolioCreated={() => {
+                                        fetchPortfolios();
+                                        setCreatingPortfolio(false);
+                                    }}
+                                />
+                            </>
                         )}
                     </Box>
                 </Stack>

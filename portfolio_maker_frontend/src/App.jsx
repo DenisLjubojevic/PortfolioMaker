@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Dashboard from './components/Dashboard';
 import './App.css';
 import axios from 'axios';
+import PortfolioPreview from './components/PreviewPortfolio/PortfolioPreview';
 
 function App() {
     axios.interceptors.request.use((config) => {
@@ -19,8 +20,8 @@ function App() {
         <Router>
             <Routes>
                 <Route path="/" element={<Auth />} />
-
                 <Route path="/dashboard" element={<Dashboard />} />
+                <Route path="/preview/:previewId" element={<PortfolioPreview />} />
             </Routes>
         </Router>
     )

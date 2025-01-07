@@ -18,8 +18,12 @@ namespace PortfolioMakerBackend.Models
         public List<Project> Projects { get; set; } = new List<Project>();
 
         public Contact Contacts { get; set; }
+        public string PortfolioUrl { get; set; }
+        public string PreviewUrl { get; set; }
 
         public DateTime CreatedAt { get; set; }
+
+        public string? PreviewId { get; set; }
     }
 
     public class About
@@ -32,5 +36,9 @@ namespace PortfolioMakerBackend.Models
     {
         public string Email { get; set; }
         public string Phone { get; set; }
+        public string LinkedIn { get; set; }
+        public string Github { get; set; }
+        public string Twitter { get; set; }
+        public string CVFileId { get; set; }
     }
 }

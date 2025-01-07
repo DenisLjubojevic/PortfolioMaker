@@ -9,11 +9,19 @@
     <PackageJsonScriptsBuild Condition="$(PackageJsonScriptsBuild) == ''">vite build</PackageJsonScriptsBuild>
     <PackageJsonScriptsLint Condition="$(PackageJsonScriptsLint) == ''">eslint .</PackageJsonScriptsLint>
     <PackageJsonScriptsPreview Condition="$(PackageJsonScriptsPreview) == ''">vite preview</PackageJsonScriptsPreview>
-    <PackageJsonDependenciesChakraUiReact Condition="$(PackageJsonDependenciesChakraUiReact) == ''">2.10</PackageJsonDependenciesChakraUiReact>
+    <PackageJsonDependenciesChakraUiIcon Condition="$(PackageJsonDependenciesChakraUiIcon) == ''">^3.2.0</PackageJsonDependenciesChakraUiIcon>
+    <PackageJsonDependenciesChakraUiIcons Condition="$(PackageJsonDependenciesChakraUiIcons) == ''">^2.2.4</PackageJsonDependenciesChakraUiIcons>
+    <PackageJsonDependenciesChakraUiReact Condition="$(PackageJsonDependenciesChakraUiReact) == ''">^2.10.0</PackageJsonDependenciesChakraUiReact>
+    <PackageJsonDependenciesChakraUiReactContext Condition="$(PackageJsonDependenciesChakraUiReactContext) == ''">^2.1.0</PackageJsonDependenciesChakraUiReactContext>
+    <PackageJsonDependenciesChakraUiSharedUtils Condition="$(PackageJsonDependenciesChakraUiSharedUtils) == ''">^2.0.5</PackageJsonDependenciesChakraUiSharedUtils>
+    <PackageJsonDependenciesChakraUiSystem Condition="$(PackageJsonDependenciesChakraUiSystem) == ''">^2.6.2</PackageJsonDependenciesChakraUiSystem>
+    <PackageJsonDependenciesChakraUiTheme Condition="$(PackageJsonDependenciesChakraUiTheme) == ''">^3.4.6</PackageJsonDependenciesChakraUiTheme>
     <PackageJsonDependenciesEmotionReact Condition="$(PackageJsonDependenciesEmotionReact) == ''">^11.14.0</PackageJsonDependenciesEmotionReact>
     <PackageJsonDependenciesEmotionStyled Condition="$(PackageJsonDependenciesEmotionStyled) == ''">^11.14.0</PackageJsonDependenciesEmotionStyled>
     <PackageJsonDependenciesAxios Condition="$(PackageJsonDependenciesAxios) == ''">^1.7.9</PackageJsonDependenciesAxios>
-    <PackageJsonDependenciesFramerMotion Condition="$(PackageJsonDependenciesFramerMotion) == ''">^6.5.1</PackageJsonDependenciesFramerMotion>
+    <PackageJsonDependenciesChakraUiSteps Condition="$(PackageJsonDependenciesChakraUiSteps) == ''">^2.1.0</PackageJsonDependenciesChakraUiSteps>
+    <PackageJsonDependenciesFramerMotion Condition="$(PackageJsonDependenciesFramerMotion) == ''">^7.0.0</PackageJsonDependenciesFramerMotion>
+    <PackageJsonDependenciesNextThemes Condition="$(PackageJsonDependenciesNextThemes) == ''">^0.4.4</PackageJsonDependenciesNextThemes>
     <PackageJsonDependenciesPropTypes Condition="$(PackageJsonDependenciesPropTypes) == ''">^15.8.1</PackageJsonDependenciesPropTypes>
     <PackageJsonDependenciesReact Condition="$(PackageJsonDependenciesReact) == ''">^18.3.1</PackageJsonDependenciesReact>
     <PackageJsonDependenciesReactDom Condition="$(PackageJsonDependenciesReactDom) == ''">^18.3.1</PackageJsonDependenciesReactDom>
@@ -29,5 +37,6 @@
     <PackageJsonDevdependenciesEslintPluginReactRefresh Condition="$(PackageJsonDevdependenciesEslintPluginReactRefresh) == ''">^0.4.14</PackageJsonDevdependenciesEslintPluginReactRefresh>
     <PackageJsonDevdependenciesGlobals Condition="$(PackageJsonDevdependenciesGlobals) == ''">^15.12.0</PackageJsonDevdependenciesGlobals>
     <PackageJsonDevdependenciesVite Condition="$(PackageJsonDevdependenciesVite) == ''">^6.0.1</PackageJsonDevdependenciesVite>
+    <PackageJsonDevdependenciesViteTsconfigPaths Condition="$(PackageJsonDevdependenciesViteTsconfigPaths) == ''">^5.1.4</PackageJsonDevdependenciesViteTsconfigPaths>
   </PropertyGroup>
 </Project>

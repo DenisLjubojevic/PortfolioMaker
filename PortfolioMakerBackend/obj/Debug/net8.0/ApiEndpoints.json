@@ -166,6 +166,86 @@
     ]
   },
   {
+    "ContainingType": "PortfolioMakerBackend.Controllers.PortfolioController",
+    "Method": "GetCV",
+    "RelativePath": "api/Portfolio/cv/{fileId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "fileId",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "PortfolioMakerBackend.Controllers.PortfolioController",
+    "Method": "GeneratePreview",
+    "RelativePath": "api/Portfolio/preview",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "portfolioDto",
+        "Type": "PortfolioMakerBackend.DTOs.PortfolioDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "PortfolioMakerBackend.Controllers.PortfolioController",
+    "Method": "GetPreviewPortfolio",
+    "RelativePath": "api/Portfolio/preview/{portfolioId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "portfolioId",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "PortfolioMakerBackend.Controllers.PortfolioController",
+    "Method": "DeletePreview",
+    "RelativePath": "api/Portfolio/preview/{previewId}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "previewId",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "PortfolioMakerBackend.Controllers.PortfolioController",
+    "Method": "UploadCV",
+    "RelativePath": "api/Portfolio/upload-cv",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "cvFile",
+        "Type": "Microsoft.AspNetCore.Http.IFormFile",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "PortfolioMakerBackend.Controllers.ProjectController",
     "Method": "GetAll",
     "RelativePath": "api/Project",

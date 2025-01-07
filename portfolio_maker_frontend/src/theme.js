@@ -1,34 +1,146 @@
 import { extendTheme } from "@chakra-ui/react";
 
-const customTheme = extendTheme({
+const lightTheme = extendTheme({
     colors: {
         brand: {
-            light: "#f0e68c", // Light mode custom color
-            dark: "#2f4f4f",  // Dark mode custom color
+            primary: {
+                900: "#b0c7db",
+                800: "#c9dae7",
+                700: "#e3edf3",
+            },
+            secondary: {
+                900: "#54659e",
+                800: "#738ab6",
+                700: "#99b2cf",
+            },
         },
-        primary: "#6b46c1",
-        secondary: "#d53f8c",
+        login: {
+            primary: {
+                900: "#54659e",
+                800: "#738ab6",
+                700: "#99b2cf",
+                600: "#b0c7db",
+                500: "#c9dae7",
+                400: "#e3edf3",
+                300: "#ffffff",
+            }
+        },
+        background: "#ffffff",
+        text: "#333333",
+    },
+    styles: {
+        global: {
+            body: {
+                bg: "brand.background",
+                color: "brand.text",
+            },
+        },
     },
     components: {
         Button: {
-            // Define styles for Button component
-            baseStyle: (props) => ({
-                bg: props.colorMode === "dark" ? "brand.light" : "brand.dark",
-                color: "white",
+            baseStyle: {
+                bg: "brand.primary.800",
+                color: "brand.secondary.800",
                 _hover: {
-                    bg: props.colorMode === "dark" ? "gray.700" : "gray.300",
+                    bg: "brand.secondary.900",
+                    color: "brand.primary.700",
+                    transform: "scale(1.05)",
+                    border: "2px solid",
+                    borderColor: "brand.primary.900",
                 },
-            }),
-        },
-        Box: {
-            baseStyle: (props) => ({
-                bg: props.colorMode === "dark" ? "#6b46c1" : "brand.light",
-                borderColor: props.colorMode === "dark" ? "brand.dark" : "brand.light",
-                color: props.colorMode === "dark" ? "brand.light" : "brand.dark",
-            }),
-            
-        },
+                _focus: {
+                    outline: "none",
+                },
+            },
+            variants: {
+                base: {},
+                active: {
+                    bg: "brand.secondary.800",
+                    color: "brand.primary.800",
+                    _hover: {
+                        border: "2px solid",
+                        borderColor: "brand.secondary.900",
+                    }
+
+                }
+            },
+            defaultProps: {
+                variant: 'base'
+            }
+        }
     },
 });
 
-export default customTheme;
+const darkTheme = extendTheme({
+    colors: {
+        brand: {
+            primary: {
+                900: "#276228",
+                800: "#2C5F2D",
+                700: "#446945",
+            },
+            secondary: {
+                900: "#79a838",
+                800: "#97BC62",
+                700: "#a4c771",
+            },
+        },
+        login: {
+            primary: {
+                900: "#54659e",
+                800: "#738ab6",
+                700: "#99b2cf",
+                600: "#b0c7db",
+                500: "#c9dae7",
+                400: "#e3edf3",
+                300: "#ffffff",
+            }
+        },
+        background: "#1a202c",
+        text: "#ffffff",
+    },
+    styles: {
+        global: {
+            body: {
+                bg: "brand.background",
+                color: "brand.text",
+            }
+        },
+    },
+    components: {
+        Button: {
+            baseStyle: {
+                bg: "brand.primary.800",
+                color: "brand.secondary.800",
+                _hover: {
+                    bg: "brand.secondary.900",
+                    color: "brand.primary.700",
+                    transform: "scale(1.05)",
+                    border: "2px solid",
+                    borderColor: "brand.primary.900",
+                },
+                _focus: {
+                    outline: "none",
+                }
+
+            },
+            variants: {
+                base: {},
+                inverted: {
+                    bg: "brand.secondary.800",
+                    color: "brand.primary.800",
+                    _hover: {
+                        border: "2px solid",
+                        borderColor: "brand.secondary.900",
+                    }
+
+                }
+            },
+            defaultProps: {
+                variant: 'base'
+            },
+        }
+    },
+});
+
+export { lightTheme, darkTheme };

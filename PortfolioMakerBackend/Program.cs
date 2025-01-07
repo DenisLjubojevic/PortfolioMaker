@@ -6,6 +6,11 @@ using PortfolioMakerBackend.Models;
 using PortfolioMakerBackend.Services;
 using PortfolioMakerBackend.Stores;
 using System.Text;
+using Quartz;
+using Quartz.Spi;
+using Quartz.Simpl;
+using Quartz.AspNetCore;
+using Serilog;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -24,6 +29,34 @@ builder.Services.AddIdentity<User, IdentityRole>()
     .AddUserStore<MongoUserStore>()
     .AddRoleStore<MongoRoleStore>()
     .AddDefaultTokenProviders();
+
+
+builder.Services.AddQuartz(q =>
+{
+    q.UseJobFactory<MicrosoftDependencyInjectionJobFactory>();
+
+    var jobKey = new JobKey("DeleteOldPreviewsJob");
+    q.AddJob<DeleteOldPreviewsService>(opts => opts.WithIdentity(jobKey));
+
+    q.AddTrigger(opts => opts
+                    .ForJob(jobKey)
+                    .WithIdentity("DeleteOldPreviewsTrigger")
+                    .WithCronSchedule("0 0 * * * ?"));
+});
+
+builder.Services.AddQuartzServer(options =>
+{
+    options.WaitForJobsToComplete = true;
+});
+
+builder.Services.AddSingleton<IJob, DeleteOldPreviewsService>();
+builder.Services.AddSingleton<MicrosoftDependencyInjectionJobFactory>();
+
+var logger = new LoggerConfiguration()
+    .WriteTo.Console()
+    .WriteTo.File("logs/log-.txt", rollingInterval: RollingInterval.Day)
+    .CreateLogger();
+builder.Host.UseSerilog(logger);
 
 builder.Services.AddCors(options =>
 {

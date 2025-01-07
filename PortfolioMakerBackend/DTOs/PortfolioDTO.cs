@@ -11,5 +11,6 @@ namespace PortfolioMakerBackend.DTOs
         public About About { get; set; }
         public List<ProjectDTO> Projects { get; set; }
         public Contact Contacts { get; set; }
+        public string PortfolioUrl { get; set; }
     }
 }
