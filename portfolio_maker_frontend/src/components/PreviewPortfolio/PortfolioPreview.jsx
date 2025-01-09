@@ -54,6 +54,7 @@ function PortfolioPreview() {
                 display="flex"
                 alignItems="center"
                 justifyContent="center"
+                color="brand.secondary.900"
             >
                 {activeSection === "about" && <AboutSection data={portfolioData.about} />}
                 {activeSection === "projects" && (

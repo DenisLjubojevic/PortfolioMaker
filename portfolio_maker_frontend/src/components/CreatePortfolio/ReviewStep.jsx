@@ -2,6 +2,7 @@ import PropTypes from 'prop-types';
 
 import {
     Button,
+    Text,
     Link as ChakraLink,
 } from '@chakra-ui/react';
 import { Link as ReactRouterLink } from 'react-router-dom'
@@ -12,8 +13,15 @@ function ReviewStep({ previewUrl, onGeneratePreview, previewId }) {
 
             {previewUrl ? (
                 <div>
-                    <p>Preview your portfolio here:</p>
-                    <ChakraLink as={ReactRouterLink} target="_blank" to={`/preview/${previewId}`}>
+                    <Text
+                        ml={2}
+                        color="brand.primary.900"
+                        fontSize="lg"
+                        fontWeight="bold"
+                    >
+                        Preview your portfolio here:
+                    </Text>
+                    <ChakraLink as={ReactRouterLink} color="brand.primary.900" target="_blank" to={`/preview/${previewId}`}>
                         {previewUrl}
                     </ChakraLink>
                 </div>
@@ -29,10 +37,8 @@ function ReviewStep({ previewUrl, onGeneratePreview, previewId }) {
 }
 
 ReviewStep.propTypes = {
-    data: PropTypes.object.isRequired,
     previewUrl: PropTypes.string,
     onGeneratePreview: PropTypes.func.isRequired,
-    onSubmit: PropTypes.func.isRequired,
     previewId: PropTypes.string,
 }
 

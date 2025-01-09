@@ -212,12 +212,51 @@ namespace PortfolioMakerBackend.Controllers
             }
         }
 
+        [HttpGet("profile-picture/{fileId}")]
+        public async Task<IActionResult> GetProfilePicture(string fileId)
+        {
+            try
+            {
+                var objectId = new ObjectId(fileId);
+
+                var fileStream = await _gridFSBucket.OpenDownloadStreamAsync(objectId);
+
+                return File(fileStream, "image/jpeg", fileStream.FileInfo.Filename);
+            }catch(GridFSFileNotFoundException)
+            {
+                return NotFound(new { message = "Profile picture not found." });
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, new { message = "An error occurred while retrieving the profile picture.", error = ex.Message });
+            }
+        }
+
+        [HttpPost("upload-profile-picture")]
+        public async Task<IActionResult> UploadProfilePicture(IFormFile profilePicture)
+        {
+            if (profilePicture == null || profilePicture.Length == 0)
+            {
+                return BadRequest(new { message = "No file provided" });
+            }
+
+            try
+            {
+                using var stream = profilePicture.OpenReadStream();
+                var fileId = await _gridFSBucket.UploadFromStreamAsync(profilePicture.FileName, stream);
+
+                return Ok(new { message = "Profile picture uploaded successfully", fileId = fileId.ToString() });
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, new { message = "An error occurred while uploading the profile picture.", error = ex.Message });
+            }
+        }
+
+
         [HttpPut("{id}")]
         public async Task<IActionResult> Put(string id, [FromBody] PortfolioDTO updatedPortfolioDTO)
         {
-            System.Diagnostics.Debug.WriteLine("Update portfolio");
-            System.Diagnostics.Debug.WriteLine("id - " + id + ", portfolio: ");
-            System.Diagnostics.Debug.WriteLine(updatedPortfolioDTO);
             var portfolio = await _portfolios.Find(p => p.Id == id).FirstOrDefaultAsync();
             if(portfolio == null)
             {

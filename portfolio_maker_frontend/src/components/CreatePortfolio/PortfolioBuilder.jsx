@@ -16,7 +16,8 @@ import {
     StepStatus,
     StepTitle,
     StepDescription,
-    Stepper
+    Stepper,
+    useToast
 } from '@chakra-ui/react';
 
 import apiClient from '../../axiosConfig';
@@ -26,10 +27,15 @@ import ProjectsStep from './ProjectsStep';
 import ContactStep from './ContactStep';
 import ReviewStep from './ReviewStep';
 
+import { useTheme } from "../../context/ThemeContext";
 function PortfolioBuilder({ onPortfolioCreated, initialData }) {
     const [currentStep, setCurrentStep] = useState(0);
     const [portfolioData, setPortfolioData] = useState({
-        about: {},
+        about: {
+            profilePictureId: null,
+            name: '',
+            bio: '',
+        },
         projects: [],
         contacts: {
             email: '',
@@ -43,6 +49,12 @@ function PortfolioBuilder({ onPortfolioCreated, initialData }) {
     });
     const [previewId, setPreviewId] = useState(null);
     const [finalUrl, setFinalUrl] = useState(null);
+    const [validationErrors, setValidationErrors] = useState({});
+
+    const { theme } = useTheme();
+    const accentColor = theme === 'dark' ? '#276228' : '#c9dae7';
+
+    const toast = useToast();
 
     const generatePreview = async () => {
         try {
@@ -51,7 +63,11 @@ function PortfolioBuilder({ onPortfolioCreated, initialData }) {
                 description: portfolioData.about.bio || "No description provided.",
                 bannerImageUrl: portfolioData.bannerImageUrl || "URL",
                 isPublished: false,
-                about: portfolioData.about,
+                about: {
+                    profilePictureId: "677fe3af776f9a7959c28928", //Id for default profile picture
+                    name: portfolioData.about.name,
+                    bio: portfolioData.about.bio,
+                },
                 projects: portfolioData.projects,
                 contacts: {
                     email: portfolioData.contacts.email,
@@ -59,7 +75,7 @@ function PortfolioBuilder({ onPortfolioCreated, initialData }) {
                     linkedin: portfolioData.contacts.linkedIn,
                     github: portfolioData.contacts.github,
                     twitter: portfolioData.contacts.twitter,
-                    cvfileid: "No cv",
+                    CVFileId: "No cv",
                 },
                 createdAt: new Date().toISOString(),
                 portfolioUrl: "",
@@ -100,7 +116,11 @@ function PortfolioBuilder({ onPortfolioCreated, initialData }) {
             description: portfolioData.about.bio || "No description provided.",
             bannerImageUrl: portfolioData.bannerImageUrl || "URL",
             isPublished: false,
-            about: portfolioData.about,
+            about: {
+                profilePictureId: "677fe3af776f9a7959c28928", //Id for default profile picture
+                name: portfolioData.about.name,
+                bio: portfolioData.about.bio,
+            },
             projects: portfolioData.projects,
             contacts: {
                 email: portfolioData.contacts.email,
@@ -108,80 +128,171 @@ function PortfolioBuilder({ onPortfolioCreated, initialData }) {
                 linkedin: portfolioData.contacts.linkedIn,
                 github: portfolioData.contacts.github,
                 twitter: portfolioData.contacts.twitter,
-                cvfileid: "No cv",
+                CVFileId: "No cv",
             },
             createdAt: new Date().toISOString(),
             portfolioUrl: portfolioData.previewUrl,
         };
 
-        if (initialData) {
-            try {
-                console.log("Initial id - " + initialData.id);
-                console.log("updating - ");
-                console.log(payload);
-                const response = await apiClient.put(`https://localhost:7146/api/portfolio/${initialData.id}`, payload);
+        let allErrors = {};
+        steps.forEach((_, index) => {
+            const stepErrors = validateStep(index);
+            allErrors = { ...allErrors, ...stepErrors };
+        });
 
-                if (previewId) {
-                    await apiClient.delete(`https://localhost:7146/api/portfolio/preview/${previewId}`);
+        setValidationErrors(allErrors);
+
+        if (Object.keys(allErrors).length === 0) {
+            if (initialData) {
+                if (portfolioData.about.profilePictureId) {
+                    const formData = new FormData();
+                    formData.append("profilePicture", portfolioData.about.profilePictureId);
+
+                    try {
+                        const response = await apiClient.post(`https://localhost:7146/api/portfolio/upload-profile-picture`, formData, {
+                            headers: { 'Content-Type': 'multipart/form-data' },
+                        });
+                        payload.about.profilePictureId = response.data.fileId;
+                    } catch (error) {
+                        toast({
+                            title: "Error uploading porfile picture",
+                            description: error.message || "An unexpected error occurred.",
+                            status: "error",
+                            duration: 5000,
+                            isClosable: true,
+                        });
+                    }
                 }
 
-                if (onPortfolioCreated) {
-                    onPortfolioCreated(response.data);
-                }
+                if (portfolioData.contacts.cv) {
+                    const formData = new FormData();
+                    formData.append('cvFile', portfolioData.contacts.cv);
 
-                alert("Portfolio updated successfully!");
-            } catch (error) {
-                console.error('Failed to edit portfolio:', error.response.data.errors);
-                alert('Error editing portfolio. Please try again.');
-            }
-        } else {
-            if (portfolioData.contacts.cv) {
-                const formData = new FormData();
-                formData.append('cv', portfolioData.contacts.cv);
+                    try {
+                        const response = await apiClient.post(`https://localhost:7146/api/portfolio/upload-cv`, formData, {
+                            headers: { 'Content-Type': 'multipart/form-data' },
+                        });
+                        payload.contacts.CVFileId = response.data.fileId;
+                    } catch (error) {
+                        toast({
+                            title: "Error uploading CV",
+                            description: error.message || "An unexpected error occurred.",
+                            status: "error",
+                            duration: 5000,
+                            isClosable: true,
+                        });
+                    }
+                }
 
                 try {
-                    const response = await apiClient.post(`https://localhost:7146/api/portfolio/upload-cv`, formData, {
-                        headers: { 'Content-Type': 'multipart/form-data' },
+                    const response = await apiClient.put(`https://localhost:7146/api/portfolio/${initialData.id}`, payload);
+
+                    if (previewId) {
+                        await apiClient.delete(`https://localhost:7146/api/portfolio/preview/${previewId}`);
+                    }
+
+                    if (onPortfolioCreated) {
+                        onPortfolioCreated(response.data);
+                    }
+
+                    toast({
+                        title: "Portfolio created",
+                        description: "Portfolio created successfully!",
+                        status: "information",
+                        duration: 3000,
+                        isClosable: true,
                     });
-                    payload.contacts.cv = response.data.fileId;
                 } catch (error) {
-                    console.error('Failed to upload CV:', error.response.data.errors);
+                    toast({
+                        title: "Error editing portfolio",
+                        description: error.message || "An unexpected error occurred.",
+                        status: "error",
+                        duration: 5000,
+                        isClosable: true,
+                    });
+                }
+            } else {
+                if (portfolioData.about.profilePictureId) {
+                    const formData = new FormData();
+                    formData.append("profilePicture", portfolioData.about.profilePictureId);
+
+                    try {
+                        const response = await apiClient.post(`https://localhost:7146/api/portfolio/upload-profile-picture`, formData, {
+                            headers: { 'Content-Type': 'multipart/form-data' },
+                        });
+                        payload.about.profilePictureId = response.data.fileId;
+                    } catch (error) {
+                        toast({
+                            title: "Error uploading porfile picture",
+                            description: error.message || "An unexpected error occurred.",
+                            status: "error",
+                            duration: 5000,
+                            isClosable: true,
+                        });
+                    }
+                }
+
+                if (portfolioData.contacts.cv) {
+                    const formData = new FormData();
+                    formData.append('cvFile', portfolioData.contacts.cv);
+
+                    try {
+                        const response = await apiClient.post(`https://localhost:7146/api/portfolio/upload-cv`, formData, {
+                            headers: { 'Content-Type': 'multipart/form-data' },
+                        });
+                        payload.contacts.CVFileId = response.data.fileId;
+                    } catch (error) {
+                        toast({
+                            title: "Error uploading CV",
+                            description: error.message || "An unexpected error occurred.",
+                            status: "error",
+                            duration: 5000,
+                            isClosable: true,
+                        });
+                    }
+                }
+
+                try {
+                    const response = await apiClient.post('https://localhost:7146/api/portfolio/create', payload);
+                    setFinalUrl(response.data.url);
+                    const portfolioId = response.data.id;
+
+                    for (const project of portfolioData.projects) {
+                        await apiClient.post(`https://localhost:7146/api/portfolio/${portfolioId}/projects`, project);
+                    }
+
+                    if (previewId) {
+                        await apiClient.delete(`https://localhost:7146/api/portfolio/preview/${previewId}`);
+                    }
+
+                    if (onPortfolioCreated) {
+                        onPortfolioCreated(response.data);
+                    }
+                    toast({
+                        title: "Portfolio created",
+                        description: "Portfolio created successfully!",
+                        status: "success",
+                        duration: 3000,
+                        isClosable: true,
+                    });
+                } catch (error) {
+                    toast({
+                        title: "Error creating portfolio",
+                        description: error.message || "An unexpected error occurred.",
+                        status: "error",
+                        duration: 5000,
+                        isClosable: true,
+                    });
                 }
             }
-
-            console.log(payload);
-            if (!payload.projects || payload.projects.length === 0) {
-                alert("You must add at least one project.");
-                return;
-            }
-
-            try {
-                const response = await apiClient.post('https://localhost:7146/api/portfolio/create', payload);
-                setFinalUrl(response.data.url);
-                const portfolioId = response.data.id;
-
-                const newProjects = portfolioData.projects.filter(project => project.isNew);
-                for (const project of newProjects) {
-                    const projectPayload = {
-                        ...project,
-                        portfolioId: portfolioId,
-                    };
-
-                    await apiClient.post(`https://localhost:7146/api/portfolio/${portfolioId}/projects`, projectPayload);
-                }
-
-                if (previewId) {
-                    await apiClient.delete(`https://localhost:7146/api/portfolio/preview/${previewId}`);
-                }
-
-                if (onPortfolioCreated) {
-                    onPortfolioCreated(response.data);
-                }
-                alert('Portfolio created successfully!');
-            } catch (error) {
-                console.error('Failed to create portfolio:', error.response.data.errors);
-                alert('Error creating portfolio. Please try again.');
-            }
+        } else {
+            toast({
+                title: "Validation error",
+                description: "Please insert all requested informations!",
+                status: "error",
+                duration: 3000,
+                isClosable: true,
+            });
         }
     }
 
@@ -190,19 +301,19 @@ function PortfolioBuilder({ onPortfolioCreated, initialData }) {
             id: 1,
             label: 'About Me',
             description: 'Add deatils about you',
-            component: <AboutStep data={portfolioData.about} setData={(data) => updateData('about', data)} />
+            component: <AboutStep data={portfolioData.about} setData={(data) => updateData('about', data)} errors={validationErrors} />
         },
         {
             id: 2,
             label: 'Projects',
             description: 'Add your best projects',
-            component: <ProjectsStep data={portfolioData.projects} setData={(data) => updateData('projects', data)} />
+            component: <ProjectsStep data={portfolioData.projects} setData={(data) => updateData('projects', data)} errors={validationErrors} />
         },
         {
             id: 3,
             label: 'Contact Info',
             description: 'Add info to reach you',
-            component: <ContactStep data={portfolioData.contacts} setData={(data) => updateData('contacts', data)} />
+            component: <ContactStep data={portfolioData.contacts} setData={(data) => updateData('contacts', data)} errors={validationErrors} />
         },
         {
             id: 4,
@@ -216,6 +327,32 @@ function PortfolioBuilder({ onPortfolioCreated, initialData }) {
         },
     ];
 
+    const validateStep = (step) => {
+        const errors = {};
+        if (step === 0) {
+            if (!portfolioData.about.name) {
+                errors.name = 'Name is required!';
+            }
+            if (!portfolioData.about.bio) {
+                errors.bio = 'Bio is required!';
+            }
+        } else if (step === 1) {
+            if (!portfolioData.projects || portfolioData.projects.length === 0) {
+                errors.projects = 'At least one project is required.';
+            }
+        } else if (step === 2) {
+            const { email, phone } = portfolioData.contacts;
+            if (!email) {
+                errors.email = 'Email is required.';
+            }
+            if (!phone) {
+                errors.phone = 'Phone number is required.';
+            }
+        }
+
+        return errors;
+    }
+
     const updateData = (step, data) => {
         setPortfolioData((prevData) => ({
             ...prevData,
@@ -224,8 +361,13 @@ function PortfolioBuilder({ onPortfolioCreated, initialData }) {
     };
 
     const handleNext = () => {
-        if (currentStep < steps.length - 1) {
-            setCurrentStep((prev) => prev + 1);
+        const errors = validateStep(currentStep);
+        setValidationErrors(errors);
+
+        if (Object.keys(errors).length === 0) {
+            if (currentStep < steps.length - 1) {
+                setCurrentStep((prev) => prev + 1);
+            }
         }
     }
 
@@ -264,10 +406,13 @@ function PortfolioBuilder({ onPortfolioCreated, initialData }) {
                 <Stepper
                     index={currentStep}
                     mb={6}
+                    sx={{
+                        "--stepper-accent-color": `${accentColor}`,
+                    }}
                 >
                     {steps.map((step, index) => (
                         <Step key={index} display="flex" flexDirection="column" >
-                            <StepIndicator bg="brand.primary.700">
+                            <StepIndicator backgroundColor="brand.primary.700" borderColor='brand.primary.800'>
                                 <StepStatus
                                     complete={<StepIcon color="black"/>}
                                     incomplete={<StepNumber color="brand.secondary.900"/>}
@@ -285,7 +430,7 @@ function PortfolioBuilder({ onPortfolioCreated, initialData }) {
                     ))}
                 </Stepper>
 
-                <Box mt={4} mb={8} height="12rem">
+                <Box mt={4} mb={8} height="10rem">
                     {steps[currentStep].component}
                 </Box>
 

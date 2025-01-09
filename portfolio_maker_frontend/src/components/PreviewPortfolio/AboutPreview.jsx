@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import { Box, Text } from "@chakra-ui/react";
+import { Box, Text, Image } from "@chakra-ui/react";
 
 function AboutPreview({ data }) {
     return (
@@ -13,6 +13,16 @@ function AboutPreview({ data }) {
             borderRadius="md"
             fontSize="2xl"
         >
+            {data.profilePictureId && (
+                <Image
+                    src={`https://localhost:7146/api/portfolio/profile-picture/${data.profilePictureId}`}
+                    alt="Profile Picture"
+                    boxSize="150px"
+                    borderRadius="full"
+                    objectFit="cover"
+                />
+            )}
+
             <Text fontSize="3xl" fontWeight="bold" mb={4}>
                 { data.name }
             </Text>
@@ -25,6 +35,7 @@ function AboutPreview({ data }) {
 
 AboutPreview.propTypes = {
     data: PropTypes.shape({
+        profilePictureId: PropTypes.string,
         name: PropTypes.string,
         bio: PropTypes.string,
     }).isRequired,

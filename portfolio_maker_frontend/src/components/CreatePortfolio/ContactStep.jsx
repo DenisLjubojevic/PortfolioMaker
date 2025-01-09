@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import {
     VStack,
     Flex,
+    Text,
     Input,
     Button,
     InputGroup,
@@ -10,13 +11,15 @@ import {
 } from '@chakra-ui/react';
 import { FaLinkedin, FaGithub, FaTwitter, FaEnvelope, FaPhone } from 'react-icons/fa';
 
-function ContactStep({ data, setData }) {
+function ContactStep({ data, setData, errors }) {
     const handleChange = (e) => {
         setData({ ...data, [e.target.name]: e.target.value });
     };
 
     const handleFileUpload = (e) => {
         const file = e.target.files[0];
+        console.log("Setting CV - ");
+        console.log(file);
         setData({ ...data, cv: file });
     };
 
@@ -34,58 +37,107 @@ function ContactStep({ data, setData }) {
                 width="100%"
                 height="100%"
             >
-                <InputGroup>
-                    <InputLeftElement
-                        pointerEvents="none"
+                <Flex
+                    position="relative"
+                >
+                    <InputGroup
+                        width="220px"
                     >
-                        <FaEnvelope color="gray" />
-                    </InputLeftElement>
-                    <Input
-                        type="email"
-                        name="email"
-                        placeholder="Email"
-                        value={data.email || ''}
-                        onChange={handleChange}
-                        bg="brand.primary.800"
-                        color="brand.secondary.900"
-                        _placeholder={{
-                            color: "brand.secondary.900",
+                        <InputLeftElement
+                            pointerEvents="none"
+                        >
+                            <FaEnvelope color="gray" />
+                        </InputLeftElement>
+                        <Input
+                            type="email"
+                            name="email"
+                            placeholder="Email"
+                            value={data.email || ''}
+                            onChange={handleChange}
+                            bg="brand.primary.800"
+                            color="brand.secondary.900"
+                            borderColor="brand.primary.900"
+                            isInvalid={!!errors.email}
+                            _placeholder={{
+                                color: "brand.secondary.900",
 
-                        }}
-                        outline="0"
-                        _focus={{
-                            boxShadow: "none",
-                            border: "2px solid",
-                            borderColor: "brand.secondary.900",
-                        }}
-                    />
-                </InputGroup>
-                <InputGroup>
-                    <InputLeftElement
-                        pointerEvents="none"
+                            }}
+                            outline="0"
+                            _focus={{
+                                boxShadow: "none",
+                                border: "2px solid",
+                                borderColor: "brand.secondary.900",
+                            }}
+                            _invalid={{
+                                borderColor: "red.500",
+                                boxShadow: "0 0 0 1px red.500",
+                            }}
+                        />
+                    </InputGroup>
+                    <Text
+                        ml={2}
+                        color="brand.primary.700"
+                        fontSize="lg"
+                        fontWeight="bold"
+                        title="This field is required!"
                     >
-                        <FaPhone color="gray" />
-                    </InputLeftElement>
-                    <Input
-                        type="text"
-                        name="phone"
-                        placeholder="Phone"
-                        value={data.phone || ''}
-                        onChange={handleChange}
-                        bg="brand.primary.800"
-                        color="brand.secondary.900"
-                        _placeholder={{
-                            color: "brand.secondary.900",
+                        *
+                    </Text>
 
-                        }}
-                        _focus={{
-                            boxShadow: "none",
-                            border: "2px solid",
-                            borderColor: "brand.secondary.900",
-                        }}
-                    />
-                </InputGroup>
-                <InputGroup>
+                </Flex>
+                
+                <Flex
+                    position="relative"
+                >
+                    <InputGroup
+                        width="220px"
+                    >
+                        <InputLeftElement
+                            pointerEvents="none"
+                        >
+                            <FaPhone color="gray" />
+                        </InputLeftElement>
+                        <Input
+                            type="text"
+                            name="phone"
+                            placeholder="Phone"
+                            value={data.phone || ''}
+                            onChange={handleChange}
+                            bg="brand.primary.800"
+                            color="brand.secondary.900"
+                            borderColor="brand.primary.900"
+                            isInvalid={!!errors.phone}
+                            _placeholder={{
+                                color: "brand.secondary.900",
+
+                            }}
+                            _focus={{
+                                boxShadow: "none",
+                                border: "2px solid",
+                                borderColor: "brand.secondary.900",
+                            }}
+                            _invalid={{
+                                borderColor: "red.500",
+                                boxShadow: "0 0 0 1px red.500",
+                            }}
+                        />
+                    </InputGroup>
+                    <Text
+                        ml={2}
+                        color="brand.primary.700"
+                        fontSize="lg"
+                        fontWeight="bold"
+                        title="This field is required!"
+                    >
+                        *
+                    </Text>
+                </Flex>
+                
+
+                <InputGroup
+                    width="220px"
+                    right="9px"
+                >
                     <InputLeftElement
                         pointerEvents="none"
                     >
@@ -99,6 +151,7 @@ function ContactStep({ data, setData }) {
                         onChange={handleChange}
                         bg="brand.primary.800"
                         color="brand.secondary.900"
+                        borderColor="brand.primary.900"
                         _placeholder={{
                             color: "brand.secondary.900",
 
@@ -110,7 +163,10 @@ function ContactStep({ data, setData }) {
                         }}
                     />
                 </InputGroup>
-                <InputGroup>
+                <InputGroup
+                    width="220px"
+                    right="9px"
+                >
                     <InputLeftElement
                         pointerEvents="none"
                     >
@@ -124,6 +180,7 @@ function ContactStep({ data, setData }) {
                         onChange={handleChange}
                         bg="brand.primary.800"
                         color="brand.secondary.900"
+                        borderColor="brand.primary.900"
                         _placeholder={{
                             color: "brand.secondary.900",
 
@@ -135,7 +192,10 @@ function ContactStep({ data, setData }) {
                         }}
                     />
                 </InputGroup>
-                <InputGroup>
+                <InputGroup
+                    width="220px"
+                    right="9px"
+                >
                     <InputLeftElement
                         pointerEvents="none"
                     >
@@ -149,6 +209,7 @@ function ContactStep({ data, setData }) {
                         onChange={handleChange}
                         bg="brand.primary.800"
                         color="brand.secondary.900"
+                        borderColor="brand.primary.900"
                         _placeholder={{
                             color: "brand.secondary.900",
 
@@ -162,6 +223,7 @@ function ContactStep({ data, setData }) {
                 </InputGroup>
 
                 <Button
+                    width="300px"
                     as="label"
                     htmlFor="cv-upload"
                     bg="brand.primary.800"
@@ -170,7 +232,6 @@ function ContactStep({ data, setData }) {
                         bg: "brand.primary.700",
                     }}
                     padding="5px"
-                    width="100%"
                     textAlign="center"
                 >
                     {data.cv ? data.cv.name : "Upload CV"}
@@ -198,6 +259,7 @@ ContactStep.propTypes = {
         cv: PropTypes.object,
     }).isRequired,
     setData: PropTypes.func.isRequired,
+    errors: PropTypes.object.isRequired,
 }
 
 export default ContactStep;

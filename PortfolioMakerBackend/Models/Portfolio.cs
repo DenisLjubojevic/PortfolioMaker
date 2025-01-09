@@ -30,6 +30,7 @@ namespace PortfolioMakerBackend.Models
     {
         public string Name { get; set; }
         public string Bio { get; set; }
+        public string ProfilePictureId { get; set; }
     }
 
     public class Contact

@@ -4,7 +4,6 @@ import Dashboard from './components/Dashboard';
 import './App.css';
 import axios from 'axios';
 import PortfolioPreview from './components/PreviewPortfolio/PortfolioPreview';
-
 function App() {
     axios.interceptors.request.use((config) => {
         const token = localStorage.getItem('authToken');

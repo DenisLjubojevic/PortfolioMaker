@@ -37,6 +37,52 @@ const lightTheme = extendTheme({
         },
     },
     components: {
+        Stepper: {
+            baseStyle: {
+                step: {
+                    flexDirection: "column",
+                },
+                stepIndicator: {
+                    bg: "brand.primary.700",
+                    borderColor: "brand.primary.900",
+                    borderWidth: "2px",
+                    _active: {
+                        bg: "brand.secondary.700",
+                        borderColor: "brand.secondary.900",
+                    },
+                    _complete: {
+                        bg: "brand.secondary.900",
+                        borderColor: "brand.secondary.800",
+                    },
+                    _hover: {
+                        bg: "brand.primary.900",
+                    },
+                },
+                stepTitle: {
+                    color: "brand.primary.900",
+                    fontWeight: "bold",
+                },
+                stepDescription: {
+                    color: "brand.primary.700",
+                    fontSize: "sm",
+                },
+                stepSeparator: {
+                    borderColor: "brand.secondary.900",
+                },
+            },
+            variants: {
+                solid: {
+                    stepIndicator: {
+                        bg: "brand.primary.800",
+                        color: "white",
+                        borderColor: "brand.secondary.900",
+                    },
+                },
+            },
+            defaultProps: {
+                variant: "solid",
+            },
+        },
         Button: {
             baseStyle: {
                 bg: "brand.primary.800",
@@ -108,6 +154,52 @@ const darkTheme = extendTheme({
         },
     },
     components: {
+        Stepper: {
+            baseStyle: {
+                step: {
+                    flexDirection: "column",
+                },
+                stepIndicator: {
+                    bg: "brand.primary.700",
+                    borderColor: "brand.primary.900",
+                    borderWidth: "2px",
+                    _active: {
+                        bg: "brand.secondary.700",
+                        borderColor: "brand.secondary.900",
+                    },
+                    _complete: {
+                        bg: "brand.secondary.900",
+                        borderColor: "brand.secondary.800",
+                    },
+                    _hover: {
+                        bg: "brand.primary.900",
+                    },
+                },
+                stepTitle: {
+                    color: "brand.primary.900",
+                    fontWeight: "bold",
+                },
+                stepDescription: {
+                    color: "brand.primary.700",
+                    fontSize: "sm",
+                },
+                stepSeparator: {
+                    borderColor: "brand.secondary.900",
+                },
+            },
+            variants: {
+                solid: {
+                    stepIndicator: {
+                        bg: "brand.primary.800",
+                        color: "white",
+                        borderColor: "brand.secondary.900",
+                    },
+                },
+            },
+            defaultProps: {
+                variant: "solid",
+            },
+        },
         Button: {
             baseStyle: {
                 bg: "brand.primary.800",
@@ -139,7 +231,7 @@ const darkTheme = extendTheme({
             defaultProps: {
                 variant: 'base'
             },
-        }
+        },
     },
 });
 

@@ -21,7 +21,7 @@ import {
 import { useState } from 'react';
 import { CloseIcon } from '@chakra-ui/icons'
 
-function ProjectsStep({ data, setData }) {
+function ProjectsStep({ data, setData, errors }) {
     const { isOpen, onOpen, onClose } = useDisclosure();
     const [newProject, setNewProject] = useState({
         title: '',
@@ -100,6 +100,7 @@ function ProjectsStep({ data, setData }) {
                     }}>
                     Add Project
                 </Button>
+                {errors.projects && <Text color="red.500" bg="gray.300" padding="5px" borderRadius="10px" fontSize="sm">{errors.projects}</Text>}
             </VStack>
 
             <Modal isOpen={isOpen} onClose={onClose} isCentered>
@@ -116,6 +117,7 @@ function ProjectsStep({ data, setData }) {
                                 onChange={(e) => handleNewProjectChange('title', e.target.value)}
                                 bg='brand.primary.800'
                                 color="brand.secondary.800"
+                                borderColor="brand.primary.900"
                                 outline="0"
                                 _placeholder={{
                                     color: "brand.secondary.900",
@@ -133,6 +135,7 @@ function ProjectsStep({ data, setData }) {
                                 onChange={(e) => handleNewProjectChange('description', e.target.value)}
                                 bg='brand.primary.800'
                                 color="brand.secondary.800"
+                                borderColor="brand.primary.900"
                                 _placeholder={{
                                     color: "brand.secondary.900",
 
@@ -149,6 +152,7 @@ function ProjectsStep({ data, setData }) {
                                 onChange={(e) => handleNewProjectChange('technologies', e.target.value)}
                                 bg='brand.primary.800'
                                 color="brand.secondary.800"
+                                borderColor="brand.primary.900"
                                 outline="0"
                                 _placeholder={{
                                     color: "brand.secondary.900",
@@ -166,6 +170,7 @@ function ProjectsStep({ data, setData }) {
                                 onChange={(e) => handleNewProjectChange('demoUrl', e.target.value)}
                                 bg='brand.primary.800'
                                 color="brand.secondary.800"
+                                borderColor="brand.primary.900"
                                 outline="0"
                                 _placeholder={{
                                     color: "brand.secondary.900",
@@ -183,6 +188,7 @@ function ProjectsStep({ data, setData }) {
                                 onChange={(e) => handleNewProjectChange('repoUrl', e.target.value)}
                                 bg='brand.primary.800'
                                 color="brand.secondary.800"
+                                borderColor="brand.primary.900"
                                 outline="0"
                                 _placeholder={{
                                     color: "brand.secondary.900",
@@ -225,6 +231,7 @@ ProjectsStep.propTypes = {
         })
     ).isRequired,
     setData: PropTypes.func.isRequired,
+    errors: PropTypes.object.isRequired,
 }
 
 export default ProjectsStep;

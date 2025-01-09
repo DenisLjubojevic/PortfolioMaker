@@ -127,7 +127,12 @@ function Dashboard() {
                         ) : (
                             <>
                                 <Button
-                                        onClick={handleCancle}
+                                    position="absolute"
+                                    right="40px"
+                                    top="150px"
+                                    bg="brand.secondary.800"
+                                    color="brand.primary.800"
+                                    onClick={handleCancle}
                                     float="right"
                                 >
                                     Cancel

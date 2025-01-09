@@ -5,9 +5,10 @@ import {
     Flex,
     Input,
     Textarea,
+    Text
 } from '@chakra-ui/react';
 
-function AboutStep({ data, setData }) {
+function AboutStep({ data, setData, errors }) {
 
     const handleChange = (e) => {
         setData({ ...data, [e.target.name]: e.target.value });
@@ -24,42 +25,109 @@ function AboutStep({ data, setData }) {
                 spacing={4}
                 p="1rem"
             >
-                <Input
-                    type="text"
-                    name="name"
-                    placeholder="Your Name"
-                    value={data.name || ''}
-                    onChange={handleChange}
-                    bg='brand.primary.800'
-                    color="brand.secondary.900"
-                    outline="0"
-                    _placeholder={{
-                        color: "brand.secondary.900",
+                <Flex
+                    position="relative"
+                >
+                    <Input
+                        width="220px"
+                        type="text"
+                        name="name"
+                        placeholder="Your Name"
+                        value={data.name || ''}
+                        onChange={handleChange}
+                        bg='brand.primary.800'
+                        color="brand.secondary.900"
+                        outline="0"
+                        borderColor="brand.primary.900"
+                        isInvalid={!!errors.name}
+                        _placeholder={{
+                            color: "brand.secondary.900",
 
-                    }}
-                    _focus={{
-                        boxShadow: "none",
-                        border: "2px solid",
-                        borderColor: "brand.secondary.900",
-                    }}
-                />
-                <Textarea
-                    name="bio"
-                    placeholder="Short Bio"
-                    value={data.bio || ''}
-                    onChange={handleChange}
-                    bg='brand.primary.800'
-                    color="brand.secondary.900"
-                    _placeholder={{
-                        color: "brand.secondary.900",
+                        }}
+                        _focus={{
+                            boxShadow: "none",
+                            border: "2px solid",
+                            borderColor: "brand.secondary.900",
+                        }}
+                        _invalid={{
+                            borderColor: "red.500",
+                            boxShadow: "0 0 0 1px red.500",
+                        }}
+                    />
+                    <Text
+                        ml={2}
+                        color="brand.primary.700"
+                        fontSize="lg"
+                        fontWeight="bold"
+                        title="This field is required!"
+                    >
+                        *
+                    </Text>
+                </Flex>
 
-                    }}
-                    _focus={{
-                        boxShadow: "none",
-                        border: "2px solid",
-                        borderColor: "brand.secondary.900",
-                    }}
-                />
+                <Flex
+                    position="relative"
+                >
+                    <Textarea
+                        width="220px"
+                        name="bio"
+                        placeholder="Short Bio"
+                        value={data.bio || ''}
+                        onChange={handleChange}
+                        borderColor="brand.primary.900"
+                        bg='brand.primary.800'
+                        color="brand.secondary.900"
+                        isInvalid={!!errors.bio}
+                        _placeholder={{
+                            color: "brand.secondary.900",
+
+                        }}
+                        _focus={{
+                            boxShadow: "none",
+                            border: "2px solid",
+                            borderColor: "brand.secondary.900",
+                        }}
+                        _invalid={{
+                            borderColor: "red.500",
+                            boxShadow: "0 0 0 1px red.500",
+                        }}
+                    />
+                    <Text
+                        ml={2}
+                        color="brand.primary.700"
+                        fontSize="lg"
+                        fontWeight="bold"
+                        title="This field is required!"
+                    >
+                        *
+                    </Text>
+                </Flex>
+
+                <Flex flexDirection="column">
+                    <Text
+                        ml={2}
+                        color="brand.primary.700"
+                        fontSize="lg"
+                        fontWeight="bold"
+                    >
+                        Profile Picture
+                    </Text>
+                    <Input
+                        width="420px"
+                        padding="5px"
+                        type="file"
+                        name="profilePicture"
+                        accept="image/*"
+                        onChange={(e) => setData({ ...data, profilePictureId: e.target.files[0] })}
+                        bg="brand.primary.800"
+                        color="brand.secondary.900"
+                        outline="0"
+                        borderColor="brand.primary.900"
+                        _placeholder={{
+                            color: "brand.secondary.900",
+                        }}
+                    />
+                </Flex>
             </VStack>
         </Flex>
     );
@@ -67,10 +135,12 @@ function AboutStep({ data, setData }) {
 
 AboutStep.propTypes = {
     data: PropTypes.shape({
+        profilePictureId: PropTypes.string,
         name: PropTypes.string,
         bio: PropTypes.string,
     }).isRequired,
     setData: PropTypes.func.isRequired,
+    errors: PropTypes.object.isRequired,
 };
 
 export default AboutStep;
