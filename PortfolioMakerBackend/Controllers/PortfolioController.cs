@@ -105,6 +105,7 @@ namespace PortfolioMakerBackend.Controllers
             await _projects.InsertOneAsync(project);
 
             portfolio.Projects.Add(project);
+            System.Diagnostics.Debug.WriteLine("Updated portfolio " + portfolio.Projects.Count);
             await _portfolios.ReplaceOneAsync(p => p.Id == portfolioId, portfolio);
 
             return Ok(project);
@@ -264,22 +265,43 @@ namespace PortfolioMakerBackend.Controllers
             }
 
             var newProjects = updatedPortfolioDTO.Projects
-                    .Where(dto => !portfolio.Projects.Any(p => p.Description == dto.Description)) 
+                    .Where(dto => !portfolio.Projects.Any(p => p.Description == dto.Description))
                     .ToList();
+            System.Diagnostics.Debug.WriteLine("new projects - " + newProjects.Count);
 
-            foreach(var projectDTO in newProjects)
+            var oldProjects = portfolio.Projects
+                    .Where(p => updatedPortfolioDTO.Projects.Any(dto => dto.Description == p.Description))
+                    .ToList();
+            System.Diagnostics.Debug.WriteLine("old projects - " + oldProjects.Count);
+
+            var projectsToRemove = portfolio.Projects
+                    .Where(project => !oldProjects.Any(oldProject => oldProject.Equals(project)) &&
+                                      !newProjects.Any(newProject => newProject.Equals(project)))
+                    .ToList();
+            System.Diagnostics.Debug.WriteLine("projects to remove - " + projectsToRemove.Count);
+
+            foreach (var project in projectsToRemove)
             {
-                AddProjectToPortfolio(id, projectDTO);
+                System.Diagnostics.Debug.WriteLine("Removing project " + project.Title);
+                portfolio.Projects.Remove(project);
+                _projects.DeleteOne(p => p.Id == project.Id);
             }
 
             portfolio.Name = updatedPortfolioDTO.Name;
             portfolio.Description = updatedPortfolioDTO.Description;
             portfolio.BannerImageUrl = updatedPortfolioDTO.BannerImageUrl;
             portfolio.IsPublished = updatedPortfolioDTO.IsPublished;
-            portfolio.About = updatedPortfolioDTO.About;
+            portfolio.About = updatedPortfolioDTO.About;    
             portfolio.Contacts = updatedPortfolioDTO.Contacts;
 
-            _portfolios.ReplaceOneAsync(p => p.Id == id, portfolio);
+            await _portfolios.ReplaceOneAsync(p => p.Id == id, portfolio);
+
+            foreach (var projectDTO in newProjects)
+            {
+                System.Diagnostics.Debug.WriteLine("Adding project " + projectDTO.Title);
+                AddProjectToPortfolio(id, projectDTO);
+            }
+
             return Ok(portfolio);
         }
 

@@ -43,7 +43,7 @@ function PortfolioBuilder({ onPortfolioCreated, initialData }) {
             linkedIn: '',
             github: '',
             twitter: '',
-            cv: null,
+            cvFileId: "No cv",
         },
         previewUrl: null,
     });
@@ -64,7 +64,7 @@ function PortfolioBuilder({ onPortfolioCreated, initialData }) {
                 bannerImageUrl: portfolioData.bannerImageUrl || "URL",
                 isPublished: false,
                 about: {
-                    profilePictureId: "677fe3af776f9a7959c28928", //Id for default profile picture
+                    profilePictureId: portfolioData.about.profilePictureId || "677fe3af776f9a7959c28928", //Id for default profile picture
                     name: portfolioData.about.name,
                     bio: portfolioData.about.bio,
                 },
@@ -84,7 +84,6 @@ function PortfolioBuilder({ onPortfolioCreated, initialData }) {
             const response = await apiClient.post('https://localhost:7146/api/portfolio/preview', {
                 ...payload
             });
-            console.log("Preview id - " + response.data.previewId);
             setPreviewId(response.data.previewId);
             setPortfolioData((prevData) => ({
                 ...prevData,
@@ -128,7 +127,7 @@ function PortfolioBuilder({ onPortfolioCreated, initialData }) {
                 linkedin: portfolioData.contacts.linkedIn,
                 github: portfolioData.contacts.github,
                 twitter: portfolioData.contacts.twitter,
-                CVFileId: "No cv",
+                CVFileId: portfolioData.contacts.cvFileId,
             },
             createdAt: new Date().toISOString(),
             portfolioUrl: portfolioData.previewUrl,
@@ -144,7 +143,7 @@ function PortfolioBuilder({ onPortfolioCreated, initialData }) {
 
         if (Object.keys(allErrors).length === 0) {
             if (initialData) {
-                if (portfolioData.about.profilePictureId) {
+                if (portfolioData.about.profilePictureId !== "677fe3af776f9a7959c28928") {
                     const formData = new FormData();
                     formData.append("profilePicture", portfolioData.about.profilePictureId);
 
@@ -164,9 +163,9 @@ function PortfolioBuilder({ onPortfolioCreated, initialData }) {
                     }
                 }
 
-                if (portfolioData.contacts.cv) {
+                if (portfolioData.contacts.cvFileId !== "No cv" && initialData.contacts.cvFileId === "No cv") {
                     const formData = new FormData();
-                    formData.append('cvFile', portfolioData.contacts.cv);
+                    formData.append('cvFile', portfolioData.contacts.cvFileId);
 
                     try {
                         const response = await apiClient.post(`https://localhost:7146/api/portfolio/upload-cv`, formData, {
@@ -185,6 +184,7 @@ function PortfolioBuilder({ onPortfolioCreated, initialData }) {
                 }
 
                 try {
+                    console.log(payload);
                     const response = await apiClient.put(`https://localhost:7146/api/portfolio/${initialData.id}`, payload);
 
                     if (previewId) {
@@ -196,9 +196,9 @@ function PortfolioBuilder({ onPortfolioCreated, initialData }) {
                     }
 
                     toast({
-                        title: "Portfolio created",
-                        description: "Portfolio created successfully!",
-                        status: "information",
+                        title: "Portfolio edited",
+                        description: "Portfolio edited successfully!",
+                        status: "success",
                         duration: 3000,
                         isClosable: true,
                     });
@@ -232,9 +232,9 @@ function PortfolioBuilder({ onPortfolioCreated, initialData }) {
                     }
                 }
 
-                if (portfolioData.contacts.cv) {
+                if (portfolioData.contacts.cvFileId !== "No cv") {
                     const formData = new FormData();
-                    formData.append('cvFile', portfolioData.contacts.cv);
+                    formData.append('cvFile', portfolioData.contacts.cvFileId);
 
                     try {
                         const response = await apiClient.post(`https://localhost:7146/api/portfolio/upload-cv`, formData, {
@@ -407,7 +407,7 @@ function PortfolioBuilder({ onPortfolioCreated, initialData }) {
                     index={currentStep}
                     mb={6}
                     sx={{
-                        "--stepper-accent-color": `${accentColor}`,
+                        "--stepper-accent-color": accentColor || "white",
                     }}
                 >
                     {steps.map((step, index) => (

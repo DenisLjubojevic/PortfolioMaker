@@ -47,7 +47,7 @@ function PortfolioList({ portfolios, onEditPortfolio }) {
                                             {portfolio.name}
                                         </Heading>
                                         <Text>{portfolio.description}</Text>
-                                        <ChakraLink as={ReactRouterLink} to={`/preview/${portfolio.id}`}>
+                                        <ChakraLink as={ReactRouterLink} target="_blank" to={`/preview/${portfolio.id}`}>
                                             {portfolio.portfolioUrl}
                                         </ChakraLink>
                                         <Button
