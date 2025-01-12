@@ -4,6 +4,7 @@ import apiClient from '../../axiosConfig';
 
 import PreviewNavbar from './PreviewNavbar';
 import AboutSection from './AboutPreview';
+import ExperienceSection from './ExperiencePreview';
 import ProjectsSection from './ProjectsPreview';
 import ContactSection from './ContactPreview';
 
@@ -57,6 +58,9 @@ function PortfolioPreview() {
                 color="brand.secondary.900"
             >
                 {activeSection === "about" && <AboutSection data={portfolioData.about} />}
+                {activeSection === "experience" && (
+                    <ExperienceSection data={portfolioData.experience} />
+                )}
                 {activeSection === "projects" && (
                     <ProjectsSection data={portfolioData.projects} />
                 )}

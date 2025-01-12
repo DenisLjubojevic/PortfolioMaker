@@ -89,22 +89,7 @@ function Dashboard() {
                     alignItems="center"
                 >
                     <Box
-                        width="10%"
-                        height="75vh"
-                        borderRadius="10px"
-                        minW={{ base: "0%", md: "268px" }}
-                        bg="brand.secondary.800"
-                    >
-                        <Text
-                            fontSize="2xl"
-                            mb={4}
-                            color="brand.primary.800"
-                        >
-                            SIDEBAR
-                        </Text>
-                    </Box>
-                    <Box
-                        width="80vw"
+                        width="97vw"
                         height="75vh"
                         borderRadius="10px"
                         minW={{ base: "90%", md: "468px" }}

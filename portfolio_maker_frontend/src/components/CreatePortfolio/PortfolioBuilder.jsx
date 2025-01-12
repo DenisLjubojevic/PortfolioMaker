@@ -22,6 +22,7 @@ import {
 
 import apiClient from '../../axiosConfig';
 
+import ExperienceStep from './WorkExperienceStep';
 import AboutStep from './AboutStep';
 import ProjectsStep from './ProjectsStep';
 import ContactStep from './ContactStep';
@@ -36,6 +37,7 @@ function PortfolioBuilder({ onPortfolioCreated, initialData }) {
             name: '',
             bio: '',
         },
+        experience: [],
         projects: [],
         contacts: {
             email: '',
@@ -68,6 +70,7 @@ function PortfolioBuilder({ onPortfolioCreated, initialData }) {
                     name: portfolioData.about.name,
                     bio: portfolioData.about.bio,
                 },
+                experience: portfolioData.experience,
                 projects: portfolioData.projects,
                 contacts: {
                     email: portfolioData.contacts.email,
@@ -120,6 +123,7 @@ function PortfolioBuilder({ onPortfolioCreated, initialData }) {
                 name: portfolioData.about.name,
                 bio: portfolioData.about.bio,
             },
+            experience: portfolioData.experience,
             projects: portfolioData.projects,
             contacts: {
                 email: portfolioData.contacts.email,
@@ -132,6 +136,8 @@ function PortfolioBuilder({ onPortfolioCreated, initialData }) {
             createdAt: new Date().toISOString(),
             portfolioUrl: portfolioData.previewUrl,
         };
+
+        console.log(payload);
 
         let allErrors = {};
         steps.forEach((_, index) => {
@@ -257,6 +263,10 @@ function PortfolioBuilder({ onPortfolioCreated, initialData }) {
                     setFinalUrl(response.data.url);
                     const portfolioId = response.data.id;
 
+                    for (const experience of portfolioData.experience) {
+                        await apiClient.post(`https://localhost:7146/api/portfolio/${portfolioId}/experiences`, experience);
+                    }
+
                     for (const project of portfolioData.projects) {
                         await apiClient.post(`https://localhost:7146/api/portfolio/${portfolioId}/projects`, project);
                     }
@@ -305,18 +315,24 @@ function PortfolioBuilder({ onPortfolioCreated, initialData }) {
         },
         {
             id: 2,
+            label: 'Experience',
+            description: 'Add your work experience',
+            component: <ExperienceStep data={portfolioData.experience} setData={(data) => updateData('experience', data)} errors={validationErrors} />
+        },
+        {
+            id: 3,
             label: 'Projects',
             description: 'Add your best projects',
             component: <ProjectsStep data={portfolioData.projects} setData={(data) => updateData('projects', data)} errors={validationErrors} />
         },
         {
-            id: 3,
+            id: 4,
             label: 'Contact Info',
             description: 'Add info to reach you',
             component: <ContactStep data={portfolioData.contacts} setData={(data) => updateData('contacts', data)} errors={validationErrors} />
         },
         {
-            id: 4,
+            id: 5,
             label: 'Review & Submit',
             description: 'Check if everything is right',
             component: <ReviewStep
@@ -337,10 +353,14 @@ function PortfolioBuilder({ onPortfolioCreated, initialData }) {
                 errors.bio = 'Bio is required!';
             }
         } else if (step === 1) {
+            if (!portfolioData.experience || portfolioData.experience.length === 0) {
+                errors.experience = 'At least one working experience is required.';
+            }
+        } else if (step === 2) {
             if (!portfolioData.projects || portfolioData.projects.length === 0) {
                 errors.projects = 'At least one project is required.';
             }
-        } else if (step === 2) {
+        } else if (step === 3) {
             const { email, phone } = portfolioData.contacts;
             if (!email) {
                 errors.email = 'Email is required.';

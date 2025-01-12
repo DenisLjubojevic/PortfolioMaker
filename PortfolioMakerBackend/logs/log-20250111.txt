@@ -297,3 +297,982 @@
 2025-01-11 15:45:06.849 +01:00 [INF] Executed action PortfolioMakerBackend.Controllers.PortfolioController.GetProfilePicture (PortfolioMakerBackend) in 125.2434ms
 2025-01-11 15:45:06.853 +01:00 [INF] Executed endpoint 'PortfolioMakerBackend.Controllers.PortfolioController.GetProfilePicture (PortfolioMakerBackend)'
 2025-01-11 15:45:06.855 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7146/api/portfolio/profile-picture/677fe3af776f9a7959c28928 - 200 null image/jpeg 143.644ms
+2025-01-11 17:39:36.247 +01:00 [INF] User profile is available. Using 'C:\Users\Dean\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-01-11 17:39:36.535 +01:00 [INF] Initialized Scheduler Signaller of type: Quartz.Core.SchedulerSignalerImpl
+2025-01-11 17:39:36.536 +01:00 [INF] Quartz Scheduler created
+2025-01-11 17:39:36.538 +01:00 [INF] JobFactory set to: Quartz.Simpl.MicrosoftDependencyInjectionJobFactory
+2025-01-11 17:39:36.539 +01:00 [INF] RAMJobStore initialized.
+2025-01-11 17:39:36.541 +01:00 [INF] Quartz Scheduler 3.13.1.0 - 'QuartzScheduler' with instanceId 'NON_CLUSTERED' initialized
+2025-01-11 17:39:36.551 +01:00 [INF] Using thread pool 'Quartz.Simpl.DefaultThreadPool', size: 10
+2025-01-11 17:39:36.552 +01:00 [INF] Using job store 'Quartz.Simpl.RAMJobStore', supports persistence: False, clustered: False
+2025-01-11 17:39:37.245 +01:00 [INF] Now listening on: https://localhost:7146
+2025-01-11 17:39:37.246 +01:00 [INF] Now listening on: http://localhost:5201
+2025-01-11 17:39:37.424 +01:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-01-11 17:39:37.427 +01:00 [INF] Hosting environment: Development
+2025-01-11 17:39:37.429 +01:00 [INF] Content root path: C:\Users\Dean\Desktop\Skola\TVZ\Projekti\PortfolioMaker\PortfolioMakerBackend
+2025-01-11 17:39:37.429 +01:00 [INF] Scheduler QuartzScheduler_$_NON_CLUSTERED started.
+2025-01-11 17:39:40.308 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7146/swagger/index.html - null null
+2025-01-11 17:39:40.804 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7146/swagger/index.html - 200 null text/html;charset=utf-8 509.3577ms
+2025-01-11 17:39:40.822 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7146/_vs/browserLink - null null
+2025-01-11 17:39:40.822 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7146/_framework/aspnetcore-browser-refresh.js - null null
+2025-01-11 17:39:40.845 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7146/_framework/aspnetcore-browser-refresh.js - 200 13794 application/javascript; charset=utf-8 23.5039ms
+2025-01-11 17:39:40.978 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7146/_vs/browserLink - 200 null text/javascript; charset=UTF-8 157.2998ms
+2025-01-11 17:39:41.265 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7146/swagger/v1/swagger.json - null null
+2025-01-11 17:39:41.296 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7146/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 31.3937ms
+2025-01-11 17:42:16.058 +01:00 [INF] Request starting HTTP/2 OPTIONS https://localhost:7146/api/portfolio - null null
+2025-01-11 17:42:16.058 +01:00 [INF] Request starting HTTP/2 OPTIONS https://localhost:7146/api/portfolio - null null
+2025-01-11 17:42:16.070 +01:00 [INF] CORS policy execution successful.
+2025-01-11 17:42:16.070 +01:00 [INF] CORS policy execution successful.
+2025-01-11 17:42:16.075 +01:00 [INF] Request finished HTTP/2 OPTIONS https://localhost:7146/api/portfolio - 204 null null 17.1447ms
+2025-01-11 17:42:16.075 +01:00 [INF] Request finished HTTP/2 OPTIONS https://localhost:7146/api/portfolio - 204 null null 17.1447ms
+2025-01-11 17:42:16.085 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7146/api/portfolio - null null
+2025-01-11 17:42:16.093 +01:00 [INF] CORS policy execution successful.
+2025-01-11 17:42:16.295 +01:00 [INF] Executing endpoint 'PortfolioMakerBackend.Controllers.PortfolioController.GetAll (PortfolioMakerBackend)'
+2025-01-11 17:42:16.322 +01:00 [INF] Route matched with {action = "GetAll", controller = "Portfolio"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.List`1[PortfolioMakerBackend.Models.Portfolio]] GetAll() on controller PortfolioMakerBackend.Controllers.PortfolioController (PortfolioMakerBackend).
+2025-01-11 17:42:18.172 +01:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[PortfolioMakerBackend.Models.Portfolio, PortfolioMakerBackend, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-01-11 17:42:18.193 +01:00 [INF] Executed action PortfolioMakerBackend.Controllers.PortfolioController.GetAll (PortfolioMakerBackend) in 1865.9413ms
+2025-01-11 17:42:18.194 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7146/api/portfolio - null null
+2025-01-11 17:42:18.195 +01:00 [INF] Executed endpoint 'PortfolioMakerBackend.Controllers.PortfolioController.GetAll (PortfolioMakerBackend)'
+2025-01-11 17:42:18.197 +01:00 [INF] CORS policy execution successful.
+2025-01-11 17:42:18.199 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7146/api/portfolio - 200 null application/json; charset=utf-8 2116.4397ms
+2025-01-11 17:42:18.213 +01:00 [INF] Executing endpoint 'PortfolioMakerBackend.Controllers.PortfolioController.GetAll (PortfolioMakerBackend)'
+2025-01-11 17:42:18.214 +01:00 [INF] Route matched with {action = "GetAll", controller = "Portfolio"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.List`1[PortfolioMakerBackend.Models.Portfolio]] GetAll() on controller PortfolioMakerBackend.Controllers.PortfolioController (PortfolioMakerBackend).
+2025-01-11 17:42:18.258 +01:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[PortfolioMakerBackend.Models.Portfolio, PortfolioMakerBackend, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-01-11 17:42:18.260 +01:00 [INF] Executed action PortfolioMakerBackend.Controllers.PortfolioController.GetAll (PortfolioMakerBackend) in 44.493ms
+2025-01-11 17:42:18.262 +01:00 [INF] Executed endpoint 'PortfolioMakerBackend.Controllers.PortfolioController.GetAll (PortfolioMakerBackend)'
+2025-01-11 17:42:18.264 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7146/api/portfolio - 200 null application/json; charset=utf-8 70.3115ms
+2025-01-11 17:42:28.333 +01:00 [INF] Request starting HTTP/2 OPTIONS https://localhost:7146/api/portfolio/preview/677e94607406a4f294c882db - null null
+2025-01-11 17:42:28.333 +01:00 [INF] Request starting HTTP/2 OPTIONS https://localhost:7146/api/portfolio/preview/677e94607406a4f294c882db - null null
+2025-01-11 17:42:28.337 +01:00 [INF] CORS policy execution successful.
+2025-01-11 17:42:28.339 +01:00 [INF] CORS policy execution successful.
+2025-01-11 17:42:28.340 +01:00 [INF] Request finished HTTP/2 OPTIONS https://localhost:7146/api/portfolio/preview/677e94607406a4f294c882db - 204 null null 7.1058ms
+2025-01-11 17:42:28.340 +01:00 [INF] Request finished HTTP/2 OPTIONS https://localhost:7146/api/portfolio/preview/677e94607406a4f294c882db - 204 null null 7.6625ms
+2025-01-11 17:42:28.343 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7146/api/portfolio/preview/677e94607406a4f294c882db - null null
+2025-01-11 17:42:28.348 +01:00 [INF] CORS policy execution successful.
+2025-01-11 17:42:28.353 +01:00 [INF] Executing endpoint 'PortfolioMakerBackend.Controllers.PortfolioController.GetPortfolioFinished (PortfolioMakerBackend)'
+2025-01-11 17:42:28.371 +01:00 [INF] Route matched with {action = "GetPortfolioFinished", controller = "Portfolio"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetPortfolioFinished(System.String) on controller PortfolioMakerBackend.Controllers.PortfolioController (PortfolioMakerBackend).
+2025-01-11 17:42:28.529 +01:00 [INF] Executing OkObjectResult, writing value of type 'PortfolioMakerBackend.Models.Portfolio'.
+2025-01-11 17:42:28.532 +01:00 [INF] Executed action PortfolioMakerBackend.Controllers.PortfolioController.GetPortfolioFinished (PortfolioMakerBackend) in 159.6291ms
+2025-01-11 17:42:28.534 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7146/api/portfolio/preview/677e94607406a4f294c882db - null null
+2025-01-11 17:42:28.535 +01:00 [INF] Executed endpoint 'PortfolioMakerBackend.Controllers.PortfolioController.GetPortfolioFinished (PortfolioMakerBackend)'
+2025-01-11 17:42:28.536 +01:00 [INF] CORS policy execution successful.
+2025-01-11 17:42:28.538 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7146/api/portfolio/preview/677e94607406a4f294c882db - 200 null application/json; charset=utf-8 195.3596ms
+2025-01-11 17:42:28.541 +01:00 [INF] Executing endpoint 'PortfolioMakerBackend.Controllers.PortfolioController.GetPortfolioFinished (PortfolioMakerBackend)'
+2025-01-11 17:42:28.542 +01:00 [INF] Route matched with {action = "GetPortfolioFinished", controller = "Portfolio"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetPortfolioFinished(System.String) on controller PortfolioMakerBackend.Controllers.PortfolioController (PortfolioMakerBackend).
+2025-01-11 17:42:28.587 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7146/api/portfolio/profile-picture/677fe3af776f9a7959c28928 - null null
+2025-01-11 17:42:28.590 +01:00 [INF] Executing endpoint 'PortfolioMakerBackend.Controllers.PortfolioController.GetProfilePicture (PortfolioMakerBackend)'
+2025-01-11 17:42:28.594 +01:00 [INF] Route matched with {action = "GetProfilePicture", controller = "Portfolio"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetProfilePicture(System.String) on controller PortfolioMakerBackend.Controllers.PortfolioController (PortfolioMakerBackend).
+2025-01-11 17:42:28.618 +01:00 [INF] Executing OkObjectResult, writing value of type 'PortfolioMakerBackend.Models.Portfolio'.
+2025-01-11 17:42:28.619 +01:00 [INF] Executed action PortfolioMakerBackend.Controllers.PortfolioController.GetPortfolioFinished (PortfolioMakerBackend) in 75.5207ms
+2025-01-11 17:42:28.621 +01:00 [INF] Executed endpoint 'PortfolioMakerBackend.Controllers.PortfolioController.GetPortfolioFinished (PortfolioMakerBackend)'
+2025-01-11 17:42:28.623 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7146/api/portfolio/preview/677e94607406a4f294c882db - 200 null application/json; charset=utf-8 89.2823ms
+2025-01-11 17:42:28.840 +01:00 [INF] Executing FileStreamResult, sending file with download name 'default_profile.png' ...
+2025-01-11 17:42:28.928 +01:00 [INF] Executed action PortfolioMakerBackend.Controllers.PortfolioController.GetProfilePicture (PortfolioMakerBackend) in 331.4081ms
+2025-01-11 17:42:28.930 +01:00 [INF] Executed endpoint 'PortfolioMakerBackend.Controllers.PortfolioController.GetProfilePicture (PortfolioMakerBackend)'
+2025-01-11 17:42:28.931 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7146/api/portfolio/profile-picture/677fe3af776f9a7959c28928 - 200 null image/jpeg 344.4691ms
+2025-01-11 17:42:48.071 +01:00 [INF] Request starting HTTP/2 OPTIONS https://localhost:7146/api/auth/login - null null
+2025-01-11 17:42:48.074 +01:00 [INF] CORS policy execution successful.
+2025-01-11 17:42:48.075 +01:00 [INF] Request finished HTTP/2 OPTIONS https://localhost:7146/api/auth/login - 204 null null 4.5704ms
+2025-01-11 17:42:48.079 +01:00 [INF] Request starting HTTP/2 POST https://localhost:7146/api/auth/login - application/json 136
+2025-01-11 17:42:48.082 +01:00 [INF] CORS policy execution successful.
+2025-01-11 17:42:48.084 +01:00 [INF] Executing endpoint 'PortfolioMakerBackend.Controllers.AuthController.Login (PortfolioMakerBackend)'
+2025-01-11 17:42:48.088 +01:00 [INF] Route matched with {action = "Login", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(PortfolioMakerBackend.Models.Auth.LoginModel) on controller PortfolioMakerBackend.Controllers.AuthController (PortfolioMakerBackend).
+2025-01-11 17:42:48.264 +01:00 [INF] Executing OkObjectResult, writing value of type '<>f__AnonymousType0`1[[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-01-11 17:42:48.268 +01:00 [INF] Executed action PortfolioMakerBackend.Controllers.AuthController.Login (PortfolioMakerBackend) in 179.0472ms
+2025-01-11 17:42:48.270 +01:00 [INF] Executed endpoint 'PortfolioMakerBackend.Controllers.AuthController.Login (PortfolioMakerBackend)'
+2025-01-11 17:42:48.272 +01:00 [INF] Request finished HTTP/2 POST https://localhost:7146/api/auth/login - 200 null application/json; charset=utf-8 193.9567ms
+2025-01-11 17:42:48.307 +01:00 [INF] Request starting HTTP/2 OPTIONS https://localhost:7146/api/portfolio - null null
+2025-01-11 17:42:48.309 +01:00 [INF] Request starting HTTP/2 OPTIONS https://localhost:7146/api/portfolio - null null
+2025-01-11 17:42:48.310 +01:00 [INF] CORS policy execution successful.
+2025-01-11 17:42:48.312 +01:00 [INF] CORS policy execution successful.
+2025-01-11 17:42:48.313 +01:00 [INF] Request finished HTTP/2 OPTIONS https://localhost:7146/api/portfolio - 204 null null 6.8798ms
+2025-01-11 17:42:48.314 +01:00 [INF] Request finished HTTP/2 OPTIONS https://localhost:7146/api/portfolio - 204 null null 6.1568ms
+2025-01-11 17:42:48.317 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7146/api/portfolio - null null
+2025-01-11 17:42:48.323 +01:00 [INF] CORS policy execution successful.
+2025-01-11 17:42:48.327 +01:00 [INF] Executing endpoint 'PortfolioMakerBackend.Controllers.PortfolioController.GetAll (PortfolioMakerBackend)'
+2025-01-11 17:42:48.328 +01:00 [INF] Route matched with {action = "GetAll", controller = "Portfolio"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.List`1[PortfolioMakerBackend.Models.Portfolio]] GetAll() on controller PortfolioMakerBackend.Controllers.PortfolioController (PortfolioMakerBackend).
+2025-01-11 17:42:48.359 +01:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[PortfolioMakerBackend.Models.Portfolio, PortfolioMakerBackend, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-01-11 17:42:48.362 +01:00 [INF] Executed action PortfolioMakerBackend.Controllers.PortfolioController.GetAll (PortfolioMakerBackend) in 31.844ms
+2025-01-11 17:42:48.363 +01:00 [INF] Executed endpoint 'PortfolioMakerBackend.Controllers.PortfolioController.GetAll (PortfolioMakerBackend)'
+2025-01-11 17:42:48.364 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7146/api/portfolio - null null
+2025-01-11 17:42:48.365 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7146/api/portfolio - 200 null application/json; charset=utf-8 48.2411ms
+2025-01-11 17:42:48.367 +01:00 [INF] CORS policy execution successful.
+2025-01-11 17:42:48.371 +01:00 [INF] Executing endpoint 'PortfolioMakerBackend.Controllers.PortfolioController.GetAll (PortfolioMakerBackend)'
+2025-01-11 17:42:48.372 +01:00 [INF] Route matched with {action = "GetAll", controller = "Portfolio"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.List`1[PortfolioMakerBackend.Models.Portfolio]] GetAll() on controller PortfolioMakerBackend.Controllers.PortfolioController (PortfolioMakerBackend).
+2025-01-11 17:42:48.413 +01:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[PortfolioMakerBackend.Models.Portfolio, PortfolioMakerBackend, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-01-11 17:42:48.415 +01:00 [INF] Executed action PortfolioMakerBackend.Controllers.PortfolioController.GetAll (PortfolioMakerBackend) in 41.4133ms
+2025-01-11 17:42:48.417 +01:00 [INF] Executed endpoint 'PortfolioMakerBackend.Controllers.PortfolioController.GetAll (PortfolioMakerBackend)'
+2025-01-11 17:42:48.417 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7146/api/portfolio - 200 null application/json; charset=utf-8 54.0756ms
+2025-01-11 17:43:27.544 +01:00 [INF] Request starting HTTP/2 OPTIONS https://localhost:7146/api/portfolio - null null
+2025-01-11 17:43:27.547 +01:00 [INF] CORS policy execution successful.
+2025-01-11 17:43:27.548 +01:00 [INF] Request finished HTTP/2 OPTIONS https://localhost:7146/api/portfolio - 204 null null 4.0928ms
+2025-01-11 17:43:27.550 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7146/api/portfolio - null null
+2025-01-11 17:43:27.553 +01:00 [INF] CORS policy execution successful.
+2025-01-11 17:43:27.555 +01:00 [INF] Executing endpoint 'PortfolioMakerBackend.Controllers.PortfolioController.GetAll (PortfolioMakerBackend)'
+2025-01-11 17:43:27.556 +01:00 [INF] Route matched with {action = "GetAll", controller = "Portfolio"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.List`1[PortfolioMakerBackend.Models.Portfolio]] GetAll() on controller PortfolioMakerBackend.Controllers.PortfolioController (PortfolioMakerBackend).
+2025-01-11 17:43:27.590 +01:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[PortfolioMakerBackend.Models.Portfolio, PortfolioMakerBackend, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-01-11 17:43:27.592 +01:00 [INF] Executed action PortfolioMakerBackend.Controllers.PortfolioController.GetAll (PortfolioMakerBackend) in 35.0558ms
+2025-01-11 17:43:27.594 +01:00 [INF] Executed endpoint 'PortfolioMakerBackend.Controllers.PortfolioController.GetAll (PortfolioMakerBackend)'
+2025-01-11 17:43:27.595 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7146/api/portfolio - 200 null application/json; charset=utf-8 45.4823ms
+2025-01-11 17:43:30.111 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7146/api/portfolio - null null
+2025-01-11 17:43:30.149 +01:00 [INF] CORS policy execution successful.
+2025-01-11 17:43:30.153 +01:00 [INF] Executing endpoint 'PortfolioMakerBackend.Controllers.PortfolioController.GetAll (PortfolioMakerBackend)'
+2025-01-11 17:43:30.155 +01:00 [INF] Route matched with {action = "GetAll", controller = "Portfolio"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.List`1[PortfolioMakerBackend.Models.Portfolio]] GetAll() on controller PortfolioMakerBackend.Controllers.PortfolioController (PortfolioMakerBackend).
+2025-01-11 17:43:30.185 +01:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[PortfolioMakerBackend.Models.Portfolio, PortfolioMakerBackend, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-01-11 17:43:30.186 +01:00 [INF] Executed action PortfolioMakerBackend.Controllers.PortfolioController.GetAll (PortfolioMakerBackend) in 30.2917ms
+2025-01-11 17:43:30.188 +01:00 [INF] Executed endpoint 'PortfolioMakerBackend.Controllers.PortfolioController.GetAll (PortfolioMakerBackend)'
+2025-01-11 17:43:30.188 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7146/api/portfolio - null null
+2025-01-11 17:43:30.189 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7146/api/portfolio - 200 null application/json; charset=utf-8 78.6794ms
+2025-01-11 17:43:30.191 +01:00 [INF] CORS policy execution successful.
+2025-01-11 17:43:30.195 +01:00 [INF] Executing endpoint 'PortfolioMakerBackend.Controllers.PortfolioController.GetAll (PortfolioMakerBackend)'
+2025-01-11 17:43:30.196 +01:00 [INF] Route matched with {action = "GetAll", controller = "Portfolio"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.List`1[PortfolioMakerBackend.Models.Portfolio]] GetAll() on controller PortfolioMakerBackend.Controllers.PortfolioController (PortfolioMakerBackend).
+2025-01-11 17:43:30.247 +01:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[PortfolioMakerBackend.Models.Portfolio, PortfolioMakerBackend, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-01-11 17:43:30.248 +01:00 [INF] Executed action PortfolioMakerBackend.Controllers.PortfolioController.GetAll (PortfolioMakerBackend) in 51.1014ms
+2025-01-11 17:43:30.249 +01:00 [INF] Executed endpoint 'PortfolioMakerBackend.Controllers.PortfolioController.GetAll (PortfolioMakerBackend)'
+2025-01-11 17:43:30.250 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7146/api/portfolio - 200 null application/json; charset=utf-8 62.4296ms
+2025-01-11 17:43:35.584 +01:00 [INF] Request starting HTTP/2 OPTIONS https://localhost:7146/api/portfolio - null null
+2025-01-11 17:43:35.587 +01:00 [INF] CORS policy execution successful.
+2025-01-11 17:43:35.588 +01:00 [INF] Request finished HTTP/2 OPTIONS https://localhost:7146/api/portfolio - 204 null null 4.0195ms
+2025-01-11 17:43:35.594 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7146/api/portfolio - null null
+2025-01-11 17:43:35.596 +01:00 [INF] CORS policy execution successful.
+2025-01-11 17:43:35.598 +01:00 [INF] Executing endpoint 'PortfolioMakerBackend.Controllers.PortfolioController.GetAll (PortfolioMakerBackend)'
+2025-01-11 17:43:35.599 +01:00 [INF] Route matched with {action = "GetAll", controller = "Portfolio"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.List`1[PortfolioMakerBackend.Models.Portfolio]] GetAll() on controller PortfolioMakerBackend.Controllers.PortfolioController (PortfolioMakerBackend).
+2025-01-11 17:43:35.632 +01:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[PortfolioMakerBackend.Models.Portfolio, PortfolioMakerBackend, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-01-11 17:43:35.633 +01:00 [INF] Executed action PortfolioMakerBackend.Controllers.PortfolioController.GetAll (PortfolioMakerBackend) in 33.5026ms
+2025-01-11 17:43:35.634 +01:00 [INF] Executed endpoint 'PortfolioMakerBackend.Controllers.PortfolioController.GetAll (PortfolioMakerBackend)'
+2025-01-11 17:43:35.636 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7146/api/portfolio - 200 null application/json; charset=utf-8 42.259ms
+2025-01-11 17:43:42.251 +01:00 [INF] Request starting HTTP/2 OPTIONS https://localhost:7146/api/portfolio - null null
+2025-01-11 17:43:42.253 +01:00 [INF] CORS policy execution successful.
+2025-01-11 17:43:42.254 +01:00 [INF] Request finished HTTP/2 OPTIONS https://localhost:7146/api/portfolio - 204 null null 4.0056ms
+2025-01-11 17:43:42.256 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7146/api/portfolio - null null
+2025-01-11 17:43:42.259 +01:00 [INF] CORS policy execution successful.
+2025-01-11 17:43:42.261 +01:00 [INF] Executing endpoint 'PortfolioMakerBackend.Controllers.PortfolioController.GetAll (PortfolioMakerBackend)'
+2025-01-11 17:43:42.262 +01:00 [INF] Route matched with {action = "GetAll", controller = "Portfolio"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.List`1[PortfolioMakerBackend.Models.Portfolio]] GetAll() on controller PortfolioMakerBackend.Controllers.PortfolioController (PortfolioMakerBackend).
+2025-01-11 17:43:42.297 +01:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[PortfolioMakerBackend.Models.Portfolio, PortfolioMakerBackend, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-01-11 17:43:42.299 +01:00 [INF] Executed action PortfolioMakerBackend.Controllers.PortfolioController.GetAll (PortfolioMakerBackend) in 35.2379ms
+2025-01-11 17:43:42.300 +01:00 [INF] Executed endpoint 'PortfolioMakerBackend.Controllers.PortfolioController.GetAll (PortfolioMakerBackend)'
+2025-01-11 17:43:42.301 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7146/api/portfolio - 200 null application/json; charset=utf-8 45.1707ms
+2025-01-11 17:43:47.462 +01:00 [INF] Request starting HTTP/2 OPTIONS https://localhost:7146/api/portfolio - null null
+2025-01-11 17:43:47.465 +01:00 [INF] CORS policy execution successful.
+2025-01-11 17:43:47.466 +01:00 [INF] Request finished HTTP/2 OPTIONS https://localhost:7146/api/portfolio - 204 null null 4.43ms
+2025-01-11 17:43:47.468 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7146/api/portfolio - null null
+2025-01-11 17:43:47.471 +01:00 [INF] CORS policy execution successful.
+2025-01-11 17:43:47.473 +01:00 [INF] Executing endpoint 'PortfolioMakerBackend.Controllers.PortfolioController.GetAll (PortfolioMakerBackend)'
+2025-01-11 17:43:47.474 +01:00 [INF] Route matched with {action = "GetAll", controller = "Portfolio"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.List`1[PortfolioMakerBackend.Models.Portfolio]] GetAll() on controller PortfolioMakerBackend.Controllers.PortfolioController (PortfolioMakerBackend).
+2025-01-11 17:43:47.530 +01:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[PortfolioMakerBackend.Models.Portfolio, PortfolioMakerBackend, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-01-11 17:43:47.532 +01:00 [INF] Executed action PortfolioMakerBackend.Controllers.PortfolioController.GetAll (PortfolioMakerBackend) in 57.1072ms
+2025-01-11 17:43:47.534 +01:00 [INF] Executed endpoint 'PortfolioMakerBackend.Controllers.PortfolioController.GetAll (PortfolioMakerBackend)'
+2025-01-11 17:43:47.535 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7146/api/portfolio - 200 null application/json; charset=utf-8 67.4402ms
+2025-01-11 17:43:55.549 +01:00 [INF] Request starting HTTP/2 OPTIONS https://localhost:7146/api/portfolio - null null
+2025-01-11 17:43:55.552 +01:00 [INF] CORS policy execution successful.
+2025-01-11 17:43:55.553 +01:00 [INF] Request finished HTTP/2 OPTIONS https://localhost:7146/api/portfolio - 204 null null 3.6778ms
+2025-01-11 17:43:55.556 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7146/api/portfolio - null null
+2025-01-11 17:43:55.558 +01:00 [INF] CORS policy execution successful.
+2025-01-11 17:43:55.560 +01:00 [INF] Executing endpoint 'PortfolioMakerBackend.Controllers.PortfolioController.GetAll (PortfolioMakerBackend)'
+2025-01-11 17:43:55.561 +01:00 [INF] Route matched with {action = "GetAll", controller = "Portfolio"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.List`1[PortfolioMakerBackend.Models.Portfolio]] GetAll() on controller PortfolioMakerBackend.Controllers.PortfolioController (PortfolioMakerBackend).
+2025-01-11 17:43:55.595 +01:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[PortfolioMakerBackend.Models.Portfolio, PortfolioMakerBackend, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-01-11 17:43:55.597 +01:00 [INF] Executed action PortfolioMakerBackend.Controllers.PortfolioController.GetAll (PortfolioMakerBackend) in 34.1258ms
+2025-01-11 17:43:55.599 +01:00 [INF] Executed endpoint 'PortfolioMakerBackend.Controllers.PortfolioController.GetAll (PortfolioMakerBackend)'
+2025-01-11 17:43:55.599 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7146/api/portfolio - 200 null application/json; charset=utf-8 43.7266ms
+2025-01-11 17:47:30.938 +01:00 [INF] Request starting HTTP/2 OPTIONS https://localhost:7146/api/portfolio - null null
+2025-01-11 17:47:30.938 +01:00 [INF] Request starting HTTP/2 OPTIONS https://localhost:7146/api/portfolio - null null
+2025-01-11 17:47:30.950 +01:00 [INF] CORS policy execution successful.
+2025-01-11 17:47:30.953 +01:00 [INF] CORS policy execution successful.
+2025-01-11 17:47:30.953 +01:00 [INF] Request finished HTTP/2 OPTIONS https://localhost:7146/api/portfolio - 204 null null 15.2495ms
+2025-01-11 17:47:30.955 +01:00 [INF] Request finished HTTP/2 OPTIONS https://localhost:7146/api/portfolio - 204 null null 16.6236ms
+2025-01-11 17:47:30.959 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7146/api/portfolio - null null
+2025-01-11 17:47:30.967 +01:00 [INF] CORS policy execution successful.
+2025-01-11 17:47:30.969 +01:00 [INF] Executing endpoint 'PortfolioMakerBackend.Controllers.PortfolioController.GetAll (PortfolioMakerBackend)'
+2025-01-11 17:47:30.971 +01:00 [INF] Route matched with {action = "GetAll", controller = "Portfolio"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.List`1[PortfolioMakerBackend.Models.Portfolio]] GetAll() on controller PortfolioMakerBackend.Controllers.PortfolioController (PortfolioMakerBackend).
+2025-01-11 17:47:31.065 +01:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[PortfolioMakerBackend.Models.Portfolio, PortfolioMakerBackend, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-01-11 17:47:31.068 +01:00 [INF] Executed action PortfolioMakerBackend.Controllers.PortfolioController.GetAll (PortfolioMakerBackend) in 95.2504ms
+2025-01-11 17:47:31.070 +01:00 [INF] Executed endpoint 'PortfolioMakerBackend.Controllers.PortfolioController.GetAll (PortfolioMakerBackend)'
+2025-01-11 17:47:31.070 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7146/api/portfolio - null null
+2025-01-11 17:47:31.071 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7146/api/portfolio - 200 null application/json; charset=utf-8 112.9247ms
+2025-01-11 17:47:31.073 +01:00 [INF] CORS policy execution successful.
+2025-01-11 17:47:31.078 +01:00 [INF] Executing endpoint 'PortfolioMakerBackend.Controllers.PortfolioController.GetAll (PortfolioMakerBackend)'
+2025-01-11 17:47:31.079 +01:00 [INF] Route matched with {action = "GetAll", controller = "Portfolio"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.List`1[PortfolioMakerBackend.Models.Portfolio]] GetAll() on controller PortfolioMakerBackend.Controllers.PortfolioController (PortfolioMakerBackend).
+2025-01-11 17:47:31.110 +01:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[PortfolioMakerBackend.Models.Portfolio, PortfolioMakerBackend, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-01-11 17:47:31.112 +01:00 [INF] Executed action PortfolioMakerBackend.Controllers.PortfolioController.GetAll (PortfolioMakerBackend) in 31.9054ms
+2025-01-11 17:47:31.114 +01:00 [INF] Executed endpoint 'PortfolioMakerBackend.Controllers.PortfolioController.GetAll (PortfolioMakerBackend)'
+2025-01-11 17:47:31.114 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7146/api/portfolio - 200 null application/json; charset=utf-8 44.8745ms
+2025-01-11 17:51:23.474 +01:00 [INF] Request starting HTTP/2 OPTIONS https://localhost:7146/api/portfolio/preview - null null
+2025-01-11 17:51:23.482 +01:00 [INF] CORS policy execution successful.
+2025-01-11 17:51:23.482 +01:00 [INF] Request finished HTTP/2 OPTIONS https://localhost:7146/api/portfolio/preview - 204 null null 8.5179ms
+2025-01-11 17:51:23.485 +01:00 [INF] Request starting HTTP/2 POST https://localhost:7146/api/portfolio/preview - application/json 694
+2025-01-11 17:51:23.488 +01:00 [INF] CORS policy execution successful.
+2025-01-11 17:51:23.489 +01:00 [INF] Executing endpoint 'PortfolioMakerBackend.Controllers.PortfolioController.GeneratePreview (PortfolioMakerBackend)'
+2025-01-11 17:51:23.494 +01:00 [INF] Route matched with {action = "GeneratePreview", controller = "Portfolio"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult] GeneratePreview(PortfolioMakerBackend.DTOs.PortfolioDTO) on controller PortfolioMakerBackend.Controllers.PortfolioController (PortfolioMakerBackend).
+2025-01-11 17:51:23.657 +01:00 [INF] Executing OkObjectResult, writing value of type '<>f__AnonymousType2`2[[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-01-11 17:51:23.661 +01:00 [INF] Executed action PortfolioMakerBackend.Controllers.PortfolioController.GeneratePreview (PortfolioMakerBackend) in 165.9943ms
+2025-01-11 17:51:23.663 +01:00 [INF] Executed endpoint 'PortfolioMakerBackend.Controllers.PortfolioController.GeneratePreview (PortfolioMakerBackend)'
+2025-01-11 17:51:23.664 +01:00 [INF] Request finished HTTP/2 POST https://localhost:7146/api/portfolio/preview - 200 null application/json; charset=utf-8 179.2953ms
+2025-01-11 17:51:24.000 +01:00 [INF] Request starting HTTP/2 OPTIONS https://localhost:7146/api/portfolio/preview/0b2a7bbb-a6a1-4994-83b7-f8bcff2d3b24 - null null
+2025-01-11 17:51:24.000 +01:00 [INF] Request starting HTTP/2 OPTIONS https://localhost:7146/api/portfolio/preview/0b2a7bbb-a6a1-4994-83b7-f8bcff2d3b24 - null null
+2025-01-11 17:51:24.057 +01:00 [INF] CORS policy execution successful.
+2025-01-11 17:51:24.058 +01:00 [INF] Request finished HTTP/2 OPTIONS https://localhost:7146/api/portfolio/preview/0b2a7bbb-a6a1-4994-83b7-f8bcff2d3b24 - 204 null null 57.8832ms
+2025-01-11 17:51:24.049 +01:00 [INF] CORS policy execution successful.
+2025-01-11 17:51:24.064 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7146/api/portfolio/preview/0b2a7bbb-a6a1-4994-83b7-f8bcff2d3b24 - null null
+2025-01-11 17:51:24.067 +01:00 [INF] Request finished HTTP/2 OPTIONS https://localhost:7146/api/portfolio/preview/0b2a7bbb-a6a1-4994-83b7-f8bcff2d3b24 - 204 null null 67.9666ms
+2025-01-11 17:51:24.070 +01:00 [INF] CORS policy execution successful.
+2025-01-11 17:51:24.073 +01:00 [INF] Executing endpoint 'PortfolioMakerBackend.Controllers.PortfolioController.GetPortfolioFinished (PortfolioMakerBackend)'
+2025-01-11 17:51:24.075 +01:00 [INF] Route matched with {action = "GetPortfolioFinished", controller = "Portfolio"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetPortfolioFinished(System.String) on controller PortfolioMakerBackend.Controllers.PortfolioController (PortfolioMakerBackend).
+2025-01-11 17:51:24.160 +01:00 [INF] Executing OkObjectResult, writing value of type 'PortfolioMakerBackend.Models.Portfolio'.
+2025-01-11 17:51:24.162 +01:00 [INF] Executed action PortfolioMakerBackend.Controllers.PortfolioController.GetPortfolioFinished (PortfolioMakerBackend) in 85.4235ms
+2025-01-11 17:51:24.164 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7146/api/portfolio/preview/0b2a7bbb-a6a1-4994-83b7-f8bcff2d3b24 - null null
+2025-01-11 17:51:24.165 +01:00 [INF] Executed endpoint 'PortfolioMakerBackend.Controllers.PortfolioController.GetPortfolioFinished (PortfolioMakerBackend)'
+2025-01-11 17:51:24.167 +01:00 [INF] CORS policy execution successful.
+2025-01-11 17:51:24.168 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7146/api/portfolio/preview/0b2a7bbb-a6a1-4994-83b7-f8bcff2d3b24 - 200 null application/json; charset=utf-8 104.6101ms
+2025-01-11 17:51:24.170 +01:00 [INF] Executing endpoint 'PortfolioMakerBackend.Controllers.PortfolioController.GetPortfolioFinished (PortfolioMakerBackend)'
+2025-01-11 17:51:24.173 +01:00 [INF] Route matched with {action = "GetPortfolioFinished", controller = "Portfolio"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetPortfolioFinished(System.String) on controller PortfolioMakerBackend.Controllers.PortfolioController (PortfolioMakerBackend).
+2025-01-11 17:51:24.214 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7146/api/portfolio/profile-picture/677fe3af776f9a7959c28928 - null null
+2025-01-11 17:51:24.218 +01:00 [INF] Executing endpoint 'PortfolioMakerBackend.Controllers.PortfolioController.GetProfilePicture (PortfolioMakerBackend)'
+2025-01-11 17:51:24.219 +01:00 [INF] Route matched with {action = "GetProfilePicture", controller = "Portfolio"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetProfilePicture(System.String) on controller PortfolioMakerBackend.Controllers.PortfolioController (PortfolioMakerBackend).
+2025-01-11 17:51:24.239 +01:00 [INF] Executing OkObjectResult, writing value of type 'PortfolioMakerBackend.Models.Portfolio'.
+2025-01-11 17:51:24.240 +01:00 [INF] Executed action PortfolioMakerBackend.Controllers.PortfolioController.GetPortfolioFinished (PortfolioMakerBackend) in 65.8123ms
+2025-01-11 17:51:24.242 +01:00 [INF] Executed endpoint 'PortfolioMakerBackend.Controllers.PortfolioController.GetPortfolioFinished (PortfolioMakerBackend)'
+2025-01-11 17:51:24.243 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7146/api/portfolio/preview/0b2a7bbb-a6a1-4994-83b7-f8bcff2d3b24 - 200 null application/json; charset=utf-8 79.3955ms
+2025-01-11 17:51:24.255 +01:00 [INF] Executing FileStreamResult, sending file with download name 'default_profile.png' ...
+2025-01-11 17:51:24.333 +01:00 [INF] Executed action PortfolioMakerBackend.Controllers.PortfolioController.GetProfilePicture (PortfolioMakerBackend) in 111.5975ms
+2025-01-11 17:51:24.335 +01:00 [INF] Executed endpoint 'PortfolioMakerBackend.Controllers.PortfolioController.GetProfilePicture (PortfolioMakerBackend)'
+2025-01-11 17:51:24.336 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7146/api/portfolio/profile-picture/677fe3af776f9a7959c28928 - 200 null image/jpeg 122.2837ms
+2025-01-11 17:51:32.331 +01:00 [INF] Request starting HTTP/2 OPTIONS https://localhost:7146/api/portfolio/create - null null
+2025-01-11 17:51:32.334 +01:00 [INF] CORS policy execution successful.
+2025-01-11 17:51:32.334 +01:00 [INF] Request finished HTTP/2 OPTIONS https://localhost:7146/api/portfolio/create - 204 null null 3.6055ms
+2025-01-11 17:51:32.337 +01:00 [INF] Request starting HTTP/2 POST https://localhost:7146/api/portfolio/create - application/json 775
+2025-01-11 17:51:32.340 +01:00 [INF] CORS policy execution successful.
+2025-01-11 17:51:32.342 +01:00 [INF] Executing endpoint 'PortfolioMakerBackend.Controllers.PortfolioController.CreatePortfolio (PortfolioMakerBackend)'
+2025-01-11 17:51:32.346 +01:00 [INF] Route matched with {action = "CreatePortfolio", controller = "Portfolio"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[PortfolioMakerBackend.Models.Portfolio]] CreatePortfolio(PortfolioMakerBackend.DTOs.PortfolioDTO) on controller PortfolioMakerBackend.Controllers.PortfolioController (PortfolioMakerBackend).
+2025-01-11 17:51:32.392 +01:00 [INF] Executing OkObjectResult, writing value of type 'PortfolioMakerBackend.Models.Portfolio'.
+2025-01-11 17:51:32.394 +01:00 [INF] Executed action PortfolioMakerBackend.Controllers.PortfolioController.CreatePortfolio (PortfolioMakerBackend) in 46.5988ms
+2025-01-11 17:51:32.397 +01:00 [INF] Executed endpoint 'PortfolioMakerBackend.Controllers.PortfolioController.CreatePortfolio (PortfolioMakerBackend)'
+2025-01-11 17:51:32.398 +01:00 [INF] Request finished HTTP/2 POST https://localhost:7146/api/portfolio/create - 200 null application/json; charset=utf-8 61.1806ms
+2025-01-11 17:51:32.401 +01:00 [INF] Request starting HTTP/2 OPTIONS https://localhost:7146/api/portfolio/6782a1940f2835c745a04efa/experiences - null null
+2025-01-11 17:51:32.404 +01:00 [INF] CORS policy execution successful.
+2025-01-11 17:51:32.404 +01:00 [INF] Request finished HTTP/2 OPTIONS https://localhost:7146/api/portfolio/6782a1940f2835c745a04efa/experiences - 204 null null 3.4141ms
+2025-01-11 17:51:32.406 +01:00 [INF] Request starting HTTP/2 POST https://localhost:7146/api/portfolio/6782a1940f2835c745a04efa/experiences - application/json 183
+2025-01-11 17:51:32.409 +01:00 [INF] CORS policy execution successful.
+2025-01-11 17:51:32.411 +01:00 [INF] Executing endpoint 'PortfolioMakerBackend.Controllers.PortfolioController.AddExperienceToPortfolio (PortfolioMakerBackend)'
+2025-01-11 17:51:32.415 +01:00 [INF] Route matched with {action = "AddExperienceToPortfolio", controller = "Portfolio"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] AddExperienceToPortfolio(System.String, PortfolioMakerBackend.DTOs.ExperienceDTO) on controller PortfolioMakerBackend.Controllers.PortfolioController (PortfolioMakerBackend).
+2025-01-11 17:51:32.561 +01:00 [INF] Executing OkObjectResult, writing value of type 'PortfolioMakerBackend.Models.WorkExperience'.
+2025-01-11 17:51:32.563 +01:00 [INF] Executed action PortfolioMakerBackend.Controllers.PortfolioController.AddExperienceToPortfolio (PortfolioMakerBackend) in 146.7143ms
+2025-01-11 17:51:32.565 +01:00 [INF] Executed endpoint 'PortfolioMakerBackend.Controllers.PortfolioController.AddExperienceToPortfolio (PortfolioMakerBackend)'
+2025-01-11 17:51:32.566 +01:00 [INF] Request finished HTTP/2 POST https://localhost:7146/api/portfolio/6782a1940f2835c745a04efa/experiences - 200 null application/json; charset=utf-8 159.7271ms
+2025-01-11 17:51:32.569 +01:00 [INF] Request starting HTTP/2 OPTIONS https://localhost:7146/api/portfolio/6782a1940f2835c745a04efa/projects - null null
+2025-01-11 17:51:32.571 +01:00 [INF] CORS policy execution successful.
+2025-01-11 17:51:32.571 +01:00 [INF] Request finished HTTP/2 OPTIONS https://localhost:7146/api/portfolio/6782a1940f2835c745a04efa/projects - 204 null null 3.1711ms
+2025-01-11 17:51:32.573 +01:00 [INF] Request starting HTTP/2 POST https://localhost:7146/api/portfolio/6782a1940f2835c745a04efa/projects - application/json 135
+2025-01-11 17:51:32.577 +01:00 [INF] CORS policy execution successful.
+2025-01-11 17:51:32.579 +01:00 [INF] Executing endpoint 'PortfolioMakerBackend.Controllers.PortfolioController.AddProjectToPortfolio (PortfolioMakerBackend)'
+2025-01-11 17:51:32.583 +01:00 [INF] Route matched with {action = "AddProjectToPortfolio", controller = "Portfolio"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] AddProjectToPortfolio(System.String, PortfolioMakerBackend.DTOs.ProjectDTO) on controller PortfolioMakerBackend.Controllers.PortfolioController (PortfolioMakerBackend).
+2025-01-11 17:51:32.703 +01:00 [INF] Executing OkObjectResult, writing value of type 'PortfolioMakerBackend.Models.Project'.
+2025-01-11 17:51:32.705 +01:00 [INF] Executed action PortfolioMakerBackend.Controllers.PortfolioController.AddProjectToPortfolio (PortfolioMakerBackend) in 120.0042ms
+2025-01-11 17:51:32.706 +01:00 [INF] Executed endpoint 'PortfolioMakerBackend.Controllers.PortfolioController.AddProjectToPortfolio (PortfolioMakerBackend)'
+2025-01-11 17:51:32.709 +01:00 [INF] Request finished HTTP/2 POST https://localhost:7146/api/portfolio/6782a1940f2835c745a04efa/projects - 200 null application/json; charset=utf-8 135.1698ms
+2025-01-11 17:51:32.712 +01:00 [INF] Request starting HTTP/2 OPTIONS https://localhost:7146/api/portfolio/preview/0b2a7bbb-a6a1-4994-83b7-f8bcff2d3b24 - null null
+2025-01-11 17:51:32.715 +01:00 [INF] CORS policy execution successful.
+2025-01-11 17:51:32.716 +01:00 [INF] Request finished HTTP/2 OPTIONS https://localhost:7146/api/portfolio/preview/0b2a7bbb-a6a1-4994-83b7-f8bcff2d3b24 - 204 null null 3.7733ms
+2025-01-11 17:51:32.718 +01:00 [INF] Request starting HTTP/2 DELETE https://localhost:7146/api/portfolio/preview/0b2a7bbb-a6a1-4994-83b7-f8bcff2d3b24 - null null
+2025-01-11 17:51:32.721 +01:00 [INF] CORS policy execution successful.
+2025-01-11 17:51:32.723 +01:00 [INF] Executing endpoint 'PortfolioMakerBackend.Controllers.PortfolioController.DeletePreview (PortfolioMakerBackend)'
+2025-01-11 17:51:32.726 +01:00 [INF] Route matched with {action = "DeletePreview", controller = "Portfolio"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult DeletePreview(System.String) on controller PortfolioMakerBackend.Controllers.PortfolioController (PortfolioMakerBackend).
+2025-01-11 17:51:32.809 +01:00 [INF] Executing StatusCodeResult, setting HTTP status code 204
+2025-01-11 17:51:32.810 +01:00 [INF] Executed action PortfolioMakerBackend.Controllers.PortfolioController.DeletePreview (PortfolioMakerBackend) in 82.3063ms
+2025-01-11 17:51:32.811 +01:00 [INF] Executed endpoint 'PortfolioMakerBackend.Controllers.PortfolioController.DeletePreview (PortfolioMakerBackend)'
+2025-01-11 17:51:32.812 +01:00 [INF] Request finished HTTP/2 DELETE https://localhost:7146/api/portfolio/preview/0b2a7bbb-a6a1-4994-83b7-f8bcff2d3b24 - 204 null null 94.5292ms
+2025-01-11 17:51:32.836 +01:00 [INF] Request starting HTTP/2 OPTIONS https://localhost:7146/api/portfolio - null null
+2025-01-11 17:51:32.838 +01:00 [INF] CORS policy execution successful.
+2025-01-11 17:51:32.840 +01:00 [INF] Request finished HTTP/2 OPTIONS https://localhost:7146/api/portfolio - 204 null null 3.3639ms
+2025-01-11 17:51:32.841 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7146/api/portfolio - null null
+2025-01-11 17:51:32.844 +01:00 [INF] CORS policy execution successful.
+2025-01-11 17:51:32.846 +01:00 [INF] Executing endpoint 'PortfolioMakerBackend.Controllers.PortfolioController.GetAll (PortfolioMakerBackend)'
+2025-01-11 17:51:32.847 +01:00 [INF] Route matched with {action = "GetAll", controller = "Portfolio"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.List`1[PortfolioMakerBackend.Models.Portfolio]] GetAll() on controller PortfolioMakerBackend.Controllers.PortfolioController (PortfolioMakerBackend).
+2025-01-11 17:51:32.884 +01:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[PortfolioMakerBackend.Models.Portfolio, PortfolioMakerBackend, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-01-11 17:51:32.886 +01:00 [INF] Executed action PortfolioMakerBackend.Controllers.PortfolioController.GetAll (PortfolioMakerBackend) in 38.2058ms
+2025-01-11 17:51:32.888 +01:00 [INF] Executed endpoint 'PortfolioMakerBackend.Controllers.PortfolioController.GetAll (PortfolioMakerBackend)'
+2025-01-11 17:51:32.889 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7146/api/portfolio - 200 null application/json; charset=utf-8 47.9975ms
+2025-01-11 17:51:40.899 +01:00 [INF] Request starting HTTP/2 OPTIONS https://localhost:7146/api/portfolio/preview/6782a1940f2835c745a04efa - null null
+2025-01-11 17:51:40.899 +01:00 [INF] Request starting HTTP/2 OPTIONS https://localhost:7146/api/portfolio/preview/6782a1940f2835c745a04efa - null null
+2025-01-11 17:51:40.910 +01:00 [INF] CORS policy execution successful.
+2025-01-11 17:51:40.912 +01:00 [INF] CORS policy execution successful.
+2025-01-11 17:51:40.913 +01:00 [INF] Request finished HTTP/2 OPTIONS https://localhost:7146/api/portfolio/preview/6782a1940f2835c745a04efa - 204 null null 14.2629ms
+2025-01-11 17:51:40.914 +01:00 [INF] Request finished HTTP/2 OPTIONS https://localhost:7146/api/portfolio/preview/6782a1940f2835c745a04efa - 204 null null 15.4983ms
+2025-01-11 17:51:40.917 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7146/api/portfolio/preview/6782a1940f2835c745a04efa - null null
+2025-01-11 17:51:40.922 +01:00 [INF] CORS policy execution successful.
+2025-01-11 17:51:40.924 +01:00 [INF] Executing endpoint 'PortfolioMakerBackend.Controllers.PortfolioController.GetPortfolioFinished (PortfolioMakerBackend)'
+2025-01-11 17:51:40.925 +01:00 [INF] Route matched with {action = "GetPortfolioFinished", controller = "Portfolio"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetPortfolioFinished(System.String) on controller PortfolioMakerBackend.Controllers.PortfolioController (PortfolioMakerBackend).
+2025-01-11 17:51:40.968 +01:00 [INF] Executing OkObjectResult, writing value of type 'PortfolioMakerBackend.Models.Portfolio'.
+2025-01-11 17:51:40.970 +01:00 [INF] Executed action PortfolioMakerBackend.Controllers.PortfolioController.GetPortfolioFinished (PortfolioMakerBackend) in 41.7739ms
+2025-01-11 17:51:40.972 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7146/api/portfolio/preview/6782a1940f2835c745a04efa - null null
+2025-01-11 17:51:40.972 +01:00 [INF] Executed endpoint 'PortfolioMakerBackend.Controllers.PortfolioController.GetPortfolioFinished (PortfolioMakerBackend)'
+2025-01-11 17:51:40.974 +01:00 [INF] CORS policy execution successful.
+2025-01-11 17:51:40.975 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7146/api/portfolio/preview/6782a1940f2835c745a04efa - 200 null application/json; charset=utf-8 59.117ms
+2025-01-11 17:51:40.977 +01:00 [INF] Executing endpoint 'PortfolioMakerBackend.Controllers.PortfolioController.GetPortfolioFinished (PortfolioMakerBackend)'
+2025-01-11 17:51:40.979 +01:00 [INF] Route matched with {action = "GetPortfolioFinished", controller = "Portfolio"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetPortfolioFinished(System.String) on controller PortfolioMakerBackend.Controllers.PortfolioController (PortfolioMakerBackend).
+2025-01-11 17:51:41.016 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7146/api/portfolio/profile-picture/677fe3af776f9a7959c28928 - null null
+2025-01-11 17:51:41.020 +01:00 [INF] Executing endpoint 'PortfolioMakerBackend.Controllers.PortfolioController.GetProfilePicture (PortfolioMakerBackend)'
+2025-01-11 17:51:41.021 +01:00 [INF] Route matched with {action = "GetProfilePicture", controller = "Portfolio"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetProfilePicture(System.String) on controller PortfolioMakerBackend.Controllers.PortfolioController (PortfolioMakerBackend).
+2025-01-11 17:51:41.028 +01:00 [INF] Executing OkObjectResult, writing value of type 'PortfolioMakerBackend.Models.Portfolio'.
+2025-01-11 17:51:41.030 +01:00 [INF] Executed action PortfolioMakerBackend.Controllers.PortfolioController.GetPortfolioFinished (PortfolioMakerBackend) in 49.1528ms
+2025-01-11 17:51:41.031 +01:00 [INF] Executed endpoint 'PortfolioMakerBackend.Controllers.PortfolioController.GetPortfolioFinished (PortfolioMakerBackend)'
+2025-01-11 17:51:41.032 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7146/api/portfolio/preview/6782a1940f2835c745a04efa - 200 null application/json; charset=utf-8 60.4669ms
+2025-01-11 17:51:41.052 +01:00 [INF] Executing FileStreamResult, sending file with download name 'default_profile.png' ...
+2025-01-11 17:51:41.109 +01:00 [INF] Executed action PortfolioMakerBackend.Controllers.PortfolioController.GetProfilePicture (PortfolioMakerBackend) in 85.6289ms
+2025-01-11 17:51:41.110 +01:00 [INF] Executed endpoint 'PortfolioMakerBackend.Controllers.PortfolioController.GetProfilePicture (PortfolioMakerBackend)'
+2025-01-11 17:51:41.112 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7146/api/portfolio/profile-picture/677fe3af776f9a7959c28928 - 200 null image/jpeg 95.4179ms
+2025-01-11 17:55:39.256 +01:00 [INF] User profile is available. Using 'C:\Users\Dean\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-01-11 17:55:39.465 +01:00 [INF] Initialized Scheduler Signaller of type: Quartz.Core.SchedulerSignalerImpl
+2025-01-11 17:55:39.467 +01:00 [INF] Quartz Scheduler created
+2025-01-11 17:55:39.469 +01:00 [INF] JobFactory set to: Quartz.Simpl.MicrosoftDependencyInjectionJobFactory
+2025-01-11 17:55:39.471 +01:00 [INF] RAMJobStore initialized.
+2025-01-11 17:55:39.472 +01:00 [INF] Quartz Scheduler 3.13.1.0 - 'QuartzScheduler' with instanceId 'NON_CLUSTERED' initialized
+2025-01-11 17:55:39.482 +01:00 [INF] Using thread pool 'Quartz.Simpl.DefaultThreadPool', size: 10
+2025-01-11 17:55:39.484 +01:00 [INF] Using job store 'Quartz.Simpl.RAMJobStore', supports persistence: False, clustered: False
+2025-01-11 17:55:39.806 +01:00 [INF] Now listening on: https://localhost:7146
+2025-01-11 17:55:39.807 +01:00 [INF] Now listening on: http://localhost:5201
+2025-01-11 17:55:39.907 +01:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-01-11 17:55:39.909 +01:00 [INF] Hosting environment: Development
+2025-01-11 17:55:39.910 +01:00 [INF] Content root path: C:\Users\Dean\Desktop\Skola\TVZ\Projekti\PortfolioMaker\PortfolioMakerBackend
+2025-01-11 17:55:39.910 +01:00 [INF] Scheduler QuartzScheduler_$_NON_CLUSTERED started.
+2025-01-11 17:55:42.235 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7146/swagger/index.html - null null
+2025-01-11 17:55:42.674 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7146/swagger/index.html - 200 null text/html;charset=utf-8 453.3424ms
+2025-01-11 17:55:42.705 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7146/_framework/aspnetcore-browser-refresh.js - null null
+2025-01-11 17:55:42.707 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7146/_vs/browserLink - null null
+2025-01-11 17:55:42.717 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7146/_framework/aspnetcore-browser-refresh.js - 200 13794 application/javascript; charset=utf-8 12.0152ms
+2025-01-11 17:55:42.778 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7146/_vs/browserLink - 200 null text/javascript; charset=UTF-8 71.4063ms
+2025-01-11 17:55:43.012 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7146/swagger/v1/swagger.json - null null
+2025-01-11 17:55:43.039 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7146/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 27.1729ms
+2025-01-11 17:56:17.788 +01:00 [INF] Request starting HTTP/2 OPTIONS https://localhost:7146/api/portfolio - null null
+2025-01-11 17:56:17.788 +01:00 [INF] Request starting HTTP/2 OPTIONS https://localhost:7146/api/portfolio - null null
+2025-01-11 17:56:17.798 +01:00 [INF] CORS policy execution successful.
+2025-01-11 17:56:17.798 +01:00 [INF] CORS policy execution successful.
+2025-01-11 17:56:17.802 +01:00 [INF] Request finished HTTP/2 OPTIONS https://localhost:7146/api/portfolio - 204 null null 14.3886ms
+2025-01-11 17:56:17.802 +01:00 [INF] Request finished HTTP/2 OPTIONS https://localhost:7146/api/portfolio - 204 null null 14.3599ms
+2025-01-11 17:56:17.811 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7146/api/portfolio - null null
+2025-01-11 17:56:17.817 +01:00 [INF] CORS policy execution successful.
+2025-01-11 17:56:18.040 +01:00 [INF] Executing endpoint 'PortfolioMakerBackend.Controllers.PortfolioController.GetAll (PortfolioMakerBackend)'
+2025-01-11 17:56:18.067 +01:00 [INF] Route matched with {action = "GetAll", controller = "Portfolio"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.List`1[PortfolioMakerBackend.Models.Portfolio]] GetAll() on controller PortfolioMakerBackend.Controllers.PortfolioController (PortfolioMakerBackend).
+2025-01-11 17:56:19.906 +01:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[PortfolioMakerBackend.Models.Portfolio, PortfolioMakerBackend, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-01-11 17:56:19.930 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7146/api/portfolio - null null
+2025-01-11 17:56:19.930 +01:00 [INF] Executed action PortfolioMakerBackend.Controllers.PortfolioController.GetAll (PortfolioMakerBackend) in 1857.1885ms
+2025-01-11 17:56:19.932 +01:00 [INF] CORS policy execution successful.
+2025-01-11 17:56:19.933 +01:00 [INF] Executed endpoint 'PortfolioMakerBackend.Controllers.PortfolioController.GetAll (PortfolioMakerBackend)'
+2025-01-11 17:56:19.936 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7146/api/portfolio - 200 null application/json; charset=utf-8 2127.3071ms
+2025-01-11 17:56:19.948 +01:00 [INF] Executing endpoint 'PortfolioMakerBackend.Controllers.PortfolioController.GetAll (PortfolioMakerBackend)'
+2025-01-11 17:56:19.949 +01:00 [INF] Route matched with {action = "GetAll", controller = "Portfolio"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.List`1[PortfolioMakerBackend.Models.Portfolio]] GetAll() on controller PortfolioMakerBackend.Controllers.PortfolioController (PortfolioMakerBackend).
+2025-01-11 17:56:19.987 +01:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[PortfolioMakerBackend.Models.Portfolio, PortfolioMakerBackend, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-01-11 17:56:19.989 +01:00 [INF] Executed action PortfolioMakerBackend.Controllers.PortfolioController.GetAll (PortfolioMakerBackend) in 37.7277ms
+2025-01-11 17:56:19.990 +01:00 [INF] Executed endpoint 'PortfolioMakerBackend.Controllers.PortfolioController.GetAll (PortfolioMakerBackend)'
+2025-01-11 17:56:19.992 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7146/api/portfolio - 200 null application/json; charset=utf-8 62.5084ms
+2025-01-11 17:56:27.169 +01:00 [INF] Request starting HTTP/2 OPTIONS https://localhost:7146/api/portfolio - null null
+2025-01-11 17:56:27.169 +01:00 [INF] Request starting HTTP/2 OPTIONS https://localhost:7146/api/portfolio - null null
+2025-01-11 17:56:27.172 +01:00 [INF] CORS policy execution successful.
+2025-01-11 17:56:27.175 +01:00 [INF] CORS policy execution successful.
+2025-01-11 17:56:27.176 +01:00 [INF] Request finished HTTP/2 OPTIONS https://localhost:7146/api/portfolio - 204 null null 6.8708ms
+2025-01-11 17:56:27.176 +01:00 [INF] Request finished HTTP/2 OPTIONS https://localhost:7146/api/portfolio - 204 null null 7.4422ms
+2025-01-11 17:56:27.179 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7146/api/portfolio - null null
+2025-01-11 17:56:27.184 +01:00 [INF] CORS policy execution successful.
+2025-01-11 17:56:27.189 +01:00 [INF] Executing endpoint 'PortfolioMakerBackend.Controllers.PortfolioController.GetAll (PortfolioMakerBackend)'
+2025-01-11 17:56:27.190 +01:00 [INF] Route matched with {action = "GetAll", controller = "Portfolio"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.List`1[PortfolioMakerBackend.Models.Portfolio]] GetAll() on controller PortfolioMakerBackend.Controllers.PortfolioController (PortfolioMakerBackend).
+2025-01-11 17:56:27.234 +01:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[PortfolioMakerBackend.Models.Portfolio, PortfolioMakerBackend, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-01-11 17:56:27.236 +01:00 [INF] Executed action PortfolioMakerBackend.Controllers.PortfolioController.GetAll (PortfolioMakerBackend) in 44.1142ms
+2025-01-11 17:56:27.238 +01:00 [INF] Executed endpoint 'PortfolioMakerBackend.Controllers.PortfolioController.GetAll (PortfolioMakerBackend)'
+2025-01-11 17:56:27.239 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7146/api/portfolio - null null
+2025-01-11 17:56:27.239 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7146/api/portfolio - 200 null application/json; charset=utf-8 60.8061ms
+2025-01-11 17:56:27.241 +01:00 [INF] CORS policy execution successful.
+2025-01-11 17:56:27.245 +01:00 [INF] Executing endpoint 'PortfolioMakerBackend.Controllers.PortfolioController.GetAll (PortfolioMakerBackend)'
+2025-01-11 17:56:27.246 +01:00 [INF] Route matched with {action = "GetAll", controller = "Portfolio"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.List`1[PortfolioMakerBackend.Models.Portfolio]] GetAll() on controller PortfolioMakerBackend.Controllers.PortfolioController (PortfolioMakerBackend).
+2025-01-11 17:56:27.287 +01:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[PortfolioMakerBackend.Models.Portfolio, PortfolioMakerBackend, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-01-11 17:56:27.289 +01:00 [INF] Executed action PortfolioMakerBackend.Controllers.PortfolioController.GetAll (PortfolioMakerBackend) in 40.9178ms
+2025-01-11 17:56:27.291 +01:00 [INF] Executed endpoint 'PortfolioMakerBackend.Controllers.PortfolioController.GetAll (PortfolioMakerBackend)'
+2025-01-11 17:56:27.292 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7146/api/portfolio - 200 null application/json; charset=utf-8 53.8049ms
+2025-01-11 17:58:12.723 +01:00 [INF] Request starting HTTP/2 OPTIONS https://localhost:7146/api/portfolio/preview - null null
+2025-01-11 17:58:12.732 +01:00 [INF] CORS policy execution successful.
+2025-01-11 17:58:12.734 +01:00 [INF] Request finished HTTP/2 OPTIONS https://localhost:7146/api/portfolio/preview - 204 null null 11.3535ms
+2025-01-11 17:58:12.737 +01:00 [INF] Request starting HTTP/2 POST https://localhost:7146/api/portfolio/preview - application/json 675
+2025-01-11 17:58:12.739 +01:00 [INF] CORS policy execution successful.
+2025-01-11 17:58:12.740 +01:00 [INF] Executing endpoint 'PortfolioMakerBackend.Controllers.PortfolioController.GeneratePreview (PortfolioMakerBackend)'
+2025-01-11 17:58:12.757 +01:00 [INF] Route matched with {action = "GeneratePreview", controller = "Portfolio"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult] GeneratePreview(PortfolioMakerBackend.DTOs.PortfolioDTO) on controller PortfolioMakerBackend.Controllers.PortfolioController (PortfolioMakerBackend).
+2025-01-11 17:58:12.978 +01:00 [INF] Executing OkObjectResult, writing value of type '<>f__AnonymousType2`2[[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-01-11 17:58:12.984 +01:00 [INF] Executed action PortfolioMakerBackend.Controllers.PortfolioController.GeneratePreview (PortfolioMakerBackend) in 225.1024ms
+2025-01-11 17:58:12.986 +01:00 [INF] Executed endpoint 'PortfolioMakerBackend.Controllers.PortfolioController.GeneratePreview (PortfolioMakerBackend)'
+2025-01-11 17:58:12.988 +01:00 [INF] Request finished HTTP/2 POST https://localhost:7146/api/portfolio/preview - 200 null application/json; charset=utf-8 251.6763ms
+2025-01-11 17:58:13.286 +01:00 [INF] Request starting HTTP/2 OPTIONS https://localhost:7146/api/portfolio/preview/ff93ffdf-6144-4f4f-b5b3-05617f35e9a0 - null null
+2025-01-11 17:58:13.295 +01:00 [INF] CORS policy execution successful.
+2025-01-11 17:58:13.297 +01:00 [INF] Request finished HTTP/2 OPTIONS https://localhost:7146/api/portfolio/preview/ff93ffdf-6144-4f4f-b5b3-05617f35e9a0 - 204 null null 11.0096ms
+2025-01-11 17:58:13.286 +01:00 [INF] Request starting HTTP/2 OPTIONS https://localhost:7146/api/portfolio/preview/ff93ffdf-6144-4f4f-b5b3-05617f35e9a0 - null null
+2025-01-11 17:58:13.326 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7146/api/portfolio/preview/ff93ffdf-6144-4f4f-b5b3-05617f35e9a0 - null null
+2025-01-11 17:58:13.340 +01:00 [INF] CORS policy execution successful.
+2025-01-11 17:58:13.348 +01:00 [INF] Request finished HTTP/2 OPTIONS https://localhost:7146/api/portfolio/preview/ff93ffdf-6144-4f4f-b5b3-05617f35e9a0 - 204 null null 63.2596ms
+2025-01-11 17:58:13.342 +01:00 [INF] CORS policy execution successful.
+2025-01-11 17:58:13.354 +01:00 [INF] Executing endpoint 'PortfolioMakerBackend.Controllers.PortfolioController.GetPortfolioFinished (PortfolioMakerBackend)'
+2025-01-11 17:58:13.361 +01:00 [INF] Route matched with {action = "GetPortfolioFinished", controller = "Portfolio"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetPortfolioFinished(System.String) on controller PortfolioMakerBackend.Controllers.PortfolioController (PortfolioMakerBackend).
+2025-01-11 17:58:13.484 +01:00 [INF] Executing OkObjectResult, writing value of type 'PortfolioMakerBackend.Models.Portfolio'.
+2025-01-11 17:58:13.487 +01:00 [INF] Executed action PortfolioMakerBackend.Controllers.PortfolioController.GetPortfolioFinished (PortfolioMakerBackend) in 123.9359ms
+2025-01-11 17:58:13.489 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7146/api/portfolio/preview/ff93ffdf-6144-4f4f-b5b3-05617f35e9a0 - null null
+2025-01-11 17:58:13.489 +01:00 [INF] Executed endpoint 'PortfolioMakerBackend.Controllers.PortfolioController.GetPortfolioFinished (PortfolioMakerBackend)'
+2025-01-11 17:58:13.491 +01:00 [INF] CORS policy execution successful.
+2025-01-11 17:58:13.492 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7146/api/portfolio/preview/ff93ffdf-6144-4f4f-b5b3-05617f35e9a0 - 200 null application/json; charset=utf-8 166.0887ms
+2025-01-11 17:58:13.495 +01:00 [INF] Executing endpoint 'PortfolioMakerBackend.Controllers.PortfolioController.GetPortfolioFinished (PortfolioMakerBackend)'
+2025-01-11 17:58:13.498 +01:00 [INF] Route matched with {action = "GetPortfolioFinished", controller = "Portfolio"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetPortfolioFinished(System.String) on controller PortfolioMakerBackend.Controllers.PortfolioController (PortfolioMakerBackend).
+2025-01-11 17:58:13.544 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7146/api/portfolio/profile-picture/677fe3af776f9a7959c28928 - null null
+2025-01-11 17:58:13.548 +01:00 [INF] Executing endpoint 'PortfolioMakerBackend.Controllers.PortfolioController.GetProfilePicture (PortfolioMakerBackend)'
+2025-01-11 17:58:13.553 +01:00 [INF] Route matched with {action = "GetProfilePicture", controller = "Portfolio"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetProfilePicture(System.String) on controller PortfolioMakerBackend.Controllers.PortfolioController (PortfolioMakerBackend).
+2025-01-11 17:58:13.572 +01:00 [INF] Executing OkObjectResult, writing value of type 'PortfolioMakerBackend.Models.Portfolio'.
+2025-01-11 17:58:13.573 +01:00 [INF] Executed action PortfolioMakerBackend.Controllers.PortfolioController.GetPortfolioFinished (PortfolioMakerBackend) in 74.1995ms
+2025-01-11 17:58:13.575 +01:00 [INF] Executed endpoint 'PortfolioMakerBackend.Controllers.PortfolioController.GetPortfolioFinished (PortfolioMakerBackend)'
+2025-01-11 17:58:13.576 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7146/api/portfolio/preview/ff93ffdf-6144-4f4f-b5b3-05617f35e9a0 - 200 null application/json; charset=utf-8 87.7153ms
+2025-01-11 17:58:13.897 +01:00 [INF] Executing FileStreamResult, sending file with download name 'default_profile.png' ...
+2025-01-11 17:58:13.987 +01:00 [INF] Executed action PortfolioMakerBackend.Controllers.PortfolioController.GetProfilePicture (PortfolioMakerBackend) in 432.013ms
+2025-01-11 17:58:13.989 +01:00 [INF] Executed endpoint 'PortfolioMakerBackend.Controllers.PortfolioController.GetProfilePicture (PortfolioMakerBackend)'
+2025-01-11 17:58:13.990 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7146/api/portfolio/profile-picture/677fe3af776f9a7959c28928 - 200 null image/jpeg 446.5202ms
+2025-01-11 17:58:16.409 +01:00 [INF] Request starting HTTP/2 OPTIONS https://localhost:7146/api/portfolio/create - null null
+2025-01-11 17:58:16.412 +01:00 [INF] CORS policy execution successful.
+2025-01-11 17:58:16.413 +01:00 [INF] Request finished HTTP/2 OPTIONS https://localhost:7146/api/portfolio/create - 204 null null 4.0105ms
+2025-01-11 17:58:16.415 +01:00 [INF] Request starting HTTP/2 POST https://localhost:7146/api/portfolio/create - application/json 756
+2025-01-11 17:58:16.418 +01:00 [INF] CORS policy execution successful.
+2025-01-11 17:58:16.419 +01:00 [INF] Executing endpoint 'PortfolioMakerBackend.Controllers.PortfolioController.CreatePortfolio (PortfolioMakerBackend)'
+2025-01-11 17:58:16.423 +01:00 [INF] Route matched with {action = "CreatePortfolio", controller = "Portfolio"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[PortfolioMakerBackend.Models.Portfolio]] CreatePortfolio(PortfolioMakerBackend.DTOs.PortfolioDTO) on controller PortfolioMakerBackend.Controllers.PortfolioController (PortfolioMakerBackend).
+2025-01-11 17:58:16.465 +01:00 [INF] Executing OkObjectResult, writing value of type 'PortfolioMakerBackend.Models.Portfolio'.
+2025-01-11 17:58:16.467 +01:00 [INF] Executed action PortfolioMakerBackend.Controllers.PortfolioController.CreatePortfolio (PortfolioMakerBackend) in 42.652ms
+2025-01-11 17:58:16.468 +01:00 [INF] Executed endpoint 'PortfolioMakerBackend.Controllers.PortfolioController.CreatePortfolio (PortfolioMakerBackend)'
+2025-01-11 17:58:16.470 +01:00 [INF] Request finished HTTP/2 POST https://localhost:7146/api/portfolio/create - 200 null application/json; charset=utf-8 54.8355ms
+2025-01-11 17:58:16.497 +01:00 [INF] Request starting HTTP/2 OPTIONS https://localhost:7146/api/portfolio/6782a32812686e515f3283e0/experiences - null null
+2025-01-11 17:58:16.499 +01:00 [INF] CORS policy execution successful.
+2025-01-11 17:58:16.500 +01:00 [INF] Request finished HTTP/2 OPTIONS https://localhost:7146/api/portfolio/6782a32812686e515f3283e0/experiences - 204 null null 3.6624ms
+2025-01-11 17:58:16.503 +01:00 [INF] Request starting HTTP/2 POST https://localhost:7146/api/portfolio/6782a32812686e515f3283e0/experiences - application/json 158
+2025-01-11 17:58:16.505 +01:00 [INF] CORS policy execution successful.
+2025-01-11 17:58:16.507 +01:00 [INF] Executing endpoint 'PortfolioMakerBackend.Controllers.PortfolioController.AddExperienceToPortfolio (PortfolioMakerBackend)'
+2025-01-11 17:58:16.512 +01:00 [INF] Route matched with {action = "AddExperienceToPortfolio", controller = "Portfolio"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] AddExperienceToPortfolio(System.String, PortfolioMakerBackend.DTOs.ExperienceDTO) on controller PortfolioMakerBackend.Controllers.PortfolioController (PortfolioMakerBackend).
+2025-01-11 17:58:16.625 +01:00 [INF] Executing OkObjectResult, writing value of type 'PortfolioMakerBackend.Models.WorkExperience'.
+2025-01-11 17:58:16.626 +01:00 [INF] Executed action PortfolioMakerBackend.Controllers.PortfolioController.AddExperienceToPortfolio (PortfolioMakerBackend) in 112.7905ms
+2025-01-11 17:58:16.629 +01:00 [INF] Executed endpoint 'PortfolioMakerBackend.Controllers.PortfolioController.AddExperienceToPortfolio (PortfolioMakerBackend)'
+2025-01-11 17:58:16.630 +01:00 [INF] Request finished HTTP/2 POST https://localhost:7146/api/portfolio/6782a32812686e515f3283e0/experiences - 200 null application/json; charset=utf-8 127.2539ms
+2025-01-11 17:58:16.633 +01:00 [INF] Request starting HTTP/2 OPTIONS https://localhost:7146/api/portfolio/6782a32812686e515f3283e0/projects - null null
+2025-01-11 17:58:16.636 +01:00 [INF] CORS policy execution successful.
+2025-01-11 17:58:16.636 +01:00 [INF] Request finished HTTP/2 OPTIONS https://localhost:7146/api/portfolio/6782a32812686e515f3283e0/projects - 204 null null 3.1791ms
+2025-01-11 17:58:16.638 +01:00 [INF] Request starting HTTP/2 POST https://localhost:7146/api/portfolio/6782a32812686e515f3283e0/projects - application/json 145
+2025-01-11 17:58:16.641 +01:00 [INF] CORS policy execution successful.
+2025-01-11 17:58:16.643 +01:00 [INF] Executing endpoint 'PortfolioMakerBackend.Controllers.PortfolioController.AddProjectToPortfolio (PortfolioMakerBackend)'
+2025-01-11 17:58:16.647 +01:00 [INF] Route matched with {action = "AddProjectToPortfolio", controller = "Portfolio"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] AddProjectToPortfolio(System.String, PortfolioMakerBackend.DTOs.ProjectDTO) on controller PortfolioMakerBackend.Controllers.PortfolioController (PortfolioMakerBackend).
+2025-01-11 17:58:16.753 +01:00 [INF] Executing OkObjectResult, writing value of type 'PortfolioMakerBackend.Models.Project'.
+2025-01-11 17:58:16.755 +01:00 [INF] Executed action PortfolioMakerBackend.Controllers.PortfolioController.AddProjectToPortfolio (PortfolioMakerBackend) in 106.2596ms
+2025-01-11 17:58:16.757 +01:00 [INF] Executed endpoint 'PortfolioMakerBackend.Controllers.PortfolioController.AddProjectToPortfolio (PortfolioMakerBackend)'
+2025-01-11 17:58:16.759 +01:00 [INF] Request finished HTTP/2 POST https://localhost:7146/api/portfolio/6782a32812686e515f3283e0/projects - 200 null application/json; charset=utf-8 120.7826ms
+2025-01-11 17:58:16.762 +01:00 [INF] Request starting HTTP/2 OPTIONS https://localhost:7146/api/portfolio/preview/ff93ffdf-6144-4f4f-b5b3-05617f35e9a0 - null null
+2025-01-11 17:58:16.765 +01:00 [INF] CORS policy execution successful.
+2025-01-11 17:58:16.766 +01:00 [INF] Request finished HTTP/2 OPTIONS https://localhost:7146/api/portfolio/preview/ff93ffdf-6144-4f4f-b5b3-05617f35e9a0 - 204 null null 3.7965ms
+2025-01-11 17:58:16.768 +01:00 [INF] Request starting HTTP/2 DELETE https://localhost:7146/api/portfolio/preview/ff93ffdf-6144-4f4f-b5b3-05617f35e9a0 - null null
+2025-01-11 17:58:16.771 +01:00 [INF] CORS policy execution successful.
+2025-01-11 17:58:16.772 +01:00 [INF] Executing endpoint 'PortfolioMakerBackend.Controllers.PortfolioController.DeletePreview (PortfolioMakerBackend)'
+2025-01-11 17:58:16.774 +01:00 [INF] Route matched with {action = "DeletePreview", controller = "Portfolio"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult DeletePreview(System.String) on controller PortfolioMakerBackend.Controllers.PortfolioController (PortfolioMakerBackend).
+2025-01-11 17:58:16.869 +01:00 [INF] Executing StatusCodeResult, setting HTTP status code 204
+2025-01-11 17:58:16.871 +01:00 [INF] Executed action PortfolioMakerBackend.Controllers.PortfolioController.DeletePreview (PortfolioMakerBackend) in 94.5989ms
+2025-01-11 17:58:16.872 +01:00 [INF] Executed endpoint 'PortfolioMakerBackend.Controllers.PortfolioController.DeletePreview (PortfolioMakerBackend)'
+2025-01-11 17:58:16.873 +01:00 [INF] Request finished HTTP/2 DELETE https://localhost:7146/api/portfolio/preview/ff93ffdf-6144-4f4f-b5b3-05617f35e9a0 - 204 null null 105.3009ms
+2025-01-11 17:58:16.897 +01:00 [INF] Request starting HTTP/2 OPTIONS https://localhost:7146/api/portfolio - null null
+2025-01-11 17:58:16.900 +01:00 [INF] CORS policy execution successful.
+2025-01-11 17:58:16.901 +01:00 [INF] Request finished HTTP/2 OPTIONS https://localhost:7146/api/portfolio - 204 null null 4.4877ms
+2025-01-11 17:58:16.904 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7146/api/portfolio - null null
+2025-01-11 17:58:16.906 +01:00 [INF] CORS policy execution successful.
+2025-01-11 17:58:16.907 +01:00 [INF] Executing endpoint 'PortfolioMakerBackend.Controllers.PortfolioController.GetAll (PortfolioMakerBackend)'
+2025-01-11 17:58:16.908 +01:00 [INF] Route matched with {action = "GetAll", controller = "Portfolio"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.List`1[PortfolioMakerBackend.Models.Portfolio]] GetAll() on controller PortfolioMakerBackend.Controllers.PortfolioController (PortfolioMakerBackend).
+2025-01-11 17:58:16.941 +01:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[PortfolioMakerBackend.Models.Portfolio, PortfolioMakerBackend, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-01-11 17:58:16.943 +01:00 [INF] Executed action PortfolioMakerBackend.Controllers.PortfolioController.GetAll (PortfolioMakerBackend) in 34.2423ms
+2025-01-11 17:58:16.945 +01:00 [INF] Executed endpoint 'PortfolioMakerBackend.Controllers.PortfolioController.GetAll (PortfolioMakerBackend)'
+2025-01-11 17:58:16.945 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7146/api/portfolio - 200 null application/json; charset=utf-8 42.247ms
+2025-01-11 17:58:39.537 +01:00 [INF] Request starting HTTP/2 OPTIONS https://localhost:7146/api/portfolio/preview/6782a32812686e515f3283e0 - null null
+2025-01-11 17:58:39.542 +01:00 [INF] Request starting HTTP/2 OPTIONS https://localhost:7146/api/portfolio/preview/6782a32812686e515f3283e0 - null null
+2025-01-11 17:58:39.555 +01:00 [INF] CORS policy execution successful.
+2025-01-11 17:58:39.558 +01:00 [INF] CORS policy execution successful.
+2025-01-11 17:58:39.559 +01:00 [INF] Request finished HTTP/2 OPTIONS https://localhost:7146/api/portfolio/preview/6782a32812686e515f3283e0 - 204 null null 21.7539ms
+2025-01-11 17:58:39.560 +01:00 [INF] Request finished HTTP/2 OPTIONS https://localhost:7146/api/portfolio/preview/6782a32812686e515f3283e0 - 204 null null 17.569ms
+2025-01-11 17:58:39.564 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7146/api/portfolio/preview/6782a32812686e515f3283e0 - null null
+2025-01-11 17:58:39.569 +01:00 [INF] CORS policy execution successful.
+2025-01-11 17:58:39.570 +01:00 [INF] Executing endpoint 'PortfolioMakerBackend.Controllers.PortfolioController.GetPortfolioFinished (PortfolioMakerBackend)'
+2025-01-11 17:58:39.571 +01:00 [INF] Route matched with {action = "GetPortfolioFinished", controller = "Portfolio"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetPortfolioFinished(System.String) on controller PortfolioMakerBackend.Controllers.PortfolioController (PortfolioMakerBackend).
+2025-01-11 17:58:39.643 +01:00 [INF] Executing OkObjectResult, writing value of type 'PortfolioMakerBackend.Models.Portfolio'.
+2025-01-11 17:58:39.645 +01:00 [INF] Executed action PortfolioMakerBackend.Controllers.PortfolioController.GetPortfolioFinished (PortfolioMakerBackend) in 72.5512ms
+2025-01-11 17:58:39.647 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7146/api/portfolio/preview/6782a32812686e515f3283e0 - null null
+2025-01-11 17:58:39.647 +01:00 [INF] Executed endpoint 'PortfolioMakerBackend.Controllers.PortfolioController.GetPortfolioFinished (PortfolioMakerBackend)'
+2025-01-11 17:58:39.650 +01:00 [INF] CORS policy execution successful.
+2025-01-11 17:58:39.650 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7146/api/portfolio/preview/6782a32812686e515f3283e0 - 200 null application/json; charset=utf-8 86.3276ms
+2025-01-11 17:58:39.652 +01:00 [INF] Executing endpoint 'PortfolioMakerBackend.Controllers.PortfolioController.GetPortfolioFinished (PortfolioMakerBackend)'
+2025-01-11 17:58:39.655 +01:00 [INF] Route matched with {action = "GetPortfolioFinished", controller = "Portfolio"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetPortfolioFinished(System.String) on controller PortfolioMakerBackend.Controllers.PortfolioController (PortfolioMakerBackend).
+2025-01-11 17:58:39.694 +01:00 [INF] Executing OkObjectResult, writing value of type 'PortfolioMakerBackend.Models.Portfolio'.
+2025-01-11 17:58:39.696 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7146/api/portfolio/profile-picture/677fe3af776f9a7959c28928 - null null
+2025-01-11 17:58:39.703 +01:00 [INF] Executed action PortfolioMakerBackend.Controllers.PortfolioController.GetPortfolioFinished (PortfolioMakerBackend) in 46.4093ms
+2025-01-11 17:58:39.706 +01:00 [INF] Executed endpoint 'PortfolioMakerBackend.Controllers.PortfolioController.GetPortfolioFinished (PortfolioMakerBackend)'
+2025-01-11 17:58:39.706 +01:00 [INF] Executing endpoint 'PortfolioMakerBackend.Controllers.PortfolioController.GetProfilePicture (PortfolioMakerBackend)'
+2025-01-11 17:58:39.707 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7146/api/portfolio/preview/6782a32812686e515f3283e0 - 200 null application/json; charset=utf-8 60.7367ms
+2025-01-11 17:58:39.708 +01:00 [INF] Route matched with {action = "GetProfilePicture", controller = "Portfolio"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetProfilePicture(System.String) on controller PortfolioMakerBackend.Controllers.PortfolioController (PortfolioMakerBackend).
+2025-01-11 17:58:39.744 +01:00 [INF] Executing FileStreamResult, sending file with download name 'default_profile.png' ...
+2025-01-11 17:58:39.810 +01:00 [INF] Executed action PortfolioMakerBackend.Controllers.PortfolioController.GetProfilePicture (PortfolioMakerBackend) in 96.7791ms
+2025-01-11 17:58:39.812 +01:00 [INF] Executed endpoint 'PortfolioMakerBackend.Controllers.PortfolioController.GetProfilePicture (PortfolioMakerBackend)'
+2025-01-11 17:58:39.813 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7146/api/portfolio/profile-picture/677fe3af776f9a7959c28928 - 200 null image/jpeg 117.2107ms
+2025-01-11 18:00:00.069 +01:00 [INF] Deleted 0 old preview portfolios.
+2025-01-11 18:00:10.003 +01:00 [INF] Request starting HTTP/2 OPTIONS https://localhost:7146/api/portfolio - null null
+2025-01-11 18:00:10.003 +01:00 [INF] Request starting HTTP/2 OPTIONS https://localhost:7146/api/portfolio - null null
+2025-01-11 18:00:10.015 +01:00 [INF] CORS policy execution successful.
+2025-01-11 18:00:10.017 +01:00 [INF] CORS policy execution successful.
+2025-01-11 18:00:10.018 +01:00 [INF] Request finished HTTP/2 OPTIONS https://localhost:7146/api/portfolio - 204 null null 15.0171ms
+2025-01-11 18:00:10.019 +01:00 [INF] Request finished HTTP/2 OPTIONS https://localhost:7146/api/portfolio - 204 null null 15.9467ms
+2025-01-11 18:00:10.021 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7146/api/portfolio - null null
+2025-01-11 18:00:10.025 +01:00 [INF] CORS policy execution successful.
+2025-01-11 18:00:10.028 +01:00 [INF] Executing endpoint 'PortfolioMakerBackend.Controllers.PortfolioController.GetAll (PortfolioMakerBackend)'
+2025-01-11 18:00:10.029 +01:00 [INF] Route matched with {action = "GetAll", controller = "Portfolio"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.List`1[PortfolioMakerBackend.Models.Portfolio]] GetAll() on controller PortfolioMakerBackend.Controllers.PortfolioController (PortfolioMakerBackend).
+2025-01-11 18:00:10.064 +01:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[PortfolioMakerBackend.Models.Portfolio, PortfolioMakerBackend, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-01-11 18:00:10.066 +01:00 [INF] Executed action PortfolioMakerBackend.Controllers.PortfolioController.GetAll (PortfolioMakerBackend) in 35.4641ms
+2025-01-11 18:00:10.067 +01:00 [INF] Executed endpoint 'PortfolioMakerBackend.Controllers.PortfolioController.GetAll (PortfolioMakerBackend)'
+2025-01-11 18:00:10.068 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7146/api/portfolio - null null
+2025-01-11 18:00:10.069 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7146/api/portfolio - 200 null application/json; charset=utf-8 48.1236ms
+2025-01-11 18:00:10.071 +01:00 [INF] CORS policy execution successful.
+2025-01-11 18:00:10.075 +01:00 [INF] Executing endpoint 'PortfolioMakerBackend.Controllers.PortfolioController.GetAll (PortfolioMakerBackend)'
+2025-01-11 18:00:10.076 +01:00 [INF] Route matched with {action = "GetAll", controller = "Portfolio"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.List`1[PortfolioMakerBackend.Models.Portfolio]] GetAll() on controller PortfolioMakerBackend.Controllers.PortfolioController (PortfolioMakerBackend).
+2025-01-11 18:00:10.120 +01:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[PortfolioMakerBackend.Models.Portfolio, PortfolioMakerBackend, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-01-11 18:00:10.121 +01:00 [INF] Executed action PortfolioMakerBackend.Controllers.PortfolioController.GetAll (PortfolioMakerBackend) in 43.4529ms
+2025-01-11 18:00:10.123 +01:00 [INF] Executed endpoint 'PortfolioMakerBackend.Controllers.PortfolioController.GetAll (PortfolioMakerBackend)'
+2025-01-11 18:00:10.124 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7146/api/portfolio - 200 null application/json; charset=utf-8 56.906ms
+2025-01-11 18:00:27.610 +01:00 [INF] Request starting HTTP/2 OPTIONS https://localhost:7146/api/portfolio - null null
+2025-01-11 18:00:27.612 +01:00 [INF] Request starting HTTP/2 OPTIONS https://localhost:7146/api/portfolio - null null
+2025-01-11 18:00:27.615 +01:00 [INF] CORS policy execution successful.
+2025-01-11 18:00:27.617 +01:00 [INF] CORS policy execution successful.
+2025-01-11 18:00:27.618 +01:00 [INF] Request finished HTTP/2 OPTIONS https://localhost:7146/api/portfolio - 204 null null 8.0717ms
+2025-01-11 18:00:27.618 +01:00 [INF] Request finished HTTP/2 OPTIONS https://localhost:7146/api/portfolio - 204 null null 6.5113ms
+2025-01-11 18:00:27.620 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7146/api/portfolio - null null
+2025-01-11 18:00:27.626 +01:00 [INF] CORS policy execution successful.
+2025-01-11 18:00:27.628 +01:00 [INF] Executing endpoint 'PortfolioMakerBackend.Controllers.PortfolioController.GetAll (PortfolioMakerBackend)'
+2025-01-11 18:00:27.630 +01:00 [INF] Route matched with {action = "GetAll", controller = "Portfolio"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.List`1[PortfolioMakerBackend.Models.Portfolio]] GetAll() on controller PortfolioMakerBackend.Controllers.PortfolioController (PortfolioMakerBackend).
+2025-01-11 18:00:27.681 +01:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[PortfolioMakerBackend.Models.Portfolio, PortfolioMakerBackend, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-01-11 18:00:27.683 +01:00 [INF] Executed action PortfolioMakerBackend.Controllers.PortfolioController.GetAll (PortfolioMakerBackend) in 51.1441ms
+2025-01-11 18:00:27.684 +01:00 [INF] Executed endpoint 'PortfolioMakerBackend.Controllers.PortfolioController.GetAll (PortfolioMakerBackend)'
+2025-01-11 18:00:27.685 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7146/api/portfolio - null null
+2025-01-11 18:00:27.685 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7146/api/portfolio - 200 null application/json; charset=utf-8 65.4088ms
+2025-01-11 18:00:27.688 +01:00 [INF] CORS policy execution successful.
+2025-01-11 18:00:27.691 +01:00 [INF] Executing endpoint 'PortfolioMakerBackend.Controllers.PortfolioController.GetAll (PortfolioMakerBackend)'
+2025-01-11 18:00:27.692 +01:00 [INF] Route matched with {action = "GetAll", controller = "Portfolio"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.List`1[PortfolioMakerBackend.Models.Portfolio]] GetAll() on controller PortfolioMakerBackend.Controllers.PortfolioController (PortfolioMakerBackend).
+2025-01-11 18:00:27.730 +01:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[PortfolioMakerBackend.Models.Portfolio, PortfolioMakerBackend, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-01-11 18:00:27.732 +01:00 [INF] Executed action PortfolioMakerBackend.Controllers.PortfolioController.GetAll (PortfolioMakerBackend) in 37.861ms
+2025-01-11 18:00:27.734 +01:00 [INF] Executed endpoint 'PortfolioMakerBackend.Controllers.PortfolioController.GetAll (PortfolioMakerBackend)'
+2025-01-11 18:00:27.735 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7146/api/portfolio - 200 null application/json; charset=utf-8 50.3028ms
+2025-01-11 18:01:25.675 +01:00 [INF] Request starting HTTP/2 OPTIONS https://localhost:7146/api/portfolio - null null
+2025-01-11 18:01:25.680 +01:00 [INF] Request starting HTTP/2 OPTIONS https://localhost:7146/api/portfolio - null null
+2025-01-11 18:01:25.690 +01:00 [INF] CORS policy execution successful.
+2025-01-11 18:01:25.692 +01:00 [INF] CORS policy execution successful.
+2025-01-11 18:01:25.693 +01:00 [INF] Request finished HTTP/2 OPTIONS https://localhost:7146/api/portfolio - 204 null null 18.4484ms
+2025-01-11 18:01:25.694 +01:00 [INF] Request finished HTTP/2 OPTIONS https://localhost:7146/api/portfolio - 204 null null 14.4074ms
+2025-01-11 18:01:25.696 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7146/api/portfolio - null null
+2025-01-11 18:01:25.702 +01:00 [INF] CORS policy execution successful.
+2025-01-11 18:01:25.704 +01:00 [INF] Executing endpoint 'PortfolioMakerBackend.Controllers.PortfolioController.GetAll (PortfolioMakerBackend)'
+2025-01-11 18:01:25.706 +01:00 [INF] Route matched with {action = "GetAll", controller = "Portfolio"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.List`1[PortfolioMakerBackend.Models.Portfolio]] GetAll() on controller PortfolioMakerBackend.Controllers.PortfolioController (PortfolioMakerBackend).
+2025-01-11 18:01:25.748 +01:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[PortfolioMakerBackend.Models.Portfolio, PortfolioMakerBackend, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-01-11 18:01:25.750 +01:00 [INF] Executed action PortfolioMakerBackend.Controllers.PortfolioController.GetAll (PortfolioMakerBackend) in 42.2041ms
+2025-01-11 18:01:25.752 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7146/api/portfolio - null null
+2025-01-11 18:01:25.752 +01:00 [INF] Executed endpoint 'PortfolioMakerBackend.Controllers.PortfolioController.GetAll (PortfolioMakerBackend)'
+2025-01-11 18:01:25.754 +01:00 [INF] CORS policy execution successful.
+2025-01-11 18:01:25.755 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7146/api/portfolio - 200 null application/json; charset=utf-8 58.7076ms
+2025-01-11 18:01:25.757 +01:00 [INF] Executing endpoint 'PortfolioMakerBackend.Controllers.PortfolioController.GetAll (PortfolioMakerBackend)'
+2025-01-11 18:01:25.760 +01:00 [INF] Route matched with {action = "GetAll", controller = "Portfolio"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.List`1[PortfolioMakerBackend.Models.Portfolio]] GetAll() on controller PortfolioMakerBackend.Controllers.PortfolioController (PortfolioMakerBackend).
+2025-01-11 18:01:25.799 +01:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[PortfolioMakerBackend.Models.Portfolio, PortfolioMakerBackend, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-01-11 18:01:25.800 +01:00 [INF] Executed action PortfolioMakerBackend.Controllers.PortfolioController.GetAll (PortfolioMakerBackend) in 38.1378ms
+2025-01-11 18:01:25.803 +01:00 [INF] Executed endpoint 'PortfolioMakerBackend.Controllers.PortfolioController.GetAll (PortfolioMakerBackend)'
+2025-01-11 18:01:25.803 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7146/api/portfolio - 200 null application/json; charset=utf-8 51.669ms
+2025-01-11 18:01:39.510 +01:00 [INF] Request starting HTTP/2 OPTIONS https://localhost:7146/api/portfolio - null null
+2025-01-11 18:01:39.510 +01:00 [INF] Request starting HTTP/2 OPTIONS https://localhost:7146/api/portfolio - null null
+2025-01-11 18:01:39.525 +01:00 [INF] CORS policy execution successful.
+2025-01-11 18:01:39.527 +01:00 [INF] CORS policy execution successful.
+2025-01-11 18:01:39.527 +01:00 [INF] Request finished HTTP/2 OPTIONS https://localhost:7146/api/portfolio - 204 null null 17.5812ms
+2025-01-11 18:01:39.528 +01:00 [INF] Request finished HTTP/2 OPTIONS https://localhost:7146/api/portfolio - 204 null null 17.9807ms
+2025-01-11 18:01:39.530 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7146/api/portfolio - null null
+2025-01-11 18:01:39.535 +01:00 [INF] CORS policy execution successful.
+2025-01-11 18:01:39.536 +01:00 [INF] Executing endpoint 'PortfolioMakerBackend.Controllers.PortfolioController.GetAll (PortfolioMakerBackend)'
+2025-01-11 18:01:39.537 +01:00 [INF] Route matched with {action = "GetAll", controller = "Portfolio"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.List`1[PortfolioMakerBackend.Models.Portfolio]] GetAll() on controller PortfolioMakerBackend.Controllers.PortfolioController (PortfolioMakerBackend).
+2025-01-11 18:01:39.576 +01:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[PortfolioMakerBackend.Models.Portfolio, PortfolioMakerBackend, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-01-11 18:01:39.578 +01:00 [INF] Executed action PortfolioMakerBackend.Controllers.PortfolioController.GetAll (PortfolioMakerBackend) in 39.6913ms
+2025-01-11 18:01:39.580 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7146/api/portfolio - null null
+2025-01-11 18:01:39.580 +01:00 [INF] Executed endpoint 'PortfolioMakerBackend.Controllers.PortfolioController.GetAll (PortfolioMakerBackend)'
+2025-01-11 18:01:39.582 +01:00 [INF] CORS policy execution successful.
+2025-01-11 18:01:39.583 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7146/api/portfolio - 200 null application/json; charset=utf-8 53.3257ms
+2025-01-11 18:01:39.584 +01:00 [INF] Executing endpoint 'PortfolioMakerBackend.Controllers.PortfolioController.GetAll (PortfolioMakerBackend)'
+2025-01-11 18:01:39.588 +01:00 [INF] Route matched with {action = "GetAll", controller = "Portfolio"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.List`1[PortfolioMakerBackend.Models.Portfolio]] GetAll() on controller PortfolioMakerBackend.Controllers.PortfolioController (PortfolioMakerBackend).
+2025-01-11 18:01:39.623 +01:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[PortfolioMakerBackend.Models.Portfolio, PortfolioMakerBackend, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-01-11 18:01:39.624 +01:00 [INF] Executed action PortfolioMakerBackend.Controllers.PortfolioController.GetAll (PortfolioMakerBackend) in 34.7058ms
+2025-01-11 18:01:39.626 +01:00 [INF] Executed endpoint 'PortfolioMakerBackend.Controllers.PortfolioController.GetAll (PortfolioMakerBackend)'
+2025-01-11 18:01:39.627 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7146/api/portfolio - 200 null application/json; charset=utf-8 47.5972ms
+2025-01-11 18:02:19.185 +01:00 [INF] Request starting HTTP/2 OPTIONS https://localhost:7146/api/portfolio - null null
+2025-01-11 18:02:19.185 +01:00 [INF] Request starting HTTP/2 OPTIONS https://localhost:7146/api/portfolio - null null
+2025-01-11 18:02:19.240 +01:00 [INF] CORS policy execution successful.
+2025-01-11 18:02:19.242 +01:00 [INF] CORS policy execution successful.
+2025-01-11 18:02:19.243 +01:00 [INF] Request finished HTTP/2 OPTIONS https://localhost:7146/api/portfolio - 204 null null 58.3177ms
+2025-01-11 18:02:19.242 +01:00 [INF] Request finished HTTP/2 OPTIONS https://localhost:7146/api/portfolio - 204 null null 57.4417ms
+2025-01-11 18:02:19.247 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7146/api/portfolio - null null
+2025-01-11 18:02:19.252 +01:00 [INF] CORS policy execution successful.
+2025-01-11 18:02:19.254 +01:00 [INF] Executing endpoint 'PortfolioMakerBackend.Controllers.PortfolioController.GetAll (PortfolioMakerBackend)'
+2025-01-11 18:02:19.255 +01:00 [INF] Route matched with {action = "GetAll", controller = "Portfolio"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.List`1[PortfolioMakerBackend.Models.Portfolio]] GetAll() on controller PortfolioMakerBackend.Controllers.PortfolioController (PortfolioMakerBackend).
+2025-01-11 18:02:19.291 +01:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[PortfolioMakerBackend.Models.Portfolio, PortfolioMakerBackend, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-01-11 18:02:19.293 +01:00 [INF] Executed action PortfolioMakerBackend.Controllers.PortfolioController.GetAll (PortfolioMakerBackend) in 36.8252ms
+2025-01-11 18:02:19.295 +01:00 [INF] Executed endpoint 'PortfolioMakerBackend.Controllers.PortfolioController.GetAll (PortfolioMakerBackend)'
+2025-01-11 18:02:19.295 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7146/api/portfolio - null null
+2025-01-11 18:02:19.296 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7146/api/portfolio - 200 null application/json; charset=utf-8 49.6357ms
+2025-01-11 18:02:19.299 +01:00 [INF] CORS policy execution successful.
+2025-01-11 18:02:19.303 +01:00 [INF] Executing endpoint 'PortfolioMakerBackend.Controllers.PortfolioController.GetAll (PortfolioMakerBackend)'
+2025-01-11 18:02:19.304 +01:00 [INF] Route matched with {action = "GetAll", controller = "Portfolio"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.List`1[PortfolioMakerBackend.Models.Portfolio]] GetAll() on controller PortfolioMakerBackend.Controllers.PortfolioController (PortfolioMakerBackend).
+2025-01-11 18:02:19.347 +01:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[PortfolioMakerBackend.Models.Portfolio, PortfolioMakerBackend, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-01-11 18:02:19.349 +01:00 [INF] Executed action PortfolioMakerBackend.Controllers.PortfolioController.GetAll (PortfolioMakerBackend) in 43.0553ms
+2025-01-11 18:02:19.350 +01:00 [INF] Executed endpoint 'PortfolioMakerBackend.Controllers.PortfolioController.GetAll (PortfolioMakerBackend)'
+2025-01-11 18:02:19.351 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7146/api/portfolio - 200 null application/json; charset=utf-8 56.4107ms
+2025-01-11 18:02:37.545 +01:00 [INF] Request starting HTTP/2 OPTIONS https://localhost:7146/api/portfolio - null null
+2025-01-11 18:02:37.546 +01:00 [INF] Request starting HTTP/2 OPTIONS https://localhost:7146/api/portfolio - null null
+2025-01-11 18:02:37.585 +01:00 [INF] CORS policy execution successful.
+2025-01-11 18:02:37.586 +01:00 [INF] CORS policy execution successful.
+2025-01-11 18:02:37.588 +01:00 [INF] Request finished HTTP/2 OPTIONS https://localhost:7146/api/portfolio - 204 null null 42.4288ms
+2025-01-11 18:02:37.588 +01:00 [INF] Request finished HTTP/2 OPTIONS https://localhost:7146/api/portfolio - 204 null null 42.0408ms
+2025-01-11 18:02:37.593 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7146/api/portfolio - null null
+2025-01-11 18:02:37.598 +01:00 [INF] CORS policy execution successful.
+2025-01-11 18:02:37.600 +01:00 [INF] Executing endpoint 'PortfolioMakerBackend.Controllers.PortfolioController.GetAll (PortfolioMakerBackend)'
+2025-01-11 18:02:37.602 +01:00 [INF] Route matched with {action = "GetAll", controller = "Portfolio"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.List`1[PortfolioMakerBackend.Models.Portfolio]] GetAll() on controller PortfolioMakerBackend.Controllers.PortfolioController (PortfolioMakerBackend).
+2025-01-11 18:02:37.646 +01:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[PortfolioMakerBackend.Models.Portfolio, PortfolioMakerBackend, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-01-11 18:02:37.648 +01:00 [INF] Executed action PortfolioMakerBackend.Controllers.PortfolioController.GetAll (PortfolioMakerBackend) in 43.6941ms
+2025-01-11 18:02:37.649 +01:00 [INF] Executed endpoint 'PortfolioMakerBackend.Controllers.PortfolioController.GetAll (PortfolioMakerBackend)'
+2025-01-11 18:02:37.650 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7146/api/portfolio - null null
+2025-01-11 18:02:37.651 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7146/api/portfolio - 200 null application/json; charset=utf-8 58.5682ms
+2025-01-11 18:02:37.653 +01:00 [INF] CORS policy execution successful.
+2025-01-11 18:02:37.657 +01:00 [INF] Executing endpoint 'PortfolioMakerBackend.Controllers.PortfolioController.GetAll (PortfolioMakerBackend)'
+2025-01-11 18:02:37.657 +01:00 [INF] Route matched with {action = "GetAll", controller = "Portfolio"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.List`1[PortfolioMakerBackend.Models.Portfolio]] GetAll() on controller PortfolioMakerBackend.Controllers.PortfolioController (PortfolioMakerBackend).
+2025-01-11 18:02:37.694 +01:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[PortfolioMakerBackend.Models.Portfolio, PortfolioMakerBackend, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-01-11 18:02:37.695 +01:00 [INF] Executed action PortfolioMakerBackend.Controllers.PortfolioController.GetAll (PortfolioMakerBackend) in 36.6354ms
+2025-01-11 18:02:37.697 +01:00 [INF] Executed endpoint 'PortfolioMakerBackend.Controllers.PortfolioController.GetAll (PortfolioMakerBackend)'
+2025-01-11 18:02:37.699 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7146/api/portfolio - 200 null application/json; charset=utf-8 49.3167ms
+2025-01-11 18:06:10.384 +01:00 [INF] User profile is available. Using 'C:\Users\Dean\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-01-11 18:06:10.577 +01:00 [INF] Initialized Scheduler Signaller of type: Quartz.Core.SchedulerSignalerImpl
+2025-01-11 18:06:10.580 +01:00 [INF] Quartz Scheduler created
+2025-01-11 18:06:10.581 +01:00 [INF] JobFactory set to: Quartz.Simpl.MicrosoftDependencyInjectionJobFactory
+2025-01-11 18:06:10.583 +01:00 [INF] RAMJobStore initialized.
+2025-01-11 18:06:10.584 +01:00 [INF] Quartz Scheduler 3.13.1.0 - 'QuartzScheduler' with instanceId 'NON_CLUSTERED' initialized
+2025-01-11 18:06:10.592 +01:00 [INF] Using thread pool 'Quartz.Simpl.DefaultThreadPool', size: 10
+2025-01-11 18:06:10.594 +01:00 [INF] Using job store 'Quartz.Simpl.RAMJobStore', supports persistence: False, clustered: False
+2025-01-11 18:06:10.894 +01:00 [INF] Now listening on: https://localhost:7146
+2025-01-11 18:06:10.896 +01:00 [INF] Now listening on: http://localhost:5201
+2025-01-11 18:06:10.995 +01:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-01-11 18:06:10.997 +01:00 [INF] Hosting environment: Development
+2025-01-11 18:06:10.998 +01:00 [INF] Content root path: C:\Users\Dean\Desktop\Skola\TVZ\Projekti\PortfolioMaker\PortfolioMakerBackend
+2025-01-11 18:06:10.999 +01:00 [INF] Scheduler QuartzScheduler_$_NON_CLUSTERED started.
+2025-01-11 18:06:13.221 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7146/swagger/index.html - null null
+2025-01-11 18:06:13.538 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7146/swagger/index.html - 200 null text/html;charset=utf-8 334.1615ms
+2025-01-11 18:06:13.566 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7146/_vs/browserLink - null null
+2025-01-11 18:06:13.566 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7146/_framework/aspnetcore-browser-refresh.js - null null
+2025-01-11 18:06:13.577 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7146/_framework/aspnetcore-browser-refresh.js - 200 13794 application/javascript; charset=utf-8 11.7427ms
+2025-01-11 18:06:13.616 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7146/_vs/browserLink - 200 null text/javascript; charset=UTF-8 50.8877ms
+2025-01-11 18:06:13.850 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7146/swagger/v1/swagger.json - null null
+2025-01-11 18:06:13.875 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7146/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 24.6186ms
+2025-01-11 18:06:51.116 +01:00 [INF] Request starting HTTP/2 OPTIONS https://localhost:7146/api/portfolio - null null
+2025-01-11 18:06:51.116 +01:00 [INF] Request starting HTTP/2 OPTIONS https://localhost:7146/api/portfolio - null null
+2025-01-11 18:06:51.136 +01:00 [INF] CORS policy execution successful.
+2025-01-11 18:06:51.136 +01:00 [INF] CORS policy execution successful.
+2025-01-11 18:06:51.139 +01:00 [INF] Request finished HTTP/2 OPTIONS https://localhost:7146/api/portfolio - 204 null null 22.7912ms
+2025-01-11 18:06:51.139 +01:00 [INF] Request finished HTTP/2 OPTIONS https://localhost:7146/api/portfolio - 204 null null 22.7881ms
+2025-01-11 18:06:51.142 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7146/api/portfolio - null null
+2025-01-11 18:06:51.148 +01:00 [INF] CORS policy execution successful.
+2025-01-11 18:06:51.335 +01:00 [INF] Executing endpoint 'PortfolioMakerBackend.Controllers.PortfolioController.GetAll (PortfolioMakerBackend)'
+2025-01-11 18:06:51.361 +01:00 [INF] Route matched with {action = "GetAll", controller = "Portfolio"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.List`1[PortfolioMakerBackend.Models.Portfolio]] GetAll() on controller PortfolioMakerBackend.Controllers.PortfolioController (PortfolioMakerBackend).
+2025-01-11 18:06:53.097 +01:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[PortfolioMakerBackend.Models.Portfolio, PortfolioMakerBackend, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-01-11 18:06:53.122 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7146/api/portfolio - null null
+2025-01-11 18:06:53.123 +01:00 [INF] Executed action PortfolioMakerBackend.Controllers.PortfolioController.GetAll (PortfolioMakerBackend) in 1756.2049ms
+2025-01-11 18:06:53.125 +01:00 [INF] CORS policy execution successful.
+2025-01-11 18:06:53.125 +01:00 [INF] Executed endpoint 'PortfolioMakerBackend.Controllers.PortfolioController.GetAll (PortfolioMakerBackend)'
+2025-01-11 18:06:53.127 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7146/api/portfolio - 200 null application/json; charset=utf-8 1985.4377ms
+2025-01-11 18:06:53.131 +01:00 [INF] Executing endpoint 'PortfolioMakerBackend.Controllers.PortfolioController.GetAll (PortfolioMakerBackend)'
+2025-01-11 18:06:53.133 +01:00 [INF] Route matched with {action = "GetAll", controller = "Portfolio"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.List`1[PortfolioMakerBackend.Models.Portfolio]] GetAll() on controller PortfolioMakerBackend.Controllers.PortfolioController (PortfolioMakerBackend).
+2025-01-11 18:06:53.179 +01:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[PortfolioMakerBackend.Models.Portfolio, PortfolioMakerBackend, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-01-11 18:06:53.181 +01:00 [INF] Executed action PortfolioMakerBackend.Controllers.PortfolioController.GetAll (PortfolioMakerBackend) in 46.8792ms
+2025-01-11 18:06:53.183 +01:00 [INF] Executed endpoint 'PortfolioMakerBackend.Controllers.PortfolioController.GetAll (PortfolioMakerBackend)'
+2025-01-11 18:06:53.184 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7146/api/portfolio - 200 null application/json; charset=utf-8 62.4355ms
+2025-01-11 18:15:42.869 +01:00 [INF] Request starting HTTP/2 OPTIONS https://localhost:7146/api/portfolio - null null
+2025-01-11 18:15:42.869 +01:00 [INF] Request starting HTTP/2 OPTIONS https://localhost:7146/api/portfolio - null null
+2025-01-11 18:15:42.879 +01:00 [INF] CORS policy execution successful.
+2025-01-11 18:15:42.880 +01:00 [INF] CORS policy execution successful.
+2025-01-11 18:15:42.881 +01:00 [INF] Request finished HTTP/2 OPTIONS https://localhost:7146/api/portfolio - 204 null null 15.4008ms
+2025-01-11 18:15:42.882 +01:00 [INF] Request finished HTTP/2 OPTIONS https://localhost:7146/api/portfolio - 204 null null 16.0055ms
+2025-01-11 18:15:42.884 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7146/api/portfolio - null null
+2025-01-11 18:15:42.888 +01:00 [INF] CORS policy execution successful.
+2025-01-11 18:15:42.894 +01:00 [INF] Executing endpoint 'PortfolioMakerBackend.Controllers.PortfolioController.GetAll (PortfolioMakerBackend)'
+2025-01-11 18:15:42.895 +01:00 [INF] Route matched with {action = "GetAll", controller = "Portfolio"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.List`1[PortfolioMakerBackend.Models.Portfolio]] GetAll() on controller PortfolioMakerBackend.Controllers.PortfolioController (PortfolioMakerBackend).
+2025-01-11 18:15:42.935 +01:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[PortfolioMakerBackend.Models.Portfolio, PortfolioMakerBackend, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-01-11 18:15:42.937 +01:00 [INF] Executed action PortfolioMakerBackend.Controllers.PortfolioController.GetAll (PortfolioMakerBackend) in 39.0102ms
+2025-01-11 18:15:42.938 +01:00 [INF] Executed endpoint 'PortfolioMakerBackend.Controllers.PortfolioController.GetAll (PortfolioMakerBackend)'
+2025-01-11 18:15:42.939 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7146/api/portfolio - 200 null application/json; charset=utf-8 54.9968ms
+2025-01-11 18:15:42.941 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7146/api/portfolio - null null
+2025-01-11 18:15:42.951 +01:00 [INF] CORS policy execution successful.
+2025-01-11 18:15:42.952 +01:00 [INF] Executing endpoint 'PortfolioMakerBackend.Controllers.PortfolioController.GetAll (PortfolioMakerBackend)'
+2025-01-11 18:15:42.953 +01:00 [INF] Route matched with {action = "GetAll", controller = "Portfolio"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.List`1[PortfolioMakerBackend.Models.Portfolio]] GetAll() on controller PortfolioMakerBackend.Controllers.PortfolioController (PortfolioMakerBackend).
+2025-01-11 18:15:42.989 +01:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[PortfolioMakerBackend.Models.Portfolio, PortfolioMakerBackend, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-01-11 18:15:42.991 +01:00 [INF] Executed action PortfolioMakerBackend.Controllers.PortfolioController.GetAll (PortfolioMakerBackend) in 35.6928ms
+2025-01-11 18:15:42.993 +01:00 [INF] Executed endpoint 'PortfolioMakerBackend.Controllers.PortfolioController.GetAll (PortfolioMakerBackend)'
+2025-01-11 18:15:42.994 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7146/api/portfolio - 200 null application/json; charset=utf-8 52.8749ms
+2025-01-11 18:15:45.474 +01:00 [INF] Request starting HTTP/2 OPTIONS https://localhost:7146/api/portfolio/preview/6782a32812686e515f3283e0 - null null
+2025-01-11 18:15:45.474 +01:00 [INF] Request starting HTTP/2 OPTIONS https://localhost:7146/api/portfolio/preview/6782a32812686e515f3283e0 - null null
+2025-01-11 18:15:45.540 +01:00 [INF] CORS policy execution successful.
+2025-01-11 18:15:45.576 +01:00 [INF] CORS policy execution successful.
+2025-01-11 18:15:45.576 +01:00 [INF] Request finished HTTP/2 OPTIONS https://localhost:7146/api/portfolio/preview/6782a32812686e515f3283e0 - 204 null null 102.9717ms
+2025-01-11 18:15:45.577 +01:00 [INF] Request finished HTTP/2 OPTIONS https://localhost:7146/api/portfolio/preview/6782a32812686e515f3283e0 - 204 null null 103.6886ms
+2025-01-11 18:15:45.581 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7146/api/portfolio/preview/6782a32812686e515f3283e0 - null null
+2025-01-11 18:15:45.587 +01:00 [INF] CORS policy execution successful.
+2025-01-11 18:15:45.589 +01:00 [INF] Executing endpoint 'PortfolioMakerBackend.Controllers.PortfolioController.GetPortfolioFinished (PortfolioMakerBackend)'
+2025-01-11 18:15:45.615 +01:00 [INF] Route matched with {action = "GetPortfolioFinished", controller = "Portfolio"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetPortfolioFinished(System.String) on controller PortfolioMakerBackend.Controllers.PortfolioController (PortfolioMakerBackend).
+2025-01-11 18:15:45.769 +01:00 [INF] Executing OkObjectResult, writing value of type 'PortfolioMakerBackend.Models.Portfolio'.
+2025-01-11 18:15:45.773 +01:00 [INF] Executed action PortfolioMakerBackend.Controllers.PortfolioController.GetPortfolioFinished (PortfolioMakerBackend) in 155.2779ms
+2025-01-11 18:15:45.774 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7146/api/portfolio/preview/6782a32812686e515f3283e0 - null null
+2025-01-11 18:15:45.775 +01:00 [INF] Executed endpoint 'PortfolioMakerBackend.Controllers.PortfolioController.GetPortfolioFinished (PortfolioMakerBackend)'
+2025-01-11 18:15:45.776 +01:00 [INF] CORS policy execution successful.
+2025-01-11 18:15:45.779 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7146/api/portfolio/preview/6782a32812686e515f3283e0 - 200 null application/json; charset=utf-8 199.0216ms
+2025-01-11 18:15:45.782 +01:00 [INF] Executing endpoint 'PortfolioMakerBackend.Controllers.PortfolioController.GetPortfolioFinished (PortfolioMakerBackend)'
+2025-01-11 18:15:45.783 +01:00 [INF] Route matched with {action = "GetPortfolioFinished", controller = "Portfolio"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetPortfolioFinished(System.String) on controller PortfolioMakerBackend.Controllers.PortfolioController (PortfolioMakerBackend).
+2025-01-11 18:15:45.871 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7146/api/portfolio/profile-picture/677fe3af776f9a7959c28928 - null null
+2025-01-11 18:15:45.875 +01:00 [INF] Executing endpoint 'PortfolioMakerBackend.Controllers.PortfolioController.GetProfilePicture (PortfolioMakerBackend)'
+2025-01-11 18:15:45.883 +01:00 [INF] Route matched with {action = "GetProfilePicture", controller = "Portfolio"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetProfilePicture(System.String) on controller PortfolioMakerBackend.Controllers.PortfolioController (PortfolioMakerBackend).
+2025-01-11 18:15:45.897 +01:00 [INF] Executing OkObjectResult, writing value of type 'PortfolioMakerBackend.Models.Portfolio'.
+2025-01-11 18:15:45.899 +01:00 [INF] Executed action PortfolioMakerBackend.Controllers.PortfolioController.GetPortfolioFinished (PortfolioMakerBackend) in 113.0683ms
+2025-01-11 18:15:45.900 +01:00 [INF] Executed endpoint 'PortfolioMakerBackend.Controllers.PortfolioController.GetPortfolioFinished (PortfolioMakerBackend)'
+2025-01-11 18:15:45.901 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7146/api/portfolio/preview/6782a32812686e515f3283e0 - 200 null application/json; charset=utf-8 127.8663ms
+2025-01-11 18:15:46.288 +01:00 [INF] Executing FileStreamResult, sending file with download name 'default_profile.png' ...
+2025-01-11 18:15:46.381 +01:00 [INF] Executed action PortfolioMakerBackend.Controllers.PortfolioController.GetProfilePicture (PortfolioMakerBackend) in 496.6302ms
+2025-01-11 18:15:46.383 +01:00 [INF] Executed endpoint 'PortfolioMakerBackend.Controllers.PortfolioController.GetProfilePicture (PortfolioMakerBackend)'
+2025-01-11 18:15:46.385 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7146/api/portfolio/profile-picture/677fe3af776f9a7959c28928 - 200 null image/jpeg 514.1345ms
+2025-01-11 18:32:54.796 +01:00 [INF] User profile is available. Using 'C:\Users\Dean\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-01-11 18:32:54.979 +01:00 [INF] Initialized Scheduler Signaller of type: Quartz.Core.SchedulerSignalerImpl
+2025-01-11 18:32:54.981 +01:00 [INF] Quartz Scheduler created
+2025-01-11 18:32:54.983 +01:00 [INF] JobFactory set to: Quartz.Simpl.MicrosoftDependencyInjectionJobFactory
+2025-01-11 18:32:54.985 +01:00 [INF] RAMJobStore initialized.
+2025-01-11 18:32:54.986 +01:00 [INF] Quartz Scheduler 3.13.1.0 - 'QuartzScheduler' with instanceId 'NON_CLUSTERED' initialized
+2025-01-11 18:32:54.994 +01:00 [INF] Using thread pool 'Quartz.Simpl.DefaultThreadPool', size: 10
+2025-01-11 18:32:54.995 +01:00 [INF] Using job store 'Quartz.Simpl.RAMJobStore', supports persistence: False, clustered: False
+2025-01-11 18:32:55.314 +01:00 [INF] Now listening on: https://localhost:7146
+2025-01-11 18:32:55.316 +01:00 [INF] Now listening on: http://localhost:5201
+2025-01-11 18:32:55.451 +01:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-01-11 18:32:55.453 +01:00 [INF] Scheduler QuartzScheduler_$_NON_CLUSTERED started.
+2025-01-11 18:32:55.478 +01:00 [INF] Hosting environment: Development
+2025-01-11 18:32:55.479 +01:00 [INF] Content root path: C:\Users\Dean\Desktop\Skola\TVZ\Projekti\PortfolioMaker\PortfolioMakerBackend
+2025-01-11 18:32:56.839 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7146/swagger/index.html - null null
+2025-01-11 18:32:57.131 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7146/swagger/index.html - 200 null text/html;charset=utf-8 303.0153ms
+2025-01-11 18:32:57.155 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7146/_vs/browserLink - null null
+2025-01-11 18:32:57.155 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7146/_framework/aspnetcore-browser-refresh.js - null null
+2025-01-11 18:32:57.177 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7146/_framework/aspnetcore-browser-refresh.js - 200 13794 application/javascript; charset=utf-8 22.5242ms
+2025-01-11 18:32:57.218 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7146/_vs/browserLink - 200 null text/javascript; charset=UTF-8 63.2975ms
+2025-01-11 18:32:57.430 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7146/swagger/v1/swagger.json - null null
+2025-01-11 18:32:57.454 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7146/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 24.4195ms
+2025-01-11 18:33:24.792 +01:00 [INF] Request starting HTTP/2 OPTIONS https://localhost:7146/api/portfolio - null null
+2025-01-11 18:33:24.792 +01:00 [INF] Request starting HTTP/2 OPTIONS https://localhost:7146/api/portfolio - null null
+2025-01-11 18:33:24.808 +01:00 [INF] CORS policy execution successful.
+2025-01-11 18:33:24.808 +01:00 [INF] CORS policy execution successful.
+2025-01-11 18:33:24.811 +01:00 [INF] Request finished HTTP/2 OPTIONS https://localhost:7146/api/portfolio - 204 null null 20.5187ms
+2025-01-11 18:33:24.811 +01:00 [INF] Request finished HTTP/2 OPTIONS https://localhost:7146/api/portfolio - 204 null null 20.5188ms
+2025-01-11 18:35:51.589 +01:00 [INF] Request starting HTTP/2 OPTIONS https://localhost:7146/api/portfolio - null null
+2025-01-11 18:35:51.589 +01:00 [INF] Request starting HTTP/2 OPTIONS https://localhost:7146/api/portfolio - null null
+2025-01-11 18:35:51.601 +01:00 [INF] CORS policy execution successful.
+2025-01-11 18:35:51.601 +01:00 [INF] CORS policy execution successful.
+2025-01-11 18:35:51.602 +01:00 [INF] Request finished HTTP/2 OPTIONS https://localhost:7146/api/portfolio - 204 null null 12.8167ms
+2025-01-11 18:35:51.603 +01:00 [INF] Request finished HTTP/2 OPTIONS https://localhost:7146/api/portfolio - 204 null null 14.2229ms
+2025-01-11 18:35:51.606 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7146/api/portfolio - null null
+2025-01-11 18:35:51.611 +01:00 [INF] CORS policy execution successful.
+2025-01-11 18:35:51.848 +01:00 [INF] Executing endpoint 'PortfolioMakerBackend.Controllers.PortfolioController.GetAll (PortfolioMakerBackend)'
+2025-01-11 18:35:51.877 +01:00 [INF] Route matched with {action = "GetAll", controller = "Portfolio"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.List`1[PortfolioMakerBackend.Models.Portfolio]] GetAll() on controller PortfolioMakerBackend.Controllers.PortfolioController (PortfolioMakerBackend).
+2025-01-11 18:35:53.269 +01:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[PortfolioMakerBackend.Models.Portfolio, PortfolioMakerBackend, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-01-11 18:35:53.305 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7146/api/portfolio - null null
+2025-01-11 18:35:53.308 +01:00 [INF] Executed action PortfolioMakerBackend.Controllers.PortfolioController.GetAll (PortfolioMakerBackend) in 1422.6281ms
+2025-01-11 18:35:53.309 +01:00 [INF] CORS policy execution successful.
+2025-01-11 18:35:53.310 +01:00 [INF] Executed endpoint 'PortfolioMakerBackend.Controllers.PortfolioController.GetAll (PortfolioMakerBackend)'
+2025-01-11 18:35:53.313 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7146/api/portfolio - 200 null application/json; charset=utf-8 1707.5149ms
+2025-01-11 18:35:53.326 +01:00 [INF] Executing endpoint 'PortfolioMakerBackend.Controllers.PortfolioController.GetAll (PortfolioMakerBackend)'
+2025-01-11 18:35:53.328 +01:00 [INF] Route matched with {action = "GetAll", controller = "Portfolio"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.List`1[PortfolioMakerBackend.Models.Portfolio]] GetAll() on controller PortfolioMakerBackend.Controllers.PortfolioController (PortfolioMakerBackend).
+2025-01-11 18:35:53.372 +01:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[PortfolioMakerBackend.Models.Portfolio, PortfolioMakerBackend, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-01-11 18:35:53.375 +01:00 [INF] Executed action PortfolioMakerBackend.Controllers.PortfolioController.GetAll (PortfolioMakerBackend) in 45.1788ms
+2025-01-11 18:35:53.376 +01:00 [INF] Executed endpoint 'PortfolioMakerBackend.Controllers.PortfolioController.GetAll (PortfolioMakerBackend)'
+2025-01-11 18:35:53.377 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7146/api/portfolio - 200 null application/json; charset=utf-8 72.4276ms
+2025-01-11 18:36:32.995 +01:00 [INF] Request starting HTTP/2 OPTIONS https://localhost:7146/api/portfolio - null null
+2025-01-11 18:36:32.997 +01:00 [INF] Request starting HTTP/2 OPTIONS https://localhost:7146/api/portfolio - null null
+2025-01-11 18:36:33.100 +01:00 [INF] CORS policy execution successful.
+2025-01-11 18:36:33.102 +01:00 [INF] CORS policy execution successful.
+2025-01-11 18:36:33.103 +01:00 [INF] Request finished HTTP/2 OPTIONS https://localhost:7146/api/portfolio - 204 null null 112.4239ms
+2025-01-11 18:36:33.104 +01:00 [INF] Request finished HTTP/2 OPTIONS https://localhost:7146/api/portfolio - 204 null null 107.3864ms
+2025-01-11 18:36:33.109 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7146/api/portfolio - null null
+2025-01-11 18:36:33.116 +01:00 [INF] CORS policy execution successful.
+2025-01-11 18:36:33.123 +01:00 [INF] Executing endpoint 'PortfolioMakerBackend.Controllers.PortfolioController.GetAll (PortfolioMakerBackend)'
+2025-01-11 18:36:33.125 +01:00 [INF] Route matched with {action = "GetAll", controller = "Portfolio"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.List`1[PortfolioMakerBackend.Models.Portfolio]] GetAll() on controller PortfolioMakerBackend.Controllers.PortfolioController (PortfolioMakerBackend).
+2025-01-11 18:36:33.193 +01:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[PortfolioMakerBackend.Models.Portfolio, PortfolioMakerBackend, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-01-11 18:36:33.195 +01:00 [INF] Executed action PortfolioMakerBackend.Controllers.PortfolioController.GetAll (PortfolioMakerBackend) in 68.8181ms
+2025-01-11 18:36:33.198 +01:00 [INF] Executed endpoint 'PortfolioMakerBackend.Controllers.PortfolioController.GetAll (PortfolioMakerBackend)'
+2025-01-11 18:36:33.198 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7146/api/portfolio - null null
+2025-01-11 18:36:33.199 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7146/api/portfolio - 200 null application/json; charset=utf-8 90.8777ms
+2025-01-11 18:36:33.201 +01:00 [INF] CORS policy execution successful.
+2025-01-11 18:36:33.204 +01:00 [INF] Executing endpoint 'PortfolioMakerBackend.Controllers.PortfolioController.GetAll (PortfolioMakerBackend)'
+2025-01-11 18:36:33.205 +01:00 [INF] Route matched with {action = "GetAll", controller = "Portfolio"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.List`1[PortfolioMakerBackend.Models.Portfolio]] GetAll() on controller PortfolioMakerBackend.Controllers.PortfolioController (PortfolioMakerBackend).
+2025-01-11 18:36:33.319 +01:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[PortfolioMakerBackend.Models.Portfolio, PortfolioMakerBackend, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-01-11 18:36:33.324 +01:00 [INF] Executed action PortfolioMakerBackend.Controllers.PortfolioController.GetAll (PortfolioMakerBackend) in 116.7179ms
+2025-01-11 18:36:33.326 +01:00 [INF] Executed endpoint 'PortfolioMakerBackend.Controllers.PortfolioController.GetAll (PortfolioMakerBackend)'
+2025-01-11 18:36:33.327 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7146/api/portfolio - 200 null application/json; charset=utf-8 129.7935ms
+2025-01-11 18:40:02.864 +01:00 [INF] Request starting HTTP/2 OPTIONS https://localhost:7146/api/portfolio - null null
+2025-01-11 18:40:02.866 +01:00 [INF] Request starting HTTP/2 OPTIONS https://localhost:7146/api/portfolio - null null
+2025-01-11 18:40:02.876 +01:00 [INF] CORS policy execution successful.
+2025-01-11 18:40:02.878 +01:00 [INF] CORS policy execution successful.
+2025-01-11 18:40:02.879 +01:00 [INF] Request finished HTTP/2 OPTIONS https://localhost:7146/api/portfolio - 204 null null 14.844ms
+2025-01-11 18:40:02.884 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7146/api/portfolio - null null
+2025-01-11 18:40:02.880 +01:00 [INF] Request finished HTTP/2 OPTIONS https://localhost:7146/api/portfolio - 204 null null 15.6117ms
+2025-01-11 18:40:02.890 +01:00 [INF] CORS policy execution successful.
+2025-01-11 18:40:02.894 +01:00 [INF] Executing endpoint 'PortfolioMakerBackend.Controllers.PortfolioController.GetAll (PortfolioMakerBackend)'
+2025-01-11 18:40:02.895 +01:00 [INF] Route matched with {action = "GetAll", controller = "Portfolio"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.List`1[PortfolioMakerBackend.Models.Portfolio]] GetAll() on controller PortfolioMakerBackend.Controllers.PortfolioController (PortfolioMakerBackend).
+2025-01-11 18:40:02.931 +01:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[PortfolioMakerBackend.Models.Portfolio, PortfolioMakerBackend, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-01-11 18:40:02.933 +01:00 [INF] Executed action PortfolioMakerBackend.Controllers.PortfolioController.GetAll (PortfolioMakerBackend) in 36.4017ms
+2025-01-11 18:40:02.935 +01:00 [INF] Executed endpoint 'PortfolioMakerBackend.Controllers.PortfolioController.GetAll (PortfolioMakerBackend)'
+2025-01-11 18:40:02.935 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7146/api/portfolio - null null
+2025-01-11 18:40:02.936 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7146/api/portfolio - 200 null application/json; charset=utf-8 52.173ms
+2025-01-11 18:40:02.939 +01:00 [INF] CORS policy execution successful.
+2025-01-11 18:40:02.942 +01:00 [INF] Executing endpoint 'PortfolioMakerBackend.Controllers.PortfolioController.GetAll (PortfolioMakerBackend)'
+2025-01-11 18:40:02.944 +01:00 [INF] Route matched with {action = "GetAll", controller = "Portfolio"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.List`1[PortfolioMakerBackend.Models.Portfolio]] GetAll() on controller PortfolioMakerBackend.Controllers.PortfolioController (PortfolioMakerBackend).
+2025-01-11 18:40:02.981 +01:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[PortfolioMakerBackend.Models.Portfolio, PortfolioMakerBackend, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-01-11 18:40:02.982 +01:00 [INF] Executed action PortfolioMakerBackend.Controllers.PortfolioController.GetAll (PortfolioMakerBackend) in 37.5957ms
+2025-01-11 18:40:02.984 +01:00 [INF] Executed endpoint 'PortfolioMakerBackend.Controllers.PortfolioController.GetAll (PortfolioMakerBackend)'
+2025-01-11 18:40:02.986 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7146/api/portfolio - 200 null application/json; charset=utf-8 50.9954ms
+2025-01-11 18:51:56.093 +01:00 [INF] Request starting HTTP/2 OPTIONS https://localhost:7146/api/portfolio - null null
+2025-01-11 18:51:56.094 +01:00 [INF] Request starting HTTP/2 OPTIONS https://localhost:7146/api/portfolio - null null
+2025-01-11 18:51:56.126 +01:00 [INF] CORS policy execution successful.
+2025-01-11 18:51:56.127 +01:00 [INF] CORS policy execution successful.
+2025-01-11 18:51:56.128 +01:00 [INF] Request finished HTTP/2 OPTIONS https://localhost:7146/api/portfolio - 204 null null 35.3064ms
+2025-01-11 18:51:56.129 +01:00 [INF] Request finished HTTP/2 OPTIONS https://localhost:7146/api/portfolio - 204 null null 36.8252ms
+2025-01-11 18:51:56.138 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7146/api/portfolio - null null
+2025-01-11 18:51:56.145 +01:00 [INF] CORS policy execution successful.
+2025-01-11 18:51:56.149 +01:00 [INF] Executing endpoint 'PortfolioMakerBackend.Controllers.PortfolioController.GetAll (PortfolioMakerBackend)'
+2025-01-11 18:51:56.151 +01:00 [INF] Route matched with {action = "GetAll", controller = "Portfolio"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.List`1[PortfolioMakerBackend.Models.Portfolio]] GetAll() on controller PortfolioMakerBackend.Controllers.PortfolioController (PortfolioMakerBackend).
+2025-01-11 18:51:56.520 +01:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[PortfolioMakerBackend.Models.Portfolio, PortfolioMakerBackend, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-01-11 18:51:56.522 +01:00 [INF] Executed action PortfolioMakerBackend.Controllers.PortfolioController.GetAll (PortfolioMakerBackend) in 370.0871ms
+2025-01-11 18:51:56.524 +01:00 [INF] Executed endpoint 'PortfolioMakerBackend.Controllers.PortfolioController.GetAll (PortfolioMakerBackend)'
+2025-01-11 18:51:56.525 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7146/api/portfolio - null null
+2025-01-11 18:51:56.526 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7146/api/portfolio - 200 null application/json; charset=utf-8 387.0566ms
+2025-01-11 18:51:56.527 +01:00 [INF] CORS policy execution successful.
+2025-01-11 18:51:56.532 +01:00 [INF] Executing endpoint 'PortfolioMakerBackend.Controllers.PortfolioController.GetAll (PortfolioMakerBackend)'
+2025-01-11 18:51:56.533 +01:00 [INF] Route matched with {action = "GetAll", controller = "Portfolio"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.List`1[PortfolioMakerBackend.Models.Portfolio]] GetAll() on controller PortfolioMakerBackend.Controllers.PortfolioController (PortfolioMakerBackend).
+2025-01-11 18:51:56.572 +01:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[PortfolioMakerBackend.Models.Portfolio, PortfolioMakerBackend, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-01-11 18:51:56.575 +01:00 [INF] Executed action PortfolioMakerBackend.Controllers.PortfolioController.GetAll (PortfolioMakerBackend) in 40.7542ms
+2025-01-11 18:51:56.577 +01:00 [INF] Executed endpoint 'PortfolioMakerBackend.Controllers.PortfolioController.GetAll (PortfolioMakerBackend)'
+2025-01-11 18:51:56.578 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7146/api/portfolio - 200 null application/json; charset=utf-8 53.5105ms
+2025-01-11 19:00:00.348 +01:00 [INF] Deleted 0 old preview portfolios.
+2025-01-11 19:01:41.153 +01:00 [INF] Request starting HTTP/2 OPTIONS https://localhost:7146/api/portfolio - null null
+2025-01-11 19:01:41.153 +01:00 [INF] Request starting HTTP/2 OPTIONS https://localhost:7146/api/portfolio - null null
+2025-01-11 19:01:41.159 +01:00 [INF] CORS policy execution successful.
+2025-01-11 19:01:41.159 +01:00 [INF] CORS policy execution successful.
+2025-01-11 19:01:41.161 +01:00 [INF] Request finished HTTP/2 OPTIONS https://localhost:7146/api/portfolio - 204 null null 9.2364ms
+2025-01-11 19:01:41.168 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7146/api/portfolio - null null
+2025-01-11 19:01:41.162 +01:00 [INF] Request finished HTTP/2 OPTIONS https://localhost:7146/api/portfolio - 204 null null 9.7431ms
+2025-01-11 19:01:41.179 +01:00 [INF] CORS policy execution successful.
+2025-01-11 19:01:41.191 +01:00 [INF] Executing endpoint 'PortfolioMakerBackend.Controllers.PortfolioController.GetAll (PortfolioMakerBackend)'
+2025-01-11 19:01:41.195 +01:00 [INF] Route matched with {action = "GetAll", controller = "Portfolio"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.List`1[PortfolioMakerBackend.Models.Portfolio]] GetAll() on controller PortfolioMakerBackend.Controllers.PortfolioController (PortfolioMakerBackend).
+2025-01-11 19:01:41.244 +01:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[PortfolioMakerBackend.Models.Portfolio, PortfolioMakerBackend, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-01-11 19:01:41.247 +01:00 [INF] Executed action PortfolioMakerBackend.Controllers.PortfolioController.GetAll (PortfolioMakerBackend) in 50.4688ms
+2025-01-11 19:01:41.250 +01:00 [INF] Executed endpoint 'PortfolioMakerBackend.Controllers.PortfolioController.GetAll (PortfolioMakerBackend)'
+2025-01-11 19:01:41.251 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7146/api/portfolio - null null
+2025-01-11 19:01:41.251 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7146/api/portfolio - 200 null application/json; charset=utf-8 82.9967ms
+2025-01-11 19:01:41.254 +01:00 [INF] CORS policy execution successful.
+2025-01-11 19:01:41.257 +01:00 [INF] Executing endpoint 'PortfolioMakerBackend.Controllers.PortfolioController.GetAll (PortfolioMakerBackend)'
+2025-01-11 19:01:41.258 +01:00 [INF] Route matched with {action = "GetAll", controller = "Portfolio"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.List`1[PortfolioMakerBackend.Models.Portfolio]] GetAll() on controller PortfolioMakerBackend.Controllers.PortfolioController (PortfolioMakerBackend).
+2025-01-11 19:01:41.316 +01:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[PortfolioMakerBackend.Models.Portfolio, PortfolioMakerBackend, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-01-11 19:01:41.319 +01:00 [INF] Executed action PortfolioMakerBackend.Controllers.PortfolioController.GetAll (PortfolioMakerBackend) in 58.1625ms
+2025-01-11 19:01:41.321 +01:00 [INF] Executed endpoint 'PortfolioMakerBackend.Controllers.PortfolioController.GetAll (PortfolioMakerBackend)'
+2025-01-11 19:01:41.322 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7146/api/portfolio - 200 null application/json; charset=utf-8 71.8952ms
+2025-01-11 19:02:28.933 +01:00 [INF] Request starting HTTP/2 OPTIONS https://localhost:7146/api/portfolio - null null
+2025-01-11 19:02:28.941 +01:00 [INF] CORS policy execution successful.
+2025-01-11 19:02:28.942 +01:00 [INF] Request finished HTTP/2 OPTIONS https://localhost:7146/api/portfolio - 204 null null 9.4397ms
+2025-01-11 19:02:28.943 +01:00 [INF] Request starting HTTP/2 OPTIONS https://localhost:7146/api/portfolio - null null
+2025-01-11 19:02:28.953 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7146/api/portfolio - null null
+2025-01-11 19:02:28.960 +01:00 [INF] CORS policy execution successful.
+2025-01-11 19:02:28.963 +01:00 [INF] CORS policy execution successful.
+2025-01-11 19:02:28.963 +01:00 [INF] Request finished HTTP/2 OPTIONS https://localhost:7146/api/portfolio - 204 null null 20.1277ms
+2025-01-11 19:02:28.964 +01:00 [INF] Executing endpoint 'PortfolioMakerBackend.Controllers.PortfolioController.GetAll (PortfolioMakerBackend)'
+2025-01-11 19:02:28.967 +01:00 [INF] Route matched with {action = "GetAll", controller = "Portfolio"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.List`1[PortfolioMakerBackend.Models.Portfolio]] GetAll() on controller PortfolioMakerBackend.Controllers.PortfolioController (PortfolioMakerBackend).
+2025-01-11 19:02:29.002 +01:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[PortfolioMakerBackend.Models.Portfolio, PortfolioMakerBackend, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-01-11 19:02:29.003 +01:00 [INF] Executed action PortfolioMakerBackend.Controllers.PortfolioController.GetAll (PortfolioMakerBackend) in 35.0522ms
+2025-01-11 19:02:29.005 +01:00 [INF] Executed endpoint 'PortfolioMakerBackend.Controllers.PortfolioController.GetAll (PortfolioMakerBackend)'
+2025-01-11 19:02:29.006 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7146/api/portfolio - null null
+2025-01-11 19:02:29.007 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7146/api/portfolio - 200 null application/json; charset=utf-8 57.5128ms
+2025-01-11 19:02:29.009 +01:00 [INF] CORS policy execution successful.
+2025-01-11 19:02:29.013 +01:00 [INF] Executing endpoint 'PortfolioMakerBackend.Controllers.PortfolioController.GetAll (PortfolioMakerBackend)'
+2025-01-11 19:02:29.014 +01:00 [INF] Route matched with {action = "GetAll", controller = "Portfolio"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.List`1[PortfolioMakerBackend.Models.Portfolio]] GetAll() on controller PortfolioMakerBackend.Controllers.PortfolioController (PortfolioMakerBackend).
+2025-01-11 19:02:29.056 +01:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[PortfolioMakerBackend.Models.Portfolio, PortfolioMakerBackend, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-01-11 19:02:29.058 +01:00 [INF] Executed action PortfolioMakerBackend.Controllers.PortfolioController.GetAll (PortfolioMakerBackend) in 43.1051ms
+2025-01-11 19:02:29.060 +01:00 [INF] Executed endpoint 'PortfolioMakerBackend.Controllers.PortfolioController.GetAll (PortfolioMakerBackend)'
+2025-01-11 19:02:29.061 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7146/api/portfolio - 200 null application/json; charset=utf-8 56.0293ms
+2025-01-11 19:02:46.159 +01:00 [INF] Request starting HTTP/2 OPTIONS https://localhost:7146/api/portfolio - null null
+2025-01-11 19:02:46.159 +01:00 [INF] Request starting HTTP/2 OPTIONS https://localhost:7146/api/portfolio - null null
+2025-01-11 19:02:46.244 +01:00 [INF] CORS policy execution successful.
+2025-01-11 19:02:46.247 +01:00 [INF] CORS policy execution successful.
+2025-01-11 19:02:46.248 +01:00 [INF] Request finished HTTP/2 OPTIONS https://localhost:7146/api/portfolio - 204 null null 89.4661ms
+2025-01-11 19:02:46.249 +01:00 [INF] Request finished HTTP/2 OPTIONS https://localhost:7146/api/portfolio - 204 null null 90.1533ms
+2025-01-11 19:02:46.251 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7146/api/portfolio - null null
+2025-01-11 19:02:46.257 +01:00 [INF] CORS policy execution successful.
+2025-01-11 19:02:46.258 +01:00 [INF] Executing endpoint 'PortfolioMakerBackend.Controllers.PortfolioController.GetAll (PortfolioMakerBackend)'
+2025-01-11 19:02:46.259 +01:00 [INF] Route matched with {action = "GetAll", controller = "Portfolio"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.List`1[PortfolioMakerBackend.Models.Portfolio]] GetAll() on controller PortfolioMakerBackend.Controllers.PortfolioController (PortfolioMakerBackend).
+2025-01-11 19:02:46.344 +01:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[PortfolioMakerBackend.Models.Portfolio, PortfolioMakerBackend, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-01-11 19:02:46.346 +01:00 [INF] Executed action PortfolioMakerBackend.Controllers.PortfolioController.GetAll (PortfolioMakerBackend) in 85.1703ms
+2025-01-11 19:02:46.349 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7146/api/portfolio - null null
+2025-01-11 19:02:46.349 +01:00 [INF] Executed endpoint 'PortfolioMakerBackend.Controllers.PortfolioController.GetAll (PortfolioMakerBackend)'
+2025-01-11 19:02:46.351 +01:00 [INF] CORS policy execution successful.
+2025-01-11 19:02:46.352 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7146/api/portfolio - 200 null application/json; charset=utf-8 100.6052ms
+2025-01-11 19:02:46.354 +01:00 [INF] Executing endpoint 'PortfolioMakerBackend.Controllers.PortfolioController.GetAll (PortfolioMakerBackend)'
+2025-01-11 19:02:46.357 +01:00 [INF] Route matched with {action = "GetAll", controller = "Portfolio"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.List`1[PortfolioMakerBackend.Models.Portfolio]] GetAll() on controller PortfolioMakerBackend.Controllers.PortfolioController (PortfolioMakerBackend).
+2025-01-11 19:02:46.483 +01:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[PortfolioMakerBackend.Models.Portfolio, PortfolioMakerBackend, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-01-11 19:02:46.484 +01:00 [INF] Executed action PortfolioMakerBackend.Controllers.PortfolioController.GetAll (PortfolioMakerBackend) in 125.5724ms
+2025-01-11 19:02:46.486 +01:00 [INF] Executed endpoint 'PortfolioMakerBackend.Controllers.PortfolioController.GetAll (PortfolioMakerBackend)'
+2025-01-11 19:02:46.488 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7146/api/portfolio - 200 null application/json; charset=utf-8 139.2841ms
+2025-01-11 19:05:09.524 +01:00 [INF] Request starting HTTP/2 OPTIONS https://localhost:7146/api/portfolio - null null
+2025-01-11 19:05:09.524 +01:00 [INF] Request starting HTTP/2 OPTIONS https://localhost:7146/api/portfolio - null null
+2025-01-11 19:05:09.532 +01:00 [INF] CORS policy execution successful.
+2025-01-11 19:05:09.531 +01:00 [INF] CORS policy execution successful.
+2025-01-11 19:05:09.535 +01:00 [INF] Request finished HTTP/2 OPTIONS https://localhost:7146/api/portfolio - 204 null null 10.7944ms
+2025-01-11 19:05:09.544 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7146/api/portfolio - null null
+2025-01-11 19:05:09.535 +01:00 [INF] Request finished HTTP/2 OPTIONS https://localhost:7146/api/portfolio - 204 null null 11.7046ms
+2025-01-11 19:05:09.551 +01:00 [INF] CORS policy execution successful.
+2025-01-11 19:05:09.555 +01:00 [INF] Executing endpoint 'PortfolioMakerBackend.Controllers.PortfolioController.GetAll (PortfolioMakerBackend)'
+2025-01-11 19:05:09.560 +01:00 [INF] Route matched with {action = "GetAll", controller = "Portfolio"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.List`1[PortfolioMakerBackend.Models.Portfolio]] GetAll() on controller PortfolioMakerBackend.Controllers.PortfolioController (PortfolioMakerBackend).
+2025-01-11 19:05:09.603 +01:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[PortfolioMakerBackend.Models.Portfolio, PortfolioMakerBackend, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-01-11 19:05:09.605 +01:00 [INF] Executed action PortfolioMakerBackend.Controllers.PortfolioController.GetAll (PortfolioMakerBackend) in 42.5626ms
+2025-01-11 19:05:09.607 +01:00 [INF] Executed endpoint 'PortfolioMakerBackend.Controllers.PortfolioController.GetAll (PortfolioMakerBackend)'
+2025-01-11 19:05:09.607 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7146/api/portfolio - null null
+2025-01-11 19:05:09.608 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7146/api/portfolio - 200 null application/json; charset=utf-8 64.1135ms
+2025-01-11 19:05:09.610 +01:00 [INF] CORS policy execution successful.
+2025-01-11 19:05:09.614 +01:00 [INF] Executing endpoint 'PortfolioMakerBackend.Controllers.PortfolioController.GetAll (PortfolioMakerBackend)'
+2025-01-11 19:05:09.615 +01:00 [INF] Route matched with {action = "GetAll", controller = "Portfolio"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.List`1[PortfolioMakerBackend.Models.Portfolio]] GetAll() on controller PortfolioMakerBackend.Controllers.PortfolioController (PortfolioMakerBackend).
+2025-01-11 19:05:09.658 +01:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[PortfolioMakerBackend.Models.Portfolio, PortfolioMakerBackend, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-01-11 19:05:09.661 +01:00 [INF] Executed action PortfolioMakerBackend.Controllers.PortfolioController.GetAll (PortfolioMakerBackend) in 43.9839ms
+2025-01-11 19:05:09.662 +01:00 [INF] Executed endpoint 'PortfolioMakerBackend.Controllers.PortfolioController.GetAll (PortfolioMakerBackend)'
+2025-01-11 19:05:09.663 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7146/api/portfolio - 200 null application/json; charset=utf-8 56.5243ms
+2025-01-11 19:05:26.238 +01:00 [INF] Request starting HTTP/2 OPTIONS https://localhost:7146/api/portfolio - null null
+2025-01-11 19:05:26.241 +01:00 [INF] CORS policy execution successful.
+2025-01-11 19:05:26.242 +01:00 [INF] Request finished HTTP/2 OPTIONS https://localhost:7146/api/portfolio - 204 null null 3.8621ms
+2025-01-11 19:05:26.244 +01:00 [INF] Request starting HTTP/2 OPTIONS https://localhost:7146/api/portfolio - null null
+2025-01-11 19:05:26.268 +01:00 [INF] CORS policy execution successful.
+2025-01-11 19:05:26.270 +01:00 [INF] Request finished HTTP/2 OPTIONS https://localhost:7146/api/portfolio - 204 null null 25.9399ms
+2025-01-11 19:05:26.270 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7146/api/portfolio - null null
+2025-01-11 19:05:26.286 +01:00 [INF] CORS policy execution successful.
+2025-01-11 19:05:26.290 +01:00 [INF] Executing endpoint 'PortfolioMakerBackend.Controllers.PortfolioController.GetAll (PortfolioMakerBackend)'
+2025-01-11 19:05:26.292 +01:00 [INF] Route matched with {action = "GetAll", controller = "Portfolio"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.List`1[PortfolioMakerBackend.Models.Portfolio]] GetAll() on controller PortfolioMakerBackend.Controllers.PortfolioController (PortfolioMakerBackend).
+2025-01-11 19:05:26.535 +01:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[PortfolioMakerBackend.Models.Portfolio, PortfolioMakerBackend, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-01-11 19:05:26.537 +01:00 [INF] Executed action PortfolioMakerBackend.Controllers.PortfolioController.GetAll (PortfolioMakerBackend) in 243.5937ms
+2025-01-11 19:05:26.542 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7146/api/portfolio - null null
+2025-01-11 19:05:26.542 +01:00 [INF] Executed endpoint 'PortfolioMakerBackend.Controllers.PortfolioController.GetAll (PortfolioMakerBackend)'
+2025-01-11 19:05:26.544 +01:00 [INF] CORS policy execution successful.
+2025-01-11 19:05:26.546 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7146/api/portfolio - 200 null application/json; charset=utf-8 278.5906ms
+2025-01-11 19:05:26.548 +01:00 [INF] Executing endpoint 'PortfolioMakerBackend.Controllers.PortfolioController.GetAll (PortfolioMakerBackend)'
+2025-01-11 19:05:26.551 +01:00 [INF] Route matched with {action = "GetAll", controller = "Portfolio"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.List`1[PortfolioMakerBackend.Models.Portfolio]] GetAll() on controller PortfolioMakerBackend.Controllers.PortfolioController (PortfolioMakerBackend).
+2025-01-11 19:05:26.617 +01:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[PortfolioMakerBackend.Models.Portfolio, PortfolioMakerBackend, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-01-11 19:05:26.619 +01:00 [INF] Executed action PortfolioMakerBackend.Controllers.PortfolioController.GetAll (PortfolioMakerBackend) in 65.4562ms
+2025-01-11 19:05:26.621 +01:00 [INF] Executed endpoint 'PortfolioMakerBackend.Controllers.PortfolioController.GetAll (PortfolioMakerBackend)'
+2025-01-11 19:05:26.622 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7146/api/portfolio - 200 null application/json; charset=utf-8 80.5764ms
+2025-01-11 19:07:31.504 +01:00 [INF] Request starting HTTP/2 OPTIONS https://localhost:7146/api/auth/logout - null null
+2025-01-11 19:07:31.513 +01:00 [INF] CORS policy execution successful.
+2025-01-11 19:07:31.515 +01:00 [INF] Request finished HTTP/2 OPTIONS https://localhost:7146/api/auth/logout - 204 null null 10.9903ms
+2025-01-11 19:07:31.519 +01:00 [INF] Request starting HTTP/2 POST https://localhost:7146/api/auth/logout - application/json 2
+2025-01-11 19:07:31.524 +01:00 [INF] CORS policy execution successful.
+2025-01-11 19:07:31.535 +01:00 [INF] Executing endpoint 'PortfolioMakerBackend.Controllers.AuthController.Logout (PortfolioMakerBackend)'
+2025-01-11 19:07:31.574 +01:00 [INF] Route matched with {action = "Logout", controller = "Auth"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Logout() on controller PortfolioMakerBackend.Controllers.AuthController (PortfolioMakerBackend).
+2025-01-11 19:07:31.648 +01:00 [INF] Executing OkObjectResult, writing value of type '<>f__AnonymousType1`1[[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-01-11 19:07:31.667 +01:00 [INF] Executed action PortfolioMakerBackend.Controllers.AuthController.Logout (PortfolioMakerBackend) in 90.3996ms
+2025-01-11 19:07:31.668 +01:00 [INF] Executed endpoint 'PortfolioMakerBackend.Controllers.AuthController.Logout (PortfolioMakerBackend)'
+2025-01-11 19:07:31.669 +01:00 [INF] Request finished HTTP/2 POST https://localhost:7146/api/auth/logout - 200 null application/json; charset=utf-8 150.5178ms

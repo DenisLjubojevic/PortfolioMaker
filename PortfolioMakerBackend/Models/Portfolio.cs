@@ -12,9 +12,8 @@ namespace PortfolioMakerBackend.Models
         public string Description { get; set; }
         public string BannerImageUrl { get; set; }
         public bool IsPublished { get; set; }
-
         public About About { get; set; }
-
+        public List<WorkExperience> Experience { get; set; } = new List<WorkExperience>();
         public List<Project> Projects { get; set; } = new List<Project>();
 
         public Contact Contacts { get; set; }

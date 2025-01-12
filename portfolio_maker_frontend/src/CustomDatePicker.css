@@ -1,0 +1,18 @@
+.chakra-datepicker-input::placeholder {
+    padding-left: 5px; /* Add padding */
+    color: #b5b5b5; /* Change placeholder color */
+    opacity: 1; /* Make placeholder visible */
+}
+
+/* Example: Customize the calendar itself */
+.react-datepicker {
+    font-family: Arial, sans-serif;
+    background-color: #f8f8f8;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+}
+
+.react-datepicker__day--selected {
+    background-color: #3182ce;
+    color: white;
+}

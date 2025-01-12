@@ -2,6 +2,7 @@ import Auth from './components/Auth';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Dashboard from './components/Dashboard';
 import './App.css';
+import './CustomDatePicker.css';
 import axios from 'axios';
 import PortfolioPreview from './components/PreviewPortfolio/PortfolioPreview';
 function App() {

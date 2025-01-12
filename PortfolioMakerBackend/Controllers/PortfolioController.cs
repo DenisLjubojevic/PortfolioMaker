@@ -15,6 +15,7 @@ namespace PortfolioMakerBackend.Controllers
     {
         private readonly IMongoCollection<Portfolio> _portfolios;
         private readonly IMongoCollection<Project> _projects;
+        private readonly IMongoCollection<WorkExperience>  _workExperience;
 
         private readonly GridFSBucket _gridFSBucket;
         
@@ -23,6 +24,7 @@ namespace PortfolioMakerBackend.Controllers
             var database = mongoClient.GetDatabase(mongoSettigns.Value.DatabaseName);
             _portfolios = database.GetCollection<Portfolio>("Portfolios");
             _projects = database.GetCollection<Project>("Projects");
+            _workExperience = database.GetCollection<WorkExperience>("WorkExperience");
 
             _gridFSBucket = new GridFSBucket(database);
         }
@@ -57,17 +59,6 @@ namespace PortfolioMakerBackend.Controllers
                 BannerImageUrl = portfolioDto.BannerImageUrl,
                 IsPublished = portfolioDto.IsPublished,
                 About = portfolioDto.About,
-                Projects = portfolioDto.Projects.Select(p => new Project
-                {
-                    Id = ObjectId.GenerateNewId().ToString(),
-                    PortfolioId = portfolioId,
-                    Title = p.Title,
-                    Description = p.Description,
-                    Technologies = p.Technologies,
-                    DemoUrl = p.DemoUrl,
-                    RepoUrl = p.RepoUrl,
-                    CreatedAt = DateTime.UtcNow
-                }).ToList(),
                 Contacts = portfolioDto.Contacts,
                 PortfolioUrl = finalUrl,
                 CreatedAt = DateTime.UtcNow,
@@ -79,6 +70,36 @@ namespace PortfolioMakerBackend.Controllers
             await _portfolios.InsertOneAsync(portfolio);
 
             return Ok(portfolio);
+        }
+
+        [HttpPost("{portfolioId}/experiences")]
+        public async Task<IActionResult> AddExperienceToPortfolio(string portfolioId, [FromBody] ExperienceDTO experienceDto)
+        {
+            var portfolio = await _portfolios.Find(p => p.Id == portfolioId).FirstOrDefaultAsync();
+            if (portfolio == null)
+            {
+                return BadRequest("Portfolio not found.");
+            }
+
+            var experience = new WorkExperience
+            {
+                Id = ObjectId.GenerateNewId().ToString(),
+                PortfolioId = portfolioId,
+                Position = experienceDto.Position,
+                StartedWorking = experienceDto.StartedWorking,
+                EndedWorking = experienceDto.EndedWorking,
+                Company = experienceDto.Company,
+                Location = experienceDto.Location,
+                Responsibilities = experienceDto.Responsibilities
+            };
+
+            await _workExperience.InsertOneAsync(experience);
+
+            portfolio.Experience.Add(experience);
+            System.Diagnostics.Debug.WriteLine("Updated portfolio experience: " + portfolio.Experience.Count);
+            await _portfolios.ReplaceOneAsync(p => p.Id == portfolioId, portfolio);
+
+            return Ok(experience);
         }
 
         [HttpPost("{portfolioId}/projects")]
@@ -130,6 +151,16 @@ namespace PortfolioMakerBackend.Controllers
                 BannerImageUrl = portfolioDto.BannerImageUrl,
                 IsPublished = false,
                 About = portfolioDto.About,
+                Experience = portfolioDto.Experience.Select(e => new WorkExperience
+                {
+                    Id= ObjectId.GenerateNewId().ToString(),
+                    Position = e.Position,
+                    StartedWorking = e.StartedWorking,
+                    EndedWorking = e.EndedWorking,
+                    Company = e.Company,
+                    Location = e.Location,
+                    Responsibilities = e.Responsibilities
+                }).ToList(),
                 Projects = portfolioDto.Projects.Select(p => new Project
                 {
                     Id = ObjectId.GenerateNewId().ToString(),
@@ -264,25 +295,52 @@ namespace PortfolioMakerBackend.Controllers
                 return NotFound("Portfolio not found.");
             }
 
+            var newExperience = updatedPortfolioDTO.Experience
+                    .Where(dto => !portfolio.Experience.Any(e =>
+                                        e.Position == dto.Position &&
+                                        e.StartedWorking == dto.StartedWorking &&
+                                        e.EndedWorking == dto.EndedWorking &&
+                                        e.Company == dto.Company &&
+                                        e.Location == dto.Location &&
+                                        e.Responsibilities == dto.Responsibilities))
+                    .ToList();
+
+            var oldExperience = portfolio.Experience
+                    .Where(e => updatedPortfolioDTO.Experience.Any(dto =>
+                                        e.Position == dto.Position &&
+                                        e.StartedWorking == dto.StartedWorking &&
+                                        e.EndedWorking == dto.EndedWorking &&
+                                        e.Company == dto.Company &&
+                                        e.Location == dto.Location &&
+                                        e.Responsibilities == dto.Responsibilities))
+                    .ToList();
+
+            var experienceToRemove = portfolio.Experience
+                    .Where(e => !oldExperience.Any(oldExperience => oldExperience.Equals(e)) && 
+                                !newExperience.Any(newExperience => newExperience.Equals(e)))
+                    .ToList();
+
+            foreach( var experience in experienceToRemove )
+            {
+                portfolio.Experience.Remove(experience);
+                _workExperience.DeleteOne(e => e.Id == experience.Id);
+            }
+
             var newProjects = updatedPortfolioDTO.Projects
                     .Where(dto => !portfolio.Projects.Any(p => p.Description == dto.Description))
                     .ToList();
-            System.Diagnostics.Debug.WriteLine("new projects - " + newProjects.Count);
 
             var oldProjects = portfolio.Projects
                     .Where(p => updatedPortfolioDTO.Projects.Any(dto => dto.Description == p.Description))
                     .ToList();
-            System.Diagnostics.Debug.WriteLine("old projects - " + oldProjects.Count);
 
             var projectsToRemove = portfolio.Projects
                     .Where(project => !oldProjects.Any(oldProject => oldProject.Equals(project)) &&
                                       !newProjects.Any(newProject => newProject.Equals(project)))
                     .ToList();
-            System.Diagnostics.Debug.WriteLine("projects to remove - " + projectsToRemove.Count);
 
             foreach (var project in projectsToRemove)
             {
-                System.Diagnostics.Debug.WriteLine("Removing project " + project.Title);
                 portfolio.Projects.Remove(project);
                 _projects.DeleteOne(p => p.Id == project.Id);
             }
@@ -298,8 +356,12 @@ namespace PortfolioMakerBackend.Controllers
 
             foreach (var projectDTO in newProjects)
             {
-                System.Diagnostics.Debug.WriteLine("Adding project " + projectDTO.Title);
-                AddProjectToPortfolio(id, projectDTO);
+                await AddProjectToPortfolio(id, projectDTO);
+            }
+
+            foreach (var experienceDTO in newExperience)
+            {
+                await AddExperienceToPortfolio(id, experienceDTO);
             }
 
             return Ok(portfolio);

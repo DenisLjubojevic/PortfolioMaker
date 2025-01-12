@@ -105,6 +105,27 @@
   },
   {
     "ContainingType": "PortfolioMakerBackend.Controllers.PortfolioController",
+    "Method": "AddExperienceToPortfolio",
+    "RelativePath": "api/Portfolio/{portfolioId}/experiences",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "portfolioId",
+        "Type": "System.String",
+        "IsRequired": true
+      },
+      {
+        "Name": "experienceDto",
+        "Type": "PortfolioMakerBackend.DTOs.ExperienceDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "PortfolioMakerBackend.Controllers.PortfolioController",
     "Method": "AddProjectToPortfolio",
     "RelativePath": "api/Portfolio/{portfolioId}/projects",
     "HttpMethod": "POST",
@@ -355,5 +376,67 @@
       }
     ],
     "ReturnTypes": []
+  },
+  {
+    "ContainingType": "PortfolioMakerBackend.Controllers.WorkExperienceController",
+    "Method": "GetAll",
+    "RelativePath": "api/WorkExperience",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[PortfolioMakerBackend.Models.WorkExperience, PortfolioMakerBackend, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "PortfolioMakerBackend.Controllers.WorkExperienceController",
+    "Method": "Create",
+    "RelativePath": "api/WorkExperience",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "workExperience",
+        "Type": "PortfolioMakerBackend.Models.WorkExperience",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "PortfolioMakerBackend.Controllers.WorkExperienceController",
+    "Method": "GetById",
+    "RelativePath": "api/WorkExperience/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "PortfolioMakerBackend.Models.WorkExperience",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
   }
 ]

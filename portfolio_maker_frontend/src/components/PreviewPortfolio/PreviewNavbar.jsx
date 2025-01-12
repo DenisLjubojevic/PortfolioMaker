@@ -21,6 +21,7 @@ function PreviewNavbar({ onNavigate }) {
               <Spacer />
               <Flex alignItems="center" gap={4}>
                   <Button onClick={() => onNavigate("about")}>About</Button>
+                  <Button onClick={() => onNavigate("experience")}>Experience</Button>
                   <Button onClick={() => onNavigate("projects")}>Projects</Button>
                   <Button onClick={() => onNavigate("contact")}>Contact</Button>
               </Flex>
