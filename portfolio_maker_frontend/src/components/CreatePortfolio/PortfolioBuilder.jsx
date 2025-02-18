@@ -48,6 +48,7 @@ function PortfolioBuilder({ onPortfolioCreated, initialData }) {
             cvFileId: "No cv",
         },
         previewUrl: null,
+        templateId: "67b36f341f501c852ab69bc8", //Id for default classic template
     });
     const [previewId, setPreviewId] = useState(null);
     const [finalUrl, setFinalUrl] = useState(null);
@@ -82,6 +83,7 @@ function PortfolioBuilder({ onPortfolioCreated, initialData }) {
                 },
                 createdAt: new Date().toISOString(),
                 portfolioUrl: "",
+                templateId: portfolioData.templateId || "67b36f341f501c852ab69bc8",
             };
 
             const response = await apiClient.post('https://localhost:7146/api/portfolio/preview', {
@@ -119,7 +121,7 @@ function PortfolioBuilder({ onPortfolioCreated, initialData }) {
             bannerImageUrl: portfolioData.bannerImageUrl || "URL",
             isPublished: false,
             about: {
-                profilePictureId: "677fe3af776f9a7959c28928", //Id for default profile picture
+                profilePictureId: portfolioData.about.profilePictureId || "677fe3af776f9a7959c28928", //Id for default profile picture
                 name: portfolioData.about.name,
                 bio: portfolioData.about.bio,
             },
@@ -135,6 +137,7 @@ function PortfolioBuilder({ onPortfolioCreated, initialData }) {
             },
             createdAt: new Date().toISOString(),
             portfolioUrl: portfolioData.previewUrl,
+            templateId: portfolioData.templateId || "67b36f341f501c852ab69bc8",
         };
 
         console.log(payload);
@@ -149,7 +152,7 @@ function PortfolioBuilder({ onPortfolioCreated, initialData }) {
 
         if (Object.keys(allErrors).length === 0) {
             if (initialData) {
-                if (portfolioData.about.profilePictureId !== "677fe3af776f9a7959c28928") {
+                if (portfolioData.about.profilePictureId !== initialData.about.profilePictureId) {
                     const formData = new FormData();
                     formData.append("profilePicture", portfolioData.about.profilePictureId);
 
@@ -317,7 +320,7 @@ function PortfolioBuilder({ onPortfolioCreated, initialData }) {
             id: 2,
             label: 'Experience',
             description: 'Add your work experience',
-            component: <ExperienceStep data={portfolioData.experience} setData={(data) => updateData('experience', data)} errors={validationErrors} />
+            component: <ExperienceStep data={portfolioData.experience} setData={(data) => updateData('experience', data)} />
         },
         {
             id: 3,
@@ -336,6 +339,8 @@ function PortfolioBuilder({ onPortfolioCreated, initialData }) {
             label: 'Review & Submit',
             description: 'Check if everything is right',
             component: <ReviewStep
+                            templateId={portfolioData.templateId}
+                            setData={(data) => updateData('templateId', data)}
                             previewUrl={portfolioData.previewUrl}
                             onGeneratePreview={generatePreview}
                             previewId={previewId}
@@ -351,10 +356,6 @@ function PortfolioBuilder({ onPortfolioCreated, initialData }) {
             }
             if (!portfolioData.about.bio) {
                 errors.bio = 'Bio is required!';
-            }
-        } else if (step === 1) {
-            if (!portfolioData.experience || portfolioData.experience.length === 0) {
-                errors.experience = 'At least one working experience is required.';
             }
         } else if (step === 2) {
             if (!portfolioData.projects || portfolioData.projects.length === 0) {
@@ -378,6 +379,7 @@ function PortfolioBuilder({ onPortfolioCreated, initialData }) {
             ...prevData,
             [step]: data
         }));
+        console.log(portfolioData);
     };
 
     const handleNext = () => {

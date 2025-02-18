@@ -253,6 +253,22 @@
   },
   {
     "ContainingType": "PortfolioMakerBackend.Controllers.PortfolioController",
+    "Method": "GetTemplatePicture",
+    "RelativePath": "api/Portfolio/templatePicture/{templateId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "templateId",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "PortfolioMakerBackend.Controllers.PortfolioController",
     "Method": "UploadCV",
     "RelativePath": "api/Portfolio/upload-cv",
     "HttpMethod": "POST",
@@ -277,6 +293,22 @@
     "Parameters": [
       {
         "Name": "profilePicture",
+        "Type": "Microsoft.AspNetCore.Http.IFormFile",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "PortfolioMakerBackend.Controllers.PortfolioController",
+    "Method": "UploadTemplatePicture",
+    "RelativePath": "api/Portfolio/upload-template-picture",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "templatePicture",
         "Type": "Microsoft.AspNetCore.Http.IFormFile",
         "IsRequired": false
       }

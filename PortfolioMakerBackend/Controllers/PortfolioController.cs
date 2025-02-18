@@ -63,6 +63,7 @@ namespace PortfolioMakerBackend.Controllers
                 PortfolioUrl = finalUrl,
                 CreatedAt = DateTime.UtcNow,
                 PreviewId = null,
+                TemplateId = portfolioDto.TemplateId,
             };
 
             System.Diagnostics.Debug.WriteLine($"Portfolio - {portfolio}");
@@ -175,6 +176,7 @@ namespace PortfolioMakerBackend.Controllers
                 PreviewUrl = previewUrl,
                 CreatedAt = DateTime.UtcNow,
                 PreviewId = previewUuid,
+                TemplateId = portfolioDto.TemplateId,
             };
 
             await _portfolios.InsertOneAsync(previewPortfolio);
@@ -241,6 +243,48 @@ namespace PortfolioMakerBackend.Controllers
             catch (Exception ex)
             {
                 return StatusCode(500, new { message = "An error occurred while uploading the file.", error = ex.Message });
+            }
+        }
+
+        [HttpGet("templatePicture/{templateId}")]
+        public async Task<IActionResult> GetTemplatePicture(string templateId)
+        {
+            try
+            {
+                var objectId = new ObjectId(templateId);
+
+                var fileStream = await _gridFSBucket.OpenDownloadStreamAsync(objectId);
+
+                return File(fileStream, "image/jpeg", fileStream.FileInfo.Filename);
+            }
+            catch (GridFSFileNotFoundException)
+            {
+                return NotFound(new { message = "Template picture not found." });
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, new { message = "An error occurred while retrieving the template picture.", error = ex.Message });
+            }
+        }
+
+        [HttpPost("upload-template-picture")]
+        public async Task<IActionResult> UploadTemplatePicture(IFormFile templatePicture)
+        {
+            if (templatePicture == null || templatePicture.Length == 0)
+            {
+                return BadRequest(new { message = "No file provided" });
+            }
+
+            try
+            {
+                using var stream = templatePicture.OpenReadStream();
+                var fileId = await _gridFSBucket.UploadFromStreamAsync(templatePicture.FileName, stream);
+
+                return Ok(new { message = "Template picture uploaded successfully", fileId = fileId.ToString() });
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, new { message = "An error occurred while uploading the template picture.", error = ex.Message });
             }
         }
 
@@ -351,6 +395,7 @@ namespace PortfolioMakerBackend.Controllers
             portfolio.IsPublished = updatedPortfolioDTO.IsPublished;
             portfolio.About = updatedPortfolioDTO.About;    
             portfolio.Contacts = updatedPortfolioDTO.Contacts;
+            portfolio.TemplateId = updatedPortfolioDTO.TemplateId;
 
             await _portfolios.ReplaceOneAsync(p => p.Id == id, portfolio);
 

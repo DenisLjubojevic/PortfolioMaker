@@ -23,6 +23,8 @@ namespace PortfolioMakerBackend.Models
         public DateTime CreatedAt { get; set; }
 
         public string? PreviewId { get; set; }
+
+        public string TemplateId { get; set; }
     }
 
     public class About

@@ -12,12 +12,19 @@ function ProjectsPreview({ data }) {
             height="80%"
             borderRadius="md"
         >
-            <Heading size="lg" mb={6}>
+            <Heading size="xl" mb={6}>
                 Projects
             </Heading>
             <VStack align="stretch" spacing={4}>
                 {data.map((project) => (
-                    <Box key={project.id} p={4} border="1px" borderColor="gray.200" borderRadius="md">
+                    <Box
+                        key={project.id}
+                        p={4}
+                        border="1px"
+                        borderColor="brand.primary.800"
+                        borderRadius="md"
+                        backgroundColor="brand.primary.900"
+                    >
                         <Text fontSize="xl" fontWeight="bold">
                             {project.title}
                         </Text>

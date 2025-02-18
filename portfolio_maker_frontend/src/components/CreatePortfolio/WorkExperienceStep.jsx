@@ -24,7 +24,7 @@ import { CloseIcon } from '@chakra-ui/icons'
 
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
-function WorkExperienceStep({ data, setData, errors }) {
+function WorkExperienceStep({ data, setData }) {
     const { isOpen, onOpen, onClose } = useDisclosure();
     const [newExperience, setNewExperience] = useState({
         position: '',
@@ -90,7 +90,18 @@ function WorkExperienceStep({ data, setData, errors }) {
                 p="1rem"
                 width="80%"
             >
-                <VStack align="start" width="100%" spacing={4}>
+                <VStack align="start" width="100%" spacing={4} marginTop="10px">
+
+                    {data.length > 0 ? (
+                        <Box width="100%" textAlign="start">
+                            <Text fontSize="lg">Your experience:</Text>
+                        </Box>
+                    ) : (
+                        <Box width="100%" textAlign="center">
+                            <Text>You do not have any working experience added!</Text>
+                        </Box>
+                    )}
+
                     {data.map((experience, index) => (
                         <HStack
                             key={index}
@@ -119,6 +130,7 @@ function WorkExperienceStep({ data, setData, errors }) {
                         </HStack>
                     ))}
                 </VStack>
+
                 <Button
                     onClick={onOpen}
                     bg="brand.primary.800"
@@ -130,7 +142,6 @@ function WorkExperienceStep({ data, setData, errors }) {
                     }}>
                     Add Experience
                 </Button>
-                {errors.experience && <Text color="red.500" bg="gray.300" padding="5px" borderRadius="10px" fontSize="sm">{errors.experience}</Text>}
             </VStack>
 
             <Modal isOpen={isOpen} onClose={onClose} isCentered>
@@ -282,7 +293,6 @@ WorkExperienceStep.propTypes = {
         })
     ).isRequired,
     setData: PropTypes.func.isRequired,
-    errors: PropTypes.object.isRequired,
 }
 
 export default WorkExperienceStep;

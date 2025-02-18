@@ -27,6 +27,7 @@ function PortfolioList({ portfolios, onEditPortfolio }) {
                             mb={4}
                             textAlign="center"
                             color="brand.primary.800"
+                            marginTop="10px"
                         >
                             Your Portfolios
                         </Heading>

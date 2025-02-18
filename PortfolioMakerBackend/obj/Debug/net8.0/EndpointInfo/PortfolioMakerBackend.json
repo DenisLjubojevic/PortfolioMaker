@@ -354,6 +354,60 @@
         }
       }
     },
+    "/api/Portfolio/templatePicture/{templateId}": {
+      "get": {
+        "tags": [
+          "Portfolio"
+        ],
+        "parameters": [
+          {
+            "name": "templateId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Portfolio/upload-template-picture": {
+      "post": {
+        "tags": [
+          "Portfolio"
+        ],
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "templatePicture": {
+                    "type": "string",
+                    "format": "binary"
+                  }
+                }
+              },
+              "encoding": {
+                "templatePicture": {
+                  "style": "form"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
     "/api/Portfolio/profile-picture/{fileId}": {
       "get": {
         "tags": [
@@ -942,6 +996,10 @@
           "previewId": {
             "type": "string",
             "nullable": true
+          },
+          "templateId": {
+            "type": "string",
+            "nullable": true
           }
         },
         "additionalProperties": false
@@ -985,6 +1043,10 @@
             "$ref": "#/components/schemas/Contact"
           },
           "portfolioUrl": {
+            "type": "string",
+            "nullable": true
+          },
+          "templateId": {
             "type": "string",
             "nullable": true
           }
