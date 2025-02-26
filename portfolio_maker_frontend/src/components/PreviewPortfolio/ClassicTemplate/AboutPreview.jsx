@@ -3,43 +3,32 @@ import { Flex, Box, Text, Image } from "@chakra-ui/react";
 
 function AboutPreview({ data }) {
     return (
-        <Flex
+        <Box
+            id="about"
+            py={10}
+            px={6}
+            bg="gray.300"
             width="60%"
             height="80%"
+            borderRadius="md"
+            boxShadow="sm"
         >
-            <Box
-                id="about"
-                py={8}
-                px={4}
-                bg="gray.300"
-                borderRadius="md"
-                fontSize="2xl"
-                width="100%"
-                height="100%"
-                display="flex"
-                flexDirection="column"
-                alignItems="center"
-                justifyContent="center"
-            >
-                {data.profilePictureId && (
-                    <Image
-                        mb={4}
-                        src={`https://localhost:7146/api/portfolio/profile-picture/${data.profilePictureId}`}
-                        alt="Profile Picture"
-                        boxSize="150px"
-                        borderRadius="full"
-                        objectFit="cover"
-                    />
-                )}
-
-                <Text fontSize="3xl" fontWeight="bold" mb={4}>
+            <Flex direction="column" align="center" justifyContent="center">
+                <Image
+                    src={`https://localhost:7146/api/portfolio/profile-picture/${data.profilePictureId}`}
+                    alt="Profile Picture"
+                    boxSize={{ base: "100px", md: "150px" }}
+                    borderRadius="full"
+                    mb={4}
+                />
+                <Text fontSize={{ base: "3xl", md: "4xl" }} fontWeight="bold" mb={2}>
                     {data.name}
                 </Text>
-                <Text>
+                <Text fontSize="xl" textAlign="center">
                     {data.bio}
                 </Text>
-            </Box>
-        </Flex>
+            </Flex>
+        </Box>
     );
 }
 

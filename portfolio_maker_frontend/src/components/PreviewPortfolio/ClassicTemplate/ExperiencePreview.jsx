@@ -11,7 +11,10 @@ function ExperiencePreview({ data }) {
             height="80%"
             borderRadius="md"
         >
-            <Heading size="xl" mb={6}>
+            <Heading
+                size="xl" mb={6}
+                fontFamily="'Playfair Display', serif"
+            >
                 Work Experience
             </Heading>
 

@@ -12,44 +12,17 @@ import {
     useColorModeValue,
 } from "@chakra-ui/react";
 import { motion } from 'framer-motion';
-import ProjectCard from "./ProjectCard";
 
 const MotionBox = motion(Box);
 
-function ModernTemplatePreview({ portfolioData }) {
+function MinimalisticTemplatePreview({ portfolioData }) {
+    const bgColor = useColorModeValue('#D3D9D4', 'gray.800');
+    const accentColor = useColorModeValue('#748D92', 'teal.300');
 
-    const bgColor = useColorModeValue('#EDE8F5', 'gray.800');
-    const accentColor = useColorModeValue('#3D52A0', 'teal.300');
-
-    const fontColor = "#3D52A0";
-    const bannerUrl = "https://localhost:7146/api/portfolio/templatePicture/67b4bfccf97a09e418194e8b";
+    const fontColor = "#124E66";
 
     return (
-        <Flex direction="column" width="99vw" bg={bgColor} fontFamily="'Inter', sans-serif">
-            <Box
-                position="relative"
-                height="60vh"
-                display="flex"
-                alignItems="center"
-                justifyContent="center"
-            >
-                <Image
-                    src={bannerUrl}
-                    borderRadius="md"
-                    width="100%"
-                    height="100%"
-                />
-                <Box position="absolute" top="0" left="0" right="0" bottom="0" bg="blackAlpha.200" />
-                <VStack zIndex="1" spacing={4} position="absolute" left="20%">
-                    <Heading as="h1" size="2xl" color="black">
-                        {portfolioData.about.name}
-                    </Heading>
-                    <Text fontSize="xl" color="black">
-                        {portfolioData.about.bio || "Passionate Developer & Designer"}
-                    </Text>
-                </VStack>
-            </Box>
-
+        <Flex direction="column" width="99vw" bg={bgColor} fontFamily="'Roboto', sans-serif">
             <Flex
                 as="nav"
                 bg="whiteAlpha.900"
@@ -64,39 +37,40 @@ function ModernTemplatePreview({ portfolioData }) {
                     spacing={8}
                     mx="auto"
                 >
+                    <Text color={fontColor} fontSize="lg">Portfolio Maker</Text>
                     <Link
                         href="#about"
                         color={accentColor}
                         _hover={{
-                            color: "#8697C4",
+                            color: "#212A31",
                         }}
                     >About</Link>
                     <Link
                         href="#experience"
                         color={accentColor}
                         _hover={{
-                            color: "#8697C4",
+                            color: "#212A31",
                         }}
                     >Experience</Link>
                     <Link
                         href="#projects"
                         color={accentColor}
                         _hover={{
-                            color: "#8697C4",
+                            color: "#212A31",
                         }}
                     >Projects</Link>
                     <Link
                         href="#contact"
                         color={accentColor}
                         _hover={{
-                            color: "#8697C4",
+                            color: "#212A31",
                         }}
                     >Contact</Link>
                 </HStack>
             </Flex>
 
             <Box px={8} py={12}>
-                <Box id="about" mb={12} color={fontColor}>
+                <Box id="about" mb={12} maxW="800px" mx="auto" color={fontColor}>
                     <Flex align="center" justify="center" direction="column">
                         {portfolioData.about.profilePictureId && (
                             <Image
@@ -108,7 +82,7 @@ function ModernTemplatePreview({ portfolioData }) {
                                 mb={4}
                             />
                         )}
-                        <Heading as="h2" size="xl" mb={2} fontFamily="'Montserrat', sans-serif">
+                        <Heading as="h2" size="xl" mb={2} fontFamily="'Playfair Display', serif">
                             {portfolioData.about.name}
                         </Heading>
                         <Text fontSize="lg" textAlign="center" maxW="600px">
@@ -118,7 +92,7 @@ function ModernTemplatePreview({ portfolioData }) {
                 </Box>
 
                 <Box id="experience" mb={12} maxW="800px" mx="auto" color={fontColor}>
-                    <Heading as="h2" size="lg" mb={6} textAlign="center" fontFamily="'Montserrat', sans-serif">
+                    <Heading as="h2" size="lg" mb={6} textAlign="center" fontFamily="'Playfair Display', serif">
                         Work Experience
                     </Heading>
                     {portfolioData.experience && portfolioData.experience.length > 0 ? (
@@ -133,9 +107,9 @@ function ModernTemplatePreview({ portfolioData }) {
                                     maxW="800px"
                                     boxShadow="sm"
                                     whileHover={{ scale: 1.02, boxShadow: "lg" }}
-                                    bgColor="#ADBBDA"
+                                    bgColor="gray.50"
                                 >
-                                    <Heading as="h3" size="md" mb={2} fontFamily="'Montserrat', sans-serif">
+                                    <Heading as="h3" size="md" mb={2} fontFamily="'Playfair Display', serif">
                                         {exp.position} at {exp.company}
                                     </Heading>
                                     <Text fontSize="sm">
@@ -151,13 +125,30 @@ function ModernTemplatePreview({ portfolioData }) {
                 </Box>
 
                 <Box id="projects" mb={12} maxW="800px" mx="auto" color={fontColor}>
-                    <Heading as="h2" size="lg" mb={6} textAlign="center" fontFamily="'Montserrat', sans-serif">
+                    <Heading as="h2" size="lg" mb={6} textAlign="center" fontFamily="'Playfair Display', serif">
                         Projects
                     </Heading>
                     {portfolioData.projects && portfolioData.projects.length > 0 ? (
-                        <Grid templateColumns="repeat(auto-fit, minmax(250px, 1fr))" gap={6} color={fontColor} bgColor="#ADBBDA" borderRadius="md">
+                        <Grid templateColumns="repeat(auto-fit, minmax(250px, 1fr))" justifyContent="center" gap={6} color={fontColor} borderRadius="md">
                             {portfolioData.projects.map((project) => (
-                                <ProjectCard key={project.id} project={project} />
+                                <MotionBox
+                                    key={project.id}
+                                    p={4}
+                                    borderWidth="1px"
+                                    borderRadius="md"
+                                    width="100%"
+                                    boxShadow="sm"
+                                    whileHover={{ scale: 1.02, boxShadow: "lg" }}
+                                    bgColor="gray.50"
+                                >
+                                    <Heading as="h3" size="md" mb={2} fontFamily="'Playfair Display', serif">
+                                        {project.title}
+                                    </Heading>
+                                    <Text fontSize="sm">
+                                        {project.description}
+                                    </Text>
+                                    <Text mt={2}>{project.technologies.join(', ')}</Text>
+                                </MotionBox>
                             ))}
                         </Grid>
                     ) : (
@@ -165,21 +156,13 @@ function ModernTemplatePreview({ portfolioData }) {
                     )}
                 </Box>
 
-                <Box id="contact" mb={12} color={fontColor}>
-                    <Heading as="h2" size="lg" mb={6} textAlign="center" fontFamily="'Montserrat', sans-serif">
+                <Box id="contact" mb={12} maxW="800px" mx="auto" color={fontColor}>
+                    <Heading as="h2" size="lg" mb={6} textAlign="center" fontFamily="'Playfair Display', serif">
                         Contact
                     </Heading>
                     <Flex direction="column" align="center">
                         <Text>
-                            Email: <Link
-                                        href={`mailto:${portfolioData.contacts.email}`}
-                                        color={accentColor}
-
-                                        _hover={{
-                                            textDecoration: "none",
-                                            color: "#8697C4",
-                                        }}
-                            >{portfolioData.contacts.email}</Link>
+                            Email: <Link href={`mailto:${portfolioData.contacts.email}`} color={accentColor} _hover={{ textDecoration: "none", color: "gray.100" }}>{portfolioData.contacts.email}</Link>
                         </Text>
                         <Text>Phone: {portfolioData.contacts.phone}</Text>
                         {portfolioData.contacts.linkedIn && (
@@ -197,12 +180,7 @@ function ModernTemplatePreview({ portfolioData }) {
                                 Twitter: <Link href={portfolioData.contacts.twitter} isExternal color={accentColor}>{portfolioData.contacts.twitter}</Link>
                             </Text>
                         )}
-                        <Button
-                            mt={4}
-                            bgColor="#ADBBDA"
-                            color={accentColor}
-                            border="1px solid #3D52A0"
-                        >
+                        <Button mt={4} colorScheme="teal" bgColor="gray.50" color={fontColor} border="1px solid #124E66" _hover={{ bgColor: "#124E66", color: "gray.50" }}>
                             Contact Me
                         </Button>
                     </Flex>
@@ -212,4 +190,4 @@ function ModernTemplatePreview({ portfolioData }) {
     );
 }
 
-export default ModernTemplatePreview;
+export default MinimalisticTemplatePreview;

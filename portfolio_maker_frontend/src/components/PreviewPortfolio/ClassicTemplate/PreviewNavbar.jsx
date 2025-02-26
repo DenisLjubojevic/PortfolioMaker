@@ -1,6 +1,6 @@
-import { Box, Flex, Spacer, Button, Heading } from "@chakra-ui/react";
+import { Box, Flex, HStack, Button, Heading } from "@chakra-ui/react";
 
-function PreviewNavbar({ onNavigate }) {
+function PreviewNavbar({ activeSection, onNavigate }) {
   return (
       <Box
           as="nav"
@@ -14,17 +14,40 @@ function PreviewNavbar({ onNavigate }) {
           zIndex="1000"
           width="100%"
       >
-          <Flex alignItems="center" justifyContent="space-between" width="100%">
-              <Heading as="h1" size="lg">
+          <Flex
+              as="nav"
+              position="sticky"
+              top="0"
+              boxShadow="sm"
+              zIndex="1000"
+              p={{ base: 4, md: 6 }}
+              alignItems="center"
+              justifyContent="space-between"
+              width="100%"
+              fontFamily="'Playfair Display', serif"
+          >
+              <Heading
+                  fontSize={{ base: "lg", md: "3xl" }}
+                  fontFamily="'Playfair Display', serif"
+              >
                   Portfolio Maker
               </Heading>
-              <Spacer />
-              <Flex alignItems="center" gap={4}>
-                  <Button onClick={() => onNavigate("about")}>About</Button>
-                  <Button onClick={() => onNavigate("experience")}>Experience</Button>
-                  <Button onClick={() => onNavigate("projects")}>Projects</Button>
-                  <Button onClick={() => onNavigate("contact")}>Contact</Button>
-              </Flex>
+              <HStack spacing={4}>
+                  {["about", "experience", "projects", "contact"].map((section) => (
+                      <Button
+                          key={section}
+                          variant={activeSection === section ? "solid" : "ghost"}
+                          onClick={() => onNavigate(section)}
+                          _hover={
+                              activeSection === section
+                                  ? { bg: "brand.secondary.800", color: "brand.primary.700", border: "1px solid", borderColor: "brand.primary.700" }
+                                  : { bg: "transparent", color: "brand.primary.700", border: "1px solid", borderColor: "brand.primary.700" }
+                          }
+                      >
+                          {section.charAt(0).toUpperCase() + section.slice(1)}
+                      </Button>
+                  ))}
+              </HStack>
           </Flex>
       </Box>
   );

@@ -50,10 +50,9 @@ function ContactPreview({ data }) {
             width="60%"
             height="80%"
             borderRadius="md"
-            paddingTop="5rem"
             fontSize="2xl"
         >
-            <Text fontSize="5xl" fontWeight="bold" mb={6}>
+            <Text fontSize="5xl" fontWeight="bold" mb={6} fontFamily="'Playfair Display', serif">
                 Contact
             </Text>
 

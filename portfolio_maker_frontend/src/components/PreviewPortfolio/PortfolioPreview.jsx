@@ -5,6 +5,8 @@ import apiClient from '../../axiosConfig';
 import { Box, Flex } from "@chakra-ui/react";
 import ClassicTemplatePreview from './ClassicTemplate/ClassicTemplatePreview';
 import ModernTemplatePreview from './ModernTemplate/ModernTemplatePreview';
+import MinimalisticTemplatePreview from './MinimalisticTemplate/MinimalisticTemplatePreview';
+import CreativeTemplatePreview from './CreativeTemplate/CreativeTemplatePreview';
 
 function PortfolioPreview() {
     const { previewId } = useParams();
@@ -37,6 +39,12 @@ function PortfolioPreview() {
             break;
         case "67b4c45ef97a09e418194e93": //Modern template id
             TemplateComponent = ModernTemplatePreview;
+            break;
+        case "67bf3e179459976f91d4cd46": //Minimalistic template id
+            TemplateComponent = MinimalisticTemplatePreview;
+            break;
+        case "67bf385f9459976f91d4cd36"://Creative template id
+            TemplateComponent = CreativeTemplatePreview;
             break;
         default:
             TemplateComponent = ClassicTemplatePreview;

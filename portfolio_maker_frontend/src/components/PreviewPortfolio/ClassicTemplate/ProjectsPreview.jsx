@@ -12,7 +12,10 @@ function ProjectsPreview({ data }) {
             height="80%"
             borderRadius="md"
         >
-            <Heading size="xl" mb={6}>
+            <Heading
+                size="xl" mb={6}
+                fontFamily="'Playfair Display', serif"
+            >
                 Projects
             </Heading>
             <VStack align="stretch" spacing={4}>

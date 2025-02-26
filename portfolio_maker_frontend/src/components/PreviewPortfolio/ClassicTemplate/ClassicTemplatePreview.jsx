@@ -20,11 +20,13 @@ function ClassicTemplatePreview({ portfolioData }) {
             justifyContent="center"
             flexDirection="column"
             bg="gray.600"
+            fontFamily="'Roboto', sans-serif"
+            color="brand.secondary.900"
         >
             <Box
                 width="100%"
             >
-                <PreviewNavbar onNavigate={setActiveSection} />
+                <PreviewNavbar activeSection={activeSection} onNavigate={setActiveSection} />
             </Box>
             <Box
                 width="100%"
@@ -32,7 +34,6 @@ function ClassicTemplatePreview({ portfolioData }) {
                 display="flex"
                 alignItems="center"
                 justifyContent="center"
-                color="brand.secondary.900"
             >
                 {activeSection === "about" && <AboutSection data={portfolioData.about} />}
                 {activeSection === "experience" && (

@@ -27,11 +27,39 @@ function ReviewStep({ templateId, setData, previewUrl, onGeneratePreview, previe
             "templateId": "67b36f341f501c852ab69bc8",
             "name": "Classic",
             "description": "A clean, minimal layout.",
+            "previewImages": [
+                "67b36f341f501c852ab69bc8",
+                "67bf3dab9459976f91d4cd3e",
+                "67bf3dbc9459976f91d4cd40",
+            ],
         },
         {
             "templateId": "67b4c45ef97a09e418194e93",
             "name": "Modern",
             "description": "A vibrant, contemporary design.",
+            "previewImages": [
+                "67b4c45ef97a09e418194e93",
+                "67bf3dcd9459976f91d4cd42",
+                "67bf3de19459976f91d4cd44",
+            ],
+        },
+        {
+            "templateId": "67bf3e179459976f91d4cd46",
+            "name": "Minimalistic",
+            "description": "Emphasizes simplicity and elegance, focusing on clean lines.",
+            "previewImages": [
+                "67bf3e179459976f91d4cd46",
+                "67bf3e349459976f91d4cd48",
+            ],
+        },
+        {
+            "templateId": "67bf385f9459976f91d4cd36",
+            "name": "Creative",
+            "description": "Showcases a vibrant and dynamic design, incorporating unique layouts.",
+            "previewImages": [
+                "67bf385f9459976f91d4cd36",
+                "67bf38729459976f91d4cd38",
+            ],
         }
     ];
 
@@ -59,6 +87,7 @@ function ReviewStep({ templateId, setData, previewUrl, onGeneratePreview, previe
                     color="brand.primary.800"
                     maxWidth="90vw"
                     height="90vh"
+                    overflow="auto"
                 >
                     <ModalHeader>
                         Change style of your portfolio
