@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import { Box, Heading, Text, Link, VStack } from "@chakra-ui/react";
+import { Box, Heading, Text, Image, Link, VStack, HStack } from "@chakra-ui/react";
 
 function ProjectsPreview({ data }) {
     return (
@@ -28,19 +28,29 @@ function ProjectsPreview({ data }) {
                         borderRadius="md"
                         backgroundColor="brand.primary.900"
                     >
-                        <Text fontSize="xl" fontWeight="bold">
-                            {project.title}
-                        </Text>
-                        <Text>{project.description}</Text>
-                        <Box mt={2}>
-                            <Link href={project.demoUrl} color="blue.500" isExternal>
-                                Demo
-                            </Link>
-                            {' | '}
-                            <Link href={project.repoUrl} color="blue.500" isExternal>
-                                Repository
-                            </Link>
-                        </Box>
+                        <HStack alignItems="center" justifyContent="center">
+                            <Image
+                                src={`https://localhost:7146/api/portfolio/profile-picture/${project.imageId}`}
+                                alt="Project Image"
+                                boxSize={{ base: "100px", md: "150px" }}
+                                mb={4}
+                            />
+                            <VStack alignItems="baseline" ml={4}>
+                                <Text fontSize="xl" fontWeight="bold">
+                                    {project.title}
+                                </Text>
+                                <Text>{project.description}</Text>
+                                <Box mt={2}>
+                                    <Link href={project.demoUrl} color="blue.500" isExternal>
+                                        Demo
+                                    </Link>
+                                    {' | '}
+                                    <Link href={project.repoUrl} color="blue.500" isExternal>
+                                        Repository
+                                    </Link>
+                                </Box>
+                            </VStack>
+                        </HStack>
                     </Box>
                 ))}
             </VStack>

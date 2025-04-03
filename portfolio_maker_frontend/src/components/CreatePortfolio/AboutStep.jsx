@@ -2,17 +2,26 @@ import PropTypes from 'prop-types';
 
 import {
     VStack,
+    HStack,
+    IconButton,
     Flex,
     Input,
     Textarea,
-    Text
+    Text,
+    Image
 } from '@chakra-ui/react';
+
+import { CloseIcon } from '@chakra-ui/icons'
 
 function AboutStep({ data, setData, errors }) {
 
     const handleChange = (e) => {
         setData({ ...data, [e.target.name]: e.target.value });
     };
+
+    const handleRemovePfp = () => {
+        setData({ ...data, profilePictureId: "677fe3af776f9a7959c28928" });
+    }
 
     return (
         <Flex
@@ -104,29 +113,52 @@ function AboutStep({ data, setData, errors }) {
                 </Flex>
 
                 <Flex flexDirection="column">
-                    <Text
-                        ml={2}
-                        color="brand.primary.700"
-                        fontSize="lg"
-                        fontWeight="bold"
-                    >
-                        Profile Picture
-                    </Text>
-                    <Input
-                        width="420px"
-                        padding="5px"
-                        type="file"
-                        name="profilePicture"
-                        accept="image/*"
-                        onChange={(e) => setData({ ...data, profilePictureId: e.target.files[0] })}
-                        bg="brand.primary.800"
-                        color="brand.secondary.900"
-                        outline="0"
-                        borderColor="brand.primary.900"
-                        _placeholder={{
-                            color: "brand.secondary.900",
-                        }}
-                    />
+                    {data.profilePictureId == "677fe3af776f9a7959c28928" ? (
+                        <VStack>
+                            <Text
+                                ml={2}
+                                color="brand.primary.700"
+                                fontSize="lg"
+                                fontWeight="bold"
+                            >
+                                Profile Picture
+                            </Text>
+                            <Input
+                                width="420px"
+                                padding="5px"
+                                type="file"
+                                name="profilePicture"
+                                accept="image/*"
+                                onChange={(e) => setData({ ...data, profilePictureId: e.target.files[0] })}
+                                bg="brand.primary.800"
+                                color="brand.secondary.900"
+                                outline="0"
+                                borderColor="brand.primary.900"
+                                _placeholder={{
+                                    color: "brand.secondary.900",
+                                }}
+                            />
+                        </VStack>
+                        ) : (
+                            <HStack>
+                                <Image
+                                    src={`https://localhost:7146/api/portfolio/profile-picture/${data.profilePictureId}`}
+                                    alt="Profile Picture"
+                                    boxSize={{ base: "50px", md: "50px" }}
+                                    borderRadius="full"
+                                />
+                                <IconButton
+                                    aria-label="Remove Picture"
+                                    icon={<CloseIcon />}
+                                    size="sm"
+                                    bg="red.500"
+                                    color="white"
+                                    _hover={{ bg: 'red.600' }}
+                                    onClick={() => handleRemovePfp()}
+                                />
+                            </HStack>
+                        )
+                    }
                 </Flex>
             </VStack>
         </Flex>

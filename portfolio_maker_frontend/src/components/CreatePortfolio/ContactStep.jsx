@@ -2,14 +2,18 @@ import PropTypes from 'prop-types';
 
 import {
     VStack,
+    HStack,
     Flex,
     Text,
     Input,
     Button,
     InputGroup,
     InputLeftElement,
+    IconButton,
 } from '@chakra-ui/react';
 import { FaLinkedin, FaGithub, FaTwitter, FaEnvelope, FaPhone } from 'react-icons/fa';
+
+import { CloseIcon } from '@chakra-ui/icons'
 
 function ContactStep({ data, setData, errors }) {
     const handleChange = (e) => {
@@ -20,8 +24,12 @@ function ContactStep({ data, setData, errors }) {
         const file = e.target.files[0];
         console.log("Setting CV - ");
         console.log(file);
-        setData({ ...data, cv: file });
+        setData({ ...data, cvFileId: file });
     };
+
+    const handleRemoveCV = () => {
+        setData({ ...data, cvFileId: "No cv" });
+    }
 
     return (
         <Flex
@@ -146,7 +154,7 @@ function ContactStep({ data, setData, errors }) {
                     <Input
                         type="url"
                         name="linkedin"
-                        placeholder="LinkedIn URL"
+                        placeholder="Insert LinkedIn URL"
                         value={data.linkedIn || ''}
                         onChange={handleChange}
                         bg="brand.primary.800"
@@ -175,7 +183,7 @@ function ContactStep({ data, setData, errors }) {
                     <Input
                         type="url"
                         name="github"
-                        placeholder="GitHub URL"
+                        placeholder="Insert GitHub URL"
                         value={data.github || ''}
                         onChange={handleChange}
                         bg="brand.primary.800"
@@ -204,7 +212,7 @@ function ContactStep({ data, setData, errors }) {
                     <Input
                         type="url"
                         name="twitter"
-                        placeholder="Twitter URL"
+                        placeholder="Insert Twitter URL"
                         value={data.twitter || ''}
                         onChange={handleChange}
                         bg="brand.primary.800"
@@ -222,28 +230,50 @@ function ContactStep({ data, setData, errors }) {
                     />
                 </InputGroup>
 
-                <Button
-                    width="300px"
-                    as="label"
-                    htmlFor="cv-upload"
-                    bg="brand.primary.800"
-                    color="brand.secondary.900"
-                    _hover={{
-                        bg: "brand.primary.700",
-                    }}
-                    padding="5px"
-                    textAlign="center"
-                >
-                    {data.cv ? data.cv.name : "Upload CV"}
-                    <Input
-                        id="cv-upload"
-                        type="file"
-                        accept=".pdf,.doc,.docx"
-                        name="cv"
-                        onChange={handleFileUpload}
-                        display="none"
-                    />
-                </Button>
+                {data.cvFileId == "No cv" ? (
+                    <Button
+                        width="300px"
+                        as="label"
+                        htmlFor="cv-upload"
+                        bg="brand.primary.800"
+                        color="brand.secondary.900"
+                        _hover={{
+                            bg: "brand.primary.700",
+                        }}
+                        padding="5px"
+                        textAlign="center"
+                    >
+                        Upload CV
+                        <Input
+                            id="cv-upload"
+                            type="file"
+                            accept=".pdf,.doc,.docx"
+                            name="cv"
+                            onChange={handleFileUpload}
+                            display="none"
+                        />
+                    </Button>
+                ): (
+                    <HStack>
+                        <Text
+                            ml={2}
+                            color="brand.primary.700"
+                            fontSize="lg"
+                            fontWeight="bold"
+                        >
+                            You already have saved CV!
+                        </Text>
+                        <IconButton
+                            aria-label="Remove CV"
+                            icon={<CloseIcon />}
+                            size="sm"
+                            bg="red.500"
+                            color="white"
+                            _hover={{ bg: 'red.600' }}
+                            onClick={() => handleRemoveCV()}
+                        />
+                    </HStack>
+                ) }
             </VStack>
         </Flex>
     );
@@ -256,7 +286,7 @@ ContactStep.propTypes = {
         linkedIn: PropTypes.string,
         github: PropTypes.string,
         twitter: PropTypes.string,
-        cv: PropTypes.object,
+        cvFileId: PropTypes.object,
     }).isRequired,
     setData: PropTypes.func.isRequired,
     errors: PropTypes.object.isRequired,

@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("PortfolioMakerBackend")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+a725c905b5cedfd9a849a0a6a630d62afca2c2a0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+7ddf96698280eb35b38db15f12ce1d3e3f042e26")]
 [assembly: System.Reflection.AssemblyProductAttribute("PortfolioMakerBackend")]
 [assembly: System.Reflection.AssemblyTitleAttribute("PortfolioMakerBackend")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

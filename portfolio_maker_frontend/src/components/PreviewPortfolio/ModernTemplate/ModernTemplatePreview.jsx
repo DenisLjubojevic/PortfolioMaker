@@ -10,6 +10,7 @@ import {
     VStack,
     HStack,
     useColorModeValue,
+    useToast,
 } from "@chakra-ui/react";
 import { motion } from 'framer-motion';
 import ProjectCard from "./ProjectCard";
@@ -23,6 +24,45 @@ function ModernTemplatePreview({ portfolioData }) {
 
     const fontColor = "#3D52A0";
     const bannerUrl = "https://localhost:7146/api/portfolio/templatePicture/67b4bfccf97a09e418194e8b";
+
+    const toast = useToast();
+
+    const downloadCV = async () => {
+        if (portfolioData.contacts.cvFileId && portfolioData.contacts.cvFileId != "No cv") {
+            try {
+                const response = await fetch(`https://localhost:7146/api/portfolio/cv/${portfolioData.contacts.cvFileId}`, {
+                    method: "GET",
+                });
+
+                if (response.ok) {
+                    const blob = await response.blob();
+                    const url = window.URL.createObjectURL(blob);
+                    const a = document.createElement("a");
+                    a.href = url;
+                    a.download = "CV.pdf";
+                    a.click();
+                    window.URL.revokeObjectURL(url);
+                } else {
+                    const errorMessage = await response.json();
+                    toast({
+                        title: "Error downloading CV",
+                        description: errorMessage.message || "Could not download the CV.",
+                        status: "error",
+                        duration: 5000,
+                        isClosable: true,
+                    });
+                }
+            } catch (error) {
+                toast({
+                    title: "Error downloading CV",
+                    description: error.message || "An unexpected error occurred.",
+                    status: "error",
+                    duration: 5000,
+                    isClosable: true,
+                });
+            }
+        }
+    }
 
     return (
         <Flex direction="column" width="99vw" bg={bgColor} fontFamily="'Inter', sans-serif">
@@ -197,14 +237,22 @@ function ModernTemplatePreview({ portfolioData }) {
                                 Twitter: <Link href={portfolioData.contacts.twitter} isExternal color={accentColor}>{portfolioData.contacts.twitter}</Link>
                             </Text>
                         )}
-                        <Button
-                            mt={4}
-                            bgColor="#ADBBDA"
-                            color={accentColor}
-                            border="1px solid #3D52A0"
-                        >
-                            Contact Me
-                        </Button>
+                        {portfolioData.contacts.cvFileId && portfolioData.contacts.cvFileId !== "No cv" && (
+                            <Button
+                                mt={4}
+                                onClick={downloadCV}
+                                bgColor="#ADBBDA"
+                                color={accentColor}
+                                border="1px solid #3D52A0"
+                                _hover={{
+                                    bg: "#3D52A0",
+                                    color: "#EDE8F5",
+                                    border: "none",
+                                }}
+                            >
+                                Download CV
+                            </Button>
+                        )}
                     </Flex>
                 </Box>
             </Box>

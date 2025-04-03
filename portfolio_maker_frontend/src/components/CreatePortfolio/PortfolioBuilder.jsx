@@ -86,6 +86,28 @@ function PortfolioBuilder({ onPortfolioCreated, initialData }) {
                 templateId: portfolioData.templateId || "67b36f341f501c852ab69bc8",
             };
 
+            for (const project of portfolioData.projects) {
+                if (project.imageId !== "67ee9bb8ae68575ef33cef52") {
+                    const formData = new FormData();
+                    formData.append("profilePicture", project.imageId);
+
+                    try {
+                        const response = await apiClient.post(`https://localhost:7146/api/portfolio/upload-profile-picture`, formData, {
+                            headers: { 'Content-Type': 'multipart/form-data' },
+                        });
+                        project.imageId = response.data.fileId;
+                    } catch (error) {
+                        toast({
+                            title: "Error uploading project image",
+                            description: error.message || "An unexpected error occurred.",
+                            status: "error",
+                            duration: 5000,
+                            isClosable: true,
+                        });
+                    }
+                }
+            }
+
             const response = await apiClient.post('https://localhost:7146/api/portfolio/preview', {
                 ...payload
             });
@@ -271,6 +293,28 @@ function PortfolioBuilder({ onPortfolioCreated, initialData }) {
                     }
 
                     for (const project of portfolioData.projects) {
+                        if (project.imageId !== null) {
+                            const formData = new FormData();
+                            formData.append("imageId", project.imageId);
+
+                            try {
+                                const response = await apiClient.post(`https://localhost:7146/api/portfolio/upload-profile-picture`, formData, {
+                                    headers: { 'Content-Type': 'multipart/form-data' },
+                                });
+                                project.imageId = response.data.fileId;
+                            } catch (error) {
+                                toast({
+                                    title: "Error uploading project image",
+                                    description: error.message || "An unexpected error occurred.",
+                                    status: "error",
+                                    duration: 5000,
+                                    isClosable: true,
+                                });
+                            }
+                        } else {
+                            project.imageId = "67ee9bb8ae68575ef33cef52"; // set id of image to placholder picture
+                        }
+
                         await apiClient.post(`https://localhost:7146/api/portfolio/${portfolioId}/projects`, project);
                     }
 

@@ -1,4 +1,4 @@
-import { Box, Text, VStack, HStack, Link, Collapse } from '@chakra-ui/react';
+import { Box, Text, Image, VStack, HStack, Link, Collapse } from '@chakra-ui/react';
 import { ExternalLinkIcon } from '@chakra-ui/icons';
 import { useState } from 'react';
 function ProjectCard({ project }) {
@@ -6,8 +6,6 @@ function ProjectCard({ project }) {
 
     return (
         <Box
-            border="1px"
-            borderColor="gray.300"
             borderRadius="md"
             p={4}
             onMouseEnter={() => setIsHovered(true)}
@@ -24,6 +22,12 @@ function ProjectCard({ project }) {
             </Text>
             <Collapse in={isHovered} animateOpacity>
                 <VStack align="start" mt={2}>
+                    <Image
+                        src={`https://localhost:7146/api/portfolio/profile-picture/${project.imageId}`}
+                        alt="Project Image"
+                        boxSize={{ base: "100px", md: "150px" }}
+                        mb={4}
+                    />
                     <Text>{project.description}</Text>
                     <Text fontSize="sm">
                         Technologies: {project.technologies.join(', ')}

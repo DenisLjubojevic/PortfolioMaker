@@ -10,6 +10,7 @@ import {
     VStack,
     HStack,
     useColorModeValue,
+    useToast,
 } from "@chakra-ui/react";
 import { motion } from 'framer-motion';
 
@@ -20,6 +21,45 @@ function MinimalisticTemplatePreview({ portfolioData }) {
     const accentColor = useColorModeValue('#748D92', 'teal.300');
 
     const fontColor = "#124E66";
+
+    const toast = useToast();
+
+    const downloadCV = async () => {
+        if (portfolioData.contacts.cvFileId && portfolioData.contacts.cvFileId != "No cv") {
+            try {
+                const response = await fetch(`https://localhost:7146/api/portfolio/cv/${portfolioData.contacts.cvFileId}`, {
+                    method: "GET",
+                });
+
+                if (response.ok) {
+                    const blob = await response.blob();
+                    const url = window.URL.createObjectURL(blob);
+                    const a = document.createElement("a");
+                    a.href = url;
+                    a.download = "CV.pdf";
+                    a.click();
+                    window.URL.revokeObjectURL(url);
+                } else {
+                    const errorMessage = await response.json();
+                    toast({
+                        title: "Error downloading CV",
+                        description: errorMessage.message || "Could not download the CV.",
+                        status: "error",
+                        duration: 5000,
+                        isClosable: true,
+                    });
+                }
+            } catch (error) {
+                toast({
+                    title: "Error downloading CV",
+                    description: error.message || "An unexpected error occurred.",
+                    status: "error",
+                    duration: 5000,
+                    isClosable: true,
+                });
+            }
+        }
+    }
 
     return (
         <Flex direction="column" width="99vw" bg={bgColor} fontFamily="'Roboto', sans-serif">
@@ -141,6 +181,12 @@ function MinimalisticTemplatePreview({ portfolioData }) {
                                     whileHover={{ scale: 1.02, boxShadow: "lg" }}
                                     bgColor="gray.50"
                                 >
+                                    <Image
+                                        src={`https://localhost:7146/api/portfolio/profile-picture/${project.imageId}`}
+                                        alt="Project Image"
+                                        boxSize={{ base: "100px", md: "150px" }}
+                                        mb={4}
+                                    />
                                     <Heading as="h3" size="md" mb={2} fontFamily="'Playfair Display', serif">
                                         {project.title}
                                     </Heading>
@@ -180,14 +226,26 @@ function MinimalisticTemplatePreview({ portfolioData }) {
                                 Twitter: <Link href={portfolioData.contacts.twitter} isExternal color={accentColor}>{portfolioData.contacts.twitter}</Link>
                             </Text>
                         )}
-                        <Button mt={4} colorScheme="teal" bgColor="gray.50" color={fontColor} border="1px solid #124E66" _hover={{ bgColor: "#124E66", color: "gray.50" }}>
-                            Contact Me
-                        </Button>
+                        {portfolioData.contacts.cvFileId && portfolioData.contacts.cvFileId !== "No cv" && (
+                            <Button
+                                mt={4}
+                                onClick={downloadCV}
+                                bg="gray.50"
+                                color={fontColor}
+                                _hover={{
+                                    bg: "#124E66",
+                                    color: "gray.50",
+                                    border: "none",
+                                }}
+                            >
+                                Download CV
+                            </Button>
+                        )}
                     </Flex>
                 </Box>
             </Box>
         </Flex>
     );
-}
+};
 
 export default MinimalisticTemplatePreview;

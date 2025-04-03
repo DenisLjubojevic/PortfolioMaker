@@ -24,6 +24,7 @@ import { CloseIcon } from '@chakra-ui/icons'
 function ProjectsStep({ data, setData, errors }) {
     const { isOpen, onOpen, onClose } = useDisclosure();
     const [newProject, setNewProject] = useState({
+        imageId: null,
         title: '',
         description: '',
         technologies: '',
@@ -46,6 +47,13 @@ function ProjectsStep({ data, setData, errors }) {
     const handleNewProjectChange = (field, value) => {
         setNewProject((prev) => ({ ...prev, [field]: value }));
     };
+
+    const handleImageUpload = (e) => {
+        const file = e.target.files[0];
+        console.log("Setting image - ");
+        console.log(file);
+        newProject.imageId = file;
+    }
 
     return (
         <Flex
@@ -111,6 +119,24 @@ function ProjectsStep({ data, setData, errors }) {
                     </ModalHeader>
                     <ModalBody>
                         <VStack spacing={4}>
+                            <HStack>
+                                <Input
+                                    width="400px"
+                                    padding="5px"
+                                    type="file"
+                                    name="projectImage"
+                                    accept="image/*"
+                                    onChange={handleImageUpload}
+                                    bg="brand.primary.800"
+                                    color="brand.secondary.900"
+                                    outline="0"
+                                    borderColor="brand.primary.900"
+                                    _placeholder={{
+                                        color: "brand.secondary.900",
+                                    }}
+                                />
+                            </HStack>
+
                             <Input
                                 placeholder="Project Title"
                                 value={newProject.title}
@@ -224,6 +250,7 @@ function ProjectsStep({ data, setData, errors }) {
 ProjectsStep.propTypes = {
     data: PropTypes.arrayOf(
         PropTypes.shape({
+            imageId: PropTypes.object,
             title: PropTypes.string,
             description: PropTypes.string,
             demoUrl: PropTypes.string,

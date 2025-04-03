@@ -1090,6 +1090,10 @@
           "createdAt": {
             "type": "string",
             "format": "date-time"
+          },
+          "imageId": {
+            "type": "string",
+            "nullable": true
           }
         },
         "additionalProperties": false
@@ -1097,6 +1101,10 @@
       "ProjectDTO": {
         "type": "object",
         "properties": {
+          "imageId": {
+            "type": "string",
+            "nullable": true
+          },
           "title": {
             "type": "string",
             "nullable": true

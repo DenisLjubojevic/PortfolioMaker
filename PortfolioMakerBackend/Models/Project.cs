@@ -15,5 +15,6 @@ namespace PortfolioMakerBackend.Models
         public string DemoUrl { get; set; }
         public string RepoUrl { get; set; }
         public DateTime CreatedAt { get; set; }
+        public string ImageId { get; set; }
     }
 }

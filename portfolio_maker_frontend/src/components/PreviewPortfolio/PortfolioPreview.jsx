@@ -17,6 +17,7 @@ function PortfolioPreview() {
         async function fetchPreviewData() {
             try {
                 const response = await apiClient.get(`https://localhost:7146/api/portfolio/preview/${previewId}`);
+                console.log(response.data);
                 setPortfolioData(response.data);
             } catch (error) {
                 console.error('Failed to fetch preview data:', error);

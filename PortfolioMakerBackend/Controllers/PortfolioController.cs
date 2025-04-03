@@ -116,6 +116,7 @@ namespace PortfolioMakerBackend.Controllers
             {
                 Id = ObjectId.GenerateNewId().ToString(),
                 PortfolioId = portfolioId,
+                ImageId = projectDto.ImageId,
                 Title = projectDto.Title,
                 Description = projectDto.Description,
                 Technologies = projectDto.Technologies,
@@ -165,6 +166,7 @@ namespace PortfolioMakerBackend.Controllers
                 Projects = portfolioDto.Projects.Select(p => new Project
                 {
                     Id = ObjectId.GenerateNewId().ToString(),
+                    ImageId = p.ImageId,
                     Title = p.Title,
                     Description = p.Description,
                     Technologies = p.Technologies,

@@ -58,6 +58,7 @@ function Dashboard() {
     const handleCancle = () => {
         setCreatingPortfolio(false);
         setEditingPortfolio(null);
+        fetchPortfolios();
     }
 
     return (

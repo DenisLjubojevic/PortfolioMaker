@@ -10,6 +10,7 @@ import {
     VStack,
     HStack,
     useColorModeValue,
+    useToast,
 } from "@chakra-ui/react";
 import { motion } from 'framer-motion';
 import ProjectCard from "../ModernTemplate/ProjectCard";
@@ -24,6 +25,45 @@ function CreativeTemplatePreview({ portfolioData }) {
 
     const fontColor = "black";
     const bannerUrl = "https://localhost:7146/api/portfolio/templatePicture/67bf22289459976f91d4cd33";
+
+    const toast = useToast();
+
+    const downloadCV = async () => {
+        if (portfolioData.contacts.cvFileId && portfolioData.contacts.cvFileId != "No cv") {
+            try {
+                const response = await fetch(`https://localhost:7146/api/portfolio/cv/${portfolioData.contacts.cvFileId}`, {
+                    method: "GET",
+                });
+
+                if (response.ok) {
+                    const blob = await response.blob();
+                    const url = window.URL.createObjectURL(blob);
+                    const a = document.createElement("a");
+                    a.href = url;
+                    a.download = "CV.pdf";
+                    a.click();
+                    window.URL.revokeObjectURL(url);
+                } else {
+                    const errorMessage = await response.json();
+                    toast({
+                        title: "Error downloading CV",
+                        description: errorMessage.message || "Could not download the CV.",
+                        status: "error",
+                        duration: 5000,
+                        isClosable: true,
+                    });
+                }
+            } catch (error) {
+                toast({
+                    title: "Error downloading CV",
+                    description: error.message || "An unexpected error occurred.",
+                    status: "error",
+                    duration: 5000,
+                    isClosable: true,
+                });
+            }
+        }
+    }
 
     return (
         <Flex direction="column" width="99vw" bg={bgColor} fontFamily="'Lato', sans-serif">
@@ -134,7 +174,6 @@ function CreativeTemplatePreview({ portfolioData }) {
                                     <MotionBox
                                         key={exp.id}
                                         p={4}
-                                        borderWidth="1px"
                                         borderRadius="md"
                                         width="100%"
                                         maxW="800px"
@@ -216,19 +255,22 @@ function CreativeTemplatePreview({ portfolioData }) {
                                     Twitter: <Link href={portfolioData.contacts.twitter} isExternal color={accentColor}>{portfolioData.contacts.twitter}</Link>
                                 </Text>
                             )}
-                            <Button
-                                mt={4}
-                                bgColor="#B37B2D"
-                                color="#FFCC4D"
-                                border="1px solid #FFCC4D"
-                                _hover={{
-                                    bgColor: "#DEB143",
-                                    color: "#B37B2D",
-                                    border: "1px solid #B37B2D",
-                                }}
-                            >
-                                Contact Me
-                            </Button>
+                            {portfolioData.contacts.cvFileId && portfolioData.contacts.cvFileId !== "No cv" && (
+                                <Button
+                                    mt={4}
+                                    onClick={downloadCV}
+                                    bgColor="#B37B2D"
+                                    color="#FFCC4D"
+                                    border="1px solid #FFCC4D"
+                                    _hover={{
+                                        bgColor: "#DEB143",
+                                        color: "#B37B2D",
+                                        border: "1px solid #B37B2D",
+                                    }}
+                                >
+                                    Download CV
+                                </Button>
+                            )}
                         </Flex>
                     </Box>
                     <Box width="10%" float="right" mt={6} mr={6}>
