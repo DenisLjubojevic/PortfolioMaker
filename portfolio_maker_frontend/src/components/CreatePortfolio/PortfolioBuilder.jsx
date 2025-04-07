@@ -86,13 +86,13 @@ function PortfolioBuilder({ onPortfolioCreated, initialData }) {
                 templateId: portfolioData.templateId || "67b36f341f501c852ab69bc8",
             };
 
-            for (const project of portfolioData.projects) {
-                if (project.imageId !== "67ee9bb8ae68575ef33cef52") {
+            for (const project of payload.projects) {
+                if (project.imageId instanceof File) {
                     const formData = new FormData();
-                    formData.append("profilePicture", project.imageId);
+                    formData.append("projectImage", project.imageId);
 
                     try {
-                        const response = await apiClient.post(`https://localhost:7146/api/portfolio/upload-profile-picture`, formData, {
+                        const response = await apiClient.post(`https://localhost:7146/api/portfolio/upload-project-image`, formData, {
                             headers: { 'Content-Type': 'multipart/form-data' },
                         });
                         project.imageId = response.data.fileId;
@@ -295,10 +295,10 @@ function PortfolioBuilder({ onPortfolioCreated, initialData }) {
                     for (const project of portfolioData.projects) {
                         if (project.imageId !== null) {
                             const formData = new FormData();
-                            formData.append("imageId", project.imageId);
+                            formData.append("projectImage", project.imageId);
 
                             try {
-                                const response = await apiClient.post(`https://localhost:7146/api/portfolio/upload-profile-picture`, formData, {
+                                const response = await apiClient.post(`https://localhost:7146/api/portfolio/upload-project-image`, formData, {
                                     headers: { 'Content-Type': 'multipart/form-data' },
                                 });
                                 project.imageId = response.data.fileId;
@@ -312,7 +312,7 @@ function PortfolioBuilder({ onPortfolioCreated, initialData }) {
                                 });
                             }
                         } else {
-                            project.imageId = "67ee9bb8ae68575ef33cef52"; // set id of image to placholder picture
+                            project.imageId = "67f3ee10d86850c0a5aec7bd"; // set id of image to placholder picture
                         }
 
                         await apiClient.post(`https://localhost:7146/api/portfolio/${portfolioId}/projects`, project);

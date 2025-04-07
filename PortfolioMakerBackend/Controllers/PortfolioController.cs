@@ -331,6 +331,40 @@ namespace PortfolioMakerBackend.Controllers
             }
         }
 
+        [HttpPost("upload-project-image")]
+        public async Task<IActionResult> UploadProjectImage(IFormFile projectImage)
+        {
+            if (projectImage == null || projectImage.Length == 0)
+            {
+                return BadRequest(new { message = "No file provided" });
+            }
+            try
+            {
+                using var stream = projectImage.OpenReadStream();
+                var fileId = await _gridFSBucket.UploadFromStreamAsync(projectImage.FileName, stream);
+                return Ok(new { message = "Project image uploaded successfully", fileId = fileId.ToString() });
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, new { message = "An error occurred while uploading the project image.", error = ex.Message });
+            }
+        }
+
+        [HttpDelete("delete-project-image/{fileId}")]
+        public async Task<IActionResult> DeleteProjectImage(string fileId)
+        {
+            try
+            {
+                var objectId = new ObjectId(fileId);
+                await _gridFSBucket.DeleteAsync(objectId);
+                return NoContent();
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, new { message = "An error occurred while deleting the project image.", error = ex.Message });
+            }
+        }
+
 
         [HttpPut("{id}")]
         public async Task<IActionResult> Put(string id, [FromBody] PortfolioDTO updatedPortfolioDTO)
@@ -385,8 +419,16 @@ namespace PortfolioMakerBackend.Controllers
                                       !newProjects.Any(newProject => newProject.Equals(project)))
                     .ToList();
 
+
             foreach (var project in projectsToRemove)
             {
+                System.Diagnostics.Debug.WriteLine($"project to rm: " + project);
+
+                if(project.ImageId != "67f3ee10d86850c0a5aec7bd")
+                {
+                    await DeleteProjectImage(project.ImageId);
+                }
+
                 portfolio.Projects.Remove(project);
                 _projects.DeleteOne(p => p.Id == project.Id);
             }
@@ -403,6 +445,7 @@ namespace PortfolioMakerBackend.Controllers
 
             foreach (var projectDTO in newProjects)
             {
+                System.Diagnostics.Debug.WriteLine($"add project: " + projectDTO);
                 await AddProjectToPortfolio(id, projectDTO);
             }
 

@@ -189,6 +189,22 @@
   },
   {
     "ContainingType": "PortfolioMakerBackend.Controllers.PortfolioController",
+    "Method": "DeleteProjectImage",
+    "RelativePath": "api/Portfolio/delete-project-image/{fileId}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "fileId",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "PortfolioMakerBackend.Controllers.PortfolioController",
     "Method": "GeneratePreview",
     "RelativePath": "api/Portfolio/preview",
     "HttpMethod": "POST",
@@ -293,6 +309,22 @@
     "Parameters": [
       {
         "Name": "profilePicture",
+        "Type": "Microsoft.AspNetCore.Http.IFormFile",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "PortfolioMakerBackend.Controllers.PortfolioController",
+    "Method": "UploadProjectImage",
+    "RelativePath": "api/Portfolio/upload-project-image",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "projectImage",
         "Type": "Microsoft.AspNetCore.Http.IFormFile",
         "IsRequired": false
       }

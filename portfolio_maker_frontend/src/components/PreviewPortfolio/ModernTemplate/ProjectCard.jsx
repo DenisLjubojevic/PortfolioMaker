@@ -1,15 +1,29 @@
 import { Box, Text, Image, VStack, HStack, Link, Collapse } from '@chakra-ui/react';
 import { ExternalLinkIcon } from '@chakra-ui/icons';
-import { useState } from 'react';
+import { useState, useRef  } from 'react';
 function ProjectCard({ project }) {
     const [isHovered, setIsHovered] = useState(false);
+    const timeoutRef = useRef(null);
+
+    const handleMouseEnter = () => {
+    if (timeoutRef.current) {
+      clearTimeout(timeoutRef.current);
+    }
+    setIsHovered(true);
+  };
+
+  const handleMouseLeave = () => {
+    timeoutRef.current = setTimeout(() => {
+      setIsHovered(false);
+    }, 1500);
+  };
 
     return (
         <Box
             borderRadius="md"
             p={4}
-            onMouseEnter={() => setIsHovered(true)}
-            onMouseLeave={() => setIsHovered(false)}
+            onMouseEnter={() => handleMouseEnter()}
+            onMouseLeave={() => handleMouseLeave()}
             transition="all 0.3s ease"
             _hover={{ boxShadow: 'lg' }}
         >
@@ -20,7 +34,7 @@ function ProjectCard({ project }) {
             <Text noOfLines={1}>
                 {project.description}
             </Text>
-            <Collapse in={isHovered} animateOpacity>
+            <Collapse in={isHovered} animateOpacity duration={500}>
                 <VStack align="start" mt={2}>
                     <Image
                         src={`https://localhost:7146/api/portfolio/profile-picture/${project.imageId}`}
