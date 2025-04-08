@@ -39,7 +39,6 @@ function PortfolioList({ portfolios, onEditPortfolio }) {
                                     bg="brand.primary.800"
                                     color="brand.secondary.800"
                                     shadow="md"
-                                    borderWidth="1px"
                                     borderRadius="md"
                                     _hover={{ shadow: "lg" }}
                                 >
@@ -48,7 +47,15 @@ function PortfolioList({ portfolios, onEditPortfolio }) {
                                             {portfolio.name}
                                         </Heading>
                                         <Text>{portfolio.description}</Text>
-                                        <ChakraLink as={ReactRouterLink} target="_blank" to={`/preview/${portfolio.id}`}>
+                                        <ChakraLink
+                                            as={ReactRouterLink}
+                                            target="_blank"
+                                            to={`/preview/${portfolio.id}`}
+                                            _hover={{
+                                                textDecoration: "none",
+                                                color: "white"
+                                            } }
+                                        >
                                             {portfolio.portfolioUrl}
                                         </ChakraLink>
                                         <Button

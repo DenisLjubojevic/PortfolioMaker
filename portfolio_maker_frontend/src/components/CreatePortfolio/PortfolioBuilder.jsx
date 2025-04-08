@@ -478,11 +478,11 @@ function PortfolioBuilder({ onPortfolioCreated, initialData }) {
                 >
                     {steps.map((step, index) => (
                         <Step key={index} display="flex" flexDirection="column" >
-                            <StepIndicator backgroundColor="brand.primary.700" borderColor='brand.primary.800'>
+                            <StepIndicator bg={theme == "light" ? "brand.secondary.900" : "brand.secondary.900"} borderColor='brand.primary.800'>
                                 <StepStatus
-                                    complete={<StepIcon color="black"/>}
-                                    incomplete={<StepNumber color="brand.secondary.900"/>}
-                                    active={<StepNumber color="brand.secondary.900"/>}
+                                    complete={<StepIcon color={ theme == "light" ? "black" : "white" } />}
+                                    incomplete={<StepNumber color="brand.primary.800"/>}
+                                    active={<StepNumber color={theme == "light" ? "white" : "white"} />}
                                 />
                             </StepIndicator>
 

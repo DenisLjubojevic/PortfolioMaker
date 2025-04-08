@@ -63,41 +63,59 @@ function ProjectsStep({ data, setData, errors }) {
             justifyContent="center"
             overflow="auto"
         >
-            <VStack
-                spacing={4}
-                p="1rem"
-                width="80%"
-            >
-                <VStack align="start" width="100%" spacing={4}>
-                    {data.map((project, index) => (
-                        <HStack
-                            key={index}
-                            bg="brand.secondary.700"
-                            p={4}
-                            borderRadius="md"
-                            boxShadow="sm"
-                            width="100%"
-                            justifyContent="space-between"
-                        >
-                            <Box>
-                                <Text fontWeight="bold" color="brand.primary.700">{project.title || 'Untitled Project'}</Text>
-                                <Text fontSize="sm" color="brand.primary.700">
-                                    {project.technologies.join(', ')}
-                                </Text>
-                            </Box>
-                            <IconButton
-                                aria-label="Remove Project"
-                                icon={<CloseIcon />}
-                                size="sm"
-                                bg="red.500"
-                                color="white"
-                                _hover={{ bg: 'red.600' }}
-                                onClick={() => handleRemoveProject(index)}
-                            />
-                        </HStack>
-                    ))}
-                </VStack>
+            <VStack spacing={4} width="90%" height="100%">
+                <Box
+                    width="100%"
+                    textAlign="center"
+                    borderRadius="md"
+                    color="brand.primary.800"
+                >
+                    {data.length > 0 ? (
+                        <Box fontSize="md" fontWeight="bold">
+                            <Text fontSize="lg">Your projects:</Text>
+                        </Box>
+                    ) : (
+                        <Box fontSize="md" fontWeight="bold">
+                            <Text>You do not have any projects added!</Text>
+                        </Box>
+                    )}
+                </Box>
+
+                <Box width="100%">
+                    <VStack align="start" width="100%" spacing={4}>
+                        {data.map((project, index) => (
+                            <HStack
+                                key={index}
+                                bg="brand.secondary.700"
+                                p={4}
+                                borderRadius="md"
+                                boxShadow="sm"
+                                width="100%"
+                                justifyContent="space-between"
+                            >
+                                <Box>
+                                    <Text fontWeight="bold" color="brand.primary.700">{project.title || 'Untitled Project'}</Text>
+                                    <Text fontSize="sm" color="brand.primary.700">
+                                        {project.technologies.join(', ')}
+                                    </Text>
+                                </Box>
+                                <IconButton
+                                    aria-label="Remove Project"
+                                    icon={<CloseIcon />}
+                                    size="sm"
+                                    bg="red.500"
+                                    color="white"
+                                    _hover={{ bg: 'red.600' }}
+                                    onClick={() => handleRemoveProject(index)}
+                                />
+                            </HStack>
+                        ))}
+                    </VStack>
+                </Box>
+
+                
                 <Button
+                    padding="10px"
                     onClick={onOpen}
                     bg="brand.primary.800"
                     color="brand.secondary.900"

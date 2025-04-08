@@ -85,53 +85,58 @@ function WorkExperienceStep({ data, setData }) {
             justifyContent="center"
             overflow="auto"
         >
-            <VStack
-                spacing={4}
-                p="1rem"
-                width="80%"
-            >
-                <VStack align="start" width="100%" spacing={4} marginTop="10px">
-
+            <VStack spacing={4} width="90%" height="100%" >
+                <Box
+                    width="100%"
+                    textAlign="center"
+                    borderRadius="md"
+                    color="brand.primary.800"
+                >
                     {data.length > 0 ? (
-                        <Box width="100%" textAlign="start">
+                        <Box fontSize="md" fontWeight="bold">
                             <Text fontSize="lg">Your experience:</Text>
                         </Box>
                     ) : (
-                        <Box width="100%" textAlign="center">
+                        <Box fontSize="md" fontWeight="bold">
                             <Text>You do not have any working experience added!</Text>
                         </Box>
                     )}
+                </Box>
 
-                    {data.map((experience, index) => (
-                        <HStack
-                            key={index}
-                            bg="brand.secondary.700"
-                            p={4}
-                            borderRadius="md"
-                            boxShadow="sm"
-                            width="100%"
-                            justifyContent="space-between"
-                        >
-                            <Box>
-                                <Text fontWeight="bold" color="brand.primary.700">{experience.position || 'Experience position'}</Text>
-                                <Text fontSize="sm" color="brand.primary.700">
-                                    {experience.company}
-                                </Text>
-                            </Box>
-                            <IconButton
-                                aria-label="Remove Experience"
-                                icon={<CloseIcon />}
-                                size="sm"
-                                bg="red.500"
-                                color="white"
-                                _hover={{ bg: 'red.600' }}
-                                onClick={() => handleRemoveExperience(index)}
-                            />
-                        </HStack>
-                    ))}
-                </VStack>
+                <Box width="100%">
+                    <VStack align="start" width="100%" spacing={4}>
+                        {data.map((experience, index) => (
+                            <HStack
+                                key={index}
+                                bg="brand.secondary.700"
+                                p={4}
+                                borderRadius="md"
+                                boxShadow="sm"
+                                width="100%"
+                                justifyContent="space-between"
+                            >
+                                <Box>
+                                    <Text fontWeight="bold" color="brand.primary.700">{experience.position || 'Experience position'}</Text>
+                                    <Text fontSize="sm" color="brand.primary.700">
+                                        {experience.company}
+                                    </Text>
+                                </Box>
+                                <IconButton
+                                    aria-label="Remove Experience"
+                                    icon={<CloseIcon />}
+                                    size="sm"
+                                    bg="red.500"
+                                    color="white"
+                                    _hover={{ bg: 'red.600' }}
+                                    onClick={() => handleRemoveExperience(index)}
+                                />
+                            </HStack>
+                        ))}
+                    </VStack>
+                </Box>
 
                 <Button
+                    padding="10px"
                     onClick={onOpen}
                     bg="brand.primary.800"
                     color="brand.secondary.900"

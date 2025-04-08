@@ -34,6 +34,24 @@ const lightTheme = extendTheme({
                 bg: "brand.background",
                 color: "brand.text",
             },
+
+            "*::-webkit-scrollbar": {
+                width: "8px",
+            },
+            "*::-webkit-scrollbar-track": {
+                background: "brand.secondary.900",
+                borderRadius: "4px",
+            },
+            "*::-webkit-scrollbar-thumb": {
+                background: "brand.primary.900",
+                borderRadius: "4px",
+            },
+            "*::-webkit-scrollbar-thumb:hover": {
+                background: "brand.primary.700",
+            },
+            "*": {
+                scrollbarColor: "#888 brand.primary.800",
+            },
         },
     },
     components: {
@@ -150,7 +168,26 @@ const darkTheme = extendTheme({
             body: {
                 bg: "brand.background",
                 color: "brand.text",
-            }
+            },
+            
+
+            "*::-webkit-scrollbar": {
+                width: "8px",
+            },
+            "*::-webkit-scrollbar-track": {
+                background: "brand.secondary.900",
+                borderRadius: "4px",
+            },
+            "*::-webkit-scrollbar-thumb": {
+                background: "brand.primary.900",
+                borderRadius: "4px",
+            },
+            "*::-webkit-scrollbar-thumb:hover": {
+                background: "brand.primary.700",
+            },
+            "*": {
+                scrollbarColor: "#888 brand.primary.800",
+            },
         },
     },
     components: {
@@ -188,6 +225,7 @@ const darkTheme = extendTheme({
                 },
             },
             variants: {
+                base: {},
                 solid: {
                     stepIndicator: {
                         bg: "brand.primary.800",
@@ -197,7 +235,7 @@ const darkTheme = extendTheme({
                 },
             },
             defaultProps: {
-                variant: "solid",
+                variant: "base",
             },
         },
         Button: {

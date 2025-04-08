@@ -13,17 +13,19 @@ import {
 } from '@chakra-ui/react';
 import { FaLinkedin, FaGithub, FaTwitter, FaEnvelope, FaPhone } from 'react-icons/fa';
 
+import { useTheme } from "../../context/ThemeContext";
+
 import { CloseIcon } from '@chakra-ui/icons'
 
 function ContactStep({ data, setData, errors }) {
+    const { theme } = useTheme();
+
     const handleChange = (e) => {
         setData({ ...data, [e.target.name]: e.target.value });
     };
 
     const handleFileUpload = (e) => {
         const file = e.target.files[0];
-        console.log("Setting CV - ");
-        console.log(file);
         setData({ ...data, cvFileId: file });
     };
 
@@ -54,7 +56,7 @@ function ContactStep({ data, setData, errors }) {
                         <InputLeftElement
                             pointerEvents="none"
                         >
-                            <FaEnvelope color="gray" />
+                            <FaEnvelope color={theme == "light" ? "darkCyan" : "lightBlue"} />
                         </InputLeftElement>
                         <Input
                             type="email"
@@ -103,7 +105,7 @@ function ContactStep({ data, setData, errors }) {
                         <InputLeftElement
                             pointerEvents="none"
                         >
-                            <FaPhone color="gray" />
+                            <FaPhone color={theme == "light" ? "darkCyan" : "lightBlue"} />
                         </InputLeftElement>
                         <Input
                             type="text"
@@ -149,7 +151,7 @@ function ContactStep({ data, setData, errors }) {
                     <InputLeftElement
                         pointerEvents="none"
                     >
-                        <FaLinkedin color="blue" />
+                        <FaLinkedin color={theme == "light" ? "blue" : "lightBlue"} />
                     </InputLeftElement>
                     <Input
                         type="url"
