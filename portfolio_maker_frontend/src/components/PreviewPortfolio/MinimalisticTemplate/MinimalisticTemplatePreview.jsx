@@ -14,6 +14,8 @@ import {
 } from "@chakra-ui/react";
 import { motion } from 'framer-motion';
 
+import ProjectCard from "../ModernTemplate/ProjectCard";
+
 const MotionBox = motion(Box);
 
 function MinimalisticTemplatePreview({ portfolioData }) {
@@ -147,7 +149,8 @@ function MinimalisticTemplatePreview({ portfolioData }) {
                                     maxW="800px"
                                     boxShadow="sm"
                                     whileHover={{ scale: 1.02, boxShadow: "lg" }}
-                                    bgColor="gray.50"
+                                    color="gray.50"
+                                    bgColor="#748D80 "
                                 >
                                     <Heading as="h3" size="md" mb={2} fontFamily="'Playfair Display', serif">
                                         {exp.position} at {exp.company}
@@ -169,32 +172,9 @@ function MinimalisticTemplatePreview({ portfolioData }) {
                         Projects
                     </Heading>
                     {portfolioData.projects && portfolioData.projects.length > 0 ? (
-                        <Grid templateColumns="repeat(auto-fit, minmax(250px, 1fr))" justifyContent="center" gap={6} color={fontColor} borderRadius="md">
+                        <Grid templateColumns="repeat(auto-fit, minmax(250px, 1fr))" gap={6} color="gray.50" bgColor="#748D80" borderRadius="md">
                             {portfolioData.projects.map((project) => (
-                                <MotionBox
-                                    key={project.id}
-                                    p={4}
-                                    borderWidth="1px"
-                                    borderRadius="md"
-                                    width="100%"
-                                    boxShadow="sm"
-                                    whileHover={{ scale: 1.02, boxShadow: "lg" }}
-                                    bgColor="gray.50"
-                                >
-                                    <Image
-                                        src={`https://localhost:7146/api/portfolio/profile-picture/${project.imageId}`}
-                                        alt="Project Image"
-                                        boxSize={{ base: "100px", md: "150px" }}
-                                        mb={4}
-                                    />
-                                    <Heading as="h3" size="md" mb={2} fontFamily="'Playfair Display', serif">
-                                        {project.title}
-                                    </Heading>
-                                    <Text fontSize="sm">
-                                        {project.description}
-                                    </Text>
-                                    <Text mt={2}>{project.technologies.join(', ')}</Text>
-                                </MotionBox>
+                                <ProjectCard key={project.id} project={project} />
                             ))}
                         </Grid>
                     ) : (

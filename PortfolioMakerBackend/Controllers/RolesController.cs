@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using PortfolioMakerBackend.Services;
@@ -19,6 +20,7 @@ namespace PortfolioMakerBackend.Controllers
         }
 
         [HttpPost("create")]
+        [Authorize]
         public async Task<IActionResult> CreateRole([FromBody] IdentityRole role)
         {
             var result = await _roleService.CreateRoleAsync(role);
@@ -29,6 +31,7 @@ namespace PortfolioMakerBackend.Controllers
         }
 
         [HttpPost("delete/{roleId}")]
+        [Authorize]
         public async Task<IActionResult> DeleteRole(string roleId)
         {
             var result = await _roleService.DeleteRoleAsync(roleId);

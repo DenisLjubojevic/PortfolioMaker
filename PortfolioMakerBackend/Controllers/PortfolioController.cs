@@ -33,12 +33,19 @@ namespace PortfolioMakerBackend.Controllers
         [Authorize]
         public ActionResult<List<Portfolio>> GetAll()
         {
-            System.Diagnostics.Debug.WriteLine($"Getting all portfolios");
-            var portfolios = _portfolios.Find(portfolio => true).ToList();
+            var userId = User.FindFirst(System.Security.Claims.ClaimTypes.NameIdentifier)?.Value;
+            if (string.IsNullOrEmpty(userId))
+            {
+                return Unauthorized("User information is missing.");
+            }
+
+            System.Diagnostics.Debug.WriteLine($"Getting portfolios for user: {userId}");
+            var portfolios = _portfolios.Find(portfolio => portfolio.UserId == userId).ToList();
             return Ok(portfolios);
         }
 
         [HttpPost("create")]
+        [Authorize]
         public async Task<ActionResult<Portfolio>> CreatePortfolio([FromBody] PortfolioDTO portfolioDto)
         {
             System.Diagnostics.Debug.WriteLine($"Creating new portfolio");
@@ -46,6 +53,12 @@ namespace PortfolioMakerBackend.Controllers
             {
                 System.Diagnostics.Debug.WriteLine("No portfolio projects!!!");
                 return BadRequest(new { message = "A portfolio must include at least one project." });
+            }
+
+            var userId = User.FindFirst(System.Security.Claims.ClaimTypes.NameIdentifier)?.Value;
+            if (string.IsNullOrEmpty(userId))
+            {
+                return Unauthorized("User information is missing.");
             }
 
             var portfolioId = ObjectId.GenerateNewId().ToString();
@@ -63,6 +76,7 @@ namespace PortfolioMakerBackend.Controllers
                 PortfolioUrl = finalUrl,
                 CreatedAt = DateTime.UtcNow,
                 PreviewId = null,
+                UserId = userId,
                 TemplateId = portfolioDto.TemplateId,
             };
 
@@ -135,6 +149,7 @@ namespace PortfolioMakerBackend.Controllers
         }
 
         [HttpPost("preview")]
+        [Authorize]
         public async Task<ActionResult> GeneratePreview([FromBody] PortfolioDTO portfolioDto)
         {
             if (portfolioDto.Projects == null || portfolioDto.Projects.Count == 0)
@@ -178,6 +193,7 @@ namespace PortfolioMakerBackend.Controllers
                 PreviewUrl = previewUrl,
                 CreatedAt = DateTime.UtcNow,
                 PreviewId = previewUuid,
+                UserId = portfolioDto.UserId,
                 TemplateId = portfolioDto.TemplateId,
             };
 
@@ -188,6 +204,7 @@ namespace PortfolioMakerBackend.Controllers
         }
 
         [HttpGet("preview/{portfolioId}")]
+        [Authorize]
         public async Task<IActionResult> GetPortfolioFinished(string portfolioId)
         {
             System.Diagnostics.Debug.WriteLine("Preview getting");
@@ -228,6 +245,7 @@ namespace PortfolioMakerBackend.Controllers
         }
 
         [HttpPost("upload-cv")]
+        [Authorize]
         public async Task<IActionResult> UploadCV(IFormFile cvFile)
         {
             if (cvFile == null || cvFile.Length == 0)
@@ -270,6 +288,7 @@ namespace PortfolioMakerBackend.Controllers
         }
 
         [HttpPost("upload-template-picture")]
+        [Authorize]
         public async Task<IActionResult> UploadTemplatePicture(IFormFile templatePicture)
         {
             if (templatePicture == null || templatePicture.Length == 0)
@@ -311,6 +330,7 @@ namespace PortfolioMakerBackend.Controllers
         }
 
         [HttpPost("upload-profile-picture")]
+        [Authorize]
         public async Task<IActionResult> UploadProfilePicture(IFormFile profilePicture)
         {
             if (profilePicture == null || profilePicture.Length == 0)
@@ -332,6 +352,7 @@ namespace PortfolioMakerBackend.Controllers
         }
 
         [HttpPost("upload-project-image")]
+        [Authorize]
         public async Task<IActionResult> UploadProjectImage(IFormFile projectImage)
         {
             if (projectImage == null || projectImage.Length == 0)
@@ -367,6 +388,7 @@ namespace PortfolioMakerBackend.Controllers
 
 
         [HttpPut("{id}")]
+        [Authorize]
         public async Task<IActionResult> Put(string id, [FromBody] PortfolioDTO updatedPortfolioDTO)
         {
             var portfolio = await _portfolios.Find(p => p.Id == id).FirstOrDefaultAsync();
@@ -439,6 +461,7 @@ namespace PortfolioMakerBackend.Controllers
             portfolio.IsPublished = updatedPortfolioDTO.IsPublished;
             portfolio.About = updatedPortfolioDTO.About;    
             portfolio.Contacts = updatedPortfolioDTO.Contacts;
+            portfolio.UserId = updatedPortfolioDTO.UserId;
             portfolio.TemplateId = updatedPortfolioDTO.TemplateId;
 
             await _portfolios.ReplaceOneAsync(p => p.Id == id, portfolio);
@@ -474,6 +497,7 @@ namespace PortfolioMakerBackend.Controllers
         }
 
         [HttpDelete("{ id }")]
+        [Authorize]
         public IActionResult Delete(string id)
         {
             var portfolio = _portfolios.Find(p => p.Id == id).FirstOrDefault();

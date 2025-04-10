@@ -14,6 +14,8 @@ namespace PortfolioMakerBackend.DTOs
         public Contact Contacts { get; set; }
         public string PortfolioUrl { get; set; }
 
+        public string UserId { get; set; }
+
         public string TemplateId { get; set; }
     }
 }

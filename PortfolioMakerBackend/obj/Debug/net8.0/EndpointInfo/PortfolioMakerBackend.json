@@ -1051,6 +1051,10 @@
             "type": "string",
             "nullable": true
           },
+          "userId": {
+            "type": "string",
+            "nullable": true
+          },
           "templateId": {
             "type": "string",
             "nullable": true
@@ -1097,6 +1101,10 @@
             "$ref": "#/components/schemas/Contact"
           },
           "portfolioUrl": {
+            "type": "string",
+            "nullable": true
+          },
+          "userId": {
             "type": "string",
             "nullable": true
           },

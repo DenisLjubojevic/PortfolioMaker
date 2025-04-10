@@ -24,6 +24,8 @@ namespace PortfolioMakerBackend.Models
 
         public string? PreviewId { get; set; }
 
+        public string UserId { get; set; }
+
         public string TemplateId { get; set; }
     }
 

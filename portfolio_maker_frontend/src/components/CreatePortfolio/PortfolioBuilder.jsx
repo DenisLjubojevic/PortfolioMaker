@@ -48,6 +48,7 @@ function PortfolioBuilder({ onPortfolioCreated, initialData }) {
             cvFileId: "No cv",
         },
         previewUrl: null,
+        userId: "",
         templateId: "67b36f341f501c852ab69bc8", //Id for default classic template
     });
     const [previewId, setPreviewId] = useState(null);
@@ -83,6 +84,7 @@ function PortfolioBuilder({ onPortfolioCreated, initialData }) {
                 },
                 createdAt: new Date().toISOString(),
                 portfolioUrl: "",
+                userId: portfolioData.userId,
                 templateId: portfolioData.templateId || "67b36f341f501c852ab69bc8",
             };
 
@@ -105,6 +107,8 @@ function PortfolioBuilder({ onPortfolioCreated, initialData }) {
                             isClosable: true,
                         });
                     }
+                } else {
+                    project.imageId = "67f3ee10d86850c0a5aec7bd"; //default Id for placeholder
                 }
             }
 
@@ -159,6 +163,7 @@ function PortfolioBuilder({ onPortfolioCreated, initialData }) {
             },
             createdAt: new Date().toISOString(),
             portfolioUrl: portfolioData.previewUrl,
+            userId: portfolioData.userId,
             templateId: portfolioData.templateId || "67b36f341f501c852ab69bc8",
         };
 

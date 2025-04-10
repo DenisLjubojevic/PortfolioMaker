@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using MongoDB.Driver;
 using PortfolioMakerBackend.Models;
 
@@ -17,12 +18,14 @@ namespace PortfolioMakerBackend.Controllers
         }
 
         [HttpGet]
+        [Authorize]
         public async Task<IEnumerable<Project>> GetAll()
         {
             return await _projectCollection.Find(p => true).ToListAsync();
         }
 
         [HttpGet("{id}")]
+        [Authorize]
         public async Task<ActionResult<Project>> GetById(string id)
         {
             var project = await _projectCollection.Find(p => p.Id == id).FirstOrDefaultAsync();
@@ -31,6 +34,7 @@ namespace PortfolioMakerBackend.Controllers
         }
 
         [HttpPost]
+        [Authorize]
         public async Task<IActionResult> Create(Project project)
         {
             project.CreatedAt = System.DateTime.UtcNow;
