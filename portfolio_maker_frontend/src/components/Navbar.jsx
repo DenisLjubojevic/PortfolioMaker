@@ -4,6 +4,10 @@ import { useTheme } from "../context/ThemeContext";
 
 import apiClient from '../axiosConfig';
 
+import { FaSun } from "react-icons/fa";
+
+import { FaMoon } from "react-icons/fa6";
+
 function Navbar() {
     const navigate = useNavigate();
 
@@ -17,9 +21,17 @@ function Navbar() {
             console.log('Error during logout', error);
         } finally {
             localStorage.removeItem('authToken');
+            localStorage.removeItem('userRole');
             navigate("/");
         }
     };
+    const home = () => {
+        navigate("/dashboard");
+    }
+
+    const browse = () => {
+        navigate("/browse");
+    }
 
     return (
         <Box
@@ -43,10 +55,24 @@ function Navbar() {
                 <Flex alignItems="center" gap={4}>
                     <Button
                         size="sm"
+                        onClick={home}
+                        style={{ boxShadow: 'none' }}
+                    >
+                        Home
+                    </Button>
+                    <Button
+                        size="sm"
+                        onClick={browse}
+                        style={{ boxShadow: 'none' }}
+                    >
+                        Browse
+                    </Button>
+                    <Button
+                        size="sm"
                         onClick={toggleTheme}
                         style={{ boxShadow: 'none' }}
                     >
-                        Toggle {theme === "light" ? "dark" : "light"}
+                        { theme === "dark" ? ( <FaSun></FaSun> ) : ( <FaMoon></FaMoon> )}
                     </Button>
                     <Button
                         size="sm"

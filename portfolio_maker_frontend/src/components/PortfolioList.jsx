@@ -1,19 +1,74 @@
 import * as PropTypes from 'prop-types';
+import { useState } from 'react';
+
 import {
     Box,
     Heading,
     Text,
     SimpleGrid,
+    IconButton,
     Stack,
     Button,
+    Checkbox,
+    Modal,
+    ModalOverlay,
+    ModalContent,
+    ModalHeader,
+    ModalBody,
+    ModalFooter,
+    useDisclosure,
+    useToast,
     Link as ChakraLink,
 } from '@chakra-ui/react';
 
 import { FaEdit } from "react-icons/fa";
 
+import { IoMdSettings } from "react-icons/io";
+
 import { Link as ReactRouterLink } from 'react-router-dom'
 
+import apiClient from '../axiosConfig';
+
 function PortfolioList({ portfolios, onEditPortfolio }) {
+    const { isOpen, onOpen, onClose } = useDisclosure();
+    const [isPrivate, setIsPrivate] = useState(false);
+
+    const [selectedPortfolio, setSelectedPortfolio] = useState(null);
+
+    const toast = useToast();
+
+    const handleSettingsClick = (portfolio) => {
+        setSelectedPortfolio(portfolio);
+        setIsPrivate(portfolio.isPublished);
+        onOpen();
+    };
+
+    const handleChangedSettings = async () => {
+        if (selectedPortfolio) {
+            console.log("Saving settings");
+
+            try {
+                await apiClient.put(`https://localhost:7146/api/portfolio/changePrivacy/${selectedPortfolio.id}/${isPrivate}`);
+                toast({
+                    title: "Saving changes",
+                    description: "Your portfolio specific setting has been saved!",
+                    status: "success",
+                    duration: 5000,
+                    isClosable: true,
+                });
+                onClose();
+            } catch (error) {
+                toast({
+                    title: "Error changing privacy",
+                    description: error.message || "An unexpected error occurred.",
+                    status: "error",
+                    duration: 5000,
+                    isClosable: true,
+                });
+            }
+        }        
+    }
+
 
     return (
         <div>
@@ -21,16 +76,6 @@ function PortfolioList({ portfolios, onEditPortfolio }) {
                 <p>No portfolios found!</p>
             ) : (
                     <Box p={8}>
-                        <Heading
-                            as="h2"
-                            size="lg"
-                            mb={4}
-                            textAlign="center"
-                            color="brand.primary.800"
-                            marginTop="10px"
-                        >
-                            Your Portfolios
-                        </Heading>
                         <SimpleGrid columns={[1, 2, 3]} spacing={8}>
                             {portfolios.map((portfolio, index) => (
                                 <Box
@@ -40,12 +85,30 @@ function PortfolioList({ portfolios, onEditPortfolio }) {
                                     color="brand.secondary.800"
                                     shadow="md"
                                     borderRadius="md"
+                                    position="relative"
                                     _hover={{ shadow: "lg" }}
                                 >
+                                    <IconButton
+                                        aria-label="Settings"
+                                        onClick={() => handleSettingsClick(portfolio)}
+                                        icon={<IoMdSettings />}
+                                        size="sm"
+                                        position="absolute"
+                                        top="8px"
+                                        right="8px"
+                                        bg="transparent"
+                                        _hover={{
+                                            color: "brand.secondary.700",
+                                            bg: "transparent",
+                                            border: "none",
+                                        }}
+                                    />
                                     <Stack>
+                                        
                                         <Heading as="h3" size="md">
                                             {portfolio.name}
                                         </Heading>
+                                        
                                         <Text>{portfolio.description}</Text>
                                         <ChakraLink
                                             as={ReactRouterLink}
@@ -69,6 +132,51 @@ function PortfolioList({ portfolios, onEditPortfolio }) {
                                 </Box>
                             ))}
                         </SimpleGrid>
+
+                        <Modal isOpen={isOpen} onClose={onClose} isCentered>
+                            <ModalOverlay />
+                            <ModalContent bg="brand.secondary.800" color="brand.primary.800">
+                                <ModalHeader>
+                                    Specific settings for portfolio
+                                </ModalHeader>
+                                <ModalBody>
+                                    <Checkbox
+                                        isChecked={isPrivate}
+                                        onChange={(e) => setIsPrivate(e.target.checked)}
+                                        sx={{
+                                            ".chakra-checkbox__control": {
+                                                bg: "white",
+                                                borderColor: "whiteAlpha.800",
+                                                _checked: {
+                                                    bg: "white",
+                                                    borderColor: "white",
+                                                    color: "black",
+                                                },
+                                                _hover: {
+                                                    bg: "whiteAlpha.800",
+                                                },
+                                                _focus: {
+                                                    boxShadow: "none",
+                                                },
+                                            },
+                                        }}
+                                    >
+                                        Make portfolio private
+                                    </Checkbox>
+                                </ModalBody>
+                                <ModalFooter>
+                                    <Button
+                                        onClick={onClose}
+                                        mr={3}
+                                    >
+                                        Cancel
+                                    </Button>
+                                    <Button onClick={handleChangedSettings}>
+                                        Save
+                                    </Button>
+                                </ModalFooter>
+                            </ModalContent>
+                        </Modal>
                     </Box>
             )}
         </div>

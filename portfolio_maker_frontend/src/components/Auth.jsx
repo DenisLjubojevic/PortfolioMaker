@@ -58,7 +58,9 @@ function Auth() {
             const response = await axios.post(url, payload);
             if (response.data.token) {
                 setToken(response.data.token);
+                console.log(response.data);
                 localStorage.setItem('authToken', response.data.token);
+                localStorage.setItem('userRole', response.data.role);
 
                 navigate("/dashboard");
             }

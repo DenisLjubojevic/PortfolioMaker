@@ -147,6 +147,27 @@
   },
   {
     "ContainingType": "PortfolioMakerBackend.Controllers.PortfolioController",
+    "Method": "ChangePrivacy",
+    "RelativePath": "api/Portfolio/changePrivacy/{id}/{isPublished}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.String",
+        "IsRequired": true
+      },
+      {
+        "Name": "isPublished",
+        "Type": "System.Boolean",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "PortfolioMakerBackend.Controllers.PortfolioController",
     "Method": "CreatePortfolio",
     "RelativePath": "api/Portfolio/create",
     "HttpMethod": "POST",
@@ -269,6 +290,26 @@
   },
   {
     "ContainingType": "PortfolioMakerBackend.Controllers.PortfolioController",
+    "Method": "GetPublicPortfolios",
+    "RelativePath": "api/Portfolio/public",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.List\u00601[[PortfolioMakerBackend.Models.Portfolio, PortfolioMakerBackend, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "PortfolioMakerBackend.Controllers.PortfolioController",
     "Method": "GetTemplatePicture",
     "RelativePath": "api/Portfolio/templatePicture/{templateId}",
     "HttpMethod": "GET",
@@ -346,6 +387,26 @@
       }
     ],
     "ReturnTypes": []
+  },
+  {
+    "ContainingType": "PortfolioMakerBackend.Controllers.PortfolioController",
+    "Method": "GetUserPortfolio",
+    "RelativePath": "api/Portfolio/user",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.List\u00601[[PortfolioMakerBackend.Models.Portfolio, PortfolioMakerBackend, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
   },
   {
     "ContainingType": "PortfolioMakerBackend.Controllers.ProjectController",

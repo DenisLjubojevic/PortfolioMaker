@@ -12,12 +12,14 @@ import {
     Button,
     Flex,
     Stack,
+    Heading,
 } from '@chakra-ui/react';
 
 import apiClient from '../axiosConfig';
 
 function Dashboard() {
     const [portfolios, setPortfolios] = useState([]);
+    const [allPortfolios, setAllPortfolios] = useState([]);
     const [creatingPortfolio, setCreatingPortfolio] = useState(false);
     const [editingPortfolio, setEditingPortfolio] = useState(null);
 
@@ -25,18 +27,32 @@ function Dashboard() {
 
     const token = localStorage.getItem('authToken');
 
-    const fetchPortfolios = async () => {
+    const userRole = localStorage.getItem('userRole');
+
+    const fetchAllPortfolios = async () => {
         try {
             const response = await apiClient.get('https://localhost:7146/api/portfolio');
-            setPortfolios(response.data);
+            setAllPortfolios(response.data);
         } catch (error) {
             console.error('Failed to fetch portfolios:', error);
         }
     }
 
+    const fetchUserPortfolios = async () => {
+        try {
+            const response = await apiClient.get('https://localhost:7146/api/portfolio/user');
+            setPortfolios(response.data);
+        } catch (error) {
+            console.error('Failed to fetch user portfolios:', error);
+        }
+    }
+
     useEffect(() => {
         if (token) {
-            fetchPortfolios();
+            fetchUserPortfolios();
+            if (userRole == "ADMIN") {
+                fetchAllPortfolios();
+            }
         } else {
             console.error("Token is missing, navigating to login page.");
             navigate('/');
@@ -52,13 +68,13 @@ function Dashboard() {
     const handlePortfolioSaved = () => {
         setCreatingPortfolio(false);
         setEditingPortfolio(null);
-        fetchPortfolios();
+        fetchUserPortfolios();
     };
 
     const handleCancle = () => {
         setCreatingPortfolio(false);
         setEditingPortfolio(null);
-        fetchPortfolios();
+        fetchUserPortfolios();
     }
 
     return (
@@ -84,15 +100,16 @@ function Dashboard() {
                     Welcome to your Dashboard
                 </Text>
                 <Stack
+                    padding="5px"
                     flexDir="row"
-                    mb="2"
                     justifyContent="center"
                     alignItems="center"
                 >
                     <Box
                         width="97vw"
                         height="75vh"
-                        borderRadius="10px"
+                        border="2px solid black"
+                        borderRadius="5px"
                         minW={{ base: "90%", md: "468px" }}
                         padding="10px"
                         bg="brand.secondary.800"
@@ -105,6 +122,15 @@ function Dashboard() {
                                 >
                                     Create New Portfolio
                                 </Button>
+                                <Heading
+                                    as="h2"
+                                    size="lg"
+                                    mt={15}
+                                    textAlign="center"
+                                    color="brand.primary.800"
+                                >
+                                    Your Portfolios
+                                </Heading>
                                 <PortfolioList
                                     portfolios={portfolios}
                                     onEditPortfolio={handleEditPortfolio}
@@ -130,6 +156,34 @@ function Dashboard() {
                             </>
                         )}
                     </Box>
+
+                    {userRole == "ADMIN" ? (
+                        <Box
+                            width="97vw"
+                            height="75vh"
+                            border="2px solid black"
+                            borderRadius="5px"
+                            minW={{ base: "90%", md: "468px" }}
+                            padding="10px"
+                            bg="brand.secondary.800"
+                            overflow="auto"
+                        >
+                            <Heading
+                                as="h2"
+                                size="lg"
+                                textAlign="center"
+                                color="brand.primary.800"
+                            >
+                                All Portfolios
+                            </Heading>
+                            <PortfolioList
+                                portfolios={allPortfolios}
+                                onEditPortfolio={handleEditPortfolio}
+                            />
+                        </Box>
+                    ) : (
+                        <></>
+                    )}
                 </Stack>
             </Box>
         </Flex>

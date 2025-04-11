@@ -5,6 +5,7 @@ import './App.css';
 import './CustomDatePicker.css';
 import axios from 'axios';
 import PortfolioPreview from './components/PreviewPortfolio/PortfolioPreview';
+import BrowsePortfoliosComponent from './components/BrowsePortfolios/BrowsePortfoliosComponent';
 function App() {
     axios.interceptors.request.use((config) => {
         const token = localStorage.getItem('authToken');
@@ -21,6 +22,7 @@ function App() {
             <Routes>
                 <Route path="/" element={<Auth />} />
                 <Route path="/dashboard" element={<Dashboard />} />
+                <Route path="/browse" element={<BrowsePortfoliosComponent />} />
                 <Route path="/preview/:previewId" element={<PortfolioPreview />} />
             </Routes>
         </Router>

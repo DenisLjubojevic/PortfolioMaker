@@ -52,7 +52,6 @@ function PortfolioBuilder({ onPortfolioCreated, initialData }) {
         templateId: "67b36f341f501c852ab69bc8", //Id for default classic template
     });
     const [previewId, setPreviewId] = useState(null);
-    const [finalUrl, setFinalUrl] = useState(null);
     const [validationErrors, setValidationErrors] = useState({});
 
     const { theme } = useTheme();
@@ -290,7 +289,6 @@ function PortfolioBuilder({ onPortfolioCreated, initialData }) {
 
                 try {
                     const response = await apiClient.post('https://localhost:7146/api/portfolio/create', payload);
-                    setFinalUrl(response.data.url);
                     const portfolioId = response.data.id;
 
                     for (const experience of portfolioData.experience) {

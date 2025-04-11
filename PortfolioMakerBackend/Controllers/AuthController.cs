@@ -31,6 +31,7 @@ namespace PortfolioMakerBackend.Controllers
             System.Diagnostics.Debug.WriteLine($"Login: {login.Email}");
             var user = await _userManager.FindByEmailAsync(login.Email);
             if (user == null) return Unauthorized("Invalid email or password");
+            System.Diagnostics.Debug.WriteLine($"Role: {user.Roles}");
 
             var result = await _signInManager.CheckPasswordSignInAsync(user, login.Password, false);
             if (!result.Succeeded) return Unauthorized("Invalid email or password");
@@ -41,7 +42,7 @@ namespace PortfolioMakerBackend.Controllers
             }
 
             var token = await GenerateJwtToken(user);
-            return Ok(new { Token = token });
+            return Ok(new { Token = token, Role = user.Roles[0] });
         }
 
         [HttpPost("signup")]
@@ -102,7 +103,7 @@ namespace PortfolioMakerBackend.Controllers
                 _configuration["Jwt:Issuer"],
                 _configuration["Jwt:Issuer"],
                 claims,
-                expires: DateTime.Now.AddDays(7),
+                expires: DateTime.Now.AddHours(1),
                 signingCredentials: creds);
 
             return new JwtSecurityTokenHandler().WriteToken(token);

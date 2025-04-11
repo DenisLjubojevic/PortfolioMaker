@@ -30,8 +30,24 @@ namespace PortfolioMakerBackend.Controllers
         }
 
         [HttpGet]
-        [Authorize]
+        [Authorize(Roles = "ADMIN")]
         public ActionResult<List<Portfolio>> GetAll()
+        {
+            var portfolios = _portfolios.Find(portfolio => portfolio.Id == portfolio.Id).ToList();
+            return Ok(portfolios);
+        }
+
+        [HttpGet("public")]
+        [Authorize]
+        public ActionResult<List<Portfolio>> GetPublicPortfolios()
+        {
+            var portfolios = _portfolios.Find(portfolio => portfolio.IsPublished == true).ToList();
+            return Ok(portfolios);
+        }
+
+        [HttpGet("user")]
+        [Authorize]
+        public ActionResult<List<Portfolio>> GetUserPortfolio()
         {
             var userId = User.FindFirst(System.Security.Claims.ClaimTypes.NameIdentifier)?.Value;
             if (string.IsNullOrEmpty(userId))
@@ -384,6 +400,25 @@ namespace PortfolioMakerBackend.Controllers
             {
                 return StatusCode(500, new { message = "An error occurred while deleting the project image.", error = ex.Message });
             }
+        }
+
+
+
+        [HttpPut("changePrivacy/{id}/{isPublished}")]
+        [Authorize]
+        public async Task<IActionResult> ChangePrivacy(string id, bool isPublished)
+        {
+            var portfolio = await _portfolios.Find(p => p.Id == id).FirstOrDefaultAsync();
+            if (portfolio == null)
+            {
+                return NotFound("Portfolio not found.");
+            }
+
+            portfolio.IsPublished = isPublished;
+
+            await _portfolios.ReplaceOneAsync(p => p.Id == id, portfolio);
+
+            return Ok(portfolio);
         }
 
 
