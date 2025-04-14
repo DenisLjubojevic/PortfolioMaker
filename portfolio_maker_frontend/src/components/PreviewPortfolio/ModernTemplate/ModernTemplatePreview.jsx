@@ -17,6 +17,8 @@ import ProjectCard from "./ProjectCard";
 
 const MotionBox = motion(Box);
 
+import ReportModel from '../ReportModel';
+
 function ModernTemplatePreview({ portfolioData }) {
 
     const bgColor = useColorModeValue('#EDE8F5', 'gray.800');
@@ -26,6 +28,11 @@ function ModernTemplatePreview({ portfolioData }) {
     const bannerUrl = "https://localhost:7146/api/portfolio/templatePicture/67b4bfccf97a09e418194e8b";
 
     const toast = useToast();
+
+    const checkUser = () => {
+        var userId = localStorage.getItem("userId");
+        return portfolioData.userId == userId;
+    }
 
     const downloadCV = async () => {
         if (portfolioData.contacts.cvFileId && portfolioData.contacts.cvFileId != "No cv") {
@@ -66,6 +73,18 @@ function ModernTemplatePreview({ portfolioData }) {
 
     return (
         <Flex direction="column" width="99vw" bg={bgColor} fontFamily="'Inter', sans-serif">
+            {checkUser() == false &&
+                <Box
+                    position="fixed"
+                    bottom="2rem"
+                    right="2rem"
+                >
+                    <ReportModel
+                        id={portfolioData.id}
+                    />
+                </Box>
+            }
+
             <Box
                 position="relative"
                 height="60vh"

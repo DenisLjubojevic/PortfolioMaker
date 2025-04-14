@@ -310,6 +310,26 @@
   },
   {
     "ContainingType": "PortfolioMakerBackend.Controllers.PortfolioController",
+    "Method": "GetReportedPortfolios",
+    "RelativePath": "api/Portfolio/reported",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.List\u00601[[PortfolioMakerBackend.Models.Portfolio, PortfolioMakerBackend, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "PortfolioMakerBackend.Controllers.PortfolioController",
     "Method": "GetTemplatePicture",
     "RelativePath": "api/Portfolio/templatePicture/{templateId}",
     "HttpMethod": "GET",
@@ -469,6 +489,42 @@
         "StatusCode": 200
       }
     ]
+  },
+  {
+    "ContainingType": "PortfolioMakerBackend.Controllers.ReportController",
+    "Method": "GetAll",
+    "RelativePath": "api/Report",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[PortfolioMakerBackend.Models.Reports, PortfolioMakerBackend, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "PortfolioMakerBackend.Controllers.ReportController",
+    "Method": "CreateReport",
+    "RelativePath": "api/Report/create",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "reportDTO",
+        "Type": "PortfolioMakerBackend.DTOs.ReportDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
   },
   {
     "ContainingType": "PortfolioMakerBackend.Controllers.RolesController",

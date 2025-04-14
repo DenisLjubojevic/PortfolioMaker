@@ -15,6 +15,7 @@ namespace PortfolioMakerBackend.Controllers
     {
         private readonly IMongoCollection<Portfolio> _portfolios;
         private readonly IMongoCollection<Project> _projects;
+        private readonly IMongoCollection<Reports> _reports;
         private readonly IMongoCollection<WorkExperience>  _workExperience;
 
         private readonly GridFSBucket _gridFSBucket;
@@ -24,6 +25,7 @@ namespace PortfolioMakerBackend.Controllers
             var database = mongoClient.GetDatabase(mongoSettigns.Value.DatabaseName);
             _portfolios = database.GetCollection<Portfolio>("Portfolios");
             _projects = database.GetCollection<Project>("Projects");
+            _reports = database.GetCollection<Reports>("Reports");
             _workExperience = database.GetCollection<WorkExperience>("WorkExperience");
 
             _gridFSBucket = new GridFSBucket(database);
@@ -42,6 +44,21 @@ namespace PortfolioMakerBackend.Controllers
         public ActionResult<List<Portfolio>> GetPublicPortfolios()
         {
             var portfolios = _portfolios.Find(portfolio => portfolio.IsPublished == true).ToList();
+            return Ok(portfolios);
+        }
+
+        [HttpGet("reported")]
+        [Authorize]
+        public ActionResult<List<Portfolio>> GetReportedPortfolios()
+        {
+            var reports = _reports.Find(report => true).ToList();
+
+            var reportedPortfolioIds = reports.Select(r => r.PortfolioId).Distinct().ToList();
+
+            var filter = Builders<Portfolio>.Filter.In(p => p.Id, reportedPortfolioIds);
+
+            var portfolios = _portfolios.Find(filter).ToList();
+
             return Ok(portfolios);
         }
 

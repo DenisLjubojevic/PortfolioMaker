@@ -8,8 +8,6 @@ import {
     Link as ChakraLink,
 } from '@chakra-ui/react';
 
-import { FaEdit } from "react-icons/fa";
-
 import { Link as ReactRouterLink } from 'react-router-dom'
 
 function PublicPortfolioListComponent({ portfolios }) {

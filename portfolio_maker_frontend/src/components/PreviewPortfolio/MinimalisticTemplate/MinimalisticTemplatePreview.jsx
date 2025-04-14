@@ -16,6 +16,8 @@ import { motion } from 'framer-motion';
 
 import ProjectCard from "../ModernTemplate/ProjectCard";
 
+import ReportModel from '../ReportModel';
+
 const MotionBox = motion(Box);
 
 function MinimalisticTemplatePreview({ portfolioData }) {
@@ -25,6 +27,11 @@ function MinimalisticTemplatePreview({ portfolioData }) {
     const fontColor = "#124E66";
 
     const toast = useToast();
+
+    const checkUser = () => {
+        var userId = localStorage.getItem("userId");
+        return portfolioData.userId == userId;
+    }
 
     const downloadCV = async () => {
         if (portfolioData.contacts.cvFileId && portfolioData.contacts.cvFileId != "No cv") {
@@ -65,6 +72,18 @@ function MinimalisticTemplatePreview({ portfolioData }) {
 
     return (
         <Flex direction="column" width="99vw" bg={bgColor} fontFamily="'Roboto', sans-serif">
+            {checkUser() == false &&
+                <Box
+                    position="fixed"
+                    bottom="2rem"
+                    right="2rem"
+                >
+                    <ReportModel
+                        id={portfolioData.id}
+                    />
+                </Box>
+            }
+
             <Flex
                 as="nav"
                 bg="whiteAlpha.900"

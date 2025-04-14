@@ -9,8 +9,15 @@ import ContactSection from './ContactPreview';
 
 import { Box, Flex } from "@chakra-ui/react";
 
+import ReportModel from '../ReportModel';
+
 function ClassicTemplatePreview({ portfolioData }) {
     const [activeSection, setActiveSection] = useState("about");
+
+    const checkUser = () => {
+        var userId = localStorage.getItem("userId");
+        return portfolioData.userId == userId;
+    }
 
     return (
         <Flex
@@ -23,6 +30,18 @@ function ClassicTemplatePreview({ portfolioData }) {
             fontFamily="'Roboto', sans-serif"
             color="brand.secondary.900"
         >
+            {checkUser() == false &&
+                <Box
+                    position="fixed"
+                    bottom="2rem"
+                    right="2rem"
+                >
+                    <ReportModel
+                        id={portfolioData.id}
+                    />
+                </Box>
+            }
+
             <Box
                 width="100%"
             >

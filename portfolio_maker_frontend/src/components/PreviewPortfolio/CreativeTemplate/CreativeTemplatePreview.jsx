@@ -17,6 +17,8 @@ import ProjectCard from "../ModernTemplate/ProjectCard";
 
 import { FiUser, FiBriefcase, FiFolder, FiMail } from "react-icons/fi";
 
+import ReportModel from '../ReportModel';
+
 const MotionBox = motion(Box);
 
 function CreativeTemplatePreview({ portfolioData }) {
@@ -65,8 +67,25 @@ function CreativeTemplatePreview({ portfolioData }) {
         }
     }
 
+    const checkUser = () => {
+        var userId = localStorage.getItem("userId");
+        return portfolioData.userId == userId;
+    }
+
     return (
         <Flex direction="column" width="99vw" bg={bgColor} fontFamily="'Lato', sans-serif">
+            {checkUser() == false &&
+                <Box
+                    position="fixed"
+                    bottom="2rem"
+                    right="2rem"
+                >
+                    <ReportModel
+                        id={portfolioData.id}
+                    />
+                </Box>
+            }
+
             <Flex
                 as="nav"
                 p={4}

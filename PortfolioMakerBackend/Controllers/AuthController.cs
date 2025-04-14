@@ -42,7 +42,7 @@ namespace PortfolioMakerBackend.Controllers
             }
 
             var token = await GenerateJwtToken(user);
-            return Ok(new { Token = token, Role = user.Roles[0] });
+            return Ok(new { Token = token, Role = user.Roles[0], UserId = user.Id });
         }
 
         [HttpPost("signup")]

@@ -19,7 +19,7 @@ import apiClient from '../axiosConfig';
 
 function Dashboard() {
     const [portfolios, setPortfolios] = useState([]);
-    const [allPortfolios, setAllPortfolios] = useState([]);
+    const [reportedPortfolios, setReportedPortfolios] = useState([]);
     const [creatingPortfolio, setCreatingPortfolio] = useState(false);
     const [editingPortfolio, setEditingPortfolio] = useState(null);
 
@@ -29,12 +29,12 @@ function Dashboard() {
 
     const userRole = localStorage.getItem('userRole');
 
-    const fetchAllPortfolios = async () => {
+    const fetchReportedPortfolios = async () => {
         try {
-            const response = await apiClient.get('https://localhost:7146/api/portfolio');
-            setAllPortfolios(response.data);
+            const response = await apiClient.get('https://localhost:7146/api/portfolio/reported');
+            setReportedPortfolios(response.data);
         } catch (error) {
-            console.error('Failed to fetch portfolios:', error);
+            console.error('Failed to fetch reported portfolios:', error);
         }
     }
 
@@ -51,7 +51,7 @@ function Dashboard() {
         if (token) {
             fetchUserPortfolios();
             if (userRole == "ADMIN") {
-                fetchAllPortfolios();
+                fetchReportedPortfolios();
             }
         } else {
             console.error("Token is missing, navigating to login page.");
@@ -174,10 +174,10 @@ function Dashboard() {
                                 textAlign="center"
                                 color="brand.primary.800"
                             >
-                                All Portfolios
+                                Reported Portfolios
                             </Heading>
                             <PortfolioList
-                                portfolios={allPortfolios}
+                                portfolios={reportedPortfolios}
                                 onEditPortfolio={handleEditPortfolio}
                             />
                         </Box>
