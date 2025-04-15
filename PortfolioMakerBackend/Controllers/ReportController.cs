@@ -26,6 +26,15 @@ namespace PortfolioMakerBackend.Controllers
             return await _reportCollection.Find(r => true).ToListAsync();
         }
 
+        [HttpGet("portfolio/{portfolioId}")]
+        [Authorize]
+        public async Task<ActionResult<Reports>> GetByPortfolioId(string portfolioId)
+        {
+            var report = await _reportCollection.Find(r => r.PortfolioId == portfolioId).FirstOrDefaultAsync();
+            if (report == null) return NotFound();
+            return report;
+        }
+
         [HttpPost("create")]
         [Authorize]
         public async Task<IActionResult> CreateReport(ReportDTO reportDTO)
@@ -43,5 +52,17 @@ namespace PortfolioMakerBackend.Controllers
 
             return Ok(report);
         }
+
+        [HttpDelete("delete/{portfolioId}")]
+        [Authorize]
+        public IActionResult Delete(string portfolioId)
+        {
+            var report = _reportCollection.Find(r => r.PortfolioId == portfolioId).FirstOrDefault();
+            if (report == null) return NotFound();
+            _reportCollection.DeleteOne(r => r.PortfolioId == portfolioId);
+            return NoContent();
+
+        }
+
     }
 }

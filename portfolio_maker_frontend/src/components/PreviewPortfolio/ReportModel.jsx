@@ -29,13 +29,35 @@ function ReportModel({ id }) {
     const toast = useToast();
 
     const report = async (reportComment) => {
-        if (reportComment != "") {
-            var reportData = {
-                id: "1",
-                PortfolioId: id,
-                comment: reportComment,
-            }
+        var reportData = {
+            id: "1",
+            PortfolioId: id,
+            comment: reportComment,
+        }
 
+        try {
+            reportData = await apiClient.get(`https://localhost:7146/api/report/portfolio/${id}`);
+        } catch (error) {
+            console.error('Failed to fetch reported portfolio:', error);
+        }
+
+        if (reportData.id != "1") {
+            toast({
+                title: "Unable to send report",
+                description: "Portfolio is currently being watched",
+                status: "error",
+                duration: 5000,
+                isClosable: true,
+            });
+        } else if (reportComment == "") {
+            toast({
+                title: "Insert a comment",
+                description: "You need to add a comment",
+                status: "error",
+                duration: 5000,
+                isClosable: true,
+            });            
+        } else {
             try {
                 console.log(reportData);
                 await apiClient.post('https://localhost:7146/api/report/create', {
@@ -58,14 +80,6 @@ function ReportModel({ id }) {
                 });
             }
             onClose();
-        } else {
-            toast({
-                title: "Insert a comment",
-                description:"You need to add a comment",
-                status: "error",
-                duration: 5000,
-                isClosable: true,
-            });
         }
     }
 

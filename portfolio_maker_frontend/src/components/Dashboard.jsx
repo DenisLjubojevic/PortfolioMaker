@@ -17,6 +17,8 @@ import {
 
 import apiClient from '../axiosConfig';
 
+import AdminPortfolioListComponent from './AdminPortfolioListComponent';
+
 function Dashboard() {
     const [portfolios, setPortfolios] = useState([]);
     const [reportedPortfolios, setReportedPortfolios] = useState([]);
@@ -176,9 +178,9 @@ function Dashboard() {
                             >
                                 Reported Portfolios
                             </Heading>
-                            <PortfolioList
+                            <AdminPortfolioListComponent
                                 portfolios={reportedPortfolios}
-                                onEditPortfolio={handleEditPortfolio}
+                                onReportRemoved={fetchReportedPortfolios}
                             />
                         </Box>
                     ) : (

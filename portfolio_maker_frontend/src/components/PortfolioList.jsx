@@ -45,8 +45,6 @@ function PortfolioList({ portfolios, onEditPortfolio }) {
 
     const handleChangedSettings = async () => {
         if (selectedPortfolio) {
-            console.log("Saving settings");
-
             try {
                 await apiClient.put(`https://localhost:7146/api/portfolio/changePrivacy/${selectedPortfolio.id}/${isPrivate}`);
                 toast({

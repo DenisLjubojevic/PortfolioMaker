@@ -527,6 +527,48 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "PortfolioMakerBackend.Controllers.ReportController",
+    "Method": "Delete",
+    "RelativePath": "api/Report/delete/{portfolioId}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "portfolioId",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "PortfolioMakerBackend.Controllers.ReportController",
+    "Method": "GetByPortfolioId",
+    "RelativePath": "api/Report/portfolio/{portfolioId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "portfolioId",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "PortfolioMakerBackend.Models.Reports",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
     "ContainingType": "PortfolioMakerBackend.Controllers.RolesController",
     "Method": "CreateRole",
     "RelativePath": "api/Roles/create",
