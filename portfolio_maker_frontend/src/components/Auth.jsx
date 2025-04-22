@@ -19,6 +19,7 @@ import {
 } from '@chakra-ui/react';
 import { FaUserAlt, FaLock } from "react-icons/fa";
 
+
 function Auth() {
     const [isLogin, setIsLogin] = useState(true);
     const [email, setEmail] = useState('');

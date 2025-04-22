@@ -8,6 +8,7 @@ import {
     SimpleGrid,
     IconButton,
     Stack,
+    HStack,
     Button,
     Checkbox,
     Modal,
@@ -20,6 +21,8 @@ import {
     useToast,
     Link as ChakraLink,
 } from '@chakra-ui/react';
+
+import { FaLink } from "react-icons/fa";
 
 import { FaEdit } from "react-icons/fa";
 
@@ -67,6 +70,31 @@ function PortfolioList({ portfolios, onEditPortfolio }) {
         }        
     }
 
+    const copyToClipboard = async (portfolio) => {
+        try {
+            await window.navigator.clipboard.writeText(`http://localhost:5173/preview/${portfolio.id}`);
+            toast({
+                title: "Copy",
+                description: "Portfolio link has been saved to clipboard",
+                status: "success",
+                duration: 5000,
+                isClosable: true,
+            });
+        } catch (err) {
+            console.error(
+                "Unable to copy to clipboard.",
+                err
+            );
+            toast({
+                title: "Error while copy to clipboard",
+                description: err.message || "An unexpected error occurred.",
+                status: "error",
+                duration: 5000,
+                isClosable: true,
+            });
+        }
+    }
+
 
     return (
         <div>
@@ -108,17 +136,24 @@ function PortfolioList({ portfolios, onEditPortfolio }) {
                                         </Heading>
                                         
                                         <Text>{portfolio.description}</Text>
-                                        <ChakraLink
-                                            as={ReactRouterLink}
-                                            target="_blank"
-                                            to={`/preview/${portfolio.id}`}
-                                            _hover={{
-                                                textDecoration: "none",
-                                                color: "white"
-                                            } }
+                                        <HStack
+                                            fontStyle="italic"
+                                            width="fit-content"
+                                            margin="0 auto"
                                         >
-                                            {portfolio.portfolioUrl}
-                                        </ChakraLink>
+                                            <FaLink />
+                                            <ChakraLink
+                                                as={ReactRouterLink}
+                                                target="_blank"
+                                                to={`/preview/${portfolio.id}`}
+                                                _hover={{
+                                                    textDecoration: "none",
+                                                    color: "white"
+                                                }}
+                                            >
+                                                Link
+                                            </ChakraLink>
+                                        </HStack>
                                         <Button
                                             bg="brand.secondary.800"
                                             color="brand.primary.800"
@@ -137,7 +172,10 @@ function PortfolioList({ portfolios, onEditPortfolio }) {
                                 <ModalHeader>
                                     Specific settings for portfolio
                                 </ModalHeader>
-                                <ModalBody>
+                                <ModalBody
+                                    display="flex"
+                                    flexDirection="column"
+                                >
                                     <Checkbox
                                         isChecked={isPrivate}
                                         onChange={(e) => setIsPrivate(e.target.checked)}
@@ -161,15 +199,23 @@ function PortfolioList({ portfolios, onEditPortfolio }) {
                                     >
                                         Make portfolio private
                                     </Checkbox>
+                                    <Button
+                                        p={4}
+                                        mt={3}
+                                        width="fit-content"
+                                        onClick={() => copyToClipboard(selectedPortfolio)}
+                                    >
+                                    Copy link
+                                    </Button>
                                 </ModalBody>
                                 <ModalFooter>
                                     <Button
-                                        onClick={onClose}
+                                        onClick={() => onClose()}
                                         mr={3}
                                     >
                                         Cancel
                                     </Button>
-                                    <Button onClick={handleChangedSettings}>
+                                    <Button onClick={() => handleChangedSettings()}>
                                         Save
                                     </Button>
                                 </ModalFooter>

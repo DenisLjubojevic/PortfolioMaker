@@ -3,7 +3,7 @@ import { useState } from 'react';
 import {
     Box,
     Button,
-    IconButton,
+    Select,
     Textarea,
     Text,
     useToast,
@@ -16,63 +16,54 @@ import {
     useDisclosure,
 } from "@chakra-ui/react";
 
-import { MdOutlineReport } from "react-icons/md";
+import apiClient from '../axiosConfig';
 
-import apiClient from '../../axiosConfig';
-
-function ReportModel({ id }) {
+function MessageModel({ portfolio }) {
     const { isOpen, onOpen, onClose } = useDisclosure();
 
-    const [reportComment, setReportComment] = useState("");
-
+    const [context, setContext] = useState("");
+    const [status, setStatus] = useState("");
 
     const toast = useToast();
 
-    const report = async (reportComment) => {
-        var reportData = {
-            id: "1",
-            PortfolioId: id,
-            comment: reportComment,
+    const handleStatusChange = (status) => {
+        setStatus(status);
+    }
+
+    const sendMessage = async () => {
+        const userId = localStorage.getItem("userId");
+        const recieverId = portfolio.userId;
+
+        var message = {
+            senderId: userId,
+            recieverId: recieverId,
+            context: context,
+            status: status,
         }
 
-        try {
-            reportData = await apiClient.get(`https://localhost:7146/api/report/portfolio/${id}`);
-        } catch (error) {
-            console.error('Failed to fetch reported portfolio:', error);
-        }
-
-        if (reportData.id != "1") {
+        if (message.context == "") {
             toast({
-                title: "Unable to send report",
-                description: "Portfolio is currently being watched",
-                status: "error",
-                duration: 5000,
-                isClosable: true,
-            });
-        } else if (reportComment == "") {
-            toast({
-                title: "Insert a comment",
-                description: "You need to add a comment",
+                title: "Unable to send message",
+                description: "You need to add a content to message",
                 status: "error",
                 duration: 5000,
                 isClosable: true,
             });
         } else {
             try {
-                console.log(reportData);
-                await apiClient.post('https://localhost:7146/api/report/create', {
-                    ...reportData
+                await apiClient.post('https://localhost:7146/api/message/send', {
+                    ...message
                 });
                 toast({
-                    title: "Report",
-                    description: "Your report has been sent.",
+                    title: "Message",
+                    description: "Your message has been sent.",
                     status: "success",
                     duration: 5000,
                     isClosable: true,
                 });
             } catch (error) {
                 toast({
-                    title: "Error while reporting this portfolio",
+                    title: "Error while sending this message",
                     description: error.message || "An unexpected error occurred.",
                     status: "error",
                     duration: 5000,
@@ -85,33 +76,26 @@ function ReportModel({ id }) {
 
     return (
         <Box>
-            <IconButton
-                aria-label="Report"
-                onClick={() => onOpen()}
-                icon={<MdOutlineReport />}
-                size="lg"
-                bg="red"
-                color="white"
-                _hover={{
-                    color: "lightGray",
-                    bg: "darkRed",
-                    border: "1px solid red",
-                }}
-            />
+            <Button onClick={() => onOpen()}>
+                Send Message
+            </Button>
 
             <Modal isOpen={isOpen} onClose={onClose} isCentered>
                 <ModalOverlay />
                 <ModalContent bg="brand.secondary.800" color="brand.primary.800">
                     <ModalHeader>
-                        Comment your issues with this portfolio
+                        Send message
                     </ModalHeader>
                     <ModalBody>
+                        <Text>
+                            Your Message:
+                        </Text>
                         <Textarea
                             width="220px"
-                            name="comment"
-                            placeholder="Type your comment here"
-                            value={reportComment}
-                            onChange={(e) => setReportComment(e.target.value)}
+                            name="context"
+                            placeholder="Type your message here"
+                            value={context}
+                            onChange={(e) => setContext(e.target.value)}
                             borderColor="brand.primary.900"
                             bg='brand.primary.800'
                             color="brand.secondary.900"
@@ -126,8 +110,12 @@ function ReportModel({ id }) {
                             }}
                         />
                         <Text>
-                            Plese do not report something !!!
+                            Status:
                         </Text>
+                        <Select name="status" value={status} onChange={event => handleStatusChange(event.target.value)} bg="brand.primary.800" color="brand.secondary.900">
+                            <option id="0" defaultChecked>Information</option>
+                            <option id="1" >Warning</option>
+                        </Select >
                     </ModalBody>
                     <ModalFooter>
                         <Button
@@ -136,8 +124,8 @@ function ReportModel({ id }) {
                         >
                             Cancel
                         </Button>
-                        <Button onClick={() => report(reportComment)}>
-                            Send report
+                        <Button onClick={() => sendMessage()}>
+                            Send message
                         </Button>
                     </ModalFooter>
                 </ModalContent>
@@ -146,4 +134,4 @@ function ReportModel({ id }) {
     );
 }
 
-export default ReportModel;
+export default MessageModel;

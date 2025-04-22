@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import { Box, Flex, Spacer, Button, Heading } from "@chakra-ui/react";
 import { useNavigate } from "react-router-dom";
 import { useTheme } from "../context/ThemeContext";
@@ -8,10 +9,35 @@ import { FaSun } from "react-icons/fa";
 
 import { FaMoon } from "react-icons/fa6";
 
+import { jwtDecode } from 'jwt-decode';
+
 function Navbar() {
     const navigate = useNavigate();
 
     const { theme, toggleTheme } = useTheme();
+
+    const isExpired = (token) => {
+        if (!token) return true;
+        try {
+            const decodedToken = jwtDecode(token);
+            const currentTime = Date.now() / 1000;
+            return decodedToken.exp < currentTime;
+        } catch (error) {
+            console.log("Error decoding token: ", error);
+            return true;
+        }
+    }
+
+    useEffect(() => {
+        const token = localStorage.getItem("authToken");
+
+        if (isExpired(token)) {
+            localStorage.removeItem('authToken');
+            localStorage.removeItem('userRole');
+            localStorage.removeItem('userId');
+            navigate('/');
+        }
+    }, [navigate]);
 
     const handleLogout = async () => {
         try {
@@ -22,6 +48,7 @@ function Navbar() {
         } finally {
             localStorage.removeItem('authToken');
             localStorage.removeItem('userRole');
+            localStorage.removeItem('userId');
             navigate("/");
         }
     };

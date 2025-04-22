@@ -25,12 +25,18 @@ import { TbListDetails } from "react-icons/tb";
 import { MdDeleteForever } from "react-icons/md";
 import { FaCheck } from "react-icons/fa";
 
-import { Link as ReactRouterLink } from 'react-router-dom'
+import { Link as ReactRouterLink } from 'react-router-dom';
+
+import { FaLink } from "react-icons/fa";
 
 import apiClient from '../axiosConfig';
 
+import MessageModel from './MessageModel';
+
 function AdminPortfolioListComponent({ portfolios, onReportRemoved }) {
     const { isOpen, onOpen, onClose } = useDisclosure();
+
+    const [selectedPortfolio, setSelectedPortfolio] = useState(null);
 
     const [selectedReport, setSelectedReport] = useState({
         id: '',
@@ -41,6 +47,7 @@ function AdminPortfolioListComponent({ portfolios, onReportRemoved }) {
     const toast = useToast();
 
     const handleReportDeatils = async (portfolio) => {
+        setSelectedPortfolio(portfolio);
         await fetchPortfolioReport(portfolio.id);
         onOpen();
     };
@@ -118,17 +125,24 @@ function AdminPortfolioListComponent({ portfolios, onReportRemoved }) {
                                     </Heading>
 
                                     <Text>{portfolio.description}</Text>
-                                    <ChakraLink
-                                        as={ReactRouterLink}
-                                        target="_blank"
-                                        to={`/preview/${portfolio.id}`}
-                                        _hover={{
-                                            textDecoration: "none",
-                                            color: "white"
-                                        }}
+                                    <HStack
+                                        fontStyle="italic"
+                                        width="fit-content"
+                                        margin="0 auto"
                                     >
-                                        {portfolio.portfolioUrl}
-                                    </ChakraLink>
+                                        <FaLink />
+                                        <ChakraLink
+                                            as={ReactRouterLink}
+                                            target="_blank"
+                                            to={`/preview/${portfolio.id}`}
+                                            _hover={{
+                                                textDecoration: "none",
+                                                color: "white"
+                                            }}
+                                        >
+                                            Link
+                                        </ChakraLink>
+                                    </HStack>
                                     <HStack
                                     >
                                         <IconButton
@@ -182,6 +196,9 @@ function AdminPortfolioListComponent({ portfolios, onReportRemoved }) {
                                 >
                                     Close
                                 </Button>
+                                <MessageModel
+                                    portfolio={selectedPortfolio}
+                                />
                             </ModalFooter>
                         </ModalContent>
                     </Modal>
