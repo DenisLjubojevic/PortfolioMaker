@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Infrastructure;
 using MongoDB.Bson;
 using MongoDB.Driver;
 using PortfolioMakerBackend.DTOs;
@@ -28,11 +29,11 @@ namespace PortfolioMakerBackend.Controllers
 
         [HttpGet("reciever/{recieverId}")]
         [Authorize]
-        public async Task<ActionResult<Message>> GetByRecieverId(string recieverId)
+        public ActionResult<List<Message>> GetByRecieverId(string recieverId)
         {
-            var message = await _messageCollection.Find(m => m.RecieverId == recieverId).FirstOrDefaultAsync();
-            if (message == null) return NotFound();
-            return message;
+            var messages = _messageCollection.Find(m => m.RecieverId == recieverId).ToList();
+            if (messages == null) return NotFound();
+            return messages;
         }
 
 
@@ -54,6 +55,34 @@ namespace PortfolioMakerBackend.Controllers
             await _messageCollection.InsertOneAsync(message);
 
             return Ok(message);
+        }
+
+        [HttpDelete("delete/reciever/{recieverId}")]
+        [Authorize]
+        public IActionResult DeleteAllMessages(string recieverId)
+        {
+            var message = _messageCollection.Find(m => m.RecieverId == recieverId).ToList();
+            if (message == null)
+            {
+                return NotFound();
+            }
+
+            _messageCollection.DeleteMany(m => m.RecieverId == recieverId);
+            return NoContent();
+        }
+
+        [HttpDelete("delete/{id}")]
+        [Authorize]
+        public IActionResult DeleteMessage(string id)
+        {
+            var message = _messageCollection.Find(m => m.Id == id).FirstOrDefault();
+            if (message == null)
+            {
+                return NotFound();
+            }
+
+            _messageCollection.DeleteOne(m => m.Id == id);
+            return NoContent();
         }
     }
 }

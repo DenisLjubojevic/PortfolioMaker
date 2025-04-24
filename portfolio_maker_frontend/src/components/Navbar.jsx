@@ -9,6 +9,8 @@ import { FaSun } from "react-icons/fa";
 
 import { FaMoon } from "react-icons/fa6";
 
+import { MdOutlineMessage } from "react-icons/md";
+
 import { jwtDecode } from 'jwt-decode';
 
 function Navbar() {
@@ -60,6 +62,10 @@ function Navbar() {
         navigate("/browse");
     }
 
+    const messages = () => {
+        navigate("/messages");
+    }
+
     return (
         <Box
             as="nav"
@@ -93,6 +99,13 @@ function Navbar() {
                         style={{ boxShadow: 'none' }}
                     >
                         Browse
+                    </Button>
+                    <Button
+                        size="sm"
+                        onClick={messages}
+                        style={{ boxShadow: 'none' }}
+                    >
+                        <MdOutlineMessage></MdOutlineMessage>
                     </Button>
                     <Button
                         size="sm"

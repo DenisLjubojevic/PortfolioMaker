@@ -31,7 +31,7 @@ import { FaLink } from "react-icons/fa";
 
 import apiClient from '../axiosConfig';
 
-import MessageModel from './MessageModel';
+import MessageModel from './Messages/MessageModel';
 
 function AdminPortfolioListComponent({ portfolios, onReportRemoved }) {
     const { isOpen, onOpen, onClose } = useDisclosure();
