@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { Box, Flex, Spacer, Button, Heading } from "@chakra-ui/react";
 import { useNavigate } from "react-router-dom";
 import { useTheme } from "../context/ThemeContext";
@@ -15,6 +15,7 @@ import { jwtDecode } from 'jwt-decode';
 
 function Navbar() {
     const navigate = useNavigate();
+    const [messageCounter, setMessageCounter] = useState(0);
 
     const { theme, toggleTheme } = useTheme();
 
@@ -39,7 +40,18 @@ function Navbar() {
             localStorage.removeItem('userId');
             navigate('/');
         }
+        checkMessages();
     }, [navigate]);
+
+    const checkMessages = async () => {
+        const userId = localStorage.getItem("userId");
+
+        const response = await apiClient.get(`https://localhost:7146/api/message/reciever/${userId}`);
+
+        if (response.data.length > 0) {
+            setMessageCounter(response.data.length);
+        }
+    }
 
     const handleLogout = async () => {
         try {
@@ -104,8 +116,19 @@ function Navbar() {
                         size="sm"
                         onClick={messages}
                         style={{ boxShadow: 'none' }}
+                        color={messageCounter > 0 ? "brand.primary.700" : "brand.secondary.800"}
+                        bg={messageCounter > 0 ? "brand.secondary.900" : "brand.primary.800"}
                     >
                         <MdOutlineMessage></MdOutlineMessage>
+                        {messageCounter > 0 && 
+                            <Box
+                                fontSize="x-small"
+                                marginTop="10px"
+                                marginLeft="2px"
+                            >
+                                {messageCounter}
+                            </Box>    
+                        }
                     </Button>
                     <Button
                         size="sm"

@@ -18,17 +18,22 @@ import {
 
 import apiClient from '../../axiosConfig';
 
+import { ConfirmationModal } from "../DialogModel/ConfirmationModal";
+
 function MessageModel({ portfolio }) {
     const { isOpen, onOpen, onClose } = useDisclosure();
+    const [confirmOpen, setConfirmOpen] = useState(false);
 
     const [context, setContext] = useState("");
-    const [status, setStatus] = useState("");
+    const [status, setStatus] = useState("Information");
 
     const toast = useToast();
 
     const handleStatusChange = (status) => {
         setStatus(status);
     }
+
+
 
     const sendMessage = async () => {
         const userId = localStorage.getItem("userId");
@@ -124,12 +129,24 @@ function MessageModel({ portfolio }) {
                         >
                             Cancel
                         </Button>
-                        <Button onClick={() => sendMessage()}>
+                        <Button onClick={() => {
+                            onClose();
+                            setConfirmOpen(true);
+                        }}>
                             Send message
                         </Button>
                     </ModalFooter>
                 </ModalContent>
             </Modal>
+
+            <ConfirmationModal
+                isOpen={confirmOpen}
+                onClose={() => setConfirmOpen(false)}
+                title="Confirm Send"
+                description="Are you sure you want to send this message?"
+                isWarning={false}
+                onConfirm={sendMessage}
+            />
         </Box>
     );
 }

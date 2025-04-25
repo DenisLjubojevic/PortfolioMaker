@@ -31,7 +31,10 @@ function MessagesComponent() {
     const fetchUserMessages = async (userId) => {
         try {
             const response = await apiClient.get(`https://localhost:7146/api/message/reciever/${userId}`);
-            setMessages(response.data);
+
+            if (response.data.length > 0) {
+                setMessages(response.data);
+            }
         } catch (error) {
             console.error('Failed to fetch messages:', error);
         }
@@ -171,10 +174,6 @@ function MessagesComponent() {
             )}
         </Flex>
     );
-}
-
-MessagesComponent.propTypes = {
-    messages: PropTypes.array.isRequired,
 }
 
 export default MessagesComponent;
