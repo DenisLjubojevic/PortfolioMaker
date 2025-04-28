@@ -4,11 +4,14 @@ import {
     Heading,
     Text,
     SimpleGrid,
+    HStack,
     Stack,
     Link as ChakraLink,
 } from '@chakra-ui/react';
 
 import { Link as ReactRouterLink } from 'react-router-dom'
+
+import { FaLink } from "react-icons/fa";
 
 function PublicPortfolioListComponent({ portfolios }) {
     return (
@@ -17,7 +20,7 @@ function PublicPortfolioListComponent({ portfolios }) {
                 <Text fontSize="2xl" color="brand.secondary.900" fontWeight="bold">No public portfolios found!</Text>
             ) : (
                 <Box p={8}>
-                    <SimpleGrid columns={[1, 2, 3]} spacing={8}>
+                        <SimpleGrid columns={[1, 2, 3]} spacing={8}>
                         {portfolios.map((portfolio, index) => (
                             <Box
                                 key={index}
@@ -33,17 +36,24 @@ function PublicPortfolioListComponent({ portfolios }) {
                                         {portfolio.name}
                                     </Heading>
                                     <Text>{portfolio.description}</Text>
-                                    <ChakraLink
-                                        as={ReactRouterLink}
-                                        target="_blank"
-                                        to={`/preview/${portfolio.id}`}
-                                        _hover={{
-                                            textDecoration: "none",
-                                            color: "white"
-                                        }}
+                                    <HStack
+                                        fontStyle="italic"
+                                        width="fit-content"
+                                        margin="0 auto"
                                     >
-                                        {portfolio.portfolioUrl}
-                                    </ChakraLink>
+                                        <FaLink />
+                                        <ChakraLink
+                                            as={ReactRouterLink}
+                                            target="_blank"
+                                            to={`/preview/${portfolio.id}`}
+                                            _hover={{
+                                                textDecoration: "none",
+                                                color: "white"
+                                            }}
+                                        >
+                                            Link
+                                        </ChakraLink>
+                                    </HStack>
                                 </Stack>
                             </Box>
                         ))}

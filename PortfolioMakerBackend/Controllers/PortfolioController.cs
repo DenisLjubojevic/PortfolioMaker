@@ -62,6 +62,14 @@ namespace PortfolioMakerBackend.Controllers
             return Ok(portfolios);
         }
 
+        [HttpGet("search/{searchedName}")]
+        [Authorize]
+        public ActionResult<List<Portfolio>> GetSearchedNamePortfolios(string searchedName)
+        {
+            var searchedPortfolios = _portfolios.Find(portfolio => portfolio.IsPublished == true && portfolio.Name.ToLower().Contains(searchedName.ToLower())).ToList();
+            return Ok(searchedPortfolios);
+        }
+
         [HttpGet("user")]
         [Authorize]
         public ActionResult<List<Portfolio>> GetUserPortfolio()
