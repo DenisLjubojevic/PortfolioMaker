@@ -19,6 +19,8 @@ const MotionBox = motion(Box);
 
 import ReportModel from '../ReportModel';
 
+import ReviewModel from "../ReviewModel";
+
 function ModernTemplatePreview({ portfolioData }) {
 
     const bgColor = useColorModeValue('#EDE8F5', 'gray.800');
@@ -81,6 +83,18 @@ function ModernTemplatePreview({ portfolioData }) {
                 >
                     <ReportModel
                         id={portfolioData.id}
+                    />
+                </Box>
+            }
+
+            {checkUser() == false &&
+                <Box
+                    position="fixed"
+                    bottom="2rem"
+                    left="2rem"
+                >
+                    <ReviewModel
+                        portfolioId={portfolioData.id}
                     />
                 </Box>
             }

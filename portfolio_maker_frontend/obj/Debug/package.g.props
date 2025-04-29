@@ -11,7 +11,7 @@
     <PackageJsonScriptsPreview Condition="$(PackageJsonScriptsPreview) == ''">vite preview</PackageJsonScriptsPreview>
     <PackageJsonDependenciesChakraUiIcon Condition="$(PackageJsonDependenciesChakraUiIcon) == ''">^3.2.0</PackageJsonDependenciesChakraUiIcon>
     <PackageJsonDependenciesChakraUiIcons Condition="$(PackageJsonDependenciesChakraUiIcons) == ''">^2.2.4</PackageJsonDependenciesChakraUiIcons>
-    <PackageJsonDependenciesChakraUiReact Condition="$(PackageJsonDependenciesChakraUiReact) == ''">^2.10.0</PackageJsonDependenciesChakraUiReact>
+    <PackageJsonDependenciesChakraUiReact Condition="$(PackageJsonDependenciesChakraUiReact) == ''">^2.10.7</PackageJsonDependenciesChakraUiReact>
     <PackageJsonDependenciesChakraUiReactContext Condition="$(PackageJsonDependenciesChakraUiReactContext) == ''">^2.1.0</PackageJsonDependenciesChakraUiReactContext>
     <PackageJsonDependenciesChakraUiSharedUtils Condition="$(PackageJsonDependenciesChakraUiSharedUtils) == ''">^2.0.5</PackageJsonDependenciesChakraUiSharedUtils>
     <PackageJsonDependenciesChakraUiSystem Condition="$(PackageJsonDependenciesChakraUiSystem) == ''">^2.6.2</PackageJsonDependenciesChakraUiSystem>

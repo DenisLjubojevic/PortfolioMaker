@@ -19,6 +19,8 @@ import { FiUser, FiBriefcase, FiFolder, FiMail } from "react-icons/fi";
 
 import ReportModel from '../ReportModel';
 
+import ReviewModel from "../ReviewModel";
+
 const MotionBox = motion(Box);
 
 function CreativeTemplatePreview({ portfolioData }) {
@@ -82,6 +84,18 @@ function CreativeTemplatePreview({ portfolioData }) {
                 >
                     <ReportModel
                         id={portfolioData.id}
+                    />
+                </Box>
+            }
+
+            {checkUser() == false &&
+                <Box
+                    position="fixed"
+                    bottom="2rem"
+                    left="2rem"
+                >
+                    <ReviewModel
+                        portfolioId={portfolioData.id}
                     />
                 </Box>
             }

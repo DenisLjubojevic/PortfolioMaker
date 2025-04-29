@@ -1,4 +1,3 @@
-import * as PropTypes from 'prop-types';
 import { useEffect, useState } from 'react';
 import Navbar from '../Navbar';
 

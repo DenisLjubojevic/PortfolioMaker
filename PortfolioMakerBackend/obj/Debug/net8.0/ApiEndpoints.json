@@ -689,6 +689,99 @@
     ]
   },
   {
+    "ContainingType": "PortfolioMakerBackend.Controllers.ReviewController",
+    "Method": "GetAll",
+    "RelativePath": "api/Review",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[PortfolioMakerBackend.Models.Review, PortfolioMakerBackend, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "PortfolioMakerBackend.Controllers.ReviewController",
+    "Method": "CreateReview",
+    "RelativePath": "api/Review/create",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "reviewDTO",
+        "Type": "PortfolioMakerBackend.DTOs.ReviewDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "PortfolioMakerBackend.Controllers.ReviewController",
+    "Method": "GetByPortfolioId",
+    "RelativePath": "api/Review/portfolio/{portfolioId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "portfolioId",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.List\u00601[[PortfolioMakerBackend.Models.Review, PortfolioMakerBackend, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "PortfolioMakerBackend.Controllers.ReviewController",
+    "Method": "GetByUserIdAndPortfolioId",
+    "RelativePath": "api/Review/user/{userId}/portfolio/{portfolioId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "userId",
+        "Type": "System.String",
+        "IsRequired": true
+      },
+      {
+        "Name": "portfolioId",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.List\u00601[[PortfolioMakerBackend.Models.Review, PortfolioMakerBackend, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
     "ContainingType": "PortfolioMakerBackend.Controllers.RolesController",
     "Method": "CreateRole",
     "RelativePath": "api/Roles/create",

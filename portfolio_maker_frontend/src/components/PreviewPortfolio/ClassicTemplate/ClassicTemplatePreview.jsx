@@ -11,6 +11,8 @@ import { Box, Flex } from "@chakra-ui/react";
 
 import ReportModel from '../ReportModel';
 
+import ReviewModel from "../ReviewModel";
+
 function ClassicTemplatePreview({ portfolioData }) {
     const [activeSection, setActiveSection] = useState("about");
 
@@ -38,6 +40,18 @@ function ClassicTemplatePreview({ portfolioData }) {
                 >
                     <ReportModel
                         id={portfolioData.id}
+                    />
+                </Box>
+            }
+
+            {checkUser() == false &&
+                <Box
+                    position="fixed"
+                    bottom="2rem"
+                    left="2rem"
+                >
+                    <ReviewModel
+                        portfolioId={portfolioData.id}
                     />
                 </Box>
             }

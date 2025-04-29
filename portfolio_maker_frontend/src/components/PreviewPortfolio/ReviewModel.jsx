@@ -6,7 +6,6 @@ import {
     Button,
     IconButton,
     Textarea,
-    Text,
     useToast,
     Modal,
     ModalOverlay,
@@ -17,62 +16,78 @@ import {
     useDisclosure,
 } from "@chakra-ui/react";
 
-import { MdOutlineReport } from "react-icons/md";
-
 import apiClient from '../../axiosConfig';
 
-function ReportModel({ id }) {
+import StarRating from './StarRating';
+
+import { FaStar } from "react-icons/fa";
+
+function ReviewModel({ portfolioId }) {
     const { isOpen, onOpen, onClose } = useDisclosure();
 
-    const [reportComment, setReportComment] = useState("");
-
+    const [reviewComment, setReviewComment] = useState("");
+    const [mark, setMark] = useState(0);
 
     const toast = useToast();
 
-    const report = async (reportComment) => {
-        var reportData = {
-            id: "1",
-            PortfolioId: id,
-            comment: reportComment,
+    const review = async () => {
+        var userId = localStorage.getItem("userId");
+        var reviewData = {
+            Id: "1",
+            PortfolioId: portfolioId,
+            UserId: userId,
+            Mark: mark,
+            Comment: reviewComment,
         }
 
+        var userReviews = null;
+
         try {
-            reportData = await apiClient.get(`https://localhost:7146/api/report/portfolio/${id}`);
+            var result = await apiClient.get(`https://localhost:7146/api/review/user/${userId}/portfolio/${portfolioId}`);
+            if (result.data.length > 0) userReviews = result;
         } catch (error) {
             console.error('Failed to fetch reported portfolio:', error);
         }
 
-        if (reportData.id != "1") {
+        if (userReviews != null) {
             toast({
-                title: "Unable to send report",
-                description: "Portfolio is currently being watched",
-                status: "error",
+                title: "Unable to add a review",
+                description: "You have already made a review of this portfolio!",
+                status: "warning",
                 duration: 5000,
                 isClosable: true,
             });
-        } else if (reportComment == "") {
+        } else if (reviewComment == "") {
             toast({
                 title: "Insert a comment",
                 description: "You need to add a comment",
-                status: "error",
+                status: "warning",
+                duration: 5000,
+                isClosable: true,
+            });
+        } else if (!mark) {
+            toast({
+                title: "Select a star rating",
+                description: "You need to select a star rating!",
+                status: "warning",
                 duration: 5000,
                 isClosable: true,
             });
         } else {
             try {
-                await apiClient.post('https://localhost:7146/api/report/create', {
-                    ...reportData
+                await apiClient.post('https://localhost:7146/api/review/create', {
+                    ...reviewData
                 });
                 toast({
-                    title: "Report",
-                    description: "Your report has been sent.",
+                    title: "Review",
+                    description: "Your review has been sent.",
                     status: "success",
                     duration: 5000,
                     isClosable: true,
                 });
             } catch (error) {
                 toast({
-                    title: "Error while reporting this portfolio",
+                    title: "Error while sending a review",
                     description: error.message || "An unexpected error occurred.",
                     status: "error",
                     duration: 5000,
@@ -86,17 +101,17 @@ function ReportModel({ id }) {
     return (
         <Box>
             <IconButton
-                aria-label="Report"
+                aria-label="Review"
                 onClick={() => onOpen()}
-                icon={<MdOutlineReport />}
+                icon={<FaStar />}
                 size="lg"
                 fontSize="1.5rem"
-                bg="red"
-                color="white"
+                bg="#ffe333"
+                color="#e69c24"
                 _hover={{
-                    color: "lightGray",
-                    bg: "darkRed",
-                    border: "1px solid red",
+                    color: "yellow",
+                    bg: "#d5bd2b",
+                    border: "1px solid yellow",
                 }}
             />
 
@@ -104,15 +119,21 @@ function ReportModel({ id }) {
                 <ModalOverlay />
                 <ModalContent bg="brand.secondary.800" color="brand.primary.800">
                     <ModalHeader>
-                        Comment your issues with this portfolio
+                        Leave your review here
                     </ModalHeader>
                     <ModalBody>
+                        <StarRating
+                            rating={mark}
+                            onChange={setMark}
+                        ></StarRating>
+                        
                         <Textarea
                             width="220px"
                             name="comment"
                             placeholder="Type your comment here"
-                            value={reportComment}
-                            onChange={(e) => setReportComment(e.target.value)}
+                            value={reviewComment}
+                            onChange={(e) => setReviewComment(e.target.value)}
+                            mt={2}
                             borderColor="brand.primary.900"
                             bg='brand.primary.800'
                             color="brand.secondary.900"
@@ -126,9 +147,6 @@ function ReportModel({ id }) {
                                 borderColor: "brand.secondary.900",
                             }}
                         />
-                        <Text mt={4}>
-                            Plese do not report without a valid reason!!!
-                        </Text>
                     </ModalBody>
                     <ModalFooter>
                         <Button
@@ -137,8 +155,8 @@ function ReportModel({ id }) {
                         >
                             Cancel
                         </Button>
-                        <Button onClick={() => report(reportComment)}>
-                            Send report
+                        <Button onClick={() => review(reviewComment)}>
+                            Confirm review
                         </Button>
                     </ModalFooter>
                 </ModalContent>
@@ -147,8 +165,8 @@ function ReportModel({ id }) {
     );
 }
 
-ReportModel.propTypes = {
-    id: PropTypes.string.isRequired,
+ReviewModel.propTypes = {
+    portfolioId: PropTypes.string.isRequired,
 };
 
-export default ReportModel;
+export default ReviewModel;

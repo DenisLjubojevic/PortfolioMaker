@@ -9,6 +9,7 @@ import {
     Input,
     Heading,
     VStack,
+    HStack,
     Text,
     Flex,
     Stack,
@@ -24,6 +25,7 @@ function Auth() {
     const [isLogin, setIsLogin] = useState(true);
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const [confirmPassword, setConfirmPassword] = useState('');
     const [firstName, setFirstName] = useState('');
     const [lastName, setLastName] = useState('');
     const [dateOfBirth, setDateOfBirth] = useState('');
@@ -54,27 +56,48 @@ function Auth() {
 
         const url = isLogin ? 'https://localhost:7146/api/auth/login' : 'https://localhost:7146/api/auth/signup';
 
-        try {
-            console.log('Login url:', url);
-            const response = await axios.post(url, payload);
-            if (response.data.token) {
-                setToken(response.data.token);
-                console.log(response.data);
-                localStorage.setItem('authToken', response.data.token);
-                localStorage.setItem('userRole', response.data.role);
-                localStorage.setItem('userId', response.data.userId);
+        if (isLogin) {
+            try {
+                const response = await axios.post(url, payload);
+                if (response.data.token) {
+                    setToken(response.data.token);
+                    localStorage.setItem('authToken', response.data.token);
+                    localStorage.setItem('userRole', response.data.role);
+                    localStorage.setItem('userId', response.data.userId);
 
-                navigate("/dashboard");
+                    navigate("/dashboard");
+                }
+            } catch (err) {
+                console.error('Login failed:', error.response);
+                if (err.response && err.response.data) {
+                    const errorMessage = err.response.data.description || 'Something went wrong';
+                    setError(errorMessage);
+                } else {
+                    setError('Something went wrong');
+                }
             }
-        } catch (err) {
-            console.error('Login failed:', error.response);
-            if (err.response && err.response.data) {
-                const errorMessage = err.response.data.message || 'Something went wrong';
-                setError(errorMessage);
+        } else {
+            setProfilePictureUrl("https://example.com/picture.jpg");
+
+            if (password != confirmPassword) {
+                setError("Both passwords must be same!");
             } else {
-                setError('Something went wrong');
-            }
+                try {
+                    await axios.post(url, payload);
+                    setIsLogin(true);
+                } catch (err) {
+                    console.error('Sign Up failed:', error.response);
+                    if (err.response && err.response.data) {
+                        const errorMessage = err.response.data.message || 'Something went wrong';
+                        setError(errorMessage);
+                    } else {
+                        setError('Something went wrong');
+                    }
+                }
+            }            
         }
+
+        
     };
 
     const handleSwitch = () => {
@@ -119,8 +142,8 @@ function Auth() {
                                         <>
                                             <FormControl>
                                                 <InputGroup>
-                                                    <InputLeftElement pointerEvents="none" >
-                                                        <FaUserAlt color="gray.300" />
+                                                    <InputLeftElement pointerEvents="none" color="login.primary.900">
+                                                        <FaUserAlt />
                                                     </InputLeftElement>
                                                     <Input
                                                         type="email"
@@ -129,12 +152,13 @@ function Auth() {
                                                         isRequired
                                                         placeholder="Enter your email"
                                                         bg="login.primary.600"
+                                                        color="login.primary.900"
                                                         _placeholder={{
-                                                            color: "login.primary.400"
+                                                            color: "login.primary.900",
                                                         }}
                                                         _focus={{
                                                             boxShadow: "none",
-                                                            borderColor: "login.primary.900"
+                                                            borderColor: "login.primary.900",
                                                         }}
                                                     />
                                                 </InputGroup>
@@ -142,8 +166,8 @@ function Auth() {
 
                                             <FormControl>
                                                 <InputGroup>
-                                                    <InputLeftElement pointerEvents="none" >
-                                                        <FaLock color="gray.300" />
+                                                    <InputLeftElement pointerEvents="none" color="login.primary.900">
+                                                        <FaLock />
                                                     </InputLeftElement>
                                                     <Input
                                                         type={showPassword ? "text" : "password"}
@@ -152,8 +176,9 @@ function Auth() {
                                                         isRequired
                                                         placeholder="Enter your password"
                                                         bg="login.primary.600"
+                                                        color="login.primary.900"
                                                         _placeholder={{
-                                                            color: "login.primary.400"
+                                                            color: "login.primary.900"
                                                         }}
                                                         _focus={{
                                                             boxShadow: "none",
@@ -169,8 +194,8 @@ function Auth() {
                                                             color="login.primary.500"
                                                             _hover={{
                                                                 transform: "scale(1.05)",
-                                                                bg: "login.primary.600",
-                                                                color: "login.primary.900",
+                                                                bg: "login.primary.800",
+                                                                color: "login.primary.400",
                                                                 borderColor: "login.primary.900",
                                                             }}
                                                             _focus={{
@@ -187,77 +212,118 @@ function Auth() {
 
                                     {!isLogin && (
                                         <>
-                                            <FormControl>
-                                                <FormLabel color="login.primary.900">First Name</FormLabel>
-                                                <Input
-                                                    type="text"
-                                                    value={firstName}
-                                                    onChange={(e) => setFirstName(e.target.value)}
-                                                    placeholder="Enter your first name"
-                                                    bg="login.primary.600"
-                                                    color="login.primary.900"
-                                                    _placeholder={{
-                                                        color: "login.primary.400"
-                                                    }}
-                                                    _focus={{
-                                                        boxShadow: "none",
-                                                        borderColor: "login.primary.900"
-                                                    }}
-                                                />
-                                            </FormControl>
+                                            <HStack p={4}>
+                                                <VStack>
+                                                    <FormControl>
+                                                        <FormLabel color="login.primary.900">First Name</FormLabel>
+                                                        <Input
+                                                            type="text"
+                                                            value={firstName}
+                                                            onChange={(e) => setFirstName(e.target.value)}
+                                                            placeholder="Enter your first name"
+                                                            bg="login.primary.600"
+                                                            color="login.primary.900"
+                                                            _placeholder={{
+                                                                color: "login.primary.900",
+                                                            }}
+                                                            _focus={{
+                                                                boxShadow: "none",
+                                                                borderColor: "login.primary.900"
+                                                            }}
+                                                        />
+                                                    </FormControl>
 
-                                            <FormControl>
-                                                <FormLabel color="login.primary.900">Last Name</FormLabel>
-                                                <Input
-                                                    type="text"
-                                                    value={lastName}
-                                                    onChange={(e) => setLastName(e.target.value)}
-                                                    placeholder="Enter your last name"
-                                                    bg="login.primary.600"
-                                                    color="login.primary.900"
-                                                    _placeholder={{
-                                                        color: "login.primary.400"
-                                                    }}
-                                                    _focus={{
-                                                        boxShadow: "none",
-                                                        borderColor: "login.primary.900"
-                                                    }}
-                                                />
-                                            </FormControl>
+                                                    <FormControl>
+                                                        <FormLabel color="login.primary.900">Last Name</FormLabel>
+                                                        <Input
+                                                            type="text"
+                                                            value={lastName}
+                                                            onChange={(e) => setLastName(e.target.value)}
+                                                            placeholder="Enter your last name"
+                                                            bg="login.primary.600"
+                                                            color="login.primary.900"
+                                                            _placeholder={{
+                                                                color: "login.primary.900"
+                                                            }}
+                                                            _focus={{
+                                                                boxShadow: "none",
+                                                                borderColor: "login.primary.900"
+                                                            }}
+                                                        />
+                                                    </FormControl>
 
-                                            <FormControl>
-                                                <FormLabel color="login.primary.900">Date of Birth</FormLabel>
-                                                <Input
-                                                    type="date"
-                                                    value={dateOfBirth}
-                                                    onChange={(e) => setDateOfBirth(e.target.value)}
-                                                    bg="login.primary.600"
-                                                    color= "login.primary.900"
-                                                    _focus={{
-                                                        boxShadow: "none",
-                                                        borderColor: "login.primary.900"
-                                                    }}
-                                                />
-                                            </FormControl>
-
-                                            <FormControl>
-                                                <FormLabel color="login.primary.900">Profile Picture URL</FormLabel>
-                                                <Input
-                                                    type="text"
-                                                    value={profilePictureUrl}
-                                                    onChange={(e) => setProfilePictureUrl(e.target.value)}
-                                                    placeholder="Enter your profile picture URL"
-                                                    bg="login.primary.600"
-                                                    color="login.primary.900"
-                                                    _placeholder={{
-                                                        color: "login.primary.400"
-                                                    }}
-                                                    _focus={{
-                                                        boxShadow: "none",
-                                                        borderColor: "login.primary.900"
-                                                    }}
-                                                />
-                                            </FormControl>
+                                                    <FormControl>
+                                                        <FormLabel color="login.primary.900">Date of Birth</FormLabel>
+                                                        <Input
+                                                            type="date"
+                                                            value={dateOfBirth}
+                                                            onChange={(e) => setDateOfBirth(e.target.value)}
+                                                            bg="login.primary.600"
+                                                            color="login.primary.900"
+                                                            _focus={{
+                                                                boxShadow: "none",
+                                                                borderColor: "login.primary.900"
+                                                            }}
+                                                        />
+                                                    </FormControl>
+                                                </VStack>
+                                                <VStack ml={10}>
+                                                    <FormControl>
+                                                        <FormLabel color="login.primary.900">Email</FormLabel>
+                                                        <Input
+                                                            type="email"
+                                                            value={email}
+                                                            onChange={(e) => setEmail(e.target.value)}
+                                                            placeholder="Enter your email"
+                                                            bg="login.primary.600"
+                                                            color="login.primary.900"
+                                                            _placeholder={{
+                                                                color: "login.primary.900"
+                                                            }}
+                                                            _focus={{
+                                                                boxShadow: "none",
+                                                                borderColor: "login.primary.900"
+                                                            }}
+                                                        />
+                                                    </FormControl>
+                                                    <FormControl>
+                                                        <FormLabel color="login.primary.900">Password</FormLabel>
+                                                        <Input
+                                                            type="password"
+                                                            value={password}
+                                                            onChange={(e) => setPassword(e.target.value)}
+                                                            placeholder="Enter your password"
+                                                            bg="login.primary.600"
+                                                            color="login.primary.900"
+                                                            _placeholder={{
+                                                                color: "login.primary.900"
+                                                            }}
+                                                            _focus={{
+                                                                boxShadow: "none",
+                                                                borderColor: "login.primary.900"
+                                                            }}
+                                                        />
+                                                    </FormControl>
+                                                    <FormControl>
+                                                        <FormLabel color="login.primary.900">Confirm Password</FormLabel>
+                                                        <Input
+                                                            type="password"
+                                                            value={confirmPassword}
+                                                            onChange={(e) => setConfirmPassword(e.target.value)}
+                                                            placeholder="Enter your password again"
+                                                            bg="login.primary.600"
+                                                            color="login.primary.900"
+                                                            _placeholder={{
+                                                                color: "login.primary.900"
+                                                            }}
+                                                            _focus={{
+                                                                boxShadow: "none",
+                                                                borderColor: "login.primary.900"
+                                                            }}
+                                                        />
+                                                    </FormControl>
+                                                </VStack>
+                                            </HStack>
                                         </>
                                     )}
 
@@ -275,9 +341,9 @@ function Auth() {
                                         mb={2}
                                         _hover={{
                                             transform: "scale(1.05)",
-                                            bg: "login.primary.600",
-                                            color: "login.primary.900",
-                                            borderColor: "login.primary.900",
+                                            bg: "login.primary.800",
+                                            color: "login.primary.400",
+                                            borderColor: "login.primary.700",
                                         }}
                                         _focus={{
                                             outline: "none",
@@ -297,7 +363,7 @@ function Auth() {
                                 _hover={{
                                     bg: "none",
                                     border: "none",
-                                    color: "white",
+                                    color: "login.primary.800",
                                     transform: "scale(1.05)",
                                 }}
                                 _focus={{

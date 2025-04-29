@@ -3,20 +3,12 @@
   "WorkspaceRootPath": "C:\\Users\\Dean\\Desktop\\Skola\\TVZ\\Projekti\\PortfolioMaker\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{40A6EBD1-4F7F-4901-831E-5EC35D31A7D2}|portfolio_maker_frontend\\portfolio_maker_frontend.esproj|c:\\users\\dean\\desktop\\skola\\tvz\\projekti\\portfoliomaker\\portfolio_maker_frontend\\src\\components\\browseportfolios\\browseportfolioscomponent.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
-      "RelativeMoniker": "D:0:0:{40A6EBD1-4F7F-4901-831E-5EC35D31A7D2}|portfolio_maker_frontend\\portfolio_maker_frontend.esproj|solutionrelative:portfolio_maker_frontend\\src\\components\\browseportfolios\\browseportfolioscomponent.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+      "AbsoluteMoniker": "D:0:0:{40A6EBD1-4F7F-4901-831E-5EC35D31A7D2}|portfolio_maker_frontend\\portfolio_maker_frontend.esproj|c:\\users\\dean\\desktop\\skola\\tvz\\projekti\\portfoliomaker\\portfolio_maker_frontend\\src\\components\\auth.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{40A6EBD1-4F7F-4901-831E-5EC35D31A7D2}|portfolio_maker_frontend\\portfolio_maker_frontend.esproj|solutionrelative:portfolio_maker_frontend\\src\\components\\auth.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{CECC8873-F98A-4209-8D3A-86A9467C69D5}|PortfolioMakerBackend\\PortfolioMakerBackend.csproj|c:\\users\\dean\\desktop\\skola\\tvz\\projekti\\portfoliomaker\\portfoliomakerbackend\\controllers\\portfoliocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{CECC8873-F98A-4209-8D3A-86A9467C69D5}|PortfolioMakerBackend\\PortfolioMakerBackend.csproj|solutionrelative:portfoliomakerbackend\\controllers\\portfoliocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{40A6EBD1-4F7F-4901-831E-5EC35D31A7D2}|portfolio_maker_frontend\\portfolio_maker_frontend.esproj|c:\\users\\dean\\desktop\\skola\\tvz\\projekti\\portfoliomaker\\portfolio_maker_frontend\\src\\components\\createportfolio\\projectsstep.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
-      "RelativeMoniker": "D:0:0:{40A6EBD1-4F7F-4901-831E-5EC35D31A7D2}|portfolio_maker_frontend\\portfolio_maker_frontend.esproj|solutionrelative:portfolio_maker_frontend\\src\\components\\createportfolio\\projectsstep.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{40A6EBD1-4F7F-4901-831E-5EC35D31A7D2}|portfolio_maker_frontend\\portfolio_maker_frontend.esproj|c:\\users\\dean\\desktop\\skola\\tvz\\projekti\\portfoliomaker\\portfolio_maker_frontend\\src\\app.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
-      "RelativeMoniker": "D:0:0:{40A6EBD1-4F7F-4901-831E-5EC35D31A7D2}|portfolio_maker_frontend\\portfolio_maker_frontend.esproj|solutionrelative:portfolio_maker_frontend\\src\\app.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+      "AbsoluteMoniker": "D:0:0:{40A6EBD1-4F7F-4901-831E-5EC35D31A7D2}|portfolio_maker_frontend\\portfolio_maker_frontend.esproj|c:\\users\\dean\\desktop\\skola\\tvz\\projekti\\portfoliomaker\\portfolio_maker_frontend\\src\\theme.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{40A6EBD1-4F7F-4901-831E-5EC35D31A7D2}|portfolio_maker_frontend\\portfolio_maker_frontend.esproj|solutionrelative:portfolio_maker_frontend\\src\\theme.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
     }
   ],
   "DocumentGroupContainers": [
@@ -25,8 +17,8 @@
       "VerticalTabListWidth": 256,
       "DocumentGroups": [
         {
-          "DockedHeight": 248,
-          "SelectedChildIndex": 1,
+          "DockedHeight": 273,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Bookmark",
@@ -34,54 +26,28 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "BrowsePortfoliosComponent.jsx",
-              "DocumentMoniker": "C:\\Users\\Dean\\Desktop\\Skola\\TVZ\\Projekti\\PortfolioMaker\\portfolio_maker_frontend\\src\\components\\BrowsePortfolios\\BrowsePortfoliosComponent.jsx",
-              "RelativeDocumentMoniker": "portfolio_maker_frontend\\src\\components\\BrowsePortfolios\\BrowsePortfoliosComponent.jsx",
-              "ToolTip": "C:\\Users\\Dean\\Desktop\\Skola\\TVZ\\Projekti\\PortfolioMaker\\portfolio_maker_frontend\\src\\components\\BrowsePortfolios\\BrowsePortfoliosComponent.jsx",
-              "RelativeToolTip": "portfolio_maker_frontend\\src\\components\\BrowsePortfolios\\BrowsePortfoliosComponent.jsx",
-              "ViewState": "AgIAAFoAAAAAAAAAAAAUwGYAAAAdAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003663|",
-              "WhenOpened": "2025-04-28T14:20:32.531Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "ProjectsStep.jsx",
-              "DocumentMoniker": "C:\\Users\\Dean\\Desktop\\Skola\\TVZ\\Projekti\\PortfolioMaker\\portfolio_maker_frontend\\src\\components\\CreatePortfolio\\ProjectsStep.jsx",
-              "RelativeDocumentMoniker": "portfolio_maker_frontend\\src\\components\\CreatePortfolio\\ProjectsStep.jsx",
-              "ToolTip": "C:\\Users\\Dean\\Desktop\\Skola\\TVZ\\Projekti\\PortfolioMaker\\portfolio_maker_frontend\\src\\components\\CreatePortfolio\\ProjectsStep.jsx",
-              "RelativeToolTip": "portfolio_maker_frontend\\src\\components\\CreatePortfolio\\ProjectsStep.jsx",
-              "ViewState": "AgIAAOYAAAAAAAAAAAAAwP4AAAAhAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003663|",
-              "WhenOpened": "2025-04-28T14:15:46.751Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "App.jsx",
-              "DocumentMoniker": "C:\\Users\\Dean\\Desktop\\Skola\\TVZ\\Projekti\\PortfolioMaker\\portfolio_maker_frontend\\src\\App.jsx",
-              "RelativeDocumentMoniker": "portfolio_maker_frontend\\src\\App.jsx",
-              "ToolTip": "C:\\Users\\Dean\\Desktop\\Skola\\TVZ\\Projekti\\PortfolioMaker\\portfolio_maker_frontend\\src\\App.jsx",
-              "RelativeToolTip": "portfolio_maker_frontend\\src\\App.jsx",
-              "ViewState": "AgIAAA8AAAAAAAAAAAAAABoAAABDAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003663|",
-              "WhenOpened": "2025-04-25T15:02:21.65Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "PortfolioController.cs",
-              "DocumentMoniker": "C:\\Users\\Dean\\Desktop\\Skola\\TVZ\\Projekti\\PortfolioMaker\\PortfolioMakerBackend\\Controllers\\PortfolioController.cs",
-              "RelativeDocumentMoniker": "PortfolioMakerBackend\\Controllers\\PortfolioController.cs",
-              "ToolTip": "C:\\Users\\Dean\\Desktop\\Skola\\TVZ\\Projekti\\PortfolioMaker\\PortfolioMakerBackend\\Controllers\\PortfolioController.cs",
-              "RelativeToolTip": "PortfolioMakerBackend\\Controllers\\PortfolioController.cs",
-              "ViewState": "AgIAADYAAAAAAAAAAAAAAEIAAABbAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-24T14:42:32.95Z",
+              "Title": "theme.js",
+              "DocumentMoniker": "C:\\Users\\Dean\\Desktop\\Skola\\TVZ\\Projekti\\PortfolioMaker\\portfolio_maker_frontend\\src\\theme.js",
+              "RelativeDocumentMoniker": "portfolio_maker_frontend\\src\\theme.js",
+              "ToolTip": "C:\\Users\\Dean\\Desktop\\Skola\\TVZ\\Projekti\\PortfolioMaker\\portfolio_maker_frontend\\src\\theme.js",
+              "RelativeToolTip": "portfolio_maker_frontend\\src\\theme.js",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAABIAAAAdAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
+              "WhenOpened": "2025-04-29T15:39:29.669Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Auth.jsx",
+              "DocumentMoniker": "C:\\Users\\Dean\\Desktop\\Skola\\TVZ\\Projekti\\PortfolioMaker\\portfolio_maker_frontend\\src\\components\\Auth.jsx",
+              "RelativeDocumentMoniker": "portfolio_maker_frontend\\src\\components\\Auth.jsx",
+              "ToolTip": "C:\\Users\\Dean\\Desktop\\Skola\\TVZ\\Projekti\\PortfolioMaker\\portfolio_maker_frontend\\src\\components\\Auth.jsx",
+              "RelativeToolTip": "portfolio_maker_frontend\\src\\components\\Auth.jsx",
+              "ViewState": "AgIAADUAAAAAAAAAAAAAAEgAAABGAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003663|",
+              "WhenOpened": "2025-04-29T15:37:59.317Z",
               "EditorCaption": ""
             }
           ]
