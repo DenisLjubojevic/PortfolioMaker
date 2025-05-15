@@ -38,6 +38,16 @@ function PortfolioList({ portfolios, onEditPortfolio }) {
 
     const [selectedPortfolio, setSelectedPortfolio] = useState(null);
 
+    const bgColor = {
+        reported: "brand.reported.700",
+        default: "brand.primary.800",
+    };
+
+    const textColor = {
+        reported: "brand.reported.600",
+        default: "brand.secondary.900",
+    };
+
     const toast = useToast();
 
     const handleSettingsClick = (portfolio) => {
@@ -107,8 +117,8 @@ function PortfolioList({ portfolios, onEditPortfolio }) {
                                 <Box
                                     key={index}
                                     p={5}
-                                    bg="brand.primary.800"
-                                    color="brand.secondary.800"
+                                    bg={portfolio.isReported ? bgColor.reported : bgColor.default}
+                                    color={portfolio.isReported ? textColor.reported : textColor.default}
                                     shadow="md"
                                     borderRadius="md"
                                     position="relative"
@@ -117,6 +127,7 @@ function PortfolioList({ portfolios, onEditPortfolio }) {
                                     <IconButton
                                         aria-label="Settings"
                                         onClick={() => handleSettingsClick(portfolio)}
+                                        color={portfolio.isReported ? "brand.reported.600" : "brand.secondary.900" }
                                         icon={<IoMdSettings />}
                                         size="sm"
                                         position="absolute"
@@ -124,7 +135,7 @@ function PortfolioList({ portfolios, onEditPortfolio }) {
                                         right="8px"
                                         bg="transparent"
                                         _hover={{
-                                            color: "brand.secondary.700",
+                                            color: portfolio.isReported ? "yellow" : "brand.secondary.700",
                                             bg: "transparent",
                                             border: "none",
                                         }}
@@ -148,16 +159,20 @@ function PortfolioList({ portfolios, onEditPortfolio }) {
                                                 to={`/preview/${portfolio.id}`}
                                                 _hover={{
                                                     textDecoration: "none",
-                                                    color: "white"
+                                                    color: portfolio.isReported ? "black" : "white",
                                                 }}
                                             >
                                                 Link
                                             </ChakraLink>
                                         </HStack>
                                         <Button
-                                            bg="brand.secondary.800"
-                                            color="brand.primary.800"
+                                            bg={portfolio.isReported ? "yellow" : "brand.secondary.800"}
+                                            color={portfolio.isReported ? "black" : "brand.primary.800"}
                                             onClick={() => onEditPortfolio(portfolio)}
+                                            _hover={{
+                                                bg: portfolio.isReported ? "black" : "brand.secondary.700",
+                                                color: portfolio.isReported ? "yellow" : "brand.secondary.900",
+                                            }}
                                         >
                                             <FaEdit /> Edit
                                         </Button>
@@ -229,6 +244,7 @@ function PortfolioList({ portfolios, onEditPortfolio }) {
 
 PortfolioList.propTypes = {
     portfolios: PropTypes.array.isRequired,
+    reportedPortfolios: PropTypes.array.isRequired,
     onEditPortfolio: PropTypes.func.isRequired,
 };
 

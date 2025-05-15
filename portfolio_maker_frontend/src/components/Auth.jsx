@@ -69,12 +69,14 @@ function Auth() {
                 }
             } catch (err) {
                 console.error('Login failed:', error.response);
-                if (err.response && err.response.data) {
-                    const errorMessage = err.response.data.description || 'Something went wrong';
-                    setError(errorMessage);
-                } else {
-                    setError('Something went wrong');
-                }
+
+                const serverMessage =
+                    err.response?.data?.message ||
+                    err.response?.data?.description ||
+                    err.response?.data ||
+                    'Something went wrong';
+
+                setError(serverMessage);
             }
         } else {
             setProfilePictureUrl("https://example.com/picture.jpg");
@@ -87,12 +89,13 @@ function Auth() {
                     setIsLogin(true);
                 } catch (err) {
                     console.error('Sign Up failed:', error.response);
-                    if (err.response && err.response.data) {
-                        const errorMessage = err.response.data.message || 'Something went wrong';
-                        setError(errorMessage);
-                    } else {
-                        setError('Something went wrong');
-                    }
+                    const serverMessage =
+                        err.response?.data?.message ||
+                        err.response?.data?.description ||
+                        err.response?.data ||
+                        'Something went wrong';
+
+                    setError(serverMessage);
                 }
             }            
         }

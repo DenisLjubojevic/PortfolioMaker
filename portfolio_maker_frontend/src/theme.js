@@ -13,6 +13,10 @@ const lightTheme = extendTheme({
                 800: "#738ab6",
                 700: "#99b2cf",
             },
+            reported: {
+                700: "#cad62f",
+                600: "white",
+            }
         },
         login: {
             primary: {
@@ -147,6 +151,10 @@ const darkTheme = extendTheme({
                 900: "#79a838",
                 800: "#97BC62",
                 700: "#a4c771",
+            },
+            reported: {
+                700: "#b9c700",
+                600: "black",
             },
         },
         login: {

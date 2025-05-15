@@ -50,16 +50,30 @@ function Dashboard() {
     }
 
     useEffect(() => {
-        if (token) {
-            fetchUserPortfolios();
-            if (userRole == "ADMIN") {
-                fetchReportedPortfolios();
-            }
-        } else {
-            console.error("Token is missing, navigating to login page.");
+        if (!token) {
             navigate('/');
+            return;
         }
-    }, [navigate, token]);
+
+        async function load() {
+            const [userRes, reportedRes] = await Promise.all([
+                apiClient.get('https://localhost:7146/api/portfolio/user'),
+                apiClient.get('https://localhost:7146/api/portfolio/reported'),
+            ]);
+            const user = userRes.data;
+            const reportedIds = new Set(reportedRes.data.map(p => p.id));
+
+            const annotated = user.map(p => ({
+                ...p,
+                isReported: reportedIds.has(p.id),
+            }));
+
+            setPortfolios(annotated);
+            fetchReportedPortfolios();
+        }
+
+        load();
+    }, [token]);
 
 
     const handleEditPortfolio = (portfolio) => {
@@ -135,6 +149,7 @@ function Dashboard() {
                                 </Heading>
                                 <PortfolioList
                                     portfolios={portfolios}
+                                    reportedPortfolios={reportedPortfolios}
                                     onEditPortfolio={handleEditPortfolio}
                                 />
                             </>

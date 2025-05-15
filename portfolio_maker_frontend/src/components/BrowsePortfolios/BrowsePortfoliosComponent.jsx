@@ -20,18 +20,27 @@ function BrowsePortfoliosComponent() {
     const [portfolios, setPortfolios] = useState([]);
     const [searchBar, setSearchBar] = useState("");
 
-    const navigate = useNavigate();
-
     const token = localStorage.getItem('authToken');
 
-    const fetchPortfolios = async () => {
-        try {
-            const response = await apiClient.get('https://localhost:7146/api/portfolio/public');
-            setPortfolios(response.data);
-        } catch (error) {
-            console.error('Failed to fetch user portfolios:', error);
+    useEffect(() => {
+        async function load() {
+            const [userRes, reportedRes] = await Promise.all([
+                apiClient.get('https://localhost:7146/api/portfolio/public'),
+                apiClient.get('https://localhost:7146/api/portfolio/reported'),
+            ]);
+            const user = userRes.data;
+            const reportedIds = new Set(reportedRes.data.map(p => p.id));
+
+            const annotated = user.map(p => ({
+                ...p,
+                isReported: reportedIds.has(p.id),
+            }));
+
+            setPortfolios(annotated);
         }
-    }
+
+        load();
+    }, [token]);
 
     const handleSearchBar = (search) => {
         console.log(search);
@@ -55,15 +64,6 @@ function BrowsePortfoliosComponent() {
             }
         }
     }
-
-    useEffect(() => {
-        if (token) {
-            fetchPortfolios();            
-        } else {
-            console.error("Token is missing, navigating to login page.");
-            navigate('/');
-        }
-    }, [navigate, token]);
 
     return (
         <Flex

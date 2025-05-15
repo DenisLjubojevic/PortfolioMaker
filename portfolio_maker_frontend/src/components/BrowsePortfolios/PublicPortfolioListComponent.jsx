@@ -41,9 +41,19 @@ function PublicPortfolioListComponent({ portfolios }) {
         });
     }, [portfolios]);
 
+    const bgColor = {
+        reported: "brand.reported.700",
+        default: "brand.primary.800",
+    };
+
+    const textColor = {
+        reported: "brand.reported.600",
+        default: "brand.secondary.900",
+    };
+
     const colors = {
-        orange: "#F2C265",
-        grey: "a9a9a9",
+        orange: "#f08800",
+        grey: "#b3b3b3",
     };
 
     const stars = Array(5).fill(0);
@@ -59,8 +69,8 @@ function PublicPortfolioListComponent({ portfolios }) {
                                 <Box
                                     key={index}
                                     p={5}
-                                    bg="brand.primary.800"
-                                    color="brand.secondary.800"
+                                    bg={portfolio.isReported ? bgColor.reported : bgColor.default}
+                                    color={portfolio.isReported ? textColor.reported : textColor.default}
                                     shadow="md"
                                     borderRadius="md"
                                     _hover={{ shadow: "lg" }}
@@ -70,7 +80,13 @@ function PublicPortfolioListComponent({ portfolios }) {
                                             {portfolio.name}
                                         </Heading>
                                         <Text>{portfolio.description}</Text>
-                                        <HStack justifyContent="center" p={3}>
+                                        <HStack
+                                            justifyContent="center"
+                                            p={3}
+                                            width="auto"
+                                            bg={portfolio.isReported ? "yellow" : ""}
+                                            color={portfolio.isReported ? "black" : "brand.secondary.900"}
+                                        >
                                             {stars.map((_, index) => {
                                                 return (
                                                     <FaStar
@@ -94,7 +110,7 @@ function PublicPortfolioListComponent({ portfolios }) {
                                                 to={`/preview/${portfolio.id}`}
                                                 _hover={{
                                                     textDecoration: "none",
-                                                    color: "white"
+                                                    color: portfolio.isReported ? "black" : "white",
                                                 }}
                                             >
                                                 Link
