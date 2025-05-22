@@ -7,7 +7,6 @@ using PortfolioMakerBackend.Services;
 using PortfolioMakerBackend.Stores;
 using System.Text;
 using Quartz;
-using Quartz.Spi;
 using Quartz.Simpl;
 using Quartz.AspNetCore;
 using Serilog;

@@ -7,16 +7,20 @@
       "RelativeMoniker": "D:0:0:{40A6EBD1-4F7F-4901-831E-5EC35D31A7D2}|portfolio_maker_frontend\\portfolio_maker_frontend.esproj|solutionrelative:portfolio_maker_frontend\\src\\components\\portfoliolist.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{40A6EBD1-4F7F-4901-831E-5EC35D31A7D2}|portfolio_maker_frontend\\portfolio_maker_frontend.esproj|c:\\users\\dean\\desktop\\skola\\tvz\\projekti\\portfoliomaker\\portfolio_maker_frontend\\src\\components\\browseportfolios\\publicportfoliolistcomponent.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
-      "RelativeMoniker": "D:0:0:{40A6EBD1-4F7F-4901-831E-5EC35D31A7D2}|portfolio_maker_frontend\\portfolio_maker_frontend.esproj|solutionrelative:portfolio_maker_frontend\\src\\components\\browseportfolios\\publicportfoliolistcomponent.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+      "AbsoluteMoniker": "D:0:0:{40A6EBD1-4F7F-4901-831E-5EC35D31A7D2}|portfolio_maker_frontend\\portfolio_maker_frontend.esproj|c:\\users\\dean\\desktop\\skola\\tvz\\projekti\\portfoliomaker\\portfolio_maker_frontend\\src\\components\\previewportfolio\\analytics\\portfolioanalyticspanelcomponent.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{40A6EBD1-4F7F-4901-831E-5EC35D31A7D2}|portfolio_maker_frontend\\portfolio_maker_frontend.esproj|solutionrelative:portfolio_maker_frontend\\src\\components\\previewportfolio\\analytics\\portfolioanalyticspanelcomponent.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{40A6EBD1-4F7F-4901-831E-5EC35D31A7D2}|portfolio_maker_frontend\\portfolio_maker_frontend.esproj|c:\\users\\dean\\desktop\\skola\\tvz\\projekti\\portfoliomaker\\portfolio_maker_frontend\\src\\components\\dashboard.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
-      "RelativeMoniker": "D:0:0:{40A6EBD1-4F7F-4901-831E-5EC35D31A7D2}|portfolio_maker_frontend\\portfolio_maker_frontend.esproj|solutionrelative:portfolio_maker_frontend\\src\\components\\dashboard.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+      "AbsoluteMoniker": "D:0:0:{40A6EBD1-4F7F-4901-831E-5EC35D31A7D2}|portfolio_maker_frontend\\portfolio_maker_frontend.esproj|c:\\users\\dean\\desktop\\skola\\tvz\\projekti\\portfoliomaker\\portfolio_maker_frontend\\src\\components\\previewportfolio\\analytics\\useportfolioanalytics.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{40A6EBD1-4F7F-4901-831E-5EC35D31A7D2}|portfolio_maker_frontend\\portfolio_maker_frontend.esproj|solutionrelative:portfolio_maker_frontend\\src\\components\\previewportfolio\\analytics\\useportfolioanalytics.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{CECC8873-F98A-4209-8D3A-86A9467C69D5}|PortfolioMakerBackend\\PortfolioMakerBackend.csproj|c:\\users\\dean\\desktop\\skola\\tvz\\projekti\\portfoliomaker\\portfoliomakerbackend\\controllers\\reportcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{CECC8873-F98A-4209-8D3A-86A9467C69D5}|PortfolioMakerBackend\\PortfolioMakerBackend.csproj|solutionrelative:portfoliomakerbackend\\controllers\\reportcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{40A6EBD1-4F7F-4901-831E-5EC35D31A7D2}|portfolio_maker_frontend\\portfolio_maker_frontend.esproj|c:\\users\\dean\\desktop\\skola\\tvz\\projekti\\portfoliomaker\\portfolio_maker_frontend\\src\\components\\previewportfolio\\analytics\\totalviewsstat.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{40A6EBD1-4F7F-4901-831E-5EC35D31A7D2}|portfolio_maker_frontend\\portfolio_maker_frontend.esproj|solutionrelative:portfolio_maker_frontend\\src\\components\\previewportfolio\\analytics\\totalviewsstat.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{40A6EBD1-4F7F-4901-831E-5EC35D31A7D2}|portfolio_maker_frontend\\portfolio_maker_frontend.esproj|c:\\users\\dean\\desktop\\skola\\tvz\\projekti\\portfoliomaker\\portfolio_maker_frontend\\src\\components\\previewportfolio\\analytics\\dailyviewchart.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{40A6EBD1-4F7F-4901-831E-5EC35D31A7D2}|portfolio_maker_frontend\\portfolio_maker_frontend.esproj|solutionrelative:portfolio_maker_frontend\\src\\components\\previewportfolio\\analytics\\dailyviewchart.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
     }
   ],
   "DocumentGroupContainers": [
@@ -26,34 +30,8 @@
       "DocumentGroups": [
         {
           "DockedHeight": 273,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 1,
           "Children": [
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "PublicPortfolioListComponent.jsx",
-              "DocumentMoniker": "C:\\Users\\Dean\\Desktop\\Skola\\TVZ\\Projekti\\PortfolioMaker\\portfolio_maker_frontend\\src\\components\\BrowsePortfolios\\PublicPortfolioListComponent.jsx",
-              "RelativeDocumentMoniker": "portfolio_maker_frontend\\src\\components\\BrowsePortfolios\\PublicPortfolioListComponent.jsx",
-              "ToolTip": "C:\\Users\\Dean\\Desktop\\Skola\\TVZ\\Projekti\\PortfolioMaker\\portfolio_maker_frontend\\src\\components\\BrowsePortfolios\\PublicPortfolioListComponent.jsx",
-              "RelativeToolTip": "portfolio_maker_frontend\\src\\components\\BrowsePortfolios\\PublicPortfolioListComponent.jsx",
-              "ViewState": "AgIAADkAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003663|",
-              "WhenOpened": "2025-05-15T13:12:16.341Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "Dashboard.jsx",
-              "DocumentMoniker": "C:\\Users\\Dean\\Desktop\\Skola\\TVZ\\Projekti\\PortfolioMaker\\portfolio_maker_frontend\\src\\components\\Dashboard.jsx",
-              "RelativeDocumentMoniker": "portfolio_maker_frontend\\src\\components\\Dashboard.jsx",
-              "ToolTip": "C:\\Users\\Dean\\Desktop\\Skola\\TVZ\\Projekti\\PortfolioMaker\\portfolio_maker_frontend\\src\\components\\Dashboard.jsx",
-              "RelativeToolTip": "portfolio_maker_frontend\\src\\components\\Dashboard.jsx",
-              "ViewState": "AgIAAHoAAAAAAAAAAAAAAIsAAAAiAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003663|",
-              "WhenOpened": "2025-05-15T13:06:27.884Z",
-              "EditorCaption": ""
-            },
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
@@ -66,22 +44,61 @@
               "RelativeDocumentMoniker": "portfolio_maker_frontend\\src\\components\\PortfolioList.jsx",
               "ToolTip": "C:\\Users\\Dean\\Desktop\\Skola\\TVZ\\Projekti\\PortfolioMaker\\portfolio_maker_frontend\\src\\components\\PortfolioList.jsx",
               "RelativeToolTip": "portfolio_maker_frontend\\src\\components\\PortfolioList.jsx",
-              "ViewState": "AgIAAEoAAAAAAAAAAAAAAE4AAAAnAAAAAAAAAA==",
+              "ViewState": "AgIAAOYAAAAAAAAAAAAAwPUAAAAsAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003663|",
-              "WhenOpened": "2025-05-15T13:06:46.916Z",
+              "WhenOpened": "2025-05-22T14:01:44.97Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "PortfolioAnalyticsPanelComponent.jsx",
+              "DocumentMoniker": "C:\\Users\\Dean\\Desktop\\Skola\\TVZ\\Projekti\\PortfolioMaker\\portfolio_maker_frontend\\src\\components\\PreviewPortfolio\\Analytics\\PortfolioAnalyticsPanelComponent.jsx",
+              "RelativeDocumentMoniker": "portfolio_maker_frontend\\src\\components\\PreviewPortfolio\\Analytics\\PortfolioAnalyticsPanelComponent.jsx",
+              "ToolTip": "C:\\Users\\Dean\\Desktop\\Skola\\TVZ\\Projekti\\PortfolioMaker\\portfolio_maker_frontend\\src\\components\\PreviewPortfolio\\Analytics\\PortfolioAnalyticsPanelComponent.jsx",
+              "RelativeToolTip": "portfolio_maker_frontend\\src\\components\\PreviewPortfolio\\Analytics\\PortfolioAnalyticsPanelComponent.jsx",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAA3AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003663|",
+              "WhenOpened": "2025-05-22T13:58:23.675Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 3,
-              "Title": "ReportController.cs",
-              "DocumentMoniker": "C:\\Users\\Dean\\Desktop\\Skola\\TVZ\\Projekti\\PortfolioMaker\\PortfolioMakerBackend\\Controllers\\ReportController.cs",
-              "RelativeDocumentMoniker": "PortfolioMakerBackend\\Controllers\\ReportController.cs",
-              "ToolTip": "C:\\Users\\Dean\\Desktop\\Skola\\TVZ\\Projekti\\PortfolioMaker\\PortfolioMakerBackend\\Controllers\\ReportController.cs",
-              "RelativeToolTip": "PortfolioMakerBackend\\Controllers\\ReportController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAJAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-15T13:05:44.129Z",
+              "Title": "TotalViewsStat.jsx",
+              "DocumentMoniker": "C:\\Users\\Dean\\Desktop\\Skola\\TVZ\\Projekti\\PortfolioMaker\\portfolio_maker_frontend\\src\\components\\PreviewPortfolio\\Analytics\\TotalViewsStat.jsx",
+              "RelativeDocumentMoniker": "portfolio_maker_frontend\\src\\components\\PreviewPortfolio\\Analytics\\TotalViewsStat.jsx",
+              "ToolTip": "C:\\Users\\Dean\\Desktop\\Skola\\TVZ\\Projekti\\PortfolioMaker\\portfolio_maker_frontend\\src\\components\\PreviewPortfolio\\Analytics\\TotalViewsStat.jsx",
+              "RelativeToolTip": "portfolio_maker_frontend\\src\\components\\PreviewPortfolio\\Analytics\\TotalViewsStat.jsx",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003663|",
+              "WhenOpened": "2025-05-22T13:56:00.132Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "DailyViewChart.jsx",
+              "DocumentMoniker": "C:\\Users\\Dean\\Desktop\\Skola\\TVZ\\Projekti\\PortfolioMaker\\portfolio_maker_frontend\\src\\components\\PreviewPortfolio\\Analytics\\DailyViewChart.jsx",
+              "RelativeDocumentMoniker": "portfolio_maker_frontend\\src\\components\\PreviewPortfolio\\Analytics\\DailyViewChart.jsx",
+              "ToolTip": "C:\\Users\\Dean\\Desktop\\Skola\\TVZ\\Projekti\\PortfolioMaker\\portfolio_maker_frontend\\src\\components\\PreviewPortfolio\\Analytics\\DailyViewChart.jsx",
+              "RelativeToolTip": "portfolio_maker_frontend\\src\\components\\PreviewPortfolio\\Analytics\\DailyViewChart.jsx",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003663|",
+              "WhenOpened": "2025-05-22T13:52:08.184Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "UsePortfolioAnalytics.jsx",
+              "DocumentMoniker": "C:\\Users\\Dean\\Desktop\\Skola\\TVZ\\Projekti\\PortfolioMaker\\portfolio_maker_frontend\\src\\components\\PreviewPortfolio\\Analytics\\UsePortfolioAnalytics.jsx",
+              "RelativeDocumentMoniker": "portfolio_maker_frontend\\src\\components\\PreviewPortfolio\\Analytics\\UsePortfolioAnalytics.jsx",
+              "ToolTip": "C:\\Users\\Dean\\Desktop\\Skola\\TVZ\\Projekti\\PortfolioMaker\\portfolio_maker_frontend\\src\\components\\PreviewPortfolio\\Analytics\\UsePortfolioAnalytics.jsx",
+              "RelativeToolTip": "portfolio_maker_frontend\\src\\components\\PreviewPortfolio\\Analytics\\UsePortfolioAnalytics.jsx",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAAmAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003663|",
+              "WhenOpened": "2025-05-17T16:08:40.307Z",
               "EditorCaption": ""
             }
           ]

@@ -17,8 +17,21 @@ function PortfolioPreview() {
         async function fetchPreviewData() {
             try {
                 const response = await apiClient.get(`https://localhost:7146/api/portfolio/preview/${previewId}`);
-                console.log(response.data);
+                const data = response.data;
                 setPortfolioData(response.data);
+
+                if (window.gtag) {
+                    window.gtag('event', 'page_view', {
+                        page_path: `/preview/${previewId}`,
+                        page_title: data.about?.name || 'Portfolio Preview',
+                        page_location: window.location.href,
+                    });
+
+                    // Optional: Also track a custom event
+                    window.gtag('event', 'portfolio_view', {
+                        portfolio_id: data.id,
+                    });
+                }
             } catch (error) {
                 console.error('Failed to fetch preview data:', error);
             } finally {

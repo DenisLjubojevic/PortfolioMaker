@@ -1,5 +1,37 @@
 [
   {
+    "ContainingType": "PortfolioMakerBackend.Controllers.AnalyticsController",
+    "Method": "GetPortfolioTimeSeries",
+    "RelativePath": "api/Analytics/portfolio/{portfolioId}/timeseries",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "portfolioId",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "PortfolioMakerBackend.Controllers.AnalyticsController",
+    "Method": "GetPortfolioViews",
+    "RelativePath": "api/Analytics/portfolio/{portfolioId}/views",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "portfolioId",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "PortfolioMakerBackend.Controllers.AuthController",
     "Method": "Login",
     "RelativePath": "api/Auth/login",

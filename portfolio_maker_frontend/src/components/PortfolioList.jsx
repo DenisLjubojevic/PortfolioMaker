@@ -32,6 +32,8 @@ import { Link as ReactRouterLink } from 'react-router-dom'
 
 import apiClient from '../axiosConfig';
 
+import PortfolioAnalyticsPanel from './PreviewPortfolio/Analytics/PortfolioAnalyticsPanelComponent'
+
 function PortfolioList({ portfolios, onEditPortfolio }) {
     const { isOpen, onOpen, onClose } = useDisclosure();
     const [isPrivate, setIsPrivate] = useState(false);
@@ -53,6 +55,8 @@ function PortfolioList({ portfolios, onEditPortfolio }) {
     const handleSettingsClick = (portfolio) => {
         setSelectedPortfolio(portfolio);
         setIsPrivate(portfolio.isPublished);
+        console.log("Setting opened");
+
         onOpen();
     };
 
@@ -79,6 +83,11 @@ function PortfolioList({ portfolios, onEditPortfolio }) {
             }
         }        
     }
+
+    const handleModalClose = () => {
+        setSelectedPortfolio(null);
+        onClose();
+    };
 
     const copyToClipboard = async (portfolio) => {
         try {
@@ -181,9 +190,9 @@ function PortfolioList({ portfolios, onEditPortfolio }) {
                             ))}
                         </SimpleGrid>
 
-                        <Modal isOpen={isOpen} onClose={onClose} isCentered>
+                        <Modal isOpen={isOpen} onClose={onClose} isCentered overflow="overflow">
                             <ModalOverlay />
-                            <ModalContent bg="brand.secondary.800" color="brand.primary.800">
+                            <ModalContent bg="brand.secondary.800" color="brand.primary.800" maxHeight="70vh" overflow="auto">
                                 <ModalHeader>
                                     Specific settings for portfolio
                                 </ModalHeader>
@@ -222,10 +231,11 @@ function PortfolioList({ portfolios, onEditPortfolio }) {
                                     >
                                     Copy link
                                     </Button>
+                                    <PortfolioAnalyticsPanel portfolioId={selectedPortfolio?.id}></PortfolioAnalyticsPanel>
                                 </ModalBody>
                                 <ModalFooter>
                                     <Button
-                                        onClick={() => onClose()}
+                                        onClick={handleModalClose}
                                         mr={3}
                                     >
                                         Cancel
