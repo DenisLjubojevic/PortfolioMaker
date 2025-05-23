@@ -57,6 +57,9 @@ var logger = new LoggerConfiguration()
     .CreateLogger();
 builder.Host.UseSerilog(logger);
 
+builder.Configuration.AddJsonFile("appsettings.json", optional: false, reloadOnChange: true)
+                     .AddEnvironmentVariables();
+
 builder.Services.AddCors(options =>
 {
     options.AddPolicy("AllowFrontend", policy =>
