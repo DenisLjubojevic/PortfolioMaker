@@ -55,7 +55,6 @@ function PortfolioList({ portfolios, onEditPortfolio }) {
     const handleSettingsClick = (portfolio) => {
         setSelectedPortfolio(portfolio);
         setIsPrivate(portfolio.isPublished);
-        console.log("Setting opened");
 
         onOpen();
     };
@@ -231,7 +230,9 @@ function PortfolioList({ portfolios, onEditPortfolio }) {
                                     >
                                     Copy link
                                     </Button>
-                                    <PortfolioAnalyticsPanel portfolioId={selectedPortfolio?.id}></PortfolioAnalyticsPanel>
+                                    {selectedPortfolio && selectedPortfolio.id && (
+                                        <PortfolioAnalyticsPanel portfolioId={selectedPortfolio.id} />
+                                    )}
                                 </ModalBody>
                                 <ModalFooter>
                                     <Button

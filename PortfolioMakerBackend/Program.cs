@@ -10,16 +10,37 @@ using Quartz;
 using Quartz.Simpl;
 using Quartz.AspNetCore;
 using Serilog;
+using dotenv.net;
+using Microsoft.Extensions.Options;
 
 var builder = WebApplication.CreateBuilder(args);
 
-builder.Services.Configure<MongoDBSettings>(builder.Configuration.GetSection("MongoDBSettings"));
+DotEnv.Load();
 
-builder.Services.AddSingleton<IMongoClient>(serviceProvider =>
+builder.Configuration.AddEnvironmentVariables();
+
+var mongoConnection = Environment.GetEnvironmentVariable("MONGODB_CONNECTION");
+var jwtSecret = Environment.GetEnvironmentVariable("JWT_SECRET_KEY");
+var jwtISSUER = Environment.GetEnvironmentVariable("JWT_ISSUER");
+
+var mongoSettings = new MongoDBSettings
 {
-    var settings = builder.Configuration.GetSection("MongoDBSettings").Get<MongoDBSettings>();
+    ConnectionString = mongoConnection,
+    DatabaseName = "PortfolioDB"
+};
+
+builder.Services.Configure<MongoDBSettings>(options =>
+{
+    options.ConnectionString = mongoConnection;
+    options.DatabaseName = "PortfolioDB";
+});
+
+builder.Services.AddSingleton<IMongoClient>(sp =>
+{
+    var settings = sp.GetRequiredService<IOptions<MongoDBSettings>>().Value;
     return new MongoClient(settings.ConnectionString);
 });
+
 
 builder.Services.AddSingleton<IUserStore<User>, MongoUserStore>();
 builder.Services.AddSingleton<IRoleService, MongoRolesService>();
@@ -57,9 +78,6 @@ var logger = new LoggerConfiguration()
     .CreateLogger();
 builder.Host.UseSerilog(logger);
 
-builder.Configuration.AddJsonFile("appsettings.json", optional: false, reloadOnChange: true)
-                     .AddEnvironmentVariables();
-
 builder.Services.AddCors(options =>
 {
     options.AddPolicy("AllowFrontend", policy =>
@@ -88,9 +106,9 @@ builder.Services.AddAuthentication(options =>
             ValidateAudience = true,
             ValidateLifetime = true,
             ValidateIssuerSigningKey = true,
-            ValidIssuer = builder.Configuration["JWT:Issuer"],
-            ValidAudience = builder.Configuration["JWT:Issuer"],  
-            IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(builder.Configuration["JWT:SecretKey"]))
+            ValidIssuer = jwtISSUER,
+            ValidAudience = jwtISSUER,  
+            IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(jwtSecret))
         };
     });
 

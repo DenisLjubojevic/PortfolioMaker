@@ -1,12 +1,13 @@
 {
   "version": 2,
-  "dgSpecHash": "cpJrpWoRB2c=",
+  "dgSpecHash": "oCR8E+lrNWQ=",
   "success": true,
   "projectFilePath": "C:\\Users\\Dean\\Desktop\\Skola\\TVZ\\Projekti\\PortfolioMaker\\PortfolioMakerBackend\\PortfolioMakerBackend.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Dean\\.nuget\\packages\\awssdk.core\\3.7.100.14\\awssdk.core.3.7.100.14.nupkg.sha512",
     "C:\\Users\\Dean\\.nuget\\packages\\awssdk.securitytoken\\3.7.100.14\\awssdk.securitytoken.3.7.100.14.nupkg.sha512",
     "C:\\Users\\Dean\\.nuget\\packages\\dnsclient\\1.6.1\\dnsclient.1.6.1.nupkg.sha512",
+    "C:\\Users\\Dean\\.nuget\\packages\\dotenv.net\\3.2.1\\dotenv.net.3.2.1.nupkg.sha512",
     "C:\\Users\\Dean\\.nuget\\packages\\google.analytics.data.v1beta\\2.0.0-beta09\\google.analytics.data.v1beta.2.0.0-beta09.nupkg.sha512",
     "C:\\Users\\Dean\\.nuget\\packages\\google.api.commonprotos\\2.16.0\\google.api.commonprotos.2.16.0.nupkg.sha512",
     "C:\\Users\\Dean\\.nuget\\packages\\google.api.gax\\4.9.0\\google.api.gax.4.9.0.nupkg.sha512",

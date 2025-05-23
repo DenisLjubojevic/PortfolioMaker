@@ -2,3 +2,5 @@
 secrets/
 *.secret.json
 appsettings.Development.json
+
+.env

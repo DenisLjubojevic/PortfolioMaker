@@ -39,14 +39,6 @@ function PortfolioAnalyticsPanelComponent({ portfolioId }) {
             });
     }, [portfolioId]);
 
-    useEffect(() => {
-        console.log("Updated totalViews:", totalViews);
-    }, [totalViews]);
-
-    useEffect(() => {
-        console.log("Updated timeSeries:", timeSeries);
-    }, [timeSeries]);
-
     if (loading) {
         return <div>Loading...</div>;
     } else {
